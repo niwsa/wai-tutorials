@@ -1,0 +1,929 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Form Instructions
+  
+    
+       &bull; Forms
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/forms/instructions/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Forms</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Form Instructions</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Form Instructions
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <p>Provide instructions to help users understand how to complete the form and use individual form controls. This includes indicating any required and optional input, data formats, and other important information.</p>
+
+<p><strong>Important:</strong> Screen readers often switch to “Forms Mode” when they are processing content within a <code>&lt;form&gt;</code> element. In this mode they usually only read aloud form elements such as <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;legend&gt;</code>, and <code>&lt;label&gt;</code>. It is critical to include form instructions in ways that can be read aloud. This will be explained further below.</p>
+
+<h2 class="newex" id="overall-instructions">Overall instructions</h2>
+
+<p>Where relevant, provide overall instructions that apply to the entire form. For example, indicate any required and optional input, allowable data formats, and timing limitations. Provide such instructions before the <code>&lt;form&gt;</code> element to ensure that it is read aloud by screen readers before they switch to “Forms Mode”.</p>
+
+<p>In the example below, form instructions indicate how required fields are marked, the expected format for key data fields, and where to find additional help for each input.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<ul>
+  <li>All fields marked “required” must be completed.</li>
+  <li>Dates should all be typed in the format dd/mm/yyyy, (as in 21/07/2013).</li>
+  <li>Passwords must contain at least 8 letters and/or numbers.</li>
+  <li>Extra help can be found immediately after each field.</li>
+</ul>
+
+
+  </div></figure>
+
+<h2 class="newex" id="in-line-instructions">In-line instructions</h2>
+
+<p>In addition to overall instructions, it is also important to provide relevant instructions within the labels of the form controls. For example, to indicate required input fields and data formats in the text of the labels.</p>
+
+<h3 class="newex" id="providing-instructions-within-labels">Providing instructions within labels</h3>
+
+<p>For simple use cases, providing instructions within labels may be sufficient. This approach is reliable across different web browsers and assistive technologies, although it may require some additional thought to support some styling needs.</p>
+
+<p>In the example below, the required format for the “Expiration Date” is indicated by “MM/YYYY” within the same label:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<form method="post" action="#">
+	<div>
+		<label for="expire">Expiration date (MM/YYYY): </label> <input type="text" name="expire" id="expire">
+	</div>
+</form>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date (MM/YYYY): <span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span><span class="nt">&gt;</span>
+</pre>
+
+</figure>
+<h3 class="newex" id="providing-instructions-outside-labels">Providing instructions outside labels</h3>
+
+<p>Providing instructions outside labels allows more flexible positioning and design but sometimes it can be missed. It is also not supported by some web browsers (typically older versions) and assistive technologies that don’t implement WAI-ARIA.</p>
+
+<h4 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h4>
+
+<p>One approach is to use the WAI-ARIA <code>aria-labelledby</code> attribute to associate instructions with form controls. At the time of writing this tutorial, this approach is not fully supported by all web browsers and assistive technologies, for example, Braille displays. To ensure backward compatibility, the <code>for</code> and <code>id</code> attributes are also used in this example.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<style>
+	#ex3 span {
+		display: inline-block;
+		vertical-align: top;
+	}
+	#ex3 span span {
+		display: block;
+		font-size: 0.8em;
+	}
+</style>
+<form method="post" action="#" id="ex3">
+	<div>
+		<label id="expLabel" for="expire4" tabindex="-1">Expiration date:</label>
+		<span>
+			<input type="text" name="expire" id="expire4" aria-labelledby="expLabel expDesc2">
+			<span id="expDesc2" tabindex="-1">MM/YYYY</span>
+		</span>
+	</div>
+</form>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;span&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span> <span class="na">aria-labelledby=</span><span class="s">"expLabel expDesc"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"expDesc"</span> <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>MM/YYYY<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note:</strong> At the time of writing those tutorials, it is necessary to add <code>tabindex="-1"</code> to elements that are referenced by <code>aria-labelledby</code> or <code>aria-describedby</code> if those attributes point to <em>two or more</em> elements to make this technique work in Internet Explorer.</p>
+
+</div>
+<h4 class="ap" id="using-aria-describedby">Using <code>aria-describedby</code></h4>
+
+<p>By using <code>aria-describedby</code> to reference the format of the field, this information is made available to the users on request. That is, it is not automatically displayed or read aloud. This makes sense if the user has been informed of the format before, or when there are lots of input fields with the same format, for example.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;label</span> <span class="na">id=</span><span class="s">"expLabel"</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;</span>Expiration date:<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;span&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span> <span class="na">aria-labelledby=</span><span class="s">"expLabel"</span> <span class="na">aria-describedby=</span><span class="s">"expDesc"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"expDesc"</span><span class="nt">&gt;</span>MM/YYYY<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/span&gt;</span>
+</pre>
+
+</figure>
+<h3 class="newex" id="placeholder-text">Placeholder text</h3>
+
+<p>Placeholder text provides instructions or an example of the required data format inside form fields that have not yet been edited by the user. Placeholder text is usually displayed with lower color contrast than text provided by users, and it disappears from form fields when users start entering text. If the placeholder text contains instructional information or examples, having it disappear can make it more difficult for users to check their responses prior to submitting the form.</p>
+
+<p>While placeholder text provides important guidance for many users, <strong>placeholder text is not a replacement for labels</strong>. Assistive technologies, such as screen readers, do not treat placeholder text as labels. Moreover, at the time of writing this tutorial, placeholder text is not broadly supported across assistive technologies and not displayed in older web browsers.</p>
+
+<p>Note: Section <a href="../labels/#hidden">Hidden labels</a> of this tutorial describes how to hide information visually but keep it available to assistive technology. This same approach can be used to avoid visual redundancy of displaying both labels and placeholder text. Be aware that this makes it very hard for users to review the form. To avoid this problem, JavaScript can be used to make labels appear visually (in the associated label element) above or beside the input that has focus.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<form method="post" action="#">
+	<div>
+		<label for="search">Search:</label> <input type="text" name="search" id="search" placeholder="e.g. Apple Pie">
+	</div>
+	<div>
+		<label for="email">Email: </label> <input type="text" name="email" id="email" placeholder="joe@example.com">
+	</div>
+</form>
+
+<style>
+::-webkit-input-placeholder {
+	 color: #777;
+	 opacity: 1;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	 color: #777;
+	 opacity: 1;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	 color: #777;
+	 opacity: 1;
+}
+
+:-ms-input-placeholder {
+	 color: #777;
+	 opacity: 1;
+}
+</style>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;div&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"search"</span><span class="nt">&gt;</span>Search:<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">id=</span><span class="s">"search"</span> <span class="na">placeholder=</span><span class="s">"e.g. Apple Pie"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email: <span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">placeholder=</span><span class="s">"joe@example.com"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+
+</figure>
+<h4 id="styling">Styling</h4>
+
+<p>At the time of writing this tutorial, web browsers usually display the placeholder text in a color that does not meet the <a href="/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast">minimum contrast requirement of WCAG 2.0</a>. This means they are hard to see for many people. Web browsers use a combination of color and opacity to achieve this effect. In most web browsers the color of the placeholder can be styled using proprietary CSS selectors. The following code snippet sets the color to a light gray, which has just enough contrast to meet the contrast requirement, assuming the background of the element is white.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight css"><span class="o">:</span><span class="nd">:-webkit-input-placeholder</span> <span class="p">{</span>
+	 <span class="nl">color</span><span class="p">:</span> <span class="m">#777</span><span class="p">;</span>
+	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">:-moz-placeholder</span> <span class="p">{</span> <span class="c">/* Firefox 18- */</span>
+	 <span class="nl">color</span><span class="p">:</span> <span class="m">#777</span><span class="p">;</span>
+	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">:</span><span class="nd">:-moz-placeholder</span> <span class="p">{</span>  <span class="c">/* Firefox 19+ */</span>
+	 <span class="nl">color</span><span class="p">:</span> <span class="m">#777</span><span class="p">;</span>
+	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">:-ms-input-placeholder</span> <span class="p">{</span>
+	 <span class="nl">color</span><span class="p">:</span> <span class="m">#777</span><span class="p">;</span>
+	 <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+</figure>
+
+
+      <div class="resources">
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive">2.4.6 Headings and Labels:</a> Headings and labels describe topic or purpose. (Level&nbsp;AA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-cues">3.3.2 Labels or Instructions:</a> Labels or instructions are provided when content requires user input. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	    </ul>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G17">G17: Ensuring that a contrast ratio of at least 7:1 exists between text (and images of text) and background behind the text</a></li>
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G18">G18: Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text) and background behind the text</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G131">G131: Providing descriptive labels</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G162">G162: Positioning labels to maximize predictability of relationships</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H44">H44: Using label elements to associate text labels with form controls</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H93">H93: Ensuring that id attributes are unique on a Web page</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
+</div>
+
+
+      <div role="navigation" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../grouping/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Grouping Controls</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="../validation/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Validating Input</span></span></a></span>
+          </li>
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+    
+  </ul>
+</div>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/forms/instructions.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+        Forms Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Forms Concepts</span></a></li>
+        
+        
+          
+            <li><a class="" href="../labels/"><span class="count"></span><span class="txt">Labeling Controls</span></a></li>
+          
+        
+          
+            <li><a class="" href="../grouping/"><span class="count"></span><span class="txt">Grouping Controls</span></a></li>
+          
+        
+          
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Form Instructions</span></span></li>
+          
+        
+          
+            <li><a class="" href="../validation/"><span class="count"></span><span class="txt">Validating Input</span></a></li>
+          
+        
+          
+            <li><a class="" href="../notifications/"><span class="count"></span><span class="txt">User Notifications</span></a></li>
+          
+        
+          
+            <li><a class="" href="../multi-page/"><span class="count"></span><span class="txt">Multi-page Forms</span></a></li>
+          
+        
+          
+            <li><a class="" href="../custom-controls/"><span class="count"></span><span class="txt">Custom Controls</span></a></li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms</span></span></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      27 February 2015
+	      
+		      
+		    
+			</li>
+      <li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+</li>
+
+<li>
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2015
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-99430be9.js" type="text/javascript"></script>
+	</body>
+</html>

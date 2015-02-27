@@ -1,0 +1,830 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Tables with irregular headers
+  
+    
+       &bull; Tables
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/tables/irregular/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Tables</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Tables with irregular headers</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Tables with irregular headers
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <p><img alt="" class="symbol" src="../../img/img-irreg-3e575375.png" /> Tables with irregular headers have header cells that span multiple columns and/or rows. Several elements and attributes can be used to define the structure and relationships of the header and data cells.</p>
+
+<p>For example, a header cell that spans three columns should be associated to corresponding data cells in the column group. This can be done by setting the <code>scope</code> attribute of the header cell to the value <code>colgroup</code>. The same principle applies to header cells spanning multiple rows. In this case they are associated with by using the value <code>rowgroup</code> in the <code>scope</code>  attribute.</p>
+
+<p>However, before making these associations, the structure of such groups of columns and rows needs to be defined in the table markup:</p>
+
+<ul>
+  <li>A column group is defined using the <code>&lt;colgroup&gt;</code> element.</li>
+  <li>A row group is defined by the <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code> and <code>&lt;tbody&gt;</code> elements.
+    <ul>
+      <li><code>&lt;thead&gt;</code> and  <code>&lt;tfoot&gt;</code> elements can be used once in a table.</li>
+      <li>A table can have any number of <code>&lt;tbody&gt;</code> elements that each defines a row group.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 class="ex" id="table-with-two-tier-headers">Table with two tier headers</h2>
+
+<p>In the table below, there are two pairs of column headers. Each pair of column headers, “Produced” and “Sold” is associated with a first-level header that identifies the pair: “Mars” and “Venus”. These first-level headers are made to span two columns by using the <code>colspan</code> attribute with the value of <code>2</code>.</p>
+
+<p>To associate the first-level headers properly with all cells of both columns, the column structure needs to be defined at the beginning of the table. A <code>&lt;col&gt;</code> element identifies each column, beginning on the left. If a header spans two or more columns, use a <code>&lt;colgroup&gt;</code> element instead of that number of <code>&lt;col&gt;</code> elements, and the number of columns spanned is noted in the <code>span</code> attribute.</p>
+
+<p>In addition, the value of the <code>scope</code> attribute in the first-level headers is set to <code>colgroup</code> so that it is associated with the entire group of columns. The second-level headers only apply to the corresponding column so the <code>scope</code> attribute is set to <code>col</code> as shown in previous examples.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><table class="numbers">
+  <col>
+  <colgroup span="2"></colgroup>
+  <colgroup span="2"></colgroup>
+  <tr>
+    <td rowspan="2"></td>
+    <th colspan="2" scope="colgroup">Mars</th>
+    <th colspan="2" scope="colgroup">Venus</th>
+  </tr>
+  <tr>
+    <th scope="col">Produced</th>
+    <th scope="col">Sold</th>
+    <th scope="col">Produced</th>
+    <th scope="col">Sold</th>
+  </tr>
+  <tr>
+    <th scope="row">Teddy&nbsp;Bears</th>
+    <td>50,000</td>
+    <td>30,000</td>
+    <td>100,000</td>
+    <td>80,000</td>
+  </tr>
+  <tr>
+    <th scope="row">Board&nbsp;Games</th>
+    <td>10,000</td>
+    <td>5,000</td>
+    <td>12,000</td>
+    <td>9,000</td>
+  </tr>
+</table>
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;col&gt;</span>
+  <span class="nt">&lt;colgroup</span> <span class="na">span=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/colgroup&gt;</span>
+  <span class="nt">&lt;colgroup</span> <span class="na">span=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/colgroup&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">rowspan=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/td&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"2"</span> <span class="na">scope=</span><span class="s">"colgroup"</span><span class="nt">&gt;</span>Mars<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"2"</span> <span class="na">scope=</span><span class="s">"colgroup"</span><span class="nt">&gt;</span>Venus<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Produced<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Sold<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Produced<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Sold<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Teddy Bears<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>50,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>30,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>100,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>80,000<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Board Games<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td&gt;</span>10,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>5,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>12,000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>9,000<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p>Note: A <code>&lt;colgroup&gt;</code> element can contain a <code>&lt;col&gt;</code> element to identify individual columns in the group. The combined sum of <code>&lt;col&gt;</code> elements (not contained in <code>&lt;colgroup&gt;</code> elements) and column elements indicated by the <code>span</code> attributes of the <code>&lt;colgroup&gt;</code> elements should be equal to the total number of columns in the table.</p>
+
+</div>
+<h2 class="ex" id="table-with-headers-spanning-multiple-rows-or-columns">Table with headers spanning multiple rows or columns</h2>
+
+<p>In the example below, the table consists of two individual columns and one column group spanning three columns. It has six rows. There are two headers that span multiple rows. To make sure that such header cells that span multiple rows are correctly associated with all the cells in those rows, the rows need to be grouped. To define row groups wrap the corresponding rows in <code>&lt;tbody&gt;</code> elements (table body). Additionally the <code>scope</code> attribute of header cells spanning rows has to be set to <code>rowgroup</code>.</p>
+
+<p>If a header spans a multiple header rows, wrap the rows in a <code>&lt;thead&gt;</code> element instead of a <code>&lt;tbody&gt;</code> element. Use a <code>&lt;tfoot&gt;</code> element if a header spans multiple rows in the footer area of a table.</p>
+
+<p>Due to the complexity of the table a <a href="../caption-summary/">summary technique</a> could be used to describe the layout of the table in detail.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<table>
+  <caption>
+    Poster availability
+  </caption>
+  <col>
+  <col>
+  <colgroup span="3"></colgroup>
+  <thead>
+    <tr>
+      <th scope="col">Poster name</th>
+      <th scope="col">Color</th>
+      <th colspan="3" scope="colgroup">Sizes available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" scope="rowgroup">Zodiac</th>
+      <th scope="row">Full color</th>
+      <td>A2</td>
+      <td>A3</td>
+      <td>A4</td>
+    </tr>
+    <tr>
+      <th scope="row">Black and white</th>
+      <td>A1</td>
+      <td>A2</td>
+      <td>A3</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>A3</td>
+      <td>A4</td>
+      <td>A5</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th rowspan="2" scope="rowgroup">Angels</th>
+      <th scope="row">Black and white</th>
+      <td>A1</td>
+      <td>A3</td>
+      <td>A4</td>
+    </tr>
+    <tr>
+      <th scope="row">Sepia</th>
+      <td>A2</td>
+      <td>A3</td>
+      <td>A5</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;table&gt;</span>
+  <span class="nt">&lt;caption&gt;</span>
+    Poster availability
+  <span class="nt">&lt;/caption&gt;</span>
+  <span class="nt">&lt;col&gt;</span>
+  <span class="nt">&lt;col&gt;</span>
+  <span class="nt">&lt;colgroup</span> <span class="na">span=</span><span class="s">"3"</span><span class="nt">&gt;&lt;/colgroup&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Poster name<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>Color<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">colspan=</span><span class="s">"3"</span> <span class="na">scope=</span><span class="s">"colgroup"</span><span class="nt">&gt;</span>Sizes available<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"3"</span> <span class="na">scope=</span><span class="s">"rowgroup"</span><span class="nt">&gt;</span>Zodiac<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Full color<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A3<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A4<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Black and white<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A3<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Sepia<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A3<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A4<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A5<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"2"</span> <span class="na">scope=</span><span class="s">"rowgroup"</span><span class="nt">&gt;</span>Angels<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Black and white<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A3<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A4<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">scope=</span><span class="s">"row"</span><span class="nt">&gt;</span>Sepia<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A2<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A3<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>A5<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p>Note: Using <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code> and <code>&lt;tfoot&gt;</code> in every table, even if there are no headers spanning columns may avoid confusion on when to use them.</p>
+
+</div>
+
+
+      <div class="resources">
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H63">H63: Using the scope attribute to associate header cells and data cells in data tables</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
+</div>
+
+
+      <div role="navigation" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../two-headers/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Two Headers</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="../multi-level/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Multi-level Headers</span></span></a></span>
+          </li>
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+    
+  </ul>
+</div>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/tables/irregular.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+        Tables Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Tables Concepts</span></a></li>
+        
+        
+          
+            <li><a class="" href="../one-header/"><span class="count"></span><span class="txt">One Header</span></a></li>
+          
+        
+          
+            <li><a class="" href="../two-headers/"><span class="count"></span><span class="txt">Two Headers</span></a></li>
+          
+        
+          
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Irregular Headers</span></span></li>
+          
+        
+          
+            <li><a class="" href="../multi-level/"><span class="count"></span><span class="txt">Multi-level Headers</span></a></li>
+          
+        
+          
+            <li><a class="" href="../caption-summary/"><span class="count"></span><span class="txt">Caption & Summary</span></a></li>
+          
+        
+          
+            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Tables</span></span></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      27 February 2015
+	      
+		      
+		      (first published September 2013)
+		      
+		    
+			</li>
+      <li>
+  <strong>Editors:</strong>
+  <ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+  <strong>Contributors:</strong>
+  <ul class="inline">
+    <li>The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
+</li>
+
+<li>
+  <strong>Developed with support</strong> from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the European Commission <abbr title="Information Society Technologies">IST</abbr> Programme.
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2015
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-99430be9.js" type="text/javascript"></script>
+	</body>
+</html>

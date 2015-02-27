@@ -1,0 +1,402 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Forms Concepts
+  
+    
+       &bull; Forms
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/forms/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../img/wai-4c28be39.png" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+            
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms</span></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms Concepts</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Forms Concepts
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+              
+      
+
+
+      <p>Forms are commonly used to provide user interaction in websites and web applications. For example, login, registering, commenting, and purchasing. This tutorial shows you how to create accessible forms. The same concepts apply to all forms, whether they are processed client or server-side.</p>
+
+<p>Aside from technical considerations, users usually prefer simple and short forms. Only ask users to enter what is required to complete the transaction or process; if irrelevant or excessive data is requested, users are more likely to abandon the form.</p>
+
+<ul>
+  <li>
+    <p><strong><a href="labels/">Labeling Controls</a>:</strong> Use the <code>&lt;label&gt;</code> element, and, in specific cases, other mechanisms (e.g. WAI-ARIA, <code>title</code> attribute etc.), to identify each form control.</p>
+  </li>
+  <li>
+    <p><strong><a href="grouping/">Grouping Controls</a>:</strong> Use the <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> elements to group and associate related form controls.</p>
+  </li>
+  <li>
+    <p><strong><a href="instructions/">Form Instructions</a>:</strong> Provide instructions to help users understand how to complete the form and individual form controls.</p>
+  </li>
+  <li>
+    <p><strong><a href="validation/">Validating Input</a>:</strong> Validate input provided by the user, and provide options to undo changes and confirm data entry.</p>
+  </li>
+  <li>
+    <p><strong><a href="notifications/">User Notifications</a>:</strong> Notify users about successful task completion, any errors, and provide instructions to help them correct mistakes.</p>
+  </li>
+  <li>
+    <p><strong><a href="multi-page/">Multi-Page Forms</a>:</strong> Divide long forms into multiple smaller forms that constitute a series of logical steps or stages, and inform users about their progress.</p>
+  </li>
+  <li>
+    <p><strong><a href="custom-controls/">Custom Controls</a>:</strong> Use stylized form elements and other progressive enhancement techniques to provide custom controls.</p>
+  </li>
+</ul>
+
+<h2 id="a-note-on-time-limits">A note on time limits</h2>
+
+<p>If possible, forms should not be subject to a time limit to allow users to complete the form at their own pace. If a time limit needs to be in place, for example, for security reasons, the user should have the option to turn it off or extend it. This does not apply if the time limit is due to a live event, such as an auction or a game, or if the time to complete the form is essential for a valid submission.</p>
+
+<h2 id="why-is-this-important">Why is this important?</h2>
+
+<p>Forms can be visually and cognitively complex and difficult to use. Accessible forms are easier to use for everyone, including people with disabilities.</p>
+
+<ul>
+  <li>
+    <p><strong>People with cognitive disabilities</strong> can better understand the form and how to complete it, as making forms accessible improves the layout structure, instructions, and feedback.</p>
+  </li>
+  <li>
+    <p><strong>People using speech input</strong> can use the labels via voice commands to activate controls and move the focus to the fields that they need to complete.</p>
+  </li>
+  <li>
+    <p><strong>People with limited dexterity</strong> benefit from large clickable areas that include the labels, especially for smaller controls, such as radio buttons and checkboxes.</p>
+  </li>
+  <li>
+    <p><strong>People using screen readers</strong> can identify and understand form controls more easily because they are associated with labels, field sets, and other structural elements.</p>
+  </li>
+</ul>
+
+
+
+      <div class="resources">
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive">2.4.6 Headings and Labels:</a> Headings and labels describe topic or purpose. (Level&nbsp;AA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-cues">3.3.2 Labels or Instructions:</a> Labels or instructions are provided when content requires user input. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	    </ul>
+	  
+	  
+  </div>
+</div>
+
+
+      <div role="navigation" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="labels/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Labeling Controls</span></span></a></span>
+          </li>
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+    
+  </ul>
+</div>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/forms/index.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+        Forms Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+          <li class="intro"><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms Concepts</span></span></li>
+        
+        
+          
+            <li><a class="" href="labels/"><span class="count"></span><span class="txt">Labeling Controls</span></a></li>
+          
+        
+          
+            <li><a class="" href="grouping/"><span class="count"></span><span class="txt">Grouping Controls</span></a></li>
+          
+        
+          
+            <li><a class="" href="instructions/"><span class="count"></span><span class="txt">Form Instructions</span></a></li>
+          
+        
+          
+            <li><a class="" href="validation/"><span class="count"></span><span class="txt">Validating Input</span></a></li>
+          
+        
+          
+            <li><a class="" href="notifications/"><span class="count"></span><span class="txt">User Notifications</span></a></li>
+          
+        
+          
+            <li><a class="" href="multi-page/"><span class="count"></span><span class="txt">Multi-page Forms</span></a></li>
+          
+        
+          
+            <li><a class="" href="custom-controls/"><span class="count"></span><span class="txt">Custom Controls</span></a></li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
+	<li><a href="../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms</span></span></li>
+	<li><a href="../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      27 February 2015
+	      
+		      
+		    
+			</li>
+      <li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+</li>
+
+<li>
+</li>
+
+      <li>[<a class="" href="../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2015
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../javascripts/main-99430be9.js" type="text/javascript"></script>
+	</body>
+</html>

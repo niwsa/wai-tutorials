@@ -1,0 +1,772 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Informative Images
+  
+    
+       &bull; Images
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/images/informative/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Images</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Informative Images</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Informative Images
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <p>Informative images convey a simple concept or information that can be expressed in a short phrase or sentence. The text alternative should convey the meaning or content that is displayed visually, which typically isn’t a literal description of the image.</p>
+
+<p>In some situations a detailed literal description may be needed, but only when the content of the image is all or part of the conveyed information. Whether to treat an image as informative or <a href="../decorative/">decorative</a> is a judgment that authors make, based on the reason for including the image on the page.</p>
+
+<h2 class="ex" id="images-used-to-label-other-information">Images used to label other information</h2>
+
+<p>This example shows two image icons – one of a telephone, one of a fax machine. Each image is followed by a phone number. Consistent with the visual presentation, the text alternatives “Telephone:” and “Fax:” are used to identify the device associated with each number.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<p><img alt="Phone:" style="vertical-align:middle;" src="../../img/phone-90dcc573.png" /> 0123 456 7890</p>
+
+<p><img alt="Fax:" style="vertical-align:middle;" src="../../img/fax-50332e2b.png" /> 0123 456 7891</p>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;p&gt;</span>
+	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"phone.png"</span> <span class="na">alt=</span><span class="s">"Phone:"</span><span class="nt">&gt;</span> 0123 456 7890
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"fax.png"</span> <span class="na">alt=</span><span class="s">"Fax:"</span><span class="nt">&gt;</span> 0123 456 7891
+<span class="nt">&lt;/p&gt;</span>
+</pre>
+
+</figure>
+<h2 class="ex" id="images-used-to-supplement-other-information">Images used to supplement other information</h2>
+
+<p>The following image shows a dog wearing a bell. It supplements the adjacent text that explains the purpose of this bell. A short text alternative is sufficient to describe the information that is displayed visually but is not explained in the text; in this case the text alternative is “Dog with a bell attached to its collar.”.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<p><img alt="Dog with a bell attached to its collar." style="float: left; margin-right: 1em;" src="../../img/dog-fd54b7dc.jpg" /> Off-duty guide dogs often wear a bell. Its ring helps the blind owner keep track of the dog’s location</p>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;p&gt;</span>
+	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"dog.jpg"</span> <span class="na">alt=</span><span class="s">"Dog with a bell attached to its collar."</span><span class="nt">&gt;</span>
+	Off-duty guide dogs often wear ...
+<span class="nt">&lt;/p&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note:</strong> If the text included an explanation of how the dog wears a bell, the image might be considered redundant and therefore <a href="../decorative/">decorative</a>. As this isn’t mentioned in the text, the image is deemed to be informative.</p>
+
+</div>
+<h2 class="ex" id="images-conveying-succinct-information">Images conveying succinct information</h2>
+
+<p>This simple diagram illustrates a counter-clockwise direction for unscrewing a bottle top or cap. The information can be described in a short sentence, so the text alternative “Push the cap down and turn it counter-clockwise (from right to left)” is given in the <code>alt</code> attribute.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<img src="../../img/counter-clockwise-6d1efa93.jpg" alt="Push the cap down and turn it counter-clockwise (from right to left)" style="vertical-align: middle; margin-right: .5em;">
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"cap.png"</span> <span class="na">alt=</span><span class="s">"Push the cap down and turn it counter-clockwise (from right to left)"</span><span class="nt">&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note 1:</strong> An alternative technique would be to provide the instructions within the main content rather than as a text alternative to the image. This makes all information available in text for everyone, while providing an illustration for people who prefer to view the information visually.</p>
+
+<p><strong>Note 2:</strong> If more information than that of the diagram is intended to be conveyed by the image, for example if the fact that this diagram appears on the bottle or if the shape and size of the bottle were relevant pieces of information, then it may be better to follow one of the approaches described in <a href="../complex/">Complex images</a>.</p>
+
+</div>
+<h2 class="ex" id="images-conveying-an-impression-or-emotion">Images conveying an impression or emotion</h2>
+
+<p>This photograph shows a smiling family group. It’s a stock image so the individuals should not be identified. It’s being used to give the impression that the website or the company it represents is family-friendly. The text alternative is “We’re family-friendly” as this best describes the intended impression.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<p><img alt="We’re family-friendly." src="../../img/family-585fad50.jpg" /></p>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"family.jpg"</span> <span class="na">alt=</span><span class="s">"We’re family-friendly. "</span><span class="nt">&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note:</strong> If the purpose of this image were simply to improve the look of a page rather than convey an impression, it could be deemed to be decorative, as shown in <a href="../decorative/#image-used-for-ambience-eye-candy">“Decorative Images: Image used for ambience”</a>. The author determines the purpose for using the image.</p>
+
+</div>
+<h2 class="ex" id="images-conveying-file-format">Images conveying file format</h2>
+
+<p>In this example, a document is available to download in three different
+formats identified by format icons within text links. They have the text
+alternatives “HTML”, “Word document”, and “PDF” to distinguish the file
+type for each link:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<p><a href="../../beyond/">2012 Annual report and accounts <img alt="HTML" src="../../img/html5logo-72cb9086.png" /> (43KB)</a>, also available in <a href="../../beyond/"><img alt="Word document" src="../../img/worddocument-aab7a3ba.png" /> (254KB)</a> or <a href="../../beyond/"><img alt="PDF" src="../../img/pdfdocument-63ad5759.png" /> (353KB)</a> format.</p>
+
+
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;p&gt;</span>
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>
+		2012 Annual report and accounts
+		<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"html5logo.png"</span> <span class="na">alt=</span><span class="s">"HTML"</span> <span class="nt">&gt;</span> (43KB)
+	<span class="nt">&lt;/a&gt;</span>, also available in
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"worddocument.png"</span> <span class="na">alt=</span><span class="s">"Word document"</span><span class="nt">&gt;</span> (254KB)
+	<span class="nt">&lt;/a&gt;</span>
+	or
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"pdfdocument.png"</span> <span class="na">alt=</span><span class="s">"PDF"</span><span class="nt">&gt;</span> (353KB)
+	<span class="nt">&lt;/a&gt;</span>
+	format.
+<span class="nt">&lt;/p&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note 1:</strong> If the format identification were written as part of the link text, the image might be considered <a href="../decorative/">decorative</a> and have a null (empty) <code>alt</code> attribute (<code>alt=""</code>). It could still remain in the same link element (<code>&lt;a&gt;</code>) as the text, to include it in the clickable area. Further discussion is provided in <a href="../functional/#logo-image-within-link-text">“Functional Images: Logo image within link text”</a>.</p>
+
+<p><strong>Note 2:</strong> This particular example is similar to the <a href="../functional/#icon-image-conveying-information-within-link-text">Functional Images: icon within linked text in </a> in that the image conveys information that isn’t given in the link text.</p>
+
+</div>
+
+
+      <div class="resources">
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G94">G94: Providing short text alternative for non-text content that serves the same purpose and presents the same information as the non-text content</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H37">H37: Using alt attributes on img elements</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
+</div>
+
+
+      <div role="navigation" id="tools">
+  <ul>
+    
+      
+        <li class="prev">
+          <span><a rel="prev" class="" href="../"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Images Concepts</span></span></a></span>
+        </li>
+      
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="../decorative/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Decorative Images</span></span></a></span>
+          </li>
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+    
+  </ul>
+</div>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/images/informative.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+        Images Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Images Concepts</span></a></li>
+        
+        
+          
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Informative Images</span></span></li>
+          
+        
+          
+            <li><a class="" href="../decorative/"><span class="count"></span><span class="txt">Decorative Images</span></a></li>
+          
+        
+          
+            <li><a class="" href="../functional/"><span class="count"></span><span class="txt">Functional Images</span></a></li>
+          
+        
+          
+            <li><a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a></li>
+          
+        
+          
+            <li><a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a></li>
+          
+        
+          
+            <li><a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a></li>
+          
+        
+          
+            <li><a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a></li>
+          
+        
+          
+            <li class="tips"><a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a></li>
+          
+        
+          
+            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Images</span></span></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      27 February 2015
+	      
+		      
+		      (first published September 2013)
+		      
+		    
+			</li>
+      <li>
+  <strong>Editors:</strong>
+  <ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+  <strong>Contributors:</strong>
+  <ul class="inline">
+    <li>Anna Belle Leiserson</li><li>Liam McGee</li><li>the Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
+</li>
+
+<li>
+  <strong>Developed with support</strong> from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the European Commission <abbr title="Information Society Technologies">IST</abbr> Programme.
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2015
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-99430be9.js" type="text/javascript"></script>
+	</body>
+</html>
