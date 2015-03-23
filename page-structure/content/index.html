@@ -290,23 +290,27 @@
 </div>
 <h2 id="figures">Figures</h2>
 
-<p>Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to a table, which contains the sales volumes of a product. It allows users to dive deeper in the data or to skip it. The related content is wrapped in a <code>&lt;figure&gt;</code> element, a <code>&lt;figcaption&gt;</code> element is added that has the description of the content.</p>
+<p>Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to a diagram, which contains the sales volumes of a product. The related content is wrapped in a <code>&lt;figure&gt;</code> element, a <code>&lt;figcaption&gt;</code> element is added that has the description of the content.</p>
 
 <p>At the time of writing, WAI-ARIA attributes <code>role="group"</code> and <code>aria-labelledby</code> are used to provide the information to assistive technologies in a consistent way.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See table T3 for details.<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.<span class="nt">&lt;/p&gt;</span>
 
 <span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">aria-labelledby=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;figcaption</span> <span class="na">id=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>T3: SpaceBear sales volume<span class="nt">&lt;/figcaption&gt;</span>
-    <span class="nt">&lt;table&gt;</span>
-        …
-    <span class="nt">&lt;/table&gt;</span>
+    <span class="nt">&lt;figcaption</span> <span class="na">id=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>G3: SpaceBear sales volume<span class="nt">&lt;/figcaption&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"…"</span> 
+         <span class="na">alt=</span><span class="s">"SpaceBear sales diagram, showing the huge success in Q4"</span> 
+         <span class="na">longdesc=</span><span class="s">"…"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
 </pre>
 
 </figure>
+<div class="notes ">
+<p><strong>Note:</strong> For more information on how to mark up diagrams, see the <a href="../../images/complex/">complex images</a> page.</p>
+
+</div>
 <h2 id="images-and-illustrations">Images and illustrations</h2>
 
 <p>Using images and illustrations in the text can help guiding users, especially in long texts. They can also help to clarify the text for people with reading disabilities. If images or illustrations are used, proper alternative texts need to be added. See the <a href="../../images/">Images Tutorial</a> for more information on images.</p>
@@ -811,7 +815,7 @@
 				
 	        [DRAFT] updated
 	      
-	      27 February 2015
+	      23 March 2015
 	      
 			</li>
       <li>
@@ -841,6 +845,6 @@ Contributors: The Education and Outreach Working Group (<a href="http://www.w3.o
       </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-99430be9.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-c3d123ae.js" type="text/javascript"></script>
 	</body>
 </html>

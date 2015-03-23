@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>childOrder</key>
+	<array>
+		<string>complex</string>
+		<string>decision-tree</string>
+		<string>decorative</string>
+		<string>examples</string>
+		<string>functional</string>
+		<string>groups</string>
+		<string>imagemap</string>
+		<string>informative</string>
+		<string>textual</string>
+		<string>tips</string>
+	</array>
+	<key>createMarkedFile</key>
+	<false/>
+</dict>
+</plist>

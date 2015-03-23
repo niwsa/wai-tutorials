@@ -69,13 +69,13 @@
 
 <p>Everything with an <code>id</code> attribute can be used as an anchor that can be linked to. If the main content is using <code>&lt;div id="content"&gt;</code>, attaching <code>#content</code> to the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest. For example, creating a bookmark to the first news item on a news listing page.</p>
 
-<p>If possible, make those anchors visible by adding permalinks to the page. In this tutorial, you can find permalinks in every heading. They are shown visually by the pilcrow symbol (<code>¶</code>) and with a <code>title</code> attribute that says “permalink”.</p>
+<p>If possible, make those anchors visible by adding permalinks to the page. In this tutorial, you can find permalinks are accessible by using the share button displayed near each heading.</p>
 
 <h2 id="skip-links">Skip links</h2>
 
-<p>Skip links are historically needed to jump to different sections on the page. They were used before <a href="landmarks.html">landmarks</a> were implemented in browsers and assistive technologies and can still be useful in some situations.</p>
+<p>Skip links are historically needed to jump to different sections on the page. They were used before WAI-ARIA landmarks were implemented in browsers and assistive technologies and can still be useful in some situations. For more information on landmarks see the <a href="../sections/">Page Sections</a> page.</p>
 
-<p>These tutorials for example have a visually hidden link to the navigation that allows the user to jump directly to the navigation, which comes after the main content of the page. This skip link is hidden by default but made visible as soon as it is focused to not confuse visual keyboard users.</p>
+<p>These tutorials, for example, have a visually hidden link to the navigation that allows the user to jump directly to the navigation, which comes after the main content of the page. This skip link is hidden by default but made visible as soon as it is focused to not confuse sighted keyboard users. As the tutorials are designed in a responsive way, the content is linearized on small screens or when zoom is enabled. In those cases the navigation menu is on the bottom of the page. The skip link is visible to allow all users to jump down to the navigation menus. </p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -83,8 +83,6 @@
 </pre>
 
 </figure>
-<p>If the viewport is so small that only one column fits on the screen (for example on mobiles or when zoom is enabled), the link stays visible to allow users to jump to the navigation menu on the bottom of the page.</p>
-
 <h2 id="table-of-contents">Table of contents</h2>
 
 <p>A table of contents can be a useful way to skim the page by providing an outline for the user. Usually it should be contained in a <a href="../sections/#navigation">navigation landmark</a>, so it can be easily discovered. The “on this page” box on every tutorial page is an example for such a table of contents. The anchors on every heading are used to allow users to skip to those headings in the text.</p>
@@ -686,7 +684,7 @@
 				
 	        [DRAFT] updated
 	      
-	      27 February 2015
+	      23 March 2015
 	      
 			</li>
       <li>
@@ -716,6 +714,6 @@ Contributors: The Education and Outreach Working Group (<a href="http://www.w3.o
       </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-99430be9.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-c3d123ae.js" type="text/javascript"></script>
 	</body>
 </html>
