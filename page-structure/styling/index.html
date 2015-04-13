@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/styling/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-9a47de2a.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -63,19 +63,13 @@
       
 
 
-      <h2 id="visual-clarity">Visual clarity</h2>
+      <h2 id="font-size">Font size</h2>
 
-<p>Web pages with many components can distract from the main content or purpose of the page, which is especially useful for users that can’t concentrate very well. The main content’s headline should have a distinct visual style that invites the reader to look at the main content first.</p>
-
-<p>All headings should be styled differently to the body text. Separating key sections of the page using background colors or borders can also help users to separate main from auxiliary content.</p>
-
-<h2 id="font-size">Font size</h2>
-
-<p>The user needs to be able to resize the text to 200% of its size anywhere on the page, without the text being cut off or overlapping other text. The font size should be defined in relative units, such as percentages, <code>em</code> or <code>rem</code>. It is not possible to zoom text set in pixels independently from the rest of the page in some browsers. While the other units calculate the font size from the parent element, <code>rem</code> calculates the font size from the root element. Consider the following two declarations:</p>
+<p>User preferences for font size vary grately. As users resize text to 200%, it should not become truncated or overlap adjacent content. Define font sizes in relative units, such as percentages, <code>em</code>, or <code>rem</code>. Text set in pixels  cannot be zoomed independently from the rest of the page in some browsers. While the other units calculate the font size from the parent element, <code>rem</code> calculates the font size from the root element. Consider the following two declarations:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: em unit</figcaption>
-<p>(The <code>px</code> values assume that the root font-size is <code>16px</code>.)</p>
+<p>(This example assumes that the root font-size is <code>16px</code>.)</p>
 
 <pre class="highlight css"><span class="nc">.content</span> <span class="p">{</span>
   <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.25em</span><span class="p">;</span> <span class="c">/* 16px × 1.25 = 20px */</span>
@@ -90,7 +84,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: rem unit</figcaption>
-<p>(The <code>px</code> values assume that the root font-size is <code>16px</code>.)</p>
+<p>(This example assumes that the root font-size is <code>16px</code>.)</p>
 
 <pre class="highlight css"><span class="nc">.content</span> <span class="p">{</span>
   <span class="nl">font-size</span><span class="p">:</span> <span class="m">1</span><span class="p">.</span><span class="n">25rem</span><span class="p">;</span>   <span class="c">/* 16px × 1.25   = 20px */</span>
@@ -103,16 +97,22 @@
 </figure>
 <p>While the resulting number for the <code>font-size</code> property is more complicated, only one step of calculation needs to be performed which makes setting font-sizes more predictable for developers.</p>
 
+<p>Be aware that using <code>em</code> and <code>rem</code> units are mainly useful for text and text-related measurements. Borders and most margins and paddings can be defined in pixels (<code>px</code>) to avoid thick borders or wide margins for users that use text zoom.</p>
+
 <h2 id="text-alignment">Text alignment</h2>
 
-<p>Main body text should be aligned to one side of the page, usually left in left-to-right languages. This makes the text easy to discover for people using text resizing or zoom. If the text doesn’t start at the same point on the left side, it is also hard to read for users that are not proficient reading text in this language or have a learning disability.</p>
+<p>Main body text should be aligned to one side of the page, left in left-to-right languages. This makes the text easy to discover for people using text resizing or zoom. If the text doesn’t start at the same point on the left side, it is also hard to read for users that are not proficient reading text in this language or have a learning disability.</p>
 
 <p>Centered or justified longer pieces of text can be hard to read as well. Justified text adds space in between words that can cause rivers of white space through lines making reading difficult for some users with dyslexia. If hyphenation is supported this can reduce this effect but hyphenated words can be a barrier for many readers.</p>
 
 <h2 id="line-length">Line length</h2>
 
-<p>A line of text shouldn’t be longer than 80 characters. This helps users with certain reading or visual disabilities that have trouble keeping their place when reading long lines of text. If the width of the text container is resized, it should be allowed to scale in a way so 80 characters or less are shown. An easy way to do this is using <code>max-width: 70em</code> in CSS. Another way to ensure good line-length is to use a fluid layout or apply responsive web design techniques that allow the user to resize the window to find a comfortable line length.</p>
+<p>A best practice is to enable users to set column withs in a way that one line of text isn’t longer than 80 characters. This helps users with certain reading or visual disabilities that have trouble keeping their place when reading long lines of text. If the width of the text container is resized, it should be allowed to scale in a way so 80 characters or less are shown. An very basic way to do this is using <code>max-width: 55em</code> in CSS. Another way to ensure good line-length is to use a fluid layout or apply responsive web design techniques that allow the user to resize the window to find a comfortable line length.</p>
 
+<div class="notes ">
+<p><strong>Note:</strong> This is only <em>required</em> when conforming to WCAG 2.0, Level AAA.</p>
+
+</div>
 <h2 id="highlight-section">Highlight section</h2>
 
 <p>The HTML5 <code>&lt;mark&gt;</code> element can be used to highlight sections of text. By default the text is just <mark>highlighted by color</mark>. It is not supported by assistive technology at the time of writing. It can, however, be used to mark auxiliary information, like a section that is currently read by a page reading plugin. Also search terms can be highlighted in a list of articles to allow better visual orientation. The color combination of the highlight color, the background color and the text color needs to meet <a href="/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast">minimum contrast requirements of WCAG 2.0</a>.</p>
@@ -724,7 +724,7 @@
 				
 	        [DRAFT] updated
 	      
-	      23 March 2015
+	      13 April 2015
 	      
 			</li>
       <li>
