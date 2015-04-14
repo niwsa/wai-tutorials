@@ -27,7 +27,9 @@
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
@@ -67,13 +69,15 @@
 
 <h2 id="paragraphs">Paragraphs</h2>
 
-<p>Adding rhythm and lightness to content using paragraph element (<code>&lt;p&gt;</code>).Consistent styling of paragraphs improves text readability. Paragraph styling can be altered by applying user stylesheets that adapt for specific needs.</p>
+<p>Add rhythm and lightness to content using paragraph element (<code>&lt;p&gt;</code>). Consistent styling of paragraphs improves text readability. Paragraph styling can be altered by applying user stylesheets that adapt for specific needs.</p>
 
 <h2 id="lists">Lists</h2>
 
-<p>HTML provides elements a way to group information onto lists of different types. Ordered lists are used for sequential information and are automatically enumerated by the browser. Unordered lists are used when the order of the items is not relevant. List items in unordered lists are marked with a bullet. Both types of lists provide orientation for the user.</p>
+<p>HTML provides ways to group information onto lists of different types. Ordered lists are used for sequential information and are automatically enumerated by the browser. Unordered lists are used when the order of the items is not relevant. List items in unordered lists are marked with a bullet. </p>
 
-<p>List items can contain a variety of HTML elements, including paragraphs, headings, form elements, and other lists.</p>
+<p>Definition lists groups of related terms and descriptions and connects those programmatically.</p>
+
+<p>All types of lists provide orientation for the user. List items can contain a variety of HTML elements, including paragraphs, headings, form elements, and other lists.</p>
 
 <h3 class="ex" id="unordered-list">Unordered list</h3>
 
@@ -177,15 +181,27 @@
 </pre>
 
 </figure>
-<h2 class="newex" id="description-lists">Description lists</h2>
+<h3 class="newex" id="description-lists">Description lists</h3>
 
-<p>A description list consists of term and description groupings where each grouping associates one or more terms (the contents of <code>&lt;dt&gt;</code> elements) with one or more descriptions (the contents of <code>&lt;dd&gt;</code> elements).</p>
+<p>A description list consists of one or more term and description groupings. Each grouping associates one or more terms (the contents of <code>&lt;dt&gt;</code> elements) with one or more descriptions (the contents of <code>&lt;dd&gt;</code> elements).</p>
 
-<p>There can be multiple groupings in one definition list. A grouping begins either on the first item of the list or whenever a <code>&lt;dt&gt;</code> element follows an <code>&lt;dd&gt;</code> element.</p>
+<p>A grouping begins either on the first item of the list or whenever a <code>&lt;dt&gt;</code> element follows an <code>&lt;dd&gt;</code> element.</p>
 
-<h3 class="ex" id="one-term-multiple-descriptions">One term, multiple descriptions</h3>
+<h4 class="ex" id="one-term-multiple-descriptions">One term, multiple descriptions</h4>
 
 <p>In the following example, John and Luke are described as authors and Frank is described as editor.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><dl>
+  <dt>Authors</dt>
+  <dd>John</dd>
+  <dd>Luke</dd>
+  <dt>Editor</dt>
+  <dd>Frank</dd>
+</dl>
+
+  </div></figure>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -199,9 +215,19 @@
 </pre>
 
 </figure>
-<h3 class="ex" id="multiple-terms-one-description">Multiple terms, one description</h3>
+<h4 class="ex" id="multiple-terms-one-description">Multiple terms, one description</h4>
 
 <p>In the next example, two different spellings of a word are defined using description lists. In such cases, use the <code>dfn</code> element to mark up the defined term. </p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><dl>
+   <dt lang="en-US"><dfn>color</dfn></dt>
+   <dt lang="en-GB"><dfn>colour</dfn></dt>
+   <dd>A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.</dd>
+</dl>
+
+  </div></figure>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -213,9 +239,20 @@
 </pre>
 
 </figure>
-<h3 class="ex" id="multiple-terms-multiple-descriptions">Multiple terms, multiple descriptions</h3>
+<h4 class="ex" id="multiple-terms-multiple-descriptions">Multiple terms, multiple descriptions</h4>
 
-<p>In this example, there are multiple authors that are also editors:</p>
+<p>In this example, John and Luke authors and also editors:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><dl>
+  <dt>Authors</dt>
+  <dt>Editors</dt>
+  <dd>John</dd>
+  <dd>Luke</dd>
+</dl>
+
+  </div></figure>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -234,7 +271,7 @@
 
 <h3 class="ex" id="blockquote">Blockquote</h3>
 
-<p>For larger quotes use the <code>&lt;blockquote&gt;</code> element. It can contain paragraphs, headings, and other text structure elements. The <code>&lt;cite&gt;</code> element is used to refer to the source of the quote.</p>
+<p>For larger quotes use the <code>&lt;blockquote&gt;</code> element. It can contain paragraphs, headings, and other text structure elements. Those should reflect the structure of the cited document. The <code>&lt;cite&gt;</code> element is used to refer to the source of the quote.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -819,7 +856,7 @@
 				
 	        [DRAFT] updated
 	      
-	      13 April 2015
+	      14 April 2015
 	      
 			</li>
       <li>

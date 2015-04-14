@@ -27,7 +27,9 @@
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
@@ -65,14 +67,14 @@
 
       <p>People need to be able to identify distinctive page sections to help navigate around the page. These sections include navigation, main content, headers, and footers. More important parts of a page, such as navigation, should be marked up on every website.</p>
 
-<p>To mark up certain sections, use the appropriate HTML5 elements, for example the <code>&lt;main&gt;</code> element denotes the main content of the page. Such sections usually correspond to an WAI-ARIA role, in this case it is called <code>main</code>. Those WAI-ARIA roles are picked up by assistive technologies. See <a href="#accesssupport">accessibility support information for WAI-ARIA</a>.</p>
+<p>To mark up certain sections, use the appropriate HTML5 elements. For example the <code>&lt;main&gt;</code> element denotes the main content of the page. Such sections usually correspond to an WAI-ARIA role. In case of the <code>&lt;main&gt;</code> element the corresponding role is <code>main</code>. Those WAI-ARIA roles are picked up by assistive technologies. See <a href="#accesssupport">accessibility support information for WAI-ARIA</a>.</p>
 
-<p>If there are more than one section of a type, sections need to be labeled using one of the techniques below using either <code>aria-label</code> or <code>aria-labelledby</code>.</p>
+<p>Some sections can only be used once, for example <code>&lt;main&gt;</code> or the page header. Other sections, like navigations, can be used multiple times. In this case add a label using either <code>aria-label</code> or <code>aria-labelledby</code>.</p>
 
 <aside class="annotation" id="accesssupport">
   <h4 class="annotation-header"><span class="subhead">Accessibility Support:</span> HTML5, WAI-ARIA, Web Browsers, and Assistive Technologies</h4>
   <div class="annotation-content">
-    <p>The support for HTML5 elements and WAI-ARIA individually are really good in modern browsers and assistive technologies. At the time of writing, Internet Explorer up to version 11 provides no semantic information via accessibility APIs for the HTML elements.</p>
+    <p>The support for HTML5 elements and WAI-ARIA individually are really good in modern browsers and assistive technologies. At the time of writing, Internet Explorer up to version 11 provides no semantic information via accessibility APIs for the HTML5 elements.</p>
     <p>To provide the information to assistive technologies, the roles can be added to the HTML5 elements, for example:</p>
     <pre class="highlight html"><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;&lt;/header&gt;</span>
 <span class="nt">&lt;main</span> <span class="na">role=</span><span class="s">"main"</span><span class="nt">&gt;&lt;/main&gt;</span>
@@ -84,7 +86,7 @@
 
 <h2 id="page-header">Page header</h2>
 
-<p>Most websites have a section that contains the website logo and other information, such as a search or navigation options. That section is usually on the top of the page.</p>
+<p>Most websites have a section that contains the website logo and other information, such as search or navigation options. That section is usually on the top of the page.</p>
 
 <p>The main page header is identified by using the <code>&lt;header&gt;</code> element which by default has the WAI-ARIA role <code>banner</code> if not used inside of <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> elements. See <a href="#scope">note on scope</a>.</p>
 
@@ -98,9 +100,9 @@
 </figure>
 <h2 id="navigation">Navigation</h2>
 
-<p>The <code>&lt;nav&gt;</code> element groups a collection of links and makes them available as a navigation to assistive technologies by applying the WAI-ARIA role <code>navigation</code>. As there are often more than one navigation section on a given web page, they should always be labelled. </p>
+<p>The <code>&lt;nav&gt;</code> element groups a collection of links and makes them available as a navigation to assistive technologies, identifying them using the WAI-ARIA role <code>navigation</code> by default. As there are often more than one navigation section on a given web page, they should always be labelled. </p>
 
-<p>In the example below, “Main Navigation” is added to the navigation using the <code>aria-label</code> attribute. “Quick Navigation” is already in a heading on the page, so it is possible to refer to it using the <code>aria-labelledby</code> attribute. For more information on menus, see the <a href="../../menus/">Menu tutorial</a>. </p>
+<p>In the example below there are two <code>&lt;nav&gt;</code> elements, so it is necessary to label them. One the labels, “Main Navigation”, has a title that isn’t shown on the page. In this instance the label is added with the <code>aria-label</code> attribute. “Quick Navigation” is already in a heading on the page, so it is possible to refer to it using the <code>aria-labelledby</code> attribute. For more information on menus, see the <a href="../../menus/">Menu tutorial</a>. </p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -130,7 +132,7 @@
 </figure>
 <h2 id="page-footer">Page footer</h2>
 
-<p>A section of the web page that has supplemental information, such as links to copyright or privacy statements, or disclaimers, is called a footer. It should be marked up using the <code>&lt;footer&gt;</code> element. </p>
+<p>A section of the web page that has supplemental information, such as links to copyright or privacy statements, or disclaimers, is called a footer. This information should appear inside a <code>&lt;footer&gt;</code> element. </p>
 
 <p>By default the <code>&lt;footer&gt;</code> element has the WAI-ARIA role <code>contentinfo</code> if not used inside of <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> elements. See <a href="#scope">note on scope</a>.</p>
 
@@ -152,6 +154,34 @@
   <span class="nt">&lt;h3&gt;</span>Related Articles<span class="nt">&lt;/h3&gt;</span>
   …
 <span class="nt">&lt;/aside&gt;</span>
+</pre>
+
+</figure>
+<h2 id="general-sections-and-articles">General sections and articles</h2>
+
+<p>The <code>&lt;section&gt;</code> element marks a general section of the page or inside an article. It is used for thematic grouping of content. By default it has the WAI-ARIA role of <code>region</code>.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;section&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/section&gt;</span>
+</pre>
+
+</figure>
+<p>The <code>&lt;article&gt;</code> element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable. Examples for articles are items in a shop or news articles. The default WAI-ARIA role is <code>article</code>.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Space Bear Extrem<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/article&gt;</span>
 </pre>
 
 </figure>
@@ -181,12 +211,6 @@
 </pre>
 
 </figure>
-<h2 id="general-sections-and-articles">General sections and articles</h2>
-
-<p>The <code>&lt;section&gt;</code> element marks a general section of the page or inside an article. It is used for thematic grouping of content. By default it has the WAI-ARIA role of <code>region</code>.</p>
-
-<p>The <code>&lt;article&gt;</code> element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable. Examples for articles are items in a shop or news articles. The default WAI-ARIA role is <code>article</code>.</p>
-
 <h2 id="notes">Notes</h2>
 
 <h3 id="scope">Scope</h3>
@@ -198,7 +222,7 @@
   <li>Mark the header/footer of a certain <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</li>
 </ol>
 
-<p>Both elements only carry their default WAI-ARIA roles – <code>banner</code> for the <code>&lt;header&gt;</code> element and <code>contentinfo</code> for the <code>&lt;footer&gt;</code>element – only in the first use case. Once <code>&lt;header&gt;</code> or <code>&lt;footer&gt;</code> are inside an <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> element, they are scoped to this element and don’t count as main header or footer of the page, even if they are the only header or footer on the page.</p>
+<p>Both elements only carry their default WAI-ARIA roles – <code>banner</code> for the <code>&lt;header&gt;</code> element and <code>contentinfo</code> for the <code>&lt;footer&gt;</code>element – only in the first use case. Once <code>&lt;header&gt;</code> or <code>&lt;footer&gt;</code> are inside an <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> element, they are scoped to this element and don’t count as main header or footer of the page but as header and footer of that specific section or article.</p>
 
 <h3 id="the-application-role">The <code>application</code> role</h3>
 
@@ -694,7 +718,7 @@
 				
 	        [DRAFT] updated
 	      
-	      13 April 2015
+	      14 April 2015
 	      
 			</li>
       <li>

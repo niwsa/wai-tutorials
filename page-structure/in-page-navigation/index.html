@@ -27,7 +27,9 @@
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
@@ -63,31 +65,33 @@
       
 
 
-      <p>Web browsing is non-linear and useful navigation can be provided to efficiently orient users to page content. Such in-page navigation provices users with links to sections of the page that might be hard to discover in a linear fashion. This also benefits people with low vision. In-page links to content also make it easier to share specific content.</p>
+      <p>As Web browsing is non-linear, useful navigation can be provided to efficiently orient users to page content. Such in-page navigation provides users with links to sections of the page that might be hard to discover in a linear fashion. This also benefits people with low vision. In-page links to content also make it easier to share specific content.</p>
 
 <h2 id="anchors">Anchors</h2>
 
-<p>The <code>id</code> attribute is used as an anchor and can be directly linked to from within the page or externally. If the main content is using <code>&lt;div id="content"&gt;</code>, attaching <code>#content</code> to the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest. For example, creating a bookmark to the first news item on a news listing page.</p>
+<p>The <code>id</code> attribute of any element can be used as an anchor and directly linked to from within the page or externally. If the main content is using <code>&lt;div id="content"&gt;</code>, attaching <code>#content</code> to the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest. For example, creating a bookmark to the first news item on a news listing page.</p>
 
-<p>If possible, make those anchors visible by adding permalinks to the page. In this tutorial, you can find permalinks are accessible by using the share button displayed near each heading.</p>
+<p>If possible, make those anchors visible by adding links to the web page. In this tutorial, you can find permalinks by using the share button displayed near each heading.</p>
 
 <h2 id="skip-links">Skip links</h2>
 
-<p>Skip links are historically needed to jump to different sections on the page. They were used before WAI-ARIA landmarks were implemented in browsers and assistive technologies. Skip links are still recommended because browsers still don’t provide keyboard access to landmarks. Also, most screen reader users are used to move to the main content using skip links. For more information on landmarks see the <a href="../sections/">Page Sections</a> page.</p>
+<p>Skip links are historically needed to jump to different sections on the page. They were used before WAI-ARIA landmarks were implemented in browsers and assistive technologies. Skip links are still recommended because browsers still don’t provide keyboard access to landmarks. Also, most screen reader users are used to move to the main content using skip links. Skip links are useful for people using the keyboard to navigate through the page, even if they can visually perceive the content. For more information on landmarks see the <a href="../sections/">Page Sections</a> page.</p>
 
 <p>These tutorials, for example, have a visually hidden link to the navigation that allows the user to jump directly to the navigation, which comes after the main content of the page. This skip link is hidden by default but made visible as soon as it is focused to not confuse sighted keyboard users. As the tutorials are designed in a responsive way, the content is linearized on small screens or when zoom is enabled. In those cases the navigation menu is on the bottom of the page. The skip link is visible to allow all users to jump down to the navigation menus. </p>
+
+<p>The following example shows skip links in a more traditional situation with the navigation before the content, allowing users to jump directly to the content.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"Skip Links"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
     <span class="nt">&lt;li&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#navigation"</span> <span class="na">class=</span><span class="s">"visuallyhidden focusable"</span><span class="nt">&gt;</span>Jump to navigation<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#content"</span> <span class="na">class=</span><span class="s">"visuallyhidden focusable"</span><span class="nt">&gt;</span>Jump to content<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#content"</span> <span class="na">class=</span><span class="s">"visuallyhidden focusable"</span><span class="nt">&gt;</span>Jump to content<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#navigation"</span> <span class="na">class=</span><span class="s">"visuallyhidden focusable"</span><span class="nt">&gt;</span>Jump to navigation<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
 </pre>
 
@@ -693,7 +697,7 @@
 				
 	        [DRAFT] updated
 	      
-	      13 April 2015
+	      14 April 2015
 	      
 			</li>
       <li>
