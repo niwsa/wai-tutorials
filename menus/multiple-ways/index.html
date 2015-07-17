@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/menus/multiple-ways/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-4dd4d5d0.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-13c7f407.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -61,19 +61,19 @@
       
 
 
-      <p>For many users having different ways to access the content of a website is beneficial. They are probably become confused by following a long series of navigation steps to a web page. Others might arrive on a page deep in the hierarchy after clicking a link on the site or other sites and want to move up the hierarchy step by step to get a better context.</p>
+      <p>Many users benefit from having different ways to access the content of a website. Some may be confused by following a long series of navigation steps to fond a specific web page. Others might arrive on a page deep in the hierarchy after clicking a link on the site or other sites and want to move up the hierarchy step by step to get a better context.</p>
 
-<h2 id="breadcrumbs">Breadcrumbs</h2>
+<h2 class="ap" id="breadcrumbs">Breadcrumbs</h2>
 
-<p>Breadcrumbs help users to know where they are in the structure of the complete website. They are especially important on complex websites that have more than one or two levels of navigation.</p>
+<p>Breadcrumbs help users to know where they are in the structure of the website. They are especially important on complex websites that have more than one or two levels of navigation and in cases where not every level of the navigation is immediately visible (for example when using fly-out menus).</p>
 
-<p>Links in a breadcrumb navigation show a trail from the front page to the current page, with a link to every page on the way. Those links are usually separated by arrows. If images or icon fonts are used for the separators, they need to be used in an accessible way. The title of the current page should be the last item of the breadcrumb navigation, but not linked.</p>
+<p>Breadcrumb navigation show a trail from the front page to the current page, with a link to every page on the way. Those links are usually separated by arrows. If images or icon fonts are used for those separators, they need to be used in an accessible way, for example by providing an alternative text. The title of the current page should be the last item of the breadcrumb navigation and not linked.</p>
 
-<p>A breadcrumb navigation is usually positioned near the top of the page. As a navigational region, the <code>&lt;nav&gt;</code> element can be used, with an landmark role of <code>navigation</code> and a label “You are here:”.</p>
+<p>A breadcrumb navigation is usually positioned near the top of the page. As a navigational region, the <code>&lt;nav&gt;</code> element can be used. A label, for example “You are here:” should be added.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"breadcrumb"</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-label=</span><span class="s">"You are here:"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"breadcrumb"</span> <span class="na">aria-label=</span><span class="s">"You are here:"</span><span class="nt">&gt;</span>
 
 		<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
 
@@ -92,19 +92,19 @@
 </pre>
 
 </figure>
-<h2 id="sitemap">Sitemap</h2>
+<h2 class="ap" id="sitemap">Sitemap</h2>
 
-<p>A sitemap is a list of all pages of a website. It provides a good way to get a feeling for the structure of the website and can help users to understand what the site contains and how content is organized. It also is an alternative to complex menu bars.</p>
+<p>A sitemap is a (nested) list of all pages of a website. It provides a good way to get a feeling for the structure of the website and can help users to understand what the site contains and how content is organized. It also is an alternative to complex menu bars.</p>
 
 <p>Simple sitemaps just show an outline view, while more complex sitemaps might also show complex relationship data as well. If the site map is large, it can make sense to show some levels of the hierarchy only when demanded from the user. A sitemap needs to stay updated when a page is added or deleted, should link to all sections of the site, and present the organization of the website. See the <a href="http://www.w3.org/WAI/sitemap.html">W3C <abbr title="Web Accessibility Initiative">WAI</abbr> sitemap</a> for an example.</p>
 
-<h2 id="search">Search</h2>
+<h2 class="ap" id="search">Search</h2>
 
-<p>A search option helps users to find content by entering certain keywords, which is often more efficient than going through the complete navigation and search for pages whose page title vaguely relates to the topic the user has in mind. A search functionality that spell-checks the entered terms and allows synonyms further increases its accessibility.</p>
+<p>A search option helps users to find content by entering certain keywords, which is often more efficient than going through the complete navigation and identify pages whose page title relates to the topic the user has in mind. A search functionality that spell-checks the entered terms and allows synonyms further increases its usefulness for everyone, including people with disabilities.</p>
 
-<h2 id="multiple-ways-to-activate-functions-in-applications">Multiple ways to activate functions in applications</h2>
+<h2 class="ap" id="multiple-ways-to-activate-functions-in-applications">Multiple ways to activate functions in applications</h2>
 
-<p>In addition to a menubar, similar functions can often be found in other sections of the application as well. For example functions can be activated by clicking icons, using the mouse context menu, or activating a keyboard shortcut.</p>
+<p>In addition to a menubar, similar functions can often be found in other sections of the application as well. For example functions can be activated by clicking icons, using the mouse context menu, or activating keyboard shortcuts.</p>
 
 
 
@@ -705,7 +705,7 @@
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      27 February 2015
+	      17 July 2015
 	      
 			</li>
       <li>

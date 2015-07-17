@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/carousels/structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-4dd4d5d0.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-13c7f407.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -61,7 +61,7 @@
       
 
 
-      <p>Provide structural markup for the carousel and its items, and later enhance these structures with styling and scripting. This ensures that the content of the carousel has meaning on its own, without styling and scripting, and can be rendered and used in more situations.</p>
+      <p>Structural markup ensures that the content of the carousel has meaning on its own, without styling and scripting, and can be rendered and used in more situations. For example the carousel could be just a list of articles on mobile.</p>
 
 <h2 id="carousel-framework">Carousel framework</h2>
 
@@ -150,7 +150,7 @@
 </pre>
 
 </figure>
-<h2 id="item-structure">Item structure</h2>
+<h2 class="newex" id="item-structure">Item structure</h2>
 
 <p>Provide proper structure for content within individual carousel items. This makes them independent pieces of content that can be rendered and used in different ways.</p>
 
@@ -179,7 +179,7 @@
 </figure>
 <h3 class="ex" id="complex-content">Complex content</h3>
 
-<p>This example also uses a list, even though the carousel items consist of more substantial content than in the previous example. This approach was selected as the individual carousel items are not independent pieces of content and thus not suitable for the  <code>&lt;article&gt;</code> element. Each individual list item includes a heading, text, and links.</p>
+<p>This example also uses a list, even though the carousel items consist of more substantial content than in the previous example. The individual carousel items are not independent pieces of content and thus not suitable for the  <code>&lt;article&gt;</code> element. Each list item includes a heading, text, and links.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -214,13 +214,13 @@
 </figure>
 <h2 class="newex" id="carousel-styling">Carousel styling</h2>
 
-<p>At this stage the carousel does not have any functionality. This is added later using scripting, based on the class names of the elements. This ensures that if scripting is not enabled for various reasons, including bad network connection or user choice, the content will still be meaningful.</p>
+<p>At this stage the carousel does not have any functionality. This is added later using scripting, based on the class names of the elements. By using this approach, the content is still meaningfull even in situations when scripting is not enabled, including bad network connection or user choice. Basic styling for the carousel is provided so that it looks appropriate even when scripting is not enabled. </p>
 
-<p>This does not prevent you from providing the basic styling for the carousel so that it looks appropriate even when scripting is not enabled. In many cases carousels are styled with background images and overlaid text, so contrast ratio (“color contrast”) requirements need to be met.</p>
+<p>When carousels use text that overlays a background image, the contrast ratio (“color contrast”) requirements need to be met.</p>
 
 <h3 class="ex" id="styled-carousel">Styled carousel</h3>
 
-<p>The example below shows how the carousel structure from the previous example is styled. As the background images can be distracting, using a background color for the overlaying text is a good way to ensure a good ratio even if images change. In this example, a semi-transparent background is used behind the overlaid text. Note that the opacity is high (80%) to make sure that the contrast ratio is met. Testing for contrast ratio conformance needs to be done using the resulting, visible color on the element, not the semi-transparent base color.</p>
+<p>The example below shows how the carousel structure from the previous example is styled. As the background images can be distracting, using a background color for the overlaying text is a good way to ensure a good contrast ratio regardless of the image. Here, a semi-transparent background with a high opacity (here: 80%) is added to the text. </p>
 
 <div class="notes ">
 <p><strong>Note:</strong> The carousel demo in this tutorial has a fixed-width implementation to keep the tutorial simple.</p>
@@ -261,7 +261,6 @@
     width: 480px;
     padding:0;
     margin: 0;
-    /* overflow: hidden; */
   }
   .carousel {
     position: relative;
@@ -271,7 +270,6 @@
     padding: 0;
   }
   .slide {
-    /*position: absolute;*/
     height: 360px;
     background-size: cover;
     position: relative;
@@ -895,7 +893,7 @@
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      27 February 2015
+	      17 July 2015
 	      
 			</li>
       <li>

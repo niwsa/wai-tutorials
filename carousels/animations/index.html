@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/carousels/animations/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-4dd4d5d0.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-13c7f407.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -61,11 +61,11 @@
       
 
 
-      <p>Carousels typically periodically rotate the displayed items. Provide users with control over any animations in your carousel. Providing different ways for users to stop this animation is essential for people who might find the changes distracting, and for people who need more time to read carousel items.</p>
+      <p>Carousels typically rotate the displayed items periodically. Provide users with control over any animations in your carousel. Stopping animation is essential for people who find the changes distracting and for people who need more time to read carousel items.</p>
 
-<h2 id="stop-button">Stop button</h2>
+<h2 id="playstop-button">Play/Stop button</h2>
 
-<p>One common approach to control carousel animations is to provide a button to allow users to stop and resume the animations. The example below, illustrates how such a button might be marked-up. The button label and its function alternate, depending on whether the animation is currently on or off:</p>
+<p>One common approach to control carousel animations is to provide a button to allow users to stop and resume the animations. The example below illustrates how such a button can be marked-up. The button label and its function change, depending on whether the animation is currently on or off:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -80,12 +80,12 @@
 
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> The script only replaces the value of the button rather than to replace the button entirely. If the button is removed, then the focus would be lost for keyboard users.</p>
+<p><strong>Note:</strong> The script only replaces the value of the button and its attributes, rather than to replace the button entirely. If the button is removed, the focus would be lost for keyboard users.</p>
 
 </div>
-<h2 id="pause-when-focused">Pause when focused</h2>
+<h2 id="pause-on-hover-and-focus">Pause on hover and focus</h2>
 
-<p>Another useful approach is to pause the carousel animation when the carousel receives focus by keyboard or is hovered over by mouse. Pausing the animation ensures that keyboard users do not lose focus when the carousel item is changed. It is also useful for people who need more time to read the content and to maneuver the mouse to a link or control inside the carousel item.</p>
+<p>Another useful approach is to pause the carousel animation when the carousel receives focus by keyboard or is hovered over by mouse. Pausing the animation ensures that keyboard users do not lose focus. It is also useful for people who need more time to read the content and to direct the mouse cursor to a link or control inside the carousel item.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -115,7 +115,9 @@
 </div>
 <h2 id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
 
-<p>While the slides that leave the viewport are visible during transition, they should not be available to assistive technologies as this can lead to confusion. To ensure that the slides are ignored by assistive technologies, the <code>aria-hidden</code> attribute should be set. The following example shows that after determining what the new order of slides is, either the next or the previous slide gets an in-transition class, which makes the item visible. It also is set to <code>aria-hidden</code>. The <code>aria-hidden</code> attribute is then removed from the new current menu item.</p>
+<p>While the slides that leave the viewport are visible during transition, they should not be available to assistive technologies, as this can lead to confusion. The <code>aria-hidden</code> attribute ensures that those items don’t interfere with assistive technologies. </p>
+
+<p>The following example shows how to approach this: After determining what the new order of slides is, depending on the slide direction, the next or the previous slide gets an <code>in-transition</code> class, which makes the item visible. It also is set to <code>aria-hidden</code>. The <code>aria-hidden</code> attribute is then removed from the new current menu item.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript: In initialization</figcaption>
@@ -848,7 +850,7 @@ c.init({
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      27 February 2015
+	      17 July 2015
 	      
 			</li>
       <li>
