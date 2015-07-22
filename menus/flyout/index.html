@@ -65,7 +65,7 @@
 
 <p>As interactive components, fly-out menus need to be developed with accessibility in mind to make sure that they are operable using assistive technologies and the keyboard. For people with reduced dexterity it is also important that submenus don’t snap back immediately when the mouse leaves the clickable area.</p>
 
-<p>To make navigating a fly-out menu easier, hidden links should not be part of the keyboard navigation by default and also hidden from assistive technologies. They should, however, show up when requested by the user.</p>
+<p>To make navigating a fly-out menu easier, hidden links should not be part of the keyboard navigation by default and also hidden from assistive technologies. They should only show up when requested by the user.</p>
 
 <p>Usually the first-level menu items are links to individual pages whether they have a submenu or not. Items containing a submenu should be marked in a way that is obvious. In the following example, only the SpaceBears menu item has a submenu:</p>
 
@@ -204,9 +204,11 @@
 </figure>
 <h2 id="enhancing-the-menu-using-javascript">Enhancing the menu using JavaScript</h2>
 
-<p>By using JavaScript, it is possible to react to keyboard usage and mouse movements. As soon as the mouse leaves the menu a timer is started which closes the menu after one second. If the mouse re-enters the submenu during that time, the timer is canceled and the submenu doesn’t close.</p>
+<p>By using JavaScript, it is possible to react to keyboard usage and mouse movements to improve the user interaction with the menu.</p>
 
 <h3 id="improve-mouse-support">Improve mouse support</h3>
+
+<p>To avoid submenu items vanishing as soon as the mouse pointer leaves the menu, a timer is started which closes the menu after one second. If the mouse re-enters the submenu during that time, the timer is canceled and the submenu doesn’t close.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -340,11 +342,11 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
   <li>It links to a page itself and needs to toggle the sub menu.</li>
 </ol>
 
-<p>Usually the submenu should not open when the focus enters the top-level menu item. This would mean a keyboard user needs to step through all the submenu links to get to the next top-level item.</p>
+<p>Usually the submenu should not open when the focus enters the top-level menu item as a keyboard would need to step through all the submenu items to get to the next top-level item.</p>
 
 <h4 class="ap" id="toggle-submenu-using-the-top-level-menu-item">Toggle submenu using the top-level menu item</h4>
 
-<p>When JavaScript is available, the top-level menu item won’t link to the page in its <code>href</code> attribute but instead showing the sub menu. (If JavaScript is not available, the link will work as usual.)</p>
+<p>When JavaScript is available, the top-level menu item won’t link to the page in its <code>href</code> attribute but instead showing the sub menu. (If JavaScript is not available, the link will work as usual so the page the menu is linking to should provide a way to get to the submenu items.)</p>
 
 <p>If the focus leaves the submenu (for example by using the tab key on the last submenu item), the submenu is closed.</p>
 
@@ -519,7 +521,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>The following code iterates through all top-level items that have a submenu (indicated through the class <code>has-submenu</code>) and adds click event to the first (top-level) link in each menu item. Despite their name, click events are activated regardless of the input method as soon as the link gets activated. If the submenu is closed at the time the link is activated, the script opens the submenu, and vice versa.</p>
+<p>The following code example iterates through all top-level items that have a submenu (indicated through the class <code>has-submenu</code>) and adds click event to the first (top-level) link in each menu item. Despite the name, click events are activated regardless of the input method as soon as the link gets activated. If the submenu is closed at the time the link is activated, the script opens the submenu, and vice versa.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -761,7 +763,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>In the following code, a button is attached to every menu item link with a submenu. The click event listener is applied to this button and toggles the menu just like above. The invisible button text is changed from “show submenu” to “hide submenu” reflecting the state of the submenu.</p>
+<p>In the following code example, a button is added to every menu item link with a submenu. When the button is activated, it toggles the menu just like above. The invisible button text is changed from “show submenu” to “hide submenu” reflecting the state of the submenu.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -787,7 +789,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </figure>
 <h2 id="improve-screen-reader-support-using-wai-aria">Improve screen reader support using WAI-ARIA</h2>
 
-<p>Screen reader users need to know if an item has a submenu or not and if that submenu is currently opened. While this can be done with hidden text as above, WAI-ARIA helps to convey this information programmatically, using following two attributes to the menu’s HTML:</p>
+<p>Screen reader users need to know if an item has a submenu or not and if that submenu is currently open. While this can be done with hidden text as shown above, WAI-ARIA helps to convey this information programmatically so it can be picked up by assistive technologies in a consistent way. The two relevant WAI-ARIA attributes are:</p>
 
 <ul>
   <li><strong><code>aria-haspopup="true"</code></strong> is used so screen readers are able to announce that the link has a submenu.</li>
@@ -1458,7 +1460,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      17 July 2015
+	      22 July 2015
 	      
 			</li>
       <li>

@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content approved-draft">
+<main role="main" class="content editors-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -52,6 +52,10 @@
 
     
     
+      <div class="status">
+        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+      </div>
+    
 
 
     <div class="inner">
@@ -61,7 +65,7 @@
       
 
 
-      <p>Carusels display the one of their items at once while hiding the others. They allow users to browse through them.</p>
+      <p>Carusels display the one content item at a time while hiding the others. They allow users to browse through them.</p>
 
 <h2 id="position-slides">Position slides</h2>
 
@@ -519,11 +523,11 @@
 
   </div></figure>
 
-<h2 class="newex" id="items-indicator">Items indicator</h2>
+<h2 class="newex" id="items-navigation">Items navigation</h2>
 
-<p>Indicating the total number of carousel items and the active one helps users to orient themselves. Ideally each carousel item has a corresponding button that is styled to reflect the state of the carousel item. Providing these buttons within a list, adds meaning and semantics to the content, such as the number and order of the carousel items.</p>
+<p>Display a list of buttons that indicate which carousel item is currently displayed and allow users to switch to any carousel item.</p>
 
-<p>The list with buttons below is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and using hidden text.</p>
+<p>In the example below, the list with buttons is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and using hidden text.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -609,9 +613,11 @@
 
 <h3 id="focusing-carousel-items">Focusing carousel items</h3>
 
-<p>In contrast to the previous/next buttons, when users select a carousel item directly through the item indicator, the focus should be set to the corresponding carousel item.</p>
+<p>Whe a user selects an item through the carousel navigation it should be focused by default. A keyboard or assistive technology user is sent to the item immediately.</p>
 
 <p>The <code>&lt;li&gt;</code> elements used for the carousel items itself are not focusable by default. However if the <code>tabindex</code> attribute with a value <code>-1</code> is added to the items, JavaScript is able to set the focus to those items.</p>
+
+<p>This behavior is different to the behavior of the previous and next buttons as the user may want to skip several items at once using those buttons.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -1142,7 +1148,7 @@ c3.init({
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
+	        [EDITOR’S DRAFT] updated
 	      
 	      22 July 2015
 	      

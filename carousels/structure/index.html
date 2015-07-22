@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-  Structure
+  Carousel Structure
   
     
        &bull; Carousels
@@ -41,12 +41,12 @@
               <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
-            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Structure</span></span>
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousel Structure</span></span>
           </span>
         </p>
       </nav>
       <h1>
-        Structure
+        Carousel Structure
       </h1>
     </header>
 
@@ -65,6 +65,10 @@
 
 <h2 id="carousel-region">Carousel region</h2>
 
+<aside class="reference">
+<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
+
+</aside>
 <p>Provide semantic markup to define the carousel as a distinct part of a web page. For example, if the main purpose of a carousel is to navigate the website, then use the HTML5 <code>&lt;nav&gt;</code> element. Depending on the role of the slider, <code>&lt;article&gt;</code>, <code>&lt;complementary&gt;</code>, and <code>&lt;aside&gt;</code> elements could also be used. At the very least, the <code>&lt;section&gt;</code> element should be used to define the carousel as generic region.</p>
 
 <figure class="code ">
@@ -83,41 +87,18 @@
 </figure>
 <h2 id="carousel-label">Carousel label</h2>
 
-<p>As any distinct part of a website, carousels need labels that allow users to identify its purpose by using one of the following approaches.</p>
+<aside class="reference">
+<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
 
-<h3 class="ap" id="using-headings">Using headings</h3>
+</aside>
+<p>Label carousels according to their individual function to make them easier to find and understand. This helps to distinguish between multiple carousels on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
 
-<p>In the example below, an HTML heading is used to identify the carousel.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
-  …
-<span class="nt">&lt;/section&gt;</span>
-</pre>
-
-</figure>
-<h3 class="ap" id="using-aria-label">Using <code>aria-label</code></h3>
-
-<p>In the following example, the WAI-ARIA <code>aria-label</code> attribute is used to provide a label for the carousel. This approach can be used if the label is not supposed to be visually on the page.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-label=</span><span class="s">"Recent news"</span><span class="nt">&gt;</span>
-  …
-<span class="nt">&lt;/section&gt;</span>
-</pre>
-
-</figure>
-<h3 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h3>
-
-<p>By using the WAI-ARIA <code>aria-labelledby</code> attribute, an existing text – like a heading – can be used to label the carusel. This approach provides labels in multiple ways, so users can find and navigate the carousel more easily. </p>
+<p>In carousels tutorial examples, <code>aria-labelledby</code> with a hidden heading is used:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
     …
 <span class="nt">&lt;/section&gt;</span>
 </pre>
