@@ -61,130 +61,125 @@
       
 
 
-      <p>Structural markup ensures that the content of the carousel has meaning on its own, without styling and scripting, and can be rendered and used in more situations. For example the carousel could be just a list of articles on mobile.</p>
+      <p>Structural markup ensures that the content of a carousel has meaning on its own, without styling and scripting, so that can be used in more situations. For example, a carousel could be presented as a list of articles on a mobile device.</p>
 
-<h2 id="carousel-framework">Carousel framework</h2>
+<h2 id="carousel-region">Carousel region</h2>
+
+<p>Provide semantic markup to define the carousel as a distinct part of a web page. For example, if the main purpose of a carousel is to navigate the website, then use the HTML5 <code>&lt;nav&gt;</code> element. Depending on the role of the slider, <code>&lt;article&gt;</code>, <code>&lt;complementary&gt;</code>, and <code>&lt;aside&gt;</code> elements could also be used. At the very least, the <code>&lt;section&gt;</code> element should be used to define the carousel as generic region.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML5</figcaption>
+<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/section&gt;</span>
+</pre>
+
+</figure>
+<p>In HTML4, the <code>&lt;div&gt;</code> element with the WAI-ARIA <code>role</code> attribute with the value <code>region</code> serves the same purpose.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML4</figcaption>
+<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/div&gt;</span>
+</pre>
+
+</figure>
+<h2 id="carousel-label">Carousel label</h2>
+
+<p>As any distinct part of a website, carousels need labels that allow users to identify its purpose by using one of the following approaches.</p>
+
+<h3 class="ap" id="using-headings">Using headings</h3>
+
+<p>In the example below, an HTML heading is used to identify the carousel.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
+  …
+<span class="nt">&lt;/section&gt;</span>
+</pre>
+
+</figure>
+<h3 class="ap" id="using-aria-label">Using <code>aria-label</code></h3>
+
+<p>In the following example, the WAI-ARIA <code>aria-label</code> attribute is used to provide a label for the carousel. This approach can be used if the label is not supposed to be visually on the page.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-label=</span><span class="s">"Recent news"</span><span class="nt">&gt;</span>
+  …
+<span class="nt">&lt;/section&gt;</span>
+</pre>
+
+</figure>
+<h3 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h3>
+
+<p>By using the WAI-ARIA <code>aria-labelledby</code> attribute, an existing text – like a heading – can be used to label the carusel. This approach provides labels in multiple ways, so users can find and navigate the carousel more easily. </p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
+    …
+<span class="nt">&lt;/section&gt;</span>
+</pre>
+
+</figure>
+<h2 id="carousel-body">Carousel body</h2>
 
 <p>A carousel is a collection of items that are displayed one at a time. Provide a corresponding structure in the code to represent this collection of items.</p>
 
-<h3 class="ap" id="list-of-items">List of items</h3>
-
-<p>In many situations, the carousel items are fairly brief so that a simple a list (<code>&lt;ul&gt;</code>) with individual list items (<code>&lt;li&gt;</code>) is sufficient to represent the carousel. See the example below for a demo of this robust approach:</p>
+<p>Usually, carousel items are collected in a list (<code>&lt;ul&gt;</code>), with list items (<code>&lt;li&gt;</code>) grouping the content of each individual slide.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;ul&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<h3 class="ap" id="set-of-articles">Set of articles</h3>
-
-<p>If carousel items have a lot of complex content, other elements can be used for the carousel framework. For example, HTML5 provides the <code>&lt;article&gt;</code> element, which is useful for carousels with items that are independent pieces of content. Make sure to provide headings for each article. The example below shows the use of <code>&lt;article&gt;</code> elements to represent a carousel.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h4&gt;</span>…<span class="nt">&lt;/h4&gt;</span>
-      …
-    <span class="nt">&lt;/article&gt;</span>
-    <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h4&gt;</span>…<span class="nt">&lt;/h4&gt;</span>
-      …
-    <span class="nt">&lt;/article&gt;</span>
-    <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h4&gt;</span>…<span class="nt">&lt;/h4&gt;</span>
-      …
-    <span class="nt">&lt;/article&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<h3 id="label-carousels">Label carousels</h3>
-
-<p>For assistive technology users, it is important to add information to the carousel container that informs the user where the carousel starts and ends, as a carousel is typically a distinct part of a web page. A heading (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>) or WAI-ARIA attributes can be used to label them.</p>
-
-<h4 class="ex" id="using-headings">Using headings</h4>
-
-<p>In the example below, a heading shows the start of the carousel, the end of the carousel would be marked by the next heading of the same level.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;article</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;h4&gt;</span>…<span class="nt">&lt;/h4&gt;</span>
-      …
-    <span class="nt">&lt;/article&gt;</span>
-    …
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<h4 class="ex" id="using-wai-aria-roles-and-labels">Using WAI-ARIA roles and labels</h4>
-
-<p>To group the carousel in a way that is perceivable for assistive technologies, the <code>role</code> attribute with a value of <code>region</code> can be used. To identify the region, the <code>aria-label</code> attribute can be used, as show in the example below:</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="na">aria-label=</span><span class="s">"Recent news"</span><span class="nt">&gt;</span>
-    …
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<p>If there is already some text identifying the carousel in HTML, it is usually more appropriate to use the <code>aria-labelledby</code> attribute to assign that text to the carousel.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="na">aria-labelledby=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
-    …
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<h2 class="newex" id="item-structure">Item structure</h2>
-
-<p>Provide proper structure for content within individual carousel items. This makes them independent pieces of content that can be rendered and used in different ways.</p>
-
-<h3 class="ex" id="brief-content">Brief content</h3>
-
-<p>In the following example, each carousel item only consists of an image, so that a simple list is used to represent the carousel. The carousel itself is identified using a heading, and the text alternatives are provided for the images within the carousel items. The code provides structure and meaning, even without any styling and scripting added.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;h3&gt;</span>Photos of our trip to Paris:<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="err">…</span><span class="nt">&gt;</span>
+  …
   <span class="nt">&lt;ul&gt;</span>
-      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"path/to/image1.jpg"</span> <span class="na">alt=</span><span class="s">"Alternative text 1"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/li&gt;</span>
-      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"path/to/image2.jpg"</span> <span class="na">alt=</span><span class="s">"Alternative text 2"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/li&gt;</span>
-      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"path/to/image3.jpg"</span> <span class="na">alt=</span><span class="s">"Alternative text 3"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    …
   <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre>
 
 </figure>
-<h3 class="ex" id="complex-content">Complex content</h3>
+<h2 id="item-content">Item content</h2>
 
-<p>This example also uses a list, even though the carousel items consist of more substantial content than in the previous example. The individual carousel items are not independent pieces of content and thus not suitable for the  <code>&lt;article&gt;</code> element. Each list item includes a heading, text, and links.</p>
+<p>Individual carousel items can consist of simple content, like only an <code>&lt;img&gt;</code> element for an image slider. In other instances complex content is represented in each carousel item, for example complete articles or sections of a web page or even website.</p>
+
+<p>Mark up the content inside the carousel items like you would in the normal document content. If the content can stand on its own, you may even use articles inside of the carousel item.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: Simple Content</figcaption>
+<pre class="highlight html">…
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"teddy1.jpg"</span> <span class="na">alt=</span><span class="s">"Space Teddy"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+…
+</pre>
+
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: Stand alone content</figcaption>
+<pre class="highlight html">…
+<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy1.jpg');"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;article&gt;</span>
+    <span class="nt">&lt;h4&gt;</span>Space Teddy production reaches all-time high<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Teddies in Space Inc. has released outstanding numbers for the last solar year. The production of Space Teddies increased by 17%. The new version, scheduled to be released in a few months, will likely be the biggest Space Teddy release ever.<span class="nt">&lt;/p&gt;</span>
+    …
+  <span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</pre>
+
+</figure>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+
+<p>For the rest of the tutorial, the following code is used as the foundations for adding styling, functionality and animations. It contains three teasers to featured content. Each teaser consists of a heading and a short paragraph with a read more link.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;h3&gt;</span>Featured Articles:<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"featured"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"featured"</span><span class="nt">&gt;</span>Featured Articles:<span class="nt">&lt;/h3&gt;</span>
     <span class="nt">&lt;ul&gt;</span>
         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy1.jpg');"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;h4&gt;</span>Space Teddy production reaches all-time high<span class="nt">&lt;/h4&gt;</span>
@@ -208,19 +203,13 @@
             <span class="nt">&lt;/p&gt;</span>
         <span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
 </pre>
 
 </figure>
-<h2 class="newex" id="carousel-styling">Carousel styling</h2>
+<h3 id="add-styling">Add styling</h3>
 
-<p>At this stage the carousel does not have any functionality. This is added later using scripting, based on the class names of the elements. By using this approach, the content is still meaningfull even in situations when scripting is not enabled, including bad network connection or user choice. Basic styling for the carousel is provided so that it looks appropriate even when scripting is not enabled. </p>
-
-<p>When carousels use text that overlays a background image, the contrast ratio (“color contrast”) requirements need to be met.</p>
-
-<h3 class="ex" id="styled-carousel">Styled carousel</h3>
-
-<p>The example below shows how the carousel structure from the previous example is styled. As the background images can be distracting, using a background color for the overlaying text is a good way to ensure a good contrast ratio regardless of the image. Here, a semi-transparent background with a high opacity (here: 80%) is added to the text. </p>
+<p>To improve the flexibility of the carousel, a progressive enhancement approach is used. Styling is applied to the carousel items so they appear as a list of teasers if no JavaScript is available.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -302,6 +291,10 @@
 
   </div></figure>
 
+<div class="notes ">
+<p><strong>Note:</strong> As the background images can be distracting, a (semi-transparent) background color for the overlaying text ca help to improve the contrast.</p>
+
+</div>
 
 
       <div class="resources">
@@ -819,6 +812,10 @@
         
         
       
+        
+        
+        
+      
     
   </ul>
 </div>
@@ -863,6 +860,10 @@
             <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
           
         
+          
+            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete code example</span></a></li>
+          
+        
       
     </ul>
     <h2 class="list-heading" id="list-heading-topics">
@@ -889,7 +890,7 @@
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      17 July 2015
+	      22 July 2015
 	      
 			</li>
       <li>
