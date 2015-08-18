@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content draft">
+<main role="main" class="content approved-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -51,10 +51,6 @@
     </header>
 
     
-      <div class="status">
-        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
-      </div>
-    
     
 
 
@@ -65,55 +61,15 @@
       
 
 
-      <p>Semantic markup of menu structures makes them adaptable to different situations, such as displaying on small screens, zooming, and interaction with assistive technologies.</p>
+      <p>Semantic markup conveys the structure of the menu to users. It also makes the menu adaptable when used in different situations such as small screen display, zoomed in, and used with assistive technologies.</p>
 
-<h2 id="menu-region">Menu region</h2>
+<h2 class="newap" id="list-of-links">List of Links</h2>
 
-<aside class="reference">
-<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
-
-</aside>
-<p>Provide semantic markup to define the menu as a distinct part of the web page. Use the <code>&lt;nav&gt;</code> element in HTML5 as container for the menu to ensure that it can be located by web browsers and assistive technologies. For example, some tools allow users to directly jump to these regions through keyboard controls.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML5</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav&gt;</span>…<span class="nt">&lt;/nav&gt;</span>
-</pre>
-
-</figure>
-<p>In HTML4, use WAI-ARIA to define the menu by setting the <code>role</code> attribute to the value <code>navigation</code> on the element that contains the menu; usually a <code>&lt;div&gt;</code>.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML4</figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
-<h2 class="newap" id="menu-label">Menu label</h2>
-
-<aside class="reference">
-<p>For more information on regions, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
-
-</aside>
-<p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
-
-<p>In menu tutorial examples, <code>aria-labelledby</code> with a hidden heading is used:</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;/nav&gt;</span>
-</pre>
-
-</figure>
-<h2 class="newap" id="menu-body">Menu body</h2>
-
-<p>Menus can be described as a collection of links. Use lists to convey this structure. For example, assistive technologies can then describe the menu to users by announcing the number of items it contains, or display the menu in different way, such as item by item.</p>
+<p>If a navigation consists of more than very few links, using a list is the most effective way to convey the menu structure to users. With this structural information assistive technologies can announce the number of items in the menu.</p>
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>Use an unordered list (<code>&lt;ul&gt;</code>) when the order of the menu items is not important. In the following example, there is no dependency between the menu items. Most menus are unordered.</p>
+<p>If the sequence of reading the pages is not important to understand the website, an unordered list (<code>&lt;ul&gt;</code>) should be used. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -130,7 +86,7 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>Some menus imply a certain order, such as book chapters or steps through forms. In the example below, the menu links to different sections of instructions for building a space ship. It uses an ordered list to reflect the order in which these sections are organized.</p>
+<p>In some instances, pages need to be read in a certain sequence, for example if the menu provides access to chapters in prose or steps in a construction manual. In the example below, following the order is important to properly build the space ship.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -142,6 +98,42 @@
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Mount Engine to Chassis<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	…
 <span class="nt">&lt;/ol&gt;</span>
+</pre>
+
+</figure>
+<h2 id="identifying-the-menu">Identifying the menu</h2>
+
+<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly jump to the menu if WAI-ARIA landmarks are supported. The <code>&lt;nav&gt;</code> element wraps the unordered or ordered list that contains the navigation options.</p>
+
+<aside class="reference">
+<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
+
+</aside>
+<figure class="code ">
+  <figcaption>Code snippet: HTML</figcaption>
+<pre class="highlight html"><span class="nt">&lt;nav&gt;</span>
+	<span class="nt">&lt;ul&gt;</span>
+		…
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre>
+
+</figure>
+<h2 class="newap" id="labeling-navigations">Labeling navigations</h2>
+
+<aside class="reference">
+<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
+
+</aside>
+<p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
+
+<p>In menu tutorial examples, <code>aria-labelledby</code> with a hidden heading is used:</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML</figcaption>
+<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
 </pre>
 
 </figure>
@@ -734,9 +726,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [DRAFT] updated
+	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      22 July 2015
+	      18 August 2015
 	      
 			</li>
       <li>
