@@ -63,11 +63,16 @@
 
       <p>Fly-out menus contextual menu items that give users more choice when they interact with a menu item. They are used to provide links to sub pages of the main menu item and are sometimes called dropdown menus.</p>
 
-<p>They need to be operable using assistive technologies and the keyboard. For people with reduced dexterity it is also important that submenus don’t close immediately when the mouse leaves the clickable area.</p>
+<h2 id="indicate-submenus">Indicate submenus</h2>
 
-<p>To make navigating a fly-out menu easier, invisible links should be hidden completely from the page. They should only show up when requested by the user to minimize unnecessary and potentially confusing keyboard interaction and not read out by screen readers.</p>
+<p><!-- Keep submenu items visible for a short while when the mouse leaves the clickable area to allow users to reenter the menu if they left the menu by accident. Hide links not currently visible completely from the page to minimize unnecessary and potentially confusing keyboard interactions. This ensures that they are not read out by screen readers. --></p>
 
-<p>Usually the first-level menu items are links to individual pages whether they have a submenu or not. It is important to be able to distinguish menu items with and without sub menus, both visually and in code. In the following example, only the SpaceBears menu item has a submenu:</p>
+<p>It is important to be able to distinguish menu items with and without sub menus. In the following example, only the SpaceBears menu item has a submenu. For visual users an arrow is added to the menu item to indicate the submenu. For assistive technologies, this information also needs to be provided in the code using WAI-ARIA attributes:</p>
+
+<ul>
+  <li><code>aria-haspopup="true"</code> is used so screen readers are able to announce that the link has a submenu.</li>
+  <li><code>aria-expanded</code> is initially set to <code>false</code> to indicate that the submenu is not visible. <!-- but changed to `true` when the submenu opens which helps screen readers to announce that this menu item is now expanded. --></li>
+</ul>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -77,7 +82,7 @@
 				<li><a href="#flyoutnav">Home</a></li>
 				<li><a href="#flyoutnav">Shop</a></li>
 				<li class="has-submenu">
-						<a href="#flyoutnav">SpaceBears</a>
+						<a href="#flyoutnav" aria-haspopup="true" aria-expanded="false">SpaceBears</a>
 						<ul>
 								<li><a href="#flyoutnav">SpaceBear 6</a></li>
 								<li><a href="#flyoutnav">SpaceBear 6 Plus</a></li>
@@ -176,7 +181,9 @@
 				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 				<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Shop<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 				<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"has-submenu"</span><span class="nt">&gt;</span>
-						<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>SpaceBears<span class="nt">&lt;/a&gt;</span>
+						<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+							SpaceBears
+						<span class="nt">&lt;/a&gt;</span>
 						<span class="nt">&lt;ul&gt;</span>
 								<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>SpaceBear 6<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 								<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>SpaceBear 6 Plus<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -189,7 +196,11 @@
 </pre>
 
 </figure>
-<p>For mouse users, hiding the submenu until the mouse hovers over the first-level menu item is quite easy to do in CSS only, but this method has the disadvantage that the menu immediately closes once the mouse leaves the list item (and the containing submenu).</p>
+<h2 id="add-functionality">Add functionality</h2>
+
+<h3 id="mouse-users">Mouse users</h3>
+
+<p>For users of mice or other pointing devices, such as trackpads or trackballs, hiding the submenu until the mouse hovers over the first-level menu item is quite easy to do in CSS only, but this method has the disadvantage that the menu immediately closes once the mouse leaves the list item around the top-level menu item (including the submenu).</p>
 
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
@@ -202,13 +213,7 @@
 </pre>
 
 </figure>
-<h2 id="enhancing-the-menu-using-javascript">Enhancing the menu using JavaScript</h2>
-
-<p>By using JavaScript, it is possible to react to keyboard usage and mouse movements to improve the user interaction with the menu.</p>
-
-<h3 id="improve-mouse-support">Improve mouse support</h3>
-
-<p>To avoid submenu items vanishing as soon as the mouse pointer leaves the menu, a timer is started which closes the menu after one second. If the mouse re-enters the submenu during that time, the timer is canceled and the submenu doesn’t close.</p>
+<p>By using scripting this behavior can be avoided: a timer is started which closes the menu after one second. If the mouse re-enters the submenu during that time, that timer is canceled and, as a result, the submenu stays open.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -218,7 +223,7 @@
 				<li><a href="#flyoutnavmousefixed">Home</a></li>
 				<li><a href="#flyoutnavmousefixed">Shop</a></li>
 				<li class="has-submenu">
-						<a href="#flyoutnavmousefixed">SpaceBears</a>
+						<a href="#flyoutnavmousefixed" aria-haspopup="true" aria-expanded="false">SpaceBears</a>
 						<ul>
 								<li><a href="#flyoutnavmousefixed">SpaceBear 6</a></li>
 								<li><a href="#flyoutnavmousefixed">SpaceBear 6 Plus</a></li>
@@ -333,16 +338,9 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </pre>
 
 </figure>
-<h3 id="improve-keyboard-support">Improve keyboard support</h3>
+<h3 id="keyboard-users">Keyboard users</h3>
 
-<p>There are two roles top-level menu items in fly-out menus can have for keyboard users:</p>
-
-<ol>
-  <li>It is just a toggle for the sub menu.</li>
-  <li>It links to a page itself and needs to toggle the sub menu.</li>
-</ol>
-
-<p>Usually the submenu should not open when the focus enters the top-level menu item as a keyboard would need to step through all the submenu items to get to the next top-level item.</p>
+<p>Usually the submenu should not open when the top-level menu item is focused as a keyboard user would need to step through all the submenu items to get to the next top-level item.</p>
 
 <h4 class="ap" id="toggle-submenu-using-the-top-level-menu-item">Toggle submenu using the top-level menu item</h4>
 
@@ -493,8 +491,10 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		el.querySelector('a').addEventListener("click",  function(event){
 			if (this.parentNode.className == "has-submenu") {
 				this.parentNode.className = "has-submenu open";
+				this.setAttribute('aria-expanded', "true");
 			} else {
 				this.parentNode.className = "has-submenu";
+				this.setAttribute('aria-expanded', "false");
 			}
 			event.preventDefault();
 		});
@@ -521,8 +521,14 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>The following code example iterates through all top-level items that have a submenu (indicated through the class <code>has-submenu</code>) and adds click event to the first (top-level) link in each menu item. Despite the name, click events are activated regardless of the input method as soon as the link gets activated. If the submenu is closed at the time the link is activated, the script opens the submenu, and vice versa.</p>
+<p>The following code iterates through all top-level items that have a submenu (indicated through the class <code>has-submenu</code>) and adds a click event to the first link (which is the top-level item). When the link is activated, the script opens or closes the submenu depending on its state.</p>
 
+<p>In addition, the <code>aria-expanded</code> attribute is set to <code>true</code> when the menu is shown and to <code>false</code> when it is hidden from view.</p>
+
+<div class="notes ">
+<p><strong>Note:</strong> Despite the name, click events are activated regardless of the input method as soon as the link gets activated. </p>
+
+</div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
 <pre class="highlight javascript"><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
@@ -530,8 +536,10 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	<span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
 		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s2">"has-submenu"</span><span class="p">)</span> <span class="p">{</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu open"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
 		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
 		<span class="p">}</span>
 		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
@@ -542,7 +550,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </figure>
 <h4 class="ap" id="toggle-submenu-using-a-special-show-submenu-button">Toggle submenu using a special “show submenu” button</h4>
 
-<p>If the top-level menu item should stay a link to a page, adding a separate button that toggles the submenu is the most reliable way to address the issue.</p>
+<p>If the top-level menu item should stay a link to a page, adding a separate button that toggles the submenu is the most reliable way to address the issue. This button can act as a visual submenu indicator as well.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -735,8 +743,10 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		el.querySelector('a button').addEventListener("click",  function(event){
 			if (this.parentNode.parentNode.className == "has-submenu") {
 				this.parentNode.parentNode.className = "has-submenu open";
+				this.parentNode.setAttribute('aria-expanded', "true");
 			} else {
 				this.parentNode.parentNode.className = "has-submenu";
+				this.parentNode.setAttribute('aria-expanded', "false");
 			}
 			event.preventDefault();
 		});
@@ -776,9 +786,11 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	<span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a button'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
 		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">==</span> <span class="s2">"has-submenu"</span><span class="p">)</span> <span class="p">{</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu open"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.visuallyhidden'</span><span class="p">).</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'hide submenu'</span><span class="p">;</span>
 		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"has-submenu"</span><span class="p">;</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
 			<span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.visuallyhidden'</span><span class="p">).</span><span class="nx">innerText</span> <span class="o">=</span> <span class="s1">'show submenu'</span><span class="p">;</span>
 		<span class="p">}</span>
 		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
@@ -787,195 +799,6 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </pre>
 
 </figure>
-<h2 id="improve-screen-reader-support-using-wai-aria">Improve screen reader support using WAI-ARIA</h2>
-
-<p>Screen reader users need to know if an item has a submenu or not and if that submenu is currently open. While this can be done with hidden text as shown above, WAI-ARIA helps to convey this information programmatically so it can be picked up by assistive technologies in a consistent way. The two relevant WAI-ARIA attributes are:</p>
-
-<ul>
-  <li><strong><code>aria-haspopup="true"</code></strong> is used so screen readers are able to announce that the link has a submenu.</li>
-  <li><strong><code>aria-expanded</code></strong> is initially set to <code>false</code> but changed to <code>true</code> when the submenu opens which helps screen readers to announce that this menu item is now expanded.</li>
-</ul>
-
-<figure class="sample show-overflow">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<nav role="presentation" aria-label="Main Navigation" id="flyoutaria">
-		<ul>
-				<li><a href="#flyoutaria">Home</a></li>
-				<li><a href="#flyoutaria">Shop</a></li>
-				<li class="has-submenu">
-						<a href="#" aria-haspopup="true" aria-expanded="false">SpaceBears</a>
-						<ul>
-								<li><a href="#flyoutaria">SpaceBear 6</a></li>
-								<li><a href="#flyoutaria">SpaceBear 6 Plus</a></li>
-						</ul>
-				</li>
-				<li><a href="#flyoutaria">MarsCars</a></li>
-				<li><a href="#flyoutaria">Contact</a></li>
-		</ul>
-</nav>
-
-<style>
-.show-overflow {
-		overflow: visible !important;
-}
-
-.show-overflow .box-content {
-		overflow: visible !important;
-}
-	#flyoutaria {
-			display:table;
-			width:100%;
-	}
-	#flyoutaria > ul {
-			margin: 0;
-			padding: 0;
-			display: table-row;
-			background-color: #036;
-			color: #fff;
-	}
-	#flyoutaria > ul > li {
-			display:table-cell;
-			width: 20%;
-			text-align: center;
-			position:relative;
-	}
-	#flyoutaria a,
-	#flyoutaria .current {
-			display: block;
-			padding: .25em;
-			border-color: #E8E8E8;
-	}
-	#flyoutaria a {
-			color: #fff;
-			text-decoration: none;
-	}
-	#flyoutaria a:hover,
-		#flyoutaria a:focus {
-			background-color: #fff;
-			color: #036;
-			border: 1px solid #036;
-			text-decoration: underline;
-	}
-	#flyoutaria .current {
-			background-color: #bbb;
-			color: #000;
-			border-color: #444;
-	}
-
-	#flyoutaria > ul > li > ul {
-		display: none;
-		position:absolute;
-		left:0;
-		right:0;
-		top:100%;
-		padding:0;
-		margin:0;
-		background-color: #036;
-	}
-
-#flyoutaria > ul > li.open > ul {
-		display:block;
-	}
-
-	#flyoutaria > ul > li > ul a{
-		border-bottom-width: 1px;
-	}
-</style>
-
-<script>
-/* focusin/out event polyfill (firefox) */
-!function(){
-	var w = window,
-	d = w.document;
-
-	if( w.onfocusin === undefined ){
-		d.addEventListener('focus' ,addPolyfill ,true);
-		d.addEventListener('blur' ,addPolyfill ,true);
-		d.addEventListener('focusin' ,removePolyfill ,true);
-		d.addEventListener('focusout' ,removePolyfill ,true);
-	}
-	function addPolyfill(e){
-		var type = e.type === 'focus' ? 'focusin' : 'focusout';
-		var event = new CustomEvent(type, { bubbles:true, cancelable:false });
-		event.c1Generated = true;
-		e.target.dispatchEvent( event );
-	}
-	function removePolyfill(e){
-if(!e.c1Generated){ // focus after focusin, so chrome will the first time trigger tow times focusin
-	d.removeEventListener('focus' ,addPolyfill ,true);
-	d.removeEventListener('blur' ,addPolyfill ,true);
-	d.removeEventListener('focusin' ,removePolyfill ,true);
-	d.removeEventListener('focusout' ,removePolyfill ,true);
-}
-setTimeout(function(){
-	d.removeEventListener('focusin' ,removePolyfill ,true);
-	d.removeEventListener('focusout' ,removePolyfill ,true);
-});
-}
-}();
-
-function hasClass(el, className) {
-	if (el.classList) {
-		return el.classList.contains(className);
-	} else {
-		return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
-	}
-}
-
-var menuItems1 = document.querySelectorAll('#flyoutaria li.has-submenu');
-var timer1, timer2;
-
-Array.prototype.forEach.call(menuItems1, function(el, i){
-		el.addEventListener("mouseover", function(event){
-				this.className = "has-submenu open";
-				this.setAttribute('aria-expanded', "true");
-				clearTimeout(timer1);
-		});
-		el.addEventListener("mouseout", function(event){
-				timer1 = setTimeout(function(event){
-						var opennav = document.querySelector("#flyoutaria .has-submenu.open");
-						if (opennav) {
-							opennav.className = "has-submenu";
-							opennav.querySelector("[aria-expanded]").setAttribute('aria-expanded', "false");
-						}
-				}, 1000);
-		});
-		el.querySelector('a').addEventListener("click",  function(event){
-			if (this.parentNode.className == "has-submenu") {
-				this.parentNode.className = "has-submenu open";
-				this.setAttribute('aria-expanded', "true");
-			} else {
-				this.parentNode.className = "has-submenu";
-				this.setAttribute('aria-expanded', "false");
-			}
-			event.preventDefault();
-			return false;
-		});
-		var links = el.querySelectorAll('a');
-		Array.prototype.forEach.call(links, function(el, i){
-			el.addEventListener("focus", function() {
-				if (timer2) {
-					clearTimeout(timer2);
-					timer2 = null;
-				}
-			});
-			el.addEventListener("blur", function(event) {
-				timer2 = setTimeout(function () {
-					var opennav = document.querySelector("#flyoutaria .has-submenu.open")
-					if (opennav) {
-						opennav.className = "has-submenu";
-						opennav.querySelector("[aria-expanded]").setAttribute('aria-expanded', "false");
-					}
-				}, 10);
-			});
-		});
-});
-</script>
-
-
-  </div></figure>
-
 
 
       <div class="resources">
@@ -1460,7 +1283,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      18 August 2015
+	      24 August 2015
 	      
 			</li>
       <li>
