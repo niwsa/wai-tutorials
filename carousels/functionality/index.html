@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content editors-draft">
+<main role="main" class="content approved-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -52,10 +52,6 @@
 
     
     
-      <div class="status">
-        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
-      </div>
-    
 
 
     <div class="inner">
@@ -65,14 +61,18 @@
       
 
 
-      <p>Carusels display the one content item at a time while hiding the others. They allow users to browse through them.</p>
+      <p>Provide functionality using scripting to display the carousel items one at a time, and to allow users to browse through them.</p>
 
-<h2 id="position-slides">Position slides</h2>
+<h2 id="displaying-carousel-items">Displaying carousel items</h2>
 
-<p>If the JavaScript is enabled, a class <code>active</code> is added to the carousel region so we can distinguish between that state and the non-JavaScript fallback. The slides are positioned absolutely in the carousel, and the current slide is positioned frontmost using <code>z-index</code>.</p>
+<p>Carousel items that are visually hidden should also be hidden from assistive technology, to avoid a mismatch between what is visually on the screen and what the user is interacting with. All carousel items that are not displayed visually are hidden by using the CSS <code>display: none</code> declaration.</p>
+
+<h3 class="ex" id="styling-when-scripting-is-enabled">Styling when scripting is enabled</h3>
+
+<p>In the example below, JavaScript is used to add the class name <code>active</code> to the carousel container. The styling hides all the slides in a stack with only the slide with the class name <code>current</code> being visible on top. That class name is added to the item using JavaScript as well.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: </figcaption>
+  <figcaption>Code snippet: CSS</figcaption>
 <pre class="highlight css"><span class="nc">.active</span> <span class="nc">.slide</span> <span class="p">{</span>
   <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
   <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
@@ -202,10 +202,16 @@
 
 <h2 id="adding-previous-and-next-buttons">Adding previous and next buttons</h2>
 
-<p>Add <code>&lt;button&gt;</code> elements that allow users to switch back and forth between carousel items. They can be individually styled and also provide semantic meaning. Such elements are also compatible with assistive technology and keyboard use. </p>
+<p>Scripting is used to add buttons that allow users to switch back and forth between carousel items. While those buttons can be individually styled, it is useful to code them using <code>&lt;button&gt;</code> elements. This gives them semantic meaning and also makes them more compatible with assistive technology and keyboard use. </p>
 
-<p>In the example below, JavaScript is used to generate buttons and insert them into the carousel. These particular buttons are visually displayed as arrows that overlay the carousel items.</p>
+<p>In the example below, JavaScript is used to generate buttons and insert them into the carousel. These particular buttons are visually displayed as arrows that overlay the carousel items. The images use the alternative text "Previous Slide" and "Next Slide", respectively.</p>
 
+<p>As with the text, a semi-transparent white background is used to ensure sufficient color contrast between the black arrows and the slide images. The buttons also increase in size when users hover over or focuses them. This provides more click area for people with reduced dexterity and better highlight where the current focus is.</p>
+
+<div class="notes ">
+<p><strong>Note:</strong> If the carousel uses <code>&lt;a&gt;</code> instead of <code>&lt;button&gt;</code> elements, a <code>href</code> attribute needs to be present to enable keyboard access. Additionally <code>role="button"</code> should be applied to the link so assistive technology users know that they expect an interaction on the page rather than a link to another page.</p>
+
+</div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
 <pre class="highlight javascript"><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
@@ -266,9 +272,7 @@
 <span class="p">}</span>
 </pre>
 </figure>
-<h2 id="announcing-slides">Announcing slides</h2>
-
-<p>When the current item changes, a WAI-ARIA live region should be used to inform screen reader users which slide is currently visible. Note that the current slide is not activated by moving the keyboard focus there. This is done to allow users to skip several items at once.</p>
+<p>Additionally, a WAI-ARIA live region should be used to inform screen reader users which slide is now visible. Note that the current slide does not receive focus when activation the previous or next button as a user might want to skip several slides without navigating to the controls after every slide change.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Extend event listeners</figcaption>
@@ -523,11 +527,11 @@
 
   </div></figure>
 
-<h2 class="newex" id="items-navigation">Items navigation</h2>
+<h2 class="newex" id="items-indicator">Items indicator</h2>
 
-<p>Display a list of buttons that indicate which carousel item is currently displayed and allow users to switch to any carousel item.</p>
+<p>Indicating the total number of carousel items and which one of them is currently being displayed helps users to orient themselves. Ideally each carousel item has a corresponding button that is styled acording to the state of the carousel item. Providing these buttons within a list, adds meaning and semantics to the content, such as the number and order of the carousel items.</p>
 
-<p>In the example below, the list with buttons is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and using hidden text.</p>
+<p>The list with buttons below is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button corresponding to the currently displayed carousel item is highlighted both visually and using hidden text. Also the button that currently has the keyboard or mouse focus is highlighted.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -613,11 +617,9 @@
 
 <h3 id="focusing-carousel-items">Focusing carousel items</h3>
 
-<p>Whe a user selects an item through the carousel navigation it should be focused by default. A keyboard or assistive technology user is sent to the item immediately.</p>
+<p>In contrast to the previous/next buttons, when users select a carousel item directly through the item buttons, the focus should be set to the corresponding carousel item.</p>
 
-<p>The <code>&lt;li&gt;</code> elements used for the carousel items itself are not focusable by default. However if the <code>tabindex</code> attribute with a value <code>-1</code> is added to the items, JavaScript is able to set the focus to those items.</p>
-
-<p>This behavior is different to the behavior of the previous and next buttons as the user may want to skip several items at once using those buttons.</p>
+<p>Carousel items will often be coded using elements that, by default, are not focusable, such as <code>&lt;li&gt;</code> or  <code>&lt;article&gt;</code> elements. Use the <code>tabindex</code> attribute with its value set to <code>-1</code>, to make such elements capable of receiving focus using JavaScript, then set the focus on them, see the code snippet below. It illustrates how the <code>tabindex</code> attribute and the focus are set when a carousel item is selected, and how the carousel item indicator is updated accordingly.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -650,11 +652,10 @@
   <span class="p">}</span>
 <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
 </pre>
-
 </figure>
 <h2 id="putting-it-all-together">Putting it all together</h2>
 
-<p>The sample below is the complete working demo of the carousel. It includes buttons for users to advance back and forth between the carousel items, and a carousel item indicator that allows users to see which carousel item they are currently viewing and to jump to other carousel items.</p>
+<p>The sample below is the complete working demo of the carousel. It includes buttons for users to advance back and forth between the carousel items, and a carousel item indicator that allows users to see which carousel item they are currently viewing and to jump to other carousel items. Animating this carousel will be explained on the next page.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -1072,10 +1073,6 @@ c3.init({
           </li>
         
       
-        
-        
-        
-      
     
   </ul>
 </div>
@@ -1120,10 +1117,6 @@ c3.init({
             <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
           
         
-          
-            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete code example</span></a></li>
-          
-        
       
     </ul>
     <h2 class="list-heading" id="list-heading-topics">
@@ -1148,9 +1141,9 @@ c3.init({
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [EDITOR’S DRAFT] updated
+	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      24 August 2015
+	      13 November 2015
 	      
 			</li>
       <li>
