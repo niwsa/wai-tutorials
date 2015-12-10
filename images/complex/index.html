@@ -95,47 +95,8 @@
 <p><strong>Note:</strong> See <a href="../examples/2014-first-qtr/">example long description</a> associated with this image.</p>
 
 </div>
-<p>Among the approaches below, the first and second one make the information available to other programs, such as web browsers and search engines.</p>
+<p>Among the approaches below, the first and fourth one make the information available to other programs, such as web browsers and search engines.</p>
 
-<h3 class="ap" id="providing-a-link-to-the-long-description-via-longdesc">Providing a link to the long description via <code>longdesc</code></h3>
-
-<aside class="annotation">
-  <h4 class="annotation-header"><span class="subhead">Accessibility Support:</span> <code>Longdesc</code>, Web Browsers, and Assistive Technologies</h4>
-  <div class="annotation-content">
-    <p>In Firefox, long descriptions linked by <code>longdesc</code> are available to all users through “View description” in the image’s context menu. There is an <a href="https://chrome.google.com/webstore/detail/long-descriptions-in-cont/ohbmencljkleiedahijfkagnmmhbilgp">official Chrome Extension</a> that adds long description access in a similar way. Safari has no support for <code>longdesc</code>. In other web browsers, <code>longdesc</code> is currently available only to screen reader users. Mobile platforms currently do not support <code>longdesc</code>.</p>
-    <p>No browser indicates the presence of the <code>longdesc</code> attribute visually.</p>
-  </div>
-</aside>
-
-<p>The <code>longdesc</code> attribute can contain the URI of a separate web page that provides the long description for an image or a fragment identifier that refers to an element on the same page that provides the long description.</p>
-
-<p>When the <code>longdesc</code> attributes contains a URI to refer to another web page with the long description, it is recommended to also apply <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 3 (a text link to the long description adjacent to the image)</a>. This is a work-around for web browsers and assistive technologies that don’t fully support the <code>longdesc</code> attribute.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;img</span>
-	<span class="na">src=</span><span class="s">"chart.png"</span>
-	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
-	<span class="na">longdesc=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>Long Description<span class="nt">&lt;/a&gt;</span>
-</pre>
-
-</figure>
-<p>When the <code>longdesc</code> attribute contains a fragment identifier (<code>#</code> followed by the <code>id</code> of an element on the same web page - a “hash link”), it refers to an element on the same web page that provides the long description. It addresses a similar use case as <a href="#structurally-associating-image-and-long-description-with-aria-describedby">Example 2, Approach 1</a>, though the support by web browsers and assistive technologies may vary. An additional link (by applying <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 2</a>) is not needed when the long description is in close proximity to the image.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;img</span>
-	<span class="na">src=</span><span class="s">"chart.png"</span>
-	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
-	<span class="na">longdesc=</span><span class="s">"#chart-longdesc"</span><span class="nt">&gt;</span>
-[…]
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"chart-longdesc"</span><span class="nt">&gt;</span>
-	[…]
-<span class="nt">&lt;/div&gt;</span>
-</pre>
-
-</figure>
 <h3 class="ap" id="a-text-link-to-the-long-description-adjacent-to-the-image">A text link to the long description adjacent to the image</h3>
 
 <p>This approach provides a text link next to the image that refers to a separate web page or a section of the same web page that contains the long description. The link text needs to clarify the destination, and associate it with the image.</p>
@@ -236,6 +197,45 @@
 <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;</span>
   The male is metallic blue on the crown, the feathers of the head being short and curled. The fan-shaped crest on the head is made of feathers with bare black shafts and tipped with blush-green webbing. A white stripe above the eye and a crescent shaped white patch below the eye are formed by bare white skin. The sides of the head have iridescent greenish blue feathers. The back has scaly bronze-green feathers with black and copper markings.
 <span class="nt">&lt;/p&gt;</span>
+</pre>
+
+</figure>
+<h3 class="ap" id="providing-a-link-to-the-long-description-via-longdesc">Providing a link to the long description via <code>longdesc</code></h3>
+
+<aside class="annotation">
+  <h4 class="annotation-header"><span class="subhead">Accessibility Support:</span> <code>Longdesc</code>, Web Browsers, and Assistive Technologies</h4>
+  <div class="annotation-content icon-warning-sign">
+    <p><strong>Warning!</strong> In Firefox, long descriptions linked by <code>longdesc</code> are available to mouse users through “View description” in the image’s context menu. There is an <a href="https://chrome.google.com/webstore/detail/long-descriptions-in-cont/ohbmencljkleiedahijfkagnmmhbilgp">official Chrome Extension</a> that adds long description access in a similar way. Safari has no support for <code>longdesc</code>. In other web browsers, <code>longdesc</code> is currently available only to screen reader users. Mobile platforms currently do not support <code>longdesc</code>.</p>
+    <p>No browser indicates the presence of the <code>longdesc</code> attribute visually.</p>
+  </div>
+</aside>
+
+<p>The <code>longdesc</code> attribute can contain the URI of a separate web page that provides the long description for an image or a fragment identifier that refers to an element on the same page that provides the long description.</p>
+
+<p>When the <code>longdesc</code> attributes contains a URI to refer to another web page with the long description, it is recommended to also apply <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 3 (a text link to the long description adjacent to the image)</a>. This is a work-around for web browsers and assistive technologies that don’t fully support the <code>longdesc</code> attribute.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;img</span>
+	<span class="na">src=</span><span class="s">"chart.png"</span>
+	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
+	<span class="na">longdesc=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>Long Description<span class="nt">&lt;/a&gt;</span>
+</pre>
+
+</figure>
+<p>When the <code>longdesc</code> attribute contains a fragment identifier (<code>#</code> followed by the <code>id</code> of an element on the same web page - a “hash link”), it refers to an element on the same web page that provides the long description. It addresses a similar use case as <a href="#structurally-associating-image-and-long-description-with-aria-describedby">Example 2, Approach 1</a>, though the support by web browsers and assistive technologies may vary. An additional link (by applying <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 2</a>) is not needed when the long description is in close proximity to the image.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;img</span>
+	<span class="na">src=</span><span class="s">"chart.png"</span>
+	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
+	<span class="na">longdesc=</span><span class="s">"#chart-longdesc"</span><span class="nt">&gt;</span>
+[…]
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"chart-longdesc"</span><span class="nt">&gt;</span>
+	[…]
+<span class="nt">&lt;/div&gt;</span>
 </pre>
 
 </figure>
@@ -769,7 +769,7 @@
 				
 	      	Updated
 	      
-	      16 July 2015
+	      10 December 2015
 	      
 		      
 		      (first published September 2014)
