@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/content/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -73,7 +73,7 @@
 
 <h2 id="lists">Lists</h2>
 
-<p>HTML provides ways to group information onto lists of different types. Ordered lists are used for sequential information and are automatically enumerated by the browser. Unordered lists are used when the order of the items is not relevant. List items in unordered lists are marked with a bullet. </p>
+<p>HTML provides ways to group information onto lists of different types. Ordered lists are used for sequential information and are automatically enumerated by the browser. Unordered lists are used when the order of the items is not relevant. List items in unordered lists are marked with a bullet.</p>
 
 <p>Description lists groups of related terms and descriptions and connects those programmatically.</p>
 
@@ -98,7 +98,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;ul&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ul&gt;</span>
     <span class="nt">&lt;li&gt;</span>Corn<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>Tomatoes<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>Beans<span class="nt">&lt;/li&gt;</span>
@@ -106,8 +106,7 @@
     <span class="nt">&lt;li&gt;</span>Garlic<span class="nt">&lt;/li&gt;</span>
     …
 <span class="nt">&lt;/ul&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="ordered-list">Ordered list</h3>
 
@@ -128,7 +127,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;ol&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ol&gt;</span>
     <span class="nt">&lt;li&gt;</span>Cook beans for 45 minutes.<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>Cut vegetables in small cubes.<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>Sauté onions and garlic.<span class="nt">&lt;/li&gt;</span>
@@ -136,8 +135,7 @@
     <span class="nt">&lt;li&gt;</span>Add corn and beans.<span class="nt">&lt;/li&gt;</span>
     …
 <span class="nt">&lt;/ol&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="nested-lists">Nested lists</h3>
 
@@ -165,7 +163,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;ol&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ol&gt;</span>
     <span class="nt">&lt;li&gt;</span>
         Prepare ingredients
         <span class="nt">&lt;ul&gt;</span>
@@ -178,8 +176,7 @@
     <span class="nt">&lt;li&gt;</span>Add corn and beans.<span class="nt">&lt;/li&gt;</span>
     …
 <span class="nt">&lt;/ol&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="newex" id="description-lists">Description lists</h3>
 
@@ -205,19 +202,18 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;dl&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Authors<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>John<span class="nt">&lt;/dd&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Luke<span class="nt">&lt;/dd&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Editor<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Frank<span class="nt">&lt;/dd&gt;</span>
 <span class="nt">&lt;/dl&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h4 class="ex" id="multiple-terms-one-description">Multiple terms, one description</h4>
 
-<p>In the next example, two different spellings of a word are defined using description lists. In such cases, use the <code>dfn</code> element to mark up the defined term. </p>
+<p>In the next example, two different spellings of a word are defined using description lists. In such cases, use the <code>dfn</code> element to mark up the defined term.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -231,13 +227,12 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;dl&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
    <span class="nt">&lt;dt</span> <span class="na">lang=</span><span class="s">"en-US"</span><span class="nt">&gt;&lt;dfn&gt;</span>color<span class="nt">&lt;/dfn&gt;&lt;/dt&gt;</span>
    <span class="nt">&lt;dt</span> <span class="na">lang=</span><span class="s">"en-GB"</span><span class="nt">&gt;&lt;dfn&gt;</span>colour<span class="nt">&lt;/dfn&gt;&lt;/dt&gt;</span>
    <span class="nt">&lt;dd&gt;</span>A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.<span class="nt">&lt;/dd&gt;</span>
 <span class="nt">&lt;/dl&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h4 class="ex" id="multiple-terms-multiple-descriptions">Multiple terms, multiple descriptions</h4>
 
@@ -256,14 +251,13 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;dl&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Authors<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dt&gt;</span>Editors<span class="nt">&lt;/dt&gt;</span>
   <span class="nt">&lt;dd&gt;</span>John<span class="nt">&lt;/dd&gt;</span>
   <span class="nt">&lt;dd&gt;</span>Luke<span class="nt">&lt;/dd&gt;</span>
 <span class="nt">&lt;/dl&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 class="newex" id="quotes">Quotes</h2>
 
@@ -286,12 +280,11 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>The following is an excerpt from the <span class="nt">&lt;cite&gt;</span>The Story of my Life<span class="nt">&lt;/cite&gt;</span> by Helen Keller<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>The following is an excerpt from the <span class="nt">&lt;cite&gt;</span>The Story of my Life<span class="nt">&lt;/cite&gt;</span> by Helen Keller<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;blockquote&gt;</span>
     <span class="nt">&lt;p&gt;</span>Even in the days before my teacher came, I used to feel along the square stiff boxwood hedges, and, guided by the sense of smell, would find the first violets and lilies. There, too, after a fit of temper, I went to find comfort and to hide my hot face  in the cool leaves and grass.<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/blockquote&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="inline-quote">Inline quote</h3>
 
@@ -307,25 +300,22 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>Helen Keller said, <span class="nt">&lt;q&gt;</span>Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world.<span class="nt">&lt;/q&gt;&lt;/p&gt;</span>
-</pre>
-
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>Helen Keller said, <span class="nt">&lt;q&gt;</span>Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world.<span class="nt">&lt;/q&gt;&lt;/p&gt;</span>
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> In older browsers adding quotes automatically wasn’t well supported. If such a browser is to be supported, consider adding quotes inline in the text and removing generated quotes in modern browsers:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>Helen Keller said, “<span class="nt">&lt;q&gt;</span>Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world.<span class="nt">&lt;/q&gt;</span>”<span class="nt">&lt;/p&gt;</span>
-</pre>
-
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>Helen Keller said, “<span class="nt">&lt;q&gt;</span>Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world.<span class="nt">&lt;/q&gt;</span>”<span class="nt">&lt;/p&gt;</span>
+</code></pre>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
-<pre class="highlight css"><span class="nt">q</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span> <span class="p">}</span>
+<pre class="highlight css"><code><span class="nt">q</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">q</span><span class="nd">:after</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span> <span class="p">}</span>
-</pre>
-
+</code></pre>
 </figure>
 </div>
 <h2 id="figures">Figures</h2>
@@ -336,7 +326,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.<span class="nt">&lt;/p&gt;</span>
 
 <span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">aria-labelledby=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;figcaption</span> <span class="na">id=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>G3: SpaceBear sales volume<span class="nt">&lt;/figcaption&gt;</span>
@@ -345,8 +335,7 @@
          <span class="na">longdesc=</span><span class="s">"…"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Long Description<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> For more information on how to mark up diagrams, see <a href="../../images/complex/">complex images</a>.</p>
@@ -872,7 +861,7 @@
 				
 	        [DRAFT] updated
 	      
-	      22 July 2015
+	      19 October 2016
 	      
 			</li>
       <li>

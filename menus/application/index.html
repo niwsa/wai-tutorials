@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/menus/application/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -61,9 +61,9 @@
       
 
 
-      <p>Web application menus use the same basic structure as navigation menus: They often consist of a horizontal menu bar and use fly-out functionality. </p>
+      <p>Web application menus use the same basic structure as navigation menus: They often consist of a horizontal menu bar and use fly-out functionality.</p>
 
-<p>Some additional WAI-ARIA roles help users with assistive technology to operate those menus in a way that is similar to desktop software menus. When using them, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus. </p>
+<p>Some additional WAI-ARIA roles help users with assistive technology to operate those menus in a way that is similar to desktop software menus. When using them, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus.</p>
 
 <p>Note that the keyboard behavior is not automatically changed when adding those roles, but needs to be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="http://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
 
@@ -329,7 +329,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"menubar"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"menubar"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-label=</span><span class="s">"functions"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
 			File
@@ -342,14 +342,13 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 		…
 	<span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>First, we collect all top-level menu items in a variable (<code>appsMenuItems</code>) as well as all submenu items (<code>subMenuItems</code>). An object is defined with the key codes of the keys that need to be handled. This makes the code much more readable. Two variables keep track of the focus in top-level items (<code>currentIndex</code>) and in submenus (<code>subIndex</code>).</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">appsMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li'</span><span class="p">);</span>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">appsMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">subMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li li'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="p">{</span>
 	<span class="na">tab</span><span class="p">:</span>     <span class="mi">9</span><span class="p">,</span>
@@ -362,14 +361,13 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 	<span class="na">down</span><span class="p">:</span>   <span class="mi">40</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">currentIndex</span><span class="p">,</span> <span class="nx">subIndex</span><span class="p">;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>To make the menu work for keyboard users, a <code>tabindex</code> attribute with the value <code>-1</code> is added to the menu items. This enables scripts to set the focus on the element. The first menu item (“File” in this example) is assigned a <code>tabindex</code> value of <code>0</code> which adds it to the tab order and lets the user access the menu. The <code>currentIndex</code> variable is initialized as soon as this first item gets focus.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 		<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
 			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
 			<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -383,8 +381,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
 <span class="p">});</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>All top-level menu items close open submenus when they receive focus and reset the <code>subIndex</code> variable. When individual items are clicked, the visibility of the submenu is toggled by changing the <code>aria-expanded</code> value. If a key is pressed, the appropriate action is carried out.</p>
 
@@ -442,7 +439,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="cm">/* code above */</span>
 
 	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -465,40 +462,39 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
 	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
 		<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">right</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">right</span><span class="p">:</span>
 				<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 				<span class="k">break</span><span class="p">;</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">left</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">left</span><span class="p">:</span>
 				<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 				<span class="k">break</span><span class="p">;</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">tab</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">tab</span><span class="p">:</span>
 				<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
 					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 				<span class="p">}</span>
 				<span class="k">break</span><span class="p">;</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">enter</span><span class="p">:</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">space</span><span class="p">:</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">down</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">enter</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">space</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">down</span><span class="p">:</span>
 				<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
 				<span class="nx">subindex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 				<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
 				<span class="k">break</span><span class="p">;</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">up</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">up</span><span class="p">:</span>
 				<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
 				<span class="kd">var</span> <span class="nx">submenu</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
 				<span class="nx">subindex</span> <span class="o">=</span> <span class="nx">submenu</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 				<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="nx">submenu</span><span class="p">,</span> <span class="nx">subindex</span><span class="p">);</span>
 				<span class="k">break</span><span class="p">;</span>
-			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">esc</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">esc</span><span class="p">:</span>
 				<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a[href="#related"]'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
 		<span class="p">}</span>
 		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 	<span class="p">});</span>
 <span class="p">});</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>Submenu items do behave differently when interacting with them on the keyboard, see the following table for details:</p>
 
@@ -559,34 +555,34 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
 	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
 	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
 			<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">tab</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">tab</span><span class="p">:</span>
 					<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
 						<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 						<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="p">}</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">right</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">right</span><span class="p">:</span>
 					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">left</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">left</span><span class="p">:</span>
 					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">esc</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">esc</span><span class="p">:</span>
 					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">down</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">down</span><span class="p">:</span>
 					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">up</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">up</span><span class="p">:</span>
 					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">space</span><span class="p">:</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">enter</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">space</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">enter</span><span class="p">:</span>
 					<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">innerText</span><span class="p">);</span>
 					<span class="k">break</span><span class="p">;</span>
 			<span class="p">}</span>
@@ -601,8 +597,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 		<span class="p">});</span>
 <span class="p">});</span>
-</pre>
-
+</code></pre>
 </figure>
 <p><a href="../examples/appmenu/">See the complete example code.</a></p>
 

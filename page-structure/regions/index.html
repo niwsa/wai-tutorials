@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/regions/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -95,21 +95,20 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;header&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;header&gt;</span>
   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/images/logo.png"</span> <span class="na">alt=</span><span class="s">"SpaceBear Inc."</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/header&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="navigation">Navigation</h3>
 
-<p>The <code>&lt;nav&gt;</code> element groups a collection of links and makes them available as a navigation to assistive technologies, identifying them using the WAI-ARIA role <code>navigation</code> by default. As there are often more than one navigation section on a given web page, they should always be labelled. </p>
+<p>The <code>&lt;nav&gt;</code> element groups a collection of links and makes them available as a navigation to assistive technologies, identifying them using the WAI-ARIA role <code>navigation</code> by default. As there are often more than one navigation section on a given web page, they should always be labelled.</p>
 
-<p>In the example below there are two <code>&lt;nav&gt;</code> elements, so it is necessary to label them. One the labels, “Main Navigation”, has a title that isn’t shown on the page. In this instance the label is added with the <code>aria-label</code> attribute. “Quick Navigation” is already in a heading on the page, so it is possible to refer to it using the <code>aria-labelledby</code> attribute. For more information on menus, see the <a href="../../menus/">Menu tutorial</a>. </p>
+<p>In the example below there are two <code>&lt;nav&gt;</code> elements, so it is necessary to label them. One the labels, “Main Navigation”, has a title that isn’t shown on the page. In this instance the label is added with the <code>aria-label</code> attribute. “Quick Navigation” is already in a heading on the page, so it is possible to refer to it using the <code>aria-labelledby</code> attribute. For more information on menus, see the <a href="../../menus/">Menu tutorial</a>.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"Main Navigation"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-label=</span><span class="s">"Main Navigation"</span><span class="nt">&gt;</span>
   …
 <span class="nt">&lt;/nav&gt;</span>
 …
@@ -117,8 +116,7 @@
   <span class="nt">&lt;h5</span> <span class="na">id=</span><span class="s">"quicknav-heading"</span><span class="nt">&gt;</span>Quick Navigation<span class="nt">&lt;/h5&gt;</span>
   …
 <span class="nt">&lt;/nav&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="main-content">Main content</h3>
 
@@ -126,26 +124,24 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;main&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;main&gt;</span>
   <span class="nt">&lt;h1&gt;</span>Stellar launch weekend for the SpaceBear 7!<span class="nt">&lt;/h1&gt;</span>
   …
 <span class="nt">&lt;/main&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="page-footer">Page footer</h3>
 
-<p>A region of the web page that has supplemental information, such as links to copyright or privacy statements, or disclaimers, is called a footer. This information should appear inside a <code>&lt;footer&gt;</code> element. </p>
+<p>A region of the web page that has supplemental information, such as links to copyright or privacy statements, or disclaimers, is called a footer. This information should appear inside a <code>&lt;footer&gt;</code> element.</p>
 
 <p>By default the <code>&lt;footer&gt;</code> element has the WAI-ARIA role <code>contentinfo</code> if not used inside of <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> elements. See <a href="#scope">note on scope</a>.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;footer&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;footer&gt;</span>
   <span class="nt">&lt;p&gt;</span><span class="ni">&amp;copy;</span> 2014 SpaceBears Inc.<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/footer&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="complementary-content">Complementary content</h3>
 
@@ -153,12 +149,11 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;aside&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;aside&gt;</span>
   <span class="nt">&lt;h3&gt;</span>Related Articles<span class="nt">&lt;/h3&gt;</span>
   …
 <span class="nt">&lt;/aside&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="search">Search</h3>
 
@@ -178,13 +173,12 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"…"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"…"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"search"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">aria-label=</span><span class="s">"Search"</span><span class="nt">&gt;</span> <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 class="newex" id="in-page-regions">In-page regions</h2>
 
@@ -196,12 +190,11 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;section&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;section&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
   …
 <span class="nt">&lt;/section&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ex" id="articles">Articles</h3>
 
@@ -209,7 +202,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;article&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;article&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
   …
 <span class="nt">&lt;/article&gt;</span>
@@ -217,8 +210,7 @@
   <span class="nt">&lt;h2&gt;</span>Space Bear Extrem<span class="nt">&lt;/h2&gt;</span>
   …
 <span class="nt">&lt;/article&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 id="a-note-on-the-application-role">A note on the <code>application</code> role</h2>
 
@@ -230,12 +222,11 @@
 
 <p>To provide the information to assistive technologies, the roles can be added to the HTML5 elements, for example:</p>
 
-<pre class="highlight html"><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;&lt;/header&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;&lt;/header&gt;</span>
 <span class="nt">&lt;main</span> <span class="na">role=</span><span class="s">"main"</span><span class="nt">&gt;&lt;/main&gt;</span>
 <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;&lt;/main&gt;</span>
 <span class="nt">&lt;footer</span> <span class="na">role=</span><span class="s">"contentinfo"</span><span class="nt">&gt;&lt;/footer&gt;</span>
-</pre>
-
+</code></pre>
 <p>Once there is accessibility support, authors are discouraged to use this technique.</p>
 
 

@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/images/complex/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -103,15 +103,14 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>
 	<span class="nt">&lt;img</span>
 		<span class="na">src=</span><span class="s">"chart.png"</span>
 		<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;br&gt;</span>
 	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>Example.com Site visitors Jan to March 2014 text description of the bar chart<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;/p&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>This approach is supported by all web browsers and assistive technologies, and makes the long descriptions available to everyone. However the link is not associated with the image in a semantic way.</p>
 
@@ -119,7 +118,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;img</span>
         <span class="na">src=</span><span class="s">"chart.png"</span>
         <span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span><span class="nt">&gt;</span>
@@ -127,8 +126,7 @@
         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>Example.com Site visitors Jan to March 2014 text description of the bar chart<span class="nt">&lt;/a&gt;</span>
     <span class="nt">&lt;/figcaption&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ap" id="describing-the-location-of-the-long-description-in-the-alt-attribute">Describing the location of the long description in the <code>alt</code> attribute</h3>
 
@@ -136,7 +134,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;p&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>
 	<span class="nt">&lt;img</span>
 		<span class="na">src=</span><span class="s">"chart.png"</span>
 		<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3. Described under the heading Site visitors full text."</span><span class="nt">&gt;</span>
@@ -144,8 +142,7 @@
 […]
 <span class="nt">&lt;h4&gt;</span>Site visitors full text<span class="nt">&lt;/h4&gt;</span>
 […]
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ap" id="structurally-associating-the-image-and-its-adjacent-long-description-html5">Structurally associating the image and its adjacent long description (HTML5)</h3>
 
@@ -153,7 +150,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"chart.png"</span>
 		<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3, described in detail below."</span><span class="nt">&gt;</span>
     <span class="nt">&lt;figcaption&gt;</span>
@@ -166,8 +163,7 @@
     	<span class="nt">&lt;/table&gt;</span>
     <span class="nt">&lt;/figcaption&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ap" id="providing-a-link-to-the-long-description-via-longdesc">Providing a link to the long description via <code>longdesc</code></h3>
 
@@ -185,19 +181,18 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;img</span>
+<pre class="highlight html"><code><span class="nt">&lt;img</span>
 	<span class="na">src=</span><span class="s">"chart.png"</span>
 	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
 	<span class="na">longdesc=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"2014-first-qtr.html"</span><span class="nt">&gt;</span>Long Description<span class="nt">&lt;/a&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>When the <code>longdesc</code> attribute contains a fragment identifier (<code>#</code> followed by the <code>id</code> of an element on the same web page - a “hash link”), it refers to an element on the same web page that provides the long description. It addresses a similar use case as <a href="#structurally-associating-image-and-long-description-with-aria-describedby">Example 2, Approach 1</a>, though the support by web browsers and assistive technologies may vary. An additional link (by applying <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 2</a>) is not needed when the long description is in close proximity to the image.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;img</span>
+<pre class="highlight html"><code><span class="nt">&lt;img</span>
 	<span class="na">src=</span><span class="s">"chart.png"</span>
 	<span class="na">alt=</span><span class="s">"Bar chart showing monthly and total visitors for the first quarter 2014 for sites 1 to 3"</span>
 	<span class="na">longdesc=</span><span class="s">"#chart-longdesc"</span><span class="nt">&gt;</span>
@@ -205,8 +200,7 @@
 <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"chart-longdesc"</span><span class="nt">&gt;</span>
 	[…]
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 class="ex" id="description-containing-textual-information">Description containing textual information</h2>
 
@@ -229,15 +223,14 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"peacock.jpg"</span>
+<pre class="highlight html"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"peacock.jpg"</span>
      <span class="na">alt=</span><span class="s">"Male peacock head"</span>
      <span class="na">aria-describedby=</span><span class="s">"description"</span><span class="nt">&gt;</span>
 […]
 <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;</span>
   The male is metallic blue on the crown, the feathers of the head being short and curled. The fan-shaped crest on the head is made of feathers with bare black shafts and tipped with blush-green webbing. A white stripe above the eye and a crescent shaped white patch below the eye are formed by bare white skin. The sides of the head have iridescent greenish blue feathers. The back has scaly bronze-green feathers with black and copper markings.
 <span class="nt">&lt;/p&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 
 
@@ -769,7 +762,7 @@
 				
 	      	Updated
 	      
-	      18 December 2015
+	      19 October 2016
 	      
 		      
 		      (first published September 2014)

@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/menus/structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -73,7 +73,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;ul&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ul&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Shop<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>SpaceBears<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -81,8 +81,7 @@
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Contact<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	…
 <span class="nt">&lt;/ul&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
@@ -90,7 +89,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;ol&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ol&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Unpacking the Space Craft<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Check Contents of Package<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Build Chassis<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -98,8 +97,7 @@
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Mount Engine to Chassis<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	…
 <span class="nt">&lt;/ol&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 id="identifying-the-menu">Identifying the menu</h2>
 
@@ -107,13 +105,12 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;nav&gt;</span>
 	<span class="nt">&lt;ul&gt;</span>
 		…
 	<span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> At the time of writing, some browsers don’t properly add the implicit WAI-ARIA <code>navigation</code> role to the <code>&lt;nav&gt;</code> element. In those instances add the <code>role</code> attribute: <code>&lt;nav role="navigation"&gt;…&lt;/nav&gt;</code>. For more information on roles and regions, see the <a href="../../page-structure/">Page Structure Tutorial</a>.</p>
@@ -131,11 +128,10 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>Note that the heading <strong>can not</strong> be hidden using <code>display: none;</code> or <code>visually: hidden;</code> as both also hide content from screen readers, too. See this section in the forms tutorial for an <a href="../../forms/labels/#note-on-hiding-elements">alternative, accessible way to hide elements</a>.</p>
 
@@ -145,10 +141,9 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-label=</span><span class="s">"Main Menu"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-label=</span><span class="s">"Main Menu"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> This approach makes it possible to use headings in the main content of the page only and not using them for adding structural information.</p>
@@ -160,11 +155,10 @@
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> Some browsers and assistive technologies might announce the name of the menu two times, when the user enters the menu.</p>

@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/forms/notifications/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7c4f0aa6.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -74,13 +74,13 @@
 <p>A common way to provide feedback is by using the main heading of the web page, usually the most prominently displayed <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code> element. This technique is particularly useful when forms are processed by the server, but can also be useful for client-side scripting.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: Error</figcaption><pre class="highlight html"><span class="nt">&lt;h1&gt;</span>3 Errors – Billing Address<span class="nt">&lt;/h1&gt;</span>
-</pre>
-</figure>
+  <figcaption>Code snippet: Error</figcaption><pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>3 Errors – Billing Address<span class="nt">&lt;/h1&gt;</span>
+</code></pre></figure>
+
 <figure class="code ">
-  <figcaption>Code snippet: Success</figcaption><pre class="highlight html"><span class="nt">&lt;h1&gt;</span>Thank you for submitting your order.<span class="nt">&lt;/h1&gt;</span>
-</pre>
-</figure>
+  <figcaption>Code snippet: Success</figcaption><pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>Thank you for submitting your order.<span class="nt">&lt;/h1&gt;</span>
+</code></pre></figure>
+
 <div class="notes ">
 <p><strong>Note:</strong> The main purpose of the main heading is still to identify the web page that the user is currently on. When the user is sent back to the same web page because of an error, then a simple indication using the word “error” and possibly the number of errors is helpful.</p>
 
@@ -90,13 +90,13 @@
 <p>It is often useful to also use the <code>&lt;title&gt;</code> element of the web page to indicate successes and errors. In particular screen reader users will receive this feedback immediately when the web page is loaded. This can be helpful when the main heading is located deeper within the content, for example, after the navigation menus.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: Error</figcaption><pre class="highlight html"><span class="nt">&lt;title&gt;</span>3 Errors – Billing Address<span class="nt">&lt;/title&gt;</span>
-</pre>
-</figure>
+  <figcaption>Code snippet: Error</figcaption><pre class="highlight html"><code><span class="nt">&lt;title&gt;</span>3 Errors – Billing Address<span class="nt">&lt;/title&gt;</span>
+</code></pre></figure>
+
 <figure class="code ">
-  <figcaption>Code snippet: Success</figcaption><pre class="highlight html"><span class="nt">&lt;title&gt;</span>Thank you for submitting your order.<span class="nt">&lt;/title&gt;</span>
-</pre>
-</figure>
+  <figcaption>Code snippet: Success</figcaption><pre class="highlight html"><code><span class="nt">&lt;title&gt;</span>Thank you for submitting your order.<span class="nt">&lt;/title&gt;</span>
+</code></pre></figure>
+
 <h3 class="ex" id="using-dialogs">Using dialogs</h3>
 
 <p>A dialog is a common way to inform users of changes. It can be used if other means of informing the user prove to be easily missed. Dialogs are more obtrusive and distracting, which may be the desired effect.</p>
@@ -118,17 +118,17 @@
   </div></figure>
 
 <figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption><pre class="highlight html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"alertconfirm"</span><span class="nt">&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
-</pre>
-</figure>
+  <figcaption>Code snippet: HTML</figcaption><pre class="highlight html"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"alertconfirm"</span><span class="nt">&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
+</code></pre></figure>
+
 <figure class="code ">
-  <figcaption>Code snippet: JavaScript</figcaption><pre class="highlight javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'alertconfirm'</span><span class="p">)</span>
+  <figcaption>Code snippet: JavaScript</figcaption><pre class="highlight javascript"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'alertconfirm'</span><span class="p">)</span>
 	<span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 		<span class="cm">/* [… code saving data …] */</span>
 		<span class="nx">alert</span><span class="p">(</span><span class="s1">'Thanks for submitting the form!'</span><span class="p">);</span>
 	<span class="p">});</span>
-</pre>
-</figure>
+</code></pre></figure>
+
 <h3 class="ex" id="listing-errors">Listing errors</h3>
 
 <p>When errors occur, it is helpful to list them at the top of the page, before the form. The list should have a distinctive heading, so that it is easy to identify. Each error listed should:</p>
@@ -164,7 +164,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;h4&gt;</span>There are 2 errors in this form<span class="nt">&lt;/h4&gt;</span>
   <span class="nt">&lt;ul&gt;</span>
   	<span class="nt">&lt;li&gt;</span>
@@ -179,17 +179,15 @@
   	<span class="nt">&lt;/li&gt;</span>
   <span class="nt">&lt;/ul&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <p>In addition, form fields can be associated with the corresponding error message using aria-describedby.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"firstname"</span><span class="nt">&gt;</span>First Name:<span class="nt">&lt;/label&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"firstname"</span><span class="nt">&gt;</span>First Name:<span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"firstname"</span> <span class="na">aria-describedby=</span><span class="s">"firstname_error"</span><span class="nt">&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 class="newap" id="inline">In-line feedback</h2>
 
@@ -272,7 +270,7 @@ document.getElementById('ex3').addEventListener('submit', function(event){
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"success"</span><span class="nt">&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"success"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>
 		<span class="nt">&lt;strong&gt;</span>OK:<span class="nt">&lt;/strong&gt;</span> Username:
 	<span class="nt">&lt;/label&gt;</span>
@@ -294,17 +292,15 @@ document.getElementById('ex3').addEventListener('submit', function(event){
 <span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
-<pre class="highlight css"><span class="nc">.error</span>   <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#900</span><span class="p">;</span> <span class="p">}</span>
+<pre class="highlight css"><code><span class="nc">.error</span>   <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#900</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.success</span> <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="m">#007a00</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.error</span>   <span class="nt">input</span> <span class="p">{</span> <span class="nl">border</span><span class="p">:</span> <span class="m">3px</span> <span class="nb">solid</span> <span class="m">#900</span><span class="p">;</span> <span class="p">}</span>
 <span class="nc">.success</span> <span class="nt">input</span> <span class="p">{</span> <span class="nl">border</span><span class="p">:</span> <span class="m">3px</span> <span class="nb">solid</span> <span class="m">#007a00</span><span class="p">;</span> <span class="p">}</span>
-</pre>
-
+</code></pre>
 </figure>
 <h3 class="ap newex" id="during-typing">During typing</h3>
 
@@ -357,17 +353,16 @@ document.getElementById('ex3').addEventListener('submit', function(event){
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><span class="nt">&lt;div&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>Username:<span class="nt">&lt;/label&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"username"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"username_feedback"</span> <span class="na">aria-live=</span><span class="s">"polite"</span><span class="nt">&gt;&lt;/span&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'username'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+<pre class="highlight javascript"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'username'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
 	<span class="kd">function</span> <span class="nx">setError</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
 		<span class="nx">el</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'strong'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Error:"</span><span class="p">;</span>
 		<span class="nx">el</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">className</span><span class="o">=</span><span class="s1">'error'</span><span class="p">;</span>
@@ -392,8 +387,7 @@ document.getElementById('ex3').addEventListener('submit', function(event){
 		<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[for="username"] strong'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
 	<span class="p">}</span>
 <span class="p">});</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> The displayed message in this example is coded using a <code>&lt;span&gt;</code> element that has an <code>aria-live</code> attribute with the value <code>polite</code>. The contents of this so called “live region” are conveyed to screen readers and other assistive technology. The value “polite” de-emphasizes the importance of the message and does not cause screen readers to interrupt their current tasks to read aloud this message. Thus the message is only read once when the user stops typing rather than on every keystroke that the user makes.</p>
@@ -530,13 +524,13 @@ for (var i = inputs.length - 1; i >= 0; i--) {
   </div></figure>
 
 <figure class="code ">
-  <figcaption>Code snippet: </figcaption><pre class="highlight html"><span class="nt">&lt;div&gt;</span>
+  <figcaption>Code snippet: </figcaption><pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"expire"</span><span class="nt">&gt;&lt;strong&gt;&lt;/strong&gt;</span> Expiry date:<span class="nt">&lt;/label&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"expire"</span> <span class="na">id=</span><span class="s">"expire"</span> <span class="na">value=</span><span class="s">"03.2015"</span> <span class="na">aria-describedby=</span><span class="s">"expDesc3"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"expDesc3"</span> <span class="na">aria-live=</span><span class="s">"assertive"</span><span class="nt">&gt;&lt;/span&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-</figure>
+</code></pre></figure>
+
 <div class="notes ">
 <p><strong>Note:</strong> The displayed message in this example is coded using a <code>&lt;span&gt;</code> element that has an <code>aria-live</code> attribute with the value <code>assertive</code>. The contents of this so called “live region” is conveyed to screen readers and other assistive technology. The value “assertive” emphasizes the importance of the message and causes screen readers to interrupt their current tasks to read aloud this message. Thus the message is read aloud before the next element that received the focus is announced to the user.</p>
 
