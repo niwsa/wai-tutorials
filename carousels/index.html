@@ -62,28 +62,74 @@
       
 
 
-      <p>Carousels, commonly also referred to as “slide shows” or “sliders”, display one item from a series of content items. Common examples are scrolling news headlines and images. Carousels often use animations to move from slide to slide, which can be distracting for some users. They may also move too fast for some users to be able to read.</p>
-
-<p>Carousels should have a function that allows users to pause and advance the animation. They need to be implemented in a way that is not interfering with keyboard use. In some instances, keyboard users may even get stuck inside the carousel, without a chance to leave it and access the rest of the page. This tutorial highlights accessibility considerations for carousels:</p>
+      <p>To develop an accessible carousel, ensure that the following requirements are considered:</p>
 
 <ul>
   <li>
-    <p><strong><a href="structure/">Structure</a>:</strong> Provide structural markup for the carousel and its items.</p>
+    <p><strong><a href="structure/">Structure</a></strong> <br />
+Provide structure markup for the carousel body and its items.</p>
+
+    <ul>
+      <li>
+        <p><a href="structure/#declare-carousel">Declare a carousel</a> region using a semantic element and a label.</p>
+      </li>
+      <li>
+        <p><a href="structure/#create-carousel-body">Use a list</a> to represent the individual carousel items.</p>
+      </li>
+      <li>
+        <p><a href="structure/#item-content">Mark up content</a> appropriately.</p>
+      </li>
+      <li>
+        <p><a href="structure/#basic-styling">Style non-JavaScript carousel</a> to ensure compatibility.</p>
+      </li>
+      <li>
+        <p><a href="functionality/#position-slides">Position slides</a> when JavaScript is enabled.</p>
+      </li>
+    </ul>
   </li>
   <li>
-    <p><strong><a href="functionality/">Functionality</a>:</strong> Add the functionality to display one carousel item at a time.</p>
+    <p><strong><a href="functionality/">Functionality</a>:</strong> Add functionality to display and announce carousel items.</p>
+
+    <ul>
+      <li>
+        <p><a href="functionality/#add-previous-and-next-buttons">Visible, labeled, and keyboard operable previous and next buttons</a> allow to step through the carousel items.</p>
+      </li>
+      <li>
+        <p><a href="functionality/#announce-the-current-slide">Announce the currently visible slide</a> to assistive technologies.</p>
+      </li>
+      <li>
+        <p><a href="functionality/#provide-overview-on-items">Provide an item navigation</a> that gives access to individual items.</p>
+
+        <ul>
+          <li><a href="functionality/#focus-the-current-carousel-item">Focus the current carousel item</a> so users can immediately interact with the chosen item.</li>
+        </ul>
+      </li>
+    </ul>
   </li>
   <li>
     <p><strong><a href="animations/">Animations</a>:</strong> Add animation and ensure users have control over these animations.</p>
-  </li>
-  <li>
-    <p><strong><a href="full-code/">Complete code example</a>:</strong> The full JavaScript code on one page.</p>
+
+    <ul>
+      <li>
+        <p><a href="animations/#add-playstop-button">Add Play/Stop button</a> to allow users to stop the animation.</p>
+      </li>
+      <li>
+        <p><a href="animations/#pause-on-hover-and-focus">Pause when the mouse hovers over the slide or when an element in the slide receives focus</a> to improve usability and readability.</p>
+      </li>
+      <li>
+        <p><a href="animations/#hiding-in-transition-elements-from-assistive-technologies">Hide items in transition</a> from assistive technologies to avoid that users interact with or read from disappearing parts of the page.</p>
+      </li>
+    </ul>
   </li>
 </ul>
 
+<p>See also a <a href="full-code/">Complete Example</a> including the full source code.</p>
+
 <h2 id="why-is-this-important">Why is this important?</h2>
 
-<p>Carousels are frequently used, in particular on home pages, to draw readers' attention to featured articles and products of the website. Given their prominence, inaccessible carousels can be a major obstacle for many website visitors. On the other hand, accessible carousels provide more effective access for many users including:</p>
+<p>Carousels, also referred to as “slide shows” and “sliders”, display one item from a series of content items. Common examples are scrolling news headlines and images, like featured articles. Carousels often use animations to move from item to item, which can be distracting for some users. They may also move too fast for some users to be able to read.</p>
+
+<p>Carousels should have functionality to allow users to pause and advance animations. They also need to be implemented in a way that is usable by keyboard. Given their prominence, accessible carousels are essential for many website visitors including:</p>
 
 <ul>
   <li><strong>People using keyboard navigation and voice input software</strong> can navigate between carousel items.</li>
@@ -315,7 +361,7 @@
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      25 October 2016
+	      27 October 2016
 	      
 			</li>
       <li>

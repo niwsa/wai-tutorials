@@ -65,71 +65,64 @@
       
 
 
-      <p>Structural markup ensures that the content of a carousel has meaning on its own, without styling and scripting, so that can be used in more diverse situations. For example, a carousel can be presented as a list of articles on a mobile device or if JavaScript fails to load.</p>
+      <p>Use structural markup to ensure that the content of a carousel has meaning on its own. For example, a carousel can be presented as a list of articles on a mobile device or when JavaScript is disabled.</p>
 
-<h2 id="carousel-region">Carousel region</h2>
+<h2 id="create-carousel-body">Create carousel body</h2>
 
-<aside class="reference">
-<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
-
-</aside>
-<p>Use semantic markup to define the carousel as a distinct part of a web page. For example, if the main purpose of a carousel is to navigate the website, use the HTML5 <code>&lt;nav&gt;</code> element. Depending on the role of the slider, <code>&lt;article&gt;</code>, <code>&lt;complementary&gt;</code>, and <code>&lt;aside&gt;</code> elements can also be used. At the very least, the <code>&lt;section&gt;</code> element should be used to define the carousel as generic region.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML5</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
-<p>In HTML4, the <code>&lt;div&gt;</code> element with the WAI-ARIA <code>role</code> attribute with the value <code>region</code> serves the same purpose.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML4</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</figure>
-<h2 id="carousel-label">Carousel label</h2>
-
-<aside class="reference">
-<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
-
-</aside>
-<p>Label carousels according to their individual function to make them easier to find and understand. This helps to distinguish between multiple carousels on a web page and between other regions on the page. Use a heading, <code>aria-label</code>, and/or <code>aria-labelledby</code> to provide the label.</p>
-
-<p>In the following tutorial examples, a hidden heading is referenced by <code>aria-labelledby</code>:</p>
+<p>As a collection of content items, carousels are typically best represented as unordered list items (<code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>). Depending on the content they could also be collections of <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, or heading items (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>). Important is to ensure semantic meaning of the carousel as a whole.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
-    …
-<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
-<h2 id="carousel-body">Carousel body</h2>
-
-<p>A carousel is a collection of content items where only one item is displayed at a time. The markup is for such a collection is usually a (unordered) list (<code>&lt;ul&gt;</code>), with list items (<code>&lt;li&gt;</code>) enclosing the content of each individual slide.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="err">…</span><span class="nt">&gt;</span>
-  …
+<pre class="highlight html"><code>    …
   <span class="nt">&lt;ul&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
     …
   <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+</figure>
+<h2 id="declare-carousel">Declare carousel</h2>
+
+<p>Use semantic markup to define carousels as distinct parts of your web page. For example, if the main purpose of a carousel is to navigate the website, use the HTML5 <code>&lt;nav&gt;</code> element. Depending on the context, <code>&lt;article&gt;</code>, <code>&lt;complementary&gt;</code>, and <code>&lt;aside&gt;</code> elements can also be used. At the very least, the <code>&lt;section&gt;</code> element should be used to declare the carousel.</p>
+
+<aside class="reference">
+<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
+
+</aside>
+<p>Also label carousels according to their individual function, to make them easier to find and understand. This helps to distinguish between multiple carousels and other regions on a web page. Use a heading, <code>aria-label</code>, and/or <code>aria-labelledby</code> to provide the label.</p>
+
+<aside class="reference">
+<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
+
+</aside>
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"carouselheading"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"carouselheading"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Recent news<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
+    …
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</figure>
+</figure>
+<p>Note: In HTML4, a <code>&lt;div&gt;</code> element with the WAI-ARIA <code>role</code> attribute with the value <code>region</code> is needed.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML4</figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/div&gt;</span>
 </code></pre>
 </figure>
 <h2 id="item-content">Item content</h2>
 
-<p>Carousel items can consist of simple content or more complex content. For a simple image slider, using a sole <code>&lt;img&gt;</code> element can be the right choice. In other instances each carousel item represents a complete article, a section of a web page or even a section of the whole website.</p>
-
-<p>Use the same markup for content in the carousel as would be used outside of an carousel. If the content can stand on its own, you may even use headings, sections, lists or even articles inside of the carousel item.</p>
+<p>Carousel items often consist of simple content items, sometimes just an <code>&lt;img&gt;</code> element. In other cases, each carousel item represents a complete article, a section of a web page or even a section of the entire website. In either case you need to use semantic markup to make each section usable on its own. This includes using headings, sections, lists, articles, and other structures as needed.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: Simple Content</figcaption>
+  <figcaption>Code snippet: Example of Simple Content</figcaption>
 <pre class="highlight html"><code>…
 <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"teddy1.jpg"</span> <span class="na">alt=</span><span class="s">"Space Teddy"</span><span class="nt">&gt;</span>
@@ -138,7 +131,7 @@
 </code></pre>
 </figure>
 <figure class="code ">
-  <figcaption>Code snippet: Stand alone content</figcaption>
+  <figcaption>Code snippet: Example of Richer Content</figcaption>
 <pre class="highlight html"><code>…
 <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy1.jpg');"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;article&gt;</span>
@@ -149,43 +142,9 @@
 <span class="nt">&lt;/li&gt;</span>
 </code></pre>
 </figure>
-<h2 id="putting-it-all-together">Putting it all together</h2>
-
-<p>For the rest of the tutorial, the following code is used as the foundations for adding styling, functionality and animations. It contains three teasers to featured content. Each teaser consists of a heading and a short paragraph with a read more link.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">aria-labelledby=</span><span class="s">"featured"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"featured"</span><span class="nt">&gt;</span>Featured Articles:<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;ul&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy1.jpg');"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h4&gt;</span>Space Teddy production reaches all-time high<span class="nt">&lt;/h4&gt;</span>
-            <span class="nt">&lt;p&gt;</span>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Full Annual Report<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy2.jpg');"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h4&gt;</span>New Space Teddy Announced!<span class="nt">&lt;/h4&gt;</span>
-            <span class="nt">&lt;p&gt;</span>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Everything about the new model<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;/li&gt;</span>
-        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy3.jpg');"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h4&gt;</span>Adventures of the Space Teddy<span class="nt">&lt;/h4&gt;</span>
-            <span class="nt">&lt;p&gt;</span>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Play the Game here!<span class="nt">&lt;/a&gt;</span>
-            <span class="nt">&lt;/p&gt;</span>
-        <span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
 <h3 id="basic-styling">Basic styling</h3>
 
-<p>To improve the flexibility of the carousel, a progressive enhancement approach is used. Styling is applied to the carousel items so they appear as a list of teasers if no JavaScript is available.</p>
+<p>Apply styling on the carousel structure to make them appear as needed. Ensure that the default view (without JavaScript) is usable by itself.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -866,7 +825,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      25 October 2016
+	      27 October 2016
 	      
 			</li>
       <li>

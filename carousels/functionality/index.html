@@ -65,7 +65,7 @@
       
 
 
-      <p>Carousels display multiple content items one at a time, allowing users to browse through all of them in turn.</p>
+      <p>Provide functionality to display the carousel items one at a time, and to announce the changes that occur in display.</p>
 
 <h2 id="position-slides">Position slides</h2>
 
@@ -201,9 +201,9 @@
 
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
-<p>Add <code>&lt;button&gt;</code> elements that allow users to switch back and forth between items. They can be individually styled, provide semantic meaning and do also work with assistive technology and keyboard usage out of the box.</p>
+<p>Use <code>&lt;button&gt;</code> elements to allow users to manually switch back and forth between items. These can be individually styled as needed, but provide semantic meaning to support assistive technology and keyboard use.</p>
 
-<p>In the example below, JavaScript is used to generate buttons and them to the carousel. Visually the buttons appear as arrows overlaying the individual items.</p>
+<p>In the example below, JavaScript is used to generate buttons and add them to the carousel. Visually the buttons appear as arrows overlaying the individual items.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -266,7 +266,7 @@
 
 <h2 id="announce-the-current-slide">Announce the current slide</h2>
 
-<p>When the current item changes, a WAI-ARIA live region informs screen reader users which slide is currently visible. Note that the current slide does not receive keyboard focus in this case to allow users to skip several items at once.</p>
+<p>When the current item changes, a WAI-ARIA live region informs screen reader users which slide is currently visible. Note that the current slide does not automatically receive keyboard focus, to allow users to skip over and leave the carousel.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Extend event listeners</figcaption>
@@ -520,11 +520,11 @@
 
   </div></figure>
 
-<h2 class="newex" id="items-navigation">Items navigation</h2>
+<h2 class="newex" id="provide-overview-on-items">Provide overview on items</h2>
 
-<p>Display a list of buttons that indicate which carousel item is currently displayed and als allows users to navigate directly to any carousel item.</p>
+<p>Display a list of buttons that indicate the available carousel items and highlight the currently displayed items. This allows users to get an overview on the contents of the carousels, where they are, and navigate directly to any carousel item.</p>
 
-<p>In the example below, the list with buttons is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and by using visually hidden text.</p>
+<p>In the example below, the list with buttons is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and by using visually hidden text (for screen readers).</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -610,9 +610,9 @@
 
 <h3 id="focus-the-current-carousel-item">Focus the current carousel item</h3>
 
-<p>Whe a user selects an item through the carousel navigation it should be receive focus immediately. This allows keyboard or assistive technology users to interact with the item immediately.</p>
+<p>When users select items through the carousel navigation buttons, the items should receive focus immediately. This makes interaction easier for keyboard and assistive technology users.</p>
 
-<p>By default, <code>&lt;li&gt;</code> itself cannot receive focus by default. However if the <code>tabindex</code> attribute is set to <code>-1</code>, JavaScript is able to set the focus to the items.</p>
+<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. Setting the <code>tabindex</code> attribute of the element to <code>-1</code> allows it to receive focus through JavaScript.</p>
 
 <p>To allow users to skip multiple items using the previous and next buttons, this approach is not used there.</p>
 
@@ -1146,7 +1146,7 @@ c3.init({
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      25 October 2016
+	      27 October 2016
 	      
 			</li>
       <li>
