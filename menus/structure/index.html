@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/menus/structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content approved-draft">
+<main role="main" class="content editors-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -52,6 +52,10 @@
 
     
     
+      <div class="status">
+        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+      </div>
+    
 
 
     <div class="inner">
@@ -61,15 +65,15 @@
       
 
 
-      <p>Semantic markup of menus makes them more easily adaptable to different situations such as display on small screens, zoomed in, and for assistive technologies by conveying the structure of the menu to users.</p>
+      <p>Semantic markup conveys the structure of the menu to users. It also makes the menu adaptable when used in different situations such as small screen display, zoomed in, and used with assistive technologies.</p>
 
 <h2 class="newap" id="list-of-links">List of Links</h2>
 
-<p>If a navigation consists of more than very few links, using a list of links is the most effective way to convey the menu structure to users. Amongst other things, lists help assistive technologies to announce how many items are in the menu in total and provide possibilities to adapt to user needs.</p>
+<p>If a navigation consists of more than very few links, using a list is the most effective way to convey the menu structure to users. With this structural information assistive technologies can announce the number of items in the menu.</p>
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>If the order in which the user reads the pages is not important to understand the website, an unordered list (<code>&lt;ul&gt;</code>) should be used. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
+<p>If the sequence of reading the pages is not important to understand the website, an unordered list (<code>&lt;ul&gt;</code>) should be used. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -85,7 +89,7 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>In some instances, pages need to be read in a certain order, for example if the menu provides access to chapters in prose or steps to take while constructing something. In the example below, following the order is important to properly build the space ship.</p>
+<p>In some instances, pages need to be read in a certain sequence, for example if the menu provides access to chapters in prose or steps in a construction manual. In the example below, following the order is important to properly build the space ship.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -101,8 +105,12 @@
 </figure>
 <h2 id="identifying-the-menu">Identifying the menu</h2>
 
-<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly jump to the menu as it has an implicit WAI-ARIA landmark role of <code>navigation</code>. The <code>&lt;nav&gt;</code> element wraps the unordered or ordered list that contains the navigation options.</p>
+<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly jump to the menu if WAI-ARIA landmarks are supported. The <code>&lt;nav&gt;</code> element wraps the unordered or ordered list that contains the navigation options.</p>
 
+<aside class="reference">
+<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
+
+</aside>
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;nav&gt;</span>
@@ -112,58 +120,23 @@
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<p><strong>Note:</strong> At the time of writing, some browsers don’t properly add the implicit WAI-ARIA <code>navigation</code> role to the <code>&lt;nav&gt;</code> element. In those instances add the <code>role</code> attribute: <code>&lt;nav role="navigation"&gt;…&lt;/nav&gt;</code>. For more information on roles and regions, see the <a href="../../page-structure/">Page Structure Tutorial</a>.</p>
-
-<p>Role and other ARIA attributes won’t validate in HTML4. If valid HTML4 needs to be provided, the ARIA attributes can be added to the HTML dynamically using JavaScript. If that is also no possibility, <a href="#using-a-hidden-heading">provide a heading</a> to enable users to find the menu easily.</p>
-
-</div>
 <h2 class="newap" id="labeling-navigations">Labeling navigations</h2>
 
-<p>To make it easier to find menus, they should be labeled according to their individual function. This helps to distinguish between multiple navigational menus on a page. Such labels can be invisible to users that experience the website visually and can also be used by assistive technology to enable jumping directly to <code>navigation</code> landmarks or headings.</p>
+<aside class="reference">
+<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
 
-<h3 class="ap" id="using-a-hidden-heading">Using a (hidden) heading</h3>
+</aside>
+<p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
 
-<p>Users that use headings to find relevant sections on web pages, for example screen reader users, can discover the menu easily if a heading is provided.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;/nav&gt;</span>
-</code></pre>
-</figure>
-<p>Note that the heading <strong>can not</strong> be hidden using <code>display: none;</code> or <code>visually: hidden;</code> as both also hide content from screen readers, too. See this section in the forms tutorial for an <a href="../../forms/labels/#note-on-hiding-elements">alternative, accessible way to hide elements</a>.</p>
-
-<h3 class="ap" id="using-aria-label">Using <code>aria-label</code></h3>
-
-<p>The <code>aria-label</code> provides a description of the section to users that use landmarks to navigate the page. The label of the menu is announced when entering the menu and when navigating to it.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-label=</span><span class="s">"Main Menu"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;/nav&gt;</span>
-</code></pre>
-</figure>
-<div class="notes ">
-<p><strong>Note:</strong> This approach makes it possible to use headings in the main content of the page only and not using them for adding structural information.</p>
-
-</div>
-<h3 class="ap" id="using-a-heading-and-aria-labelledby">Using a heading and <code>aria-labelledby</code></h3>
-
-<p>To cover both use cases (navigating by headers and navigating by landmarks), the <code>aria-labelledby</code> attribute can be used to reference the heading inside the menu.</p>
+<p>In menu tutorial examples, <code>aria-labelledby</code> with a hidden heading is used:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
+	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<p><strong>Note:</strong> Some browsers and assistive technologies might announce the name of the menu two times, when the user enters the menu.</p>
-
-</div>
 
 
       <div class="resources">
@@ -753,9 +726,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
+	        [EDITOR’S DRAFT] updated
 	      
-	      13 November 2015
+	      03 November 2016
 	      
 			</li>
       <li>

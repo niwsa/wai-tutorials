@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/regions/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content draft">
+<main role="main" class="content editors-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -51,10 +51,10 @@
     </header>
 
     
-      <div class="status">
-        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
-      </div>
     
+      <div class="status">
+        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+      </div>
     
 
 
@@ -65,46 +65,45 @@
       
 
 
-      <p>People need to be able to identify page regions to navigate documents. Usually documents include one or more navigations, main content, headers, and footers. More important parts of a page, such as navigation, should be marked up on every website.</p>
+      <p>Mark up different regions of web pages and web applications, so that they can be identified by web browsers and assistive technologies.</p>
 
-<p>This tutorial shows how to use HTML5 elements to mark up such regions and convey the meaning to users and assistive technologies. Such elements leverage the browser accessibility API by using default WAI-ARIA roles. See <a href="#accesssupport">accessibility support information</a>.</p>
+<h2 id="page-header">Page header</h2>
 
-<h2 id="overall-page-regions">Overall page regions</h2>
-
-<p>Certain regions on web pages define the overall layout and structure. They   are usually the same on every web page of a web site. Other regions are used to structure the content of the individual page.</p>
-
-<p>Some regions can only be used once, for example <code>&lt;main&gt;</code> or the page header. Others, like navigations, can be used multiple times. In this case add a label using either <code>aria-label</code> or <code>aria-labelledby</code>.</p>
-
-<h3 class="ex" id="page-header">Page header</h3>
-
-<p>Most websites have a regiaon that contains the website logo and other information, such as search or navigation options. That region is usually on the top of the page.</p>
-
-<p>The main page header is identified by using the <code>&lt;header&gt;</code> element which by default has the WAI-ARIA role <code>banner</code> if not used inside of <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> elements. See <a href="#scope">note on scope</a>.</p>
-
-<aside class="annotation" id="scope">
-  <h4 class="annotation-header">Scope</h4>
-  <div class="annotation-content">
-    <p><code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> elements have two use cases in HTML5:</p>
-    <ol>
-      <li>Mark the main header/footer section of a web page.</li>
-      <li>Mark the header/footer of a certain <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</li>
-    </ol>
-    <p>Both elements only carry their default WAI-ARIA roles – <code>banner</code> for the <code>&lt;header&gt;</code> element and <code>contentinfo</code> for the <code>&lt;footer&gt;</code>element – only in the first use case. Once <code>&lt;header&gt;</code> or <code>&lt;footer&gt;</code> are inside an <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> element, they are scoped to this element and don’t count as main header or footer of the page but as header and footer of that specific section or article.</p>
-  </div>
-</aside>
+<p>Most websites have a region at the top of every page that contains general content, such as the website logo, search function, and navigation options. HTML5 provides the <code>&lt;header&gt;</code> element, which can be used to define such a region.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;header&gt;</span>
+  …
   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"/images/logo.png"</span> <span class="na">alt=</span><span class="s">"SpaceBear Inc."</span><span class="nt">&gt;</span>
+  …
 <span class="nt">&lt;/header&gt;</span>
 </code></pre>
 </figure>
-<h3 class="ex" id="navigation">Navigation</h3>
+<div class="notes ">
+<p>If the <code>&lt;header&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not identified as the header for the whole page but only relates to that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
 
-<p>The <code>&lt;nav&gt;</code> element groups a collection of links and makes them available as a navigation to assistive technologies, identifying them using the WAI-ARIA role <code>navigation</code> by default. As there are often more than one navigation section on a given web page, they should always be labelled.</p>
+</div>
+<h2 id="page-footer">Page footer</h2>
 
-<p>In the example below there are two <code>&lt;nav&gt;</code> elements, so it is necessary to label them. One the labels, “Main Navigation”, has a title that isn’t shown on the page. In this instance the label is added with the <code>aria-label</code> attribute. “Quick Navigation” is already in a heading on the page, so it is possible to refer to it using the <code>aria-labelledby</code> attribute. For more information on menus, see the <a href="../../menus/">Menu tutorial</a>.</p>
+<p>Similar to the page header, most websites also have a region at the bottom of every page that contains general content, such as copyright information, privacy statements, or disclaimers. HTML5 provides the <code>&lt;footer&gt;</code> element, which can be used to define such a region.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;footer&gt;</span>
+  …
+  <span class="nt">&lt;p&gt;</span><span class="ni">&amp;copy;</span> 2014 SpaceBears Inc.<span class="nt">&lt;/p&gt;</span>
+  …
+<span class="nt">&lt;/footer&gt;</span>
+</code></pre>
+</figure>
+<div class="notes ">
+<p>If the <code>&lt;footer&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not identified as the footer for the whole page but only relates to that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
+
+</div>
+<h2 id="navigation">Navigation</h2>
+
+<p>The HTML5 <code>&lt;nav&gt;</code> element can be used to identify a navigation menu.A web page can have any number of navigation menus. Use <a href="../labels/">labels</a> to identify each navigation menu.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -118,9 +117,13 @@
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
 </figure>
-<h3 class="ex" id="main-content">Main content</h3>
+<div class="notes ">
+<p><strong>Note:</strong> The <a href="../../menus/">Menus tutorial</a> provides more information about creating menus in more detail.</p>
 
-<p>The main content of a document should be wrapped in the <code>&lt;main&gt;</code> element. There is only one main element per document allowed. This helps assistive technologies to identify the main content and guide users to it.</p>
+</div>
+<h2 class="risky" id="main-content">Main content</h2>
+
+<p>Use the HTML5 <code>&lt;main&gt;</code> element to identify the main content region of a web page or application.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -130,22 +133,42 @@
 <span class="nt">&lt;/main&gt;</span>
 </code></pre>
 </figure>
-<h3 class="ex" id="page-footer">Page footer</h3>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This section and other sections certainly need better examples, maybe one example that incorporates all regions. Hard to see what they do and how to use them when they are viewed isolated like this.</p>
 
-<p>A region of the web page that has supplemental information, such as links to copyright or privacy statements, or disclaimers, is called a footer. This information should appear inside a <code>&lt;footer&gt;</code> element.</p>
+</div></figure>
+<h2 id="articles">Articles</h2>
 
-<p>By default the <code>&lt;footer&gt;</code> element has the WAI-ARIA role <code>contentinfo</code> if not used inside of <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code> elements. See <a href="#scope">note on scope</a>.</p>
+<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item in a web shop or a news article on a news site.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;footer&gt;</span>
-  <span class="nt">&lt;p&gt;</span><span class="ni">&amp;copy;</span> 2014 SpaceBears Inc.<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/footer&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/article&gt;</span>
+<span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Space Bear Extreme<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/article&gt;</span>
 </code></pre>
 </figure>
-<h3 class="ex" id="complementary-content">Complementary content</h3>
+<h2 id="sections">Sections</h2>
 
-<p>An <code>&lt;aside&gt;</code> element is used whenever there is a part of the document that supports the main content, yet is separate and meaningful on its own. It carries a <code>complementary</code> role by default.</p>
+<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;section&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
+  …
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</figure>
+<h2 id="complementary-content">Complementary content</h2>
+
+<p>Use the HTML5 <code>&lt;aside&gt;</code> element to identify regions that support the main content, yet are separate and meaningful sections on their own; For example, a side note explaining or annotating the main content.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -155,9 +178,16 @@
 <span class="nt">&lt;/aside&gt;</span>
 </code></pre>
 </figure>
-<h3 class="ex" id="search">Search</h3>
+<h2 class="risky" id="search">Search</h2>
 
-<p>The search region refers to the “search tool” of the website. There is no dedicated HTML5 element to use for this region but it can be marked up using the WAI-ARIA <code>role</code> attribute with the value <code>search</code>. The element with the <code>search</code> role should include the input field as well as the search button and other search options. The example below uses the <code>search</code> role on a <code>&lt;div&gt;</code> element.</p>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This is the odd one out, as it has only an ARIA role but not a HTML5 element. I removed all other roles to simplify the content and think this could move to the forms tutorial.</p>
+
+</div></figure>
+<p>Use the WAI-ARIA <code>role</code> attribute with the value <code>search</code> to identify the main search function of the website that typically appears in the header of all web pages. This is not intended for identifying other search funcationality that only appears on individual web pages, such as searching for an entry in a database.</p>
+
+<p>The element with the <code>search</code> role should include the input field as well as the search button and other search options. The example below uses the <code>search</code> role on a <code>&lt;div&gt;</code> element.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -180,55 +210,15 @@
 <span class="nt">&lt;/form&gt;</span>
 </code></pre>
 </figure>
-<h2 class="newex" id="in-page-regions">In-page regions</h2>
-
-<p>To structure content on the pages, use sections and articles. They can differ from page type to page type and even from web page to web page.</p>
-
-<h3 class="ex" id="sections">Sections</h3>
-
-<p>The <code>&lt;section&gt;</code> element marks a general region on the page or inside an article. It is used for thematic grouping of content. By default it has the WAI-ARIA role of <code>region</code>.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
-<h3 class="ex" id="articles">Articles</h3>
-
-<p>The <code>&lt;article&gt;</code> element represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable. Examples for articles are items in a shop or news articles. The default WAI-ARIA role is <code>article</code>.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-<span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Extrem<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-</code></pre>
-</figure>
-<h2 id="a-note-on-the-application-role">A note on the <code>application</code> role</h2>
-
-<p>The role <code>application</code> declares a section as a web application, as opposed to a web document. The role of application should be <strong>used with caution</strong>, as it gives a signal to screen reading software to turn off usual web navigation controls. Simple widgets should generally not be given the application role, nor should an entire web page be given the application role, unless it is not supposed to be used at all like a web page, and not without much user testing with assistive technology.</p>
-
 <h2 id="accessupport">Accessibility Support</h2>
 
-<p>The support for HTML5 elements and WAI-ARIA individually are really good in modern browsers and assistive technologies. At the time of writing, Internet Explorer up to version 11 provides no semantic information via accessibility APIs for the HTML5 elements.</p>
+<p>Most current web browsers support the above HTML5 elements and convey the information to assistive technology through the accessibility APIs. However, to maximize compatibility with web browsers and assistive technologies that support WAI-ARIA but do not yet support HTML5, it is currently advisable to use both the HTML5 elements and the corresponding WAI-ARIA roles; for example:</p>
 
-<p>To provide the information to assistive technologies, the roles can be added to the HTML5 elements, for example:</p>
-
-<pre class="highlight html"><code><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;&lt;/header&gt;</span>
-<span class="nt">&lt;main</span> <span class="na">role=</span><span class="s">"main"</span><span class="nt">&gt;&lt;/main&gt;</span>
-<span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;&lt;/main&gt;</span>
-<span class="nt">&lt;footer</span> <span class="na">role=</span><span class="s">"contentinfo"</span><span class="nt">&gt;&lt;/footer&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/header&gt;</span>
+<span class="nt">&lt;main</span> <span class="na">role=</span><span class="s">"main"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/main&gt;</span>
+<span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/main&gt;</span>
+<span class="nt">&lt;footer</span> <span class="na">role=</span><span class="s">"contentinfo"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/footer&gt;</span>
 </code></pre>
-<p>Once there is accessibility support, authors are discouraged to use this technique.</p>
-
 
 
       <div class="resources">
@@ -733,9 +723,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [DRAFT] updated
+	        [EDITOR’S DRAFT] updated
 	      
-	      22 July 2015
+	      03 November 2016
 	      
 			</li>
       <li>

@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/in-page-navigation/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content draft">
+<main role="main" class="content editors-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -51,10 +51,10 @@
     </header>
 
     
-      <div class="status">
-        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
-      </div>
     
+      <div class="status">
+        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+      </div>
     
 
 
@@ -65,17 +65,22 @@
       
 
 
-      <p>The previous pages of this tutorial showed how users use sections for orientation in websites. As Web browsing is non-linear, useful navigation can be provided to efficiently navigate through page content. Such in-page navigation provides users with links to sections of the page that might be hard to discover in a linear fashion. This also benefits people with low vision. In-page links to content also make it easier to share specific content.</p>
+      <p>As Web browsing is non-linear, useful navigation can be provided to efficiently navigate through page content. Such in-page navigation provides users with links to sections of the page that might be hard to discover in a linear fashion. This also benefits people with low vision.</p>
 
 <h2 id="anchors">Anchors</h2>
 
-<p>The <code>id</code> attribute of any element can be used as an anchor and directly linked to from within the page or externally. If the main content is using <code>&lt;div id="content"&gt;</code>, attaching <code>#content</code> to the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest. For example, creating a bookmark to the first news item on a news listing page.</p>
+<p>The <code>id</code> attribute of any element can be used as an anchor and directly linked to from within the page or externally. If the main content is using <code>&lt;main id="content"&gt;</code>, attaching <code>#content</code> to the end of the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest.</p>
 
-<p>If possible, make those anchors visible by adding links to the web page. In this tutorial, you can find permalinks by using the share button displayed near each heading.</p>
+<p>If possible, make those anchors visible by adding links to the web page. In this tutorial, you can find such anchors by using the share button displayed near each heading.</p>
 
-<h2 id="skip-links">Skip links</h2>
+<h2 class="risky" id="skip-links">Skip links</h2>
 
-<p>Skip links are used to jump to different sections on the page. While some of their functionality was replaced by WAI-ARIA landmarks, skip links are still recommended because browsers still don’t provide keyboard access to landmarks. They are also useful for keyboard users that don’t use assistive technologies. Most screen reader users are used to move to the main content using skip links. For more information on landmarks see the <a href="sections.html">Page Sections</a> page.</p>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>Here we are using landmarks while everywhere else we are talking about regions.</p>
+
+</div></figure>
+<p>Skip links are used to move directly to different sections on the page. While some of their functionality is duplicated by WAI-ARIA landmarks, skip links are recommended because browsers don’t provide keyboard consistent ways to navigate landmarks. They are also useful for keyboard users that don’t use assistive technologies. Most screen reader users are used to move to the main content using skip links. For more information on landmarks see the <a href="../regions/">regions</a> page.</p>
 
 <p>The following example shows skip links that allow users to jump directly to the content and to the navigation.</p>
 
@@ -95,7 +100,7 @@
 </figure>
 <h2 id="table-of-contents">Table of contents</h2>
 
-<p>A table of contents can be a useful way to skim the page by providing an outline for the user. Usually it should be contained in a <a href="sections.html#navigation">navigation landmark</a>, so it can be easily discovered. The “on this page” box on every tutorial page is an example for such a table of contents. The anchors on every heading are used to allow users to skip to those headings in the text.</p>
+<p>A table of contents can be a useful way to skim the page by providing an outline for the user. Usually it should be contained in a <a href="../regions/#navigation">navigation region</a>, so it can be easily discovered. The “On this Page” box on every tutorial page is an example for such a table of contents. The anchors on every heading are used to allow users to skip to those headings directly.</p>
 
 
 
@@ -712,9 +717,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [DRAFT] updated
+	        [EDITOR’S DRAFT] updated
 	      
-	      27 October 2016
+	      03 November 2016
 	      
 			</li>
       <li>

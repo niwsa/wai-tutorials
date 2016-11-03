@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/headings/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content draft">
+<main role="main" class="content editors-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -51,10 +51,10 @@
     </header>
 
     
-      <div class="status">
-        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
-      </div>
     
+      <div class="status">
+        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+      </div>
     
 
 
@@ -65,34 +65,50 @@
       
 
 
-      <p>Headings communicate the way the information on the page is structured, organized and presented. Various user devices, including many assistive technologies, provide users with ways to navigate through page content using headings. They also provide visual cues that help to skim the page or find a specific section.</p>
+      <p>Use headings to communicate organization of the content on the page. They allow web browsers, plug-ins, and assistive technologies provide mechanisms for users to navigate through web pages.</p>
 
 <h2 id="heading-levels">Heading levels</h2>
 
-<p>Best practice is to nest headings properly. When stepping down through headings, avoid skipping levels. That means that an <code>&lt;h1&gt;</code> is followed by an <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code>, an <code>&lt;h2&gt;</code> is followed by a <code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code> etc. When stepping up through headings it is perfectly legitimate to skip any number of levels, for example a <code>&lt;h1&gt;</code> can follow a <code>&lt;h3&gt;</code>.</p>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This section is too wordy – clarifications welcome.</p>
 
+</div></figure>
+<p>Heading levels should be properly nested, where possible. That means that an <code>&lt;h1&gt;</code> is followed by an <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code>, an <code>&lt;h2&gt;</code> is followed by an <code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code>, and so forth. In turn, every heading with a lower leven can follow any heading. That means that it is completely valid to follow an <code>&lt;h3&gt;</code> by an <code>&lt;h1&gt;</code>, for example.</p>
+
+<p>In fixed sections of the page, for example in the footer, the heading levels <em>should not</em> change depending on the levels that are used in the content area above. In those cases consistency across pages is more important.</p>
+
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>I’m not 100% sure if we need the following section about the HTML5 algorithm. If we keep it, it should probably be in the right marginal column.</p>
+
+</div></figure>
 <div class="notes ">
-<p><strong>Note:</strong> HTML5 has introduced <a href="http://www.w3.org/TR/html5/sections.html#headings-and-sections">an outline algorithm</a> that assigns heading levels based on how deep sectioning elements are nested inside each other, regardless of the actual heading level. At the time of writing, this is not supported by any browser or assistive technology and <strong>should not</strong> be used.</p>
+<p><strong>Note:</strong> HTML5 has introduced <a href="http://www.w3.org/TR/html5/sections.html#headings-and-sections">an outline algorithm</a> that assigns heading levels based on how deep sectioning elements are nested inside each other, regardless of the actual heading level. At the time of writing, this is not supported by web browsers and assistive technologies, and <strong>should not</strong> be used.</p>
 
 </div>
-<h2 id="organize-main-page-content">Organize main page content</h2>
+<p>The following approaches outline the headings structure. Other markup and content, such as <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;footer&gt;</code>, was ommitted for readability:</p>
 
-<p>When looking at the content, the highest available heading level should be used to mark up the heading of the main content, as this makes it easy to discover.</p>
+<h2 class="ap" id="organize-main-content">Organize main content</h2>
+
+<p>Use headings are used to only organize the main content of the web page:</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: Showing only headings</figcaption>
+  <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h1&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Cotton Fur<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Sapphire Eyes<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Synthetic Felt Paws<span class="nt">&lt;/h2&gt;</span>
 </code></pre>
 </figure>
-<h2 id="organize-page-sections">Organize page sections</h2>
+<h2 class="ap" id="organize-page-regions">Organize page regions</h2>
 
-<p>Similar to page sections, headings can be used to give users a way of navigating through web pages. To do this, add a heading to each section of the page (for example navigation), that describes what can be found in the section. Often the heading levels are similar to this example:</p>
+<p>Headings can also be used to organize the different regions of a web page, similar to <a href="../labels/">region labels</a>.</p>
+
+<h3 class="ex" id="main-heading-before-navigation">Main heading before navigation</h3>
 
 <figure class="code ">
-  <figcaption>Code snippet: Showing only headings</figcaption>
+  <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>SpaceTeddy Inc.<span class="nt">&lt;/h1&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Navigation<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Sidebar<span class="nt">&lt;/h2&gt;</span>
@@ -108,12 +124,10 @@
     <span class="nt">&lt;h3&gt;</span>Our retail stores<span class="nt">&lt;/h3&gt;</span>
 </code></pre>
 </figure>
-<p>The first heading in such cases is usually the page name. In this case, the heading of the actual content is hard to find between headings that describe the page structure. If possible use <a href="sections.html">labeled page sections</a> to mark up the page structure as these provide more meaning to assistive technologies.</p>
-
-<p>In some situations it is valid to not start with a heading level 1, for example if there is no page name like in the example above. A possible heading structure would then look like this:</p>
+<h3 class="ex" id="main-heading-after-navigation">Main heading after navigation</h3>
 
 <figure class="code ">
-  <figcaption>Code snippet: Showing only headings</figcaption>
+  <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code>  <span class="nt">&lt;h2&gt;</span>Navigation<span class="nt">&lt;/h2&gt;</span>
   <span class="nt">&lt;h2&gt;</span>Sidebar<span class="nt">&lt;/h2&gt;</span>
     <span class="nt">&lt;h3&gt;</span>More news<span class="nt">&lt;/h3&gt;</span>
@@ -757,9 +771,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [DRAFT] updated
+	        [EDITOR’S DRAFT] updated
 	      
-	      27 October 2016
+	      03 November 2016
 	      
 			</li>
       <li>

@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/menus/application/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-a0bb9dc9.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -61,9 +61,14 @@
       
 
 
-      <p>Web application menus use the same basic structure as navigation menus: They often consist of a horizontal menu bar and use fly-out functionality.</p>
+      <figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>Consider adding a separator, and submenus. See discussion in Issues <a href="https://github.com/w3c/wai-tutorials/issue/353">353</a> and <a href="https://github.com/w3c/wai-tutorials/issue/352">352</a>.</p>
 
-<p>Some additional WAI-ARIA roles help users with assistive technology to operate those menus in a way that is similar to desktop software menus. When using them, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus.</p>
+</div></figure>
+<p>Web application menus use the same basic structure as navigation menus: They often consist of a horizontal menu bar and use fly-out functionality.</p>
+
+<p>Some additional WAI-ARIA roles help users with assistive technology to operate those menus in a way that is similar to the way they use menus in desktop software. When using those roles, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus.</p>
 
 <p>Note that the keyboard behavior is not automatically changed when adding those roles, but needs to be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="http://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
 
@@ -78,44 +83,42 @@
 <figure class="sample show-overflow2">
   <figcaption>Example: </figcaption>
   <div class="box-content">
-<div role="menubar">
-	<ul role="menu" aria-label="functions" id="appmenu">
-			<li role="menuitem" aria-haspopup="true">
-				File
-				<ul role="menu">
-							<li role="menuitem">New</li>
-							<li role="menuitem">Open</li>
-							<li role="menuitem">Print</li>
-					</ul>
-			</li>
-			<li role="menuitem" aria-haspopup="true">
-				Edit
-				<ul role="menu">
-							<li role="menuitem">Undo</li>
-							<li role="menuitem">Redo</li>
-							<li role="menuitem">Cut</li>
-							<li role="menuitem">Copy</li>
-							<li role="menuitem">Paste</li>
-					</ul>
-			</li>
-			<li role="menuitem" aria-haspopup="true">
-					Format
-					<ul role="menu">
-							<li role="menuitem">Font</li>
-							<li role="menuitem">Text</li>
-					</ul>
-			</li>
-			<li role="menuitem" aria-haspopup="true">
-				View
-				<ul role="menu">
-					<li role="menuitem">100%</li>
-					<li role="menuitem">Zoom In</li>
-					<li role="menuitem">Zoom Out</li>
+<ul role="menubar" id="appmenu">
+		<li role="menuitem" aria-haspopup="true">
+			File
+			<ul role="menu">
+						<li role="menuitem">New</li>
+						<li role="menuitem">Open</li>
+						<li role="menuitem">Print</li>
 				</ul>
-			</li>
-			<li role="menuitem">Help</li>
-	</ul>
-</div>
+		</li>
+		<li role="menuitem" aria-haspopup="true">
+			Edit
+			<ul role="menu">
+						<li role="menuitem">Undo</li>
+						<li role="menuitem">Redo</li>
+						<li role="menuitem">Cut</li>
+						<li role="menuitem">Copy</li>
+						<li role="menuitem">Paste</li>
+				</ul>
+		</li>
+		<li role="menuitem" aria-haspopup="true">
+				Format
+				<ul role="menu">
+						<li role="menuitem">Font</li>
+						<li role="menuitem">Text</li>
+				</ul>
+		</li>
+		<li role="menuitem" aria-haspopup="true">
+			View
+			<ul role="menu">
+				<li role="menuitem">100%</li>
+				<li role="menuitem">Zoom In</li>
+				<li role="menuitem">Zoom Out</li>
+			</ul>
+		</li>
+		<li role="menuitem">Help</li>
+</ul>
 
 <style>
 .show-overflow2 {
@@ -325,26 +328,24 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
   </div></figure>
 
-<p id="escape">The markup has no links at all: It is a nested list with some WAI-ARIA roles as the application would be non-functional without JavaScript available anyway. Also the example recreates the behavior of desktop application menus using scripting.</p>
+<p id="escape">The markup has no links at all: It is a nested list with WAI-ARIA roles as the application would be non-functional without JavaScript available anyway.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"menubar"</span><span class="nt">&gt;</span>
-	<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-label=</span><span class="s">"functions"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
-			File
-			<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
-				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/li&gt;</span>
-				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Open<span class="nt">&lt;/li&gt;</span>
-				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Print<span class="nt">&lt;/li&gt;</span>
-			<span class="nt">&lt;/ul&gt;</span>
-		<span class="nt">&lt;/li&gt;</span>
-		…
-	<span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menubar"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+		File
+		<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Open<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Print<span class="nt">&lt;/li&gt;</span>
+		<span class="nt">&lt;/ul&gt;</span>
+	<span class="nt">&lt;/li&gt;</span>
+	…
+<span class="nt">&lt;/ul&gt;</span>
 </code></pre>
 </figure>
-<p>First, we collect all top-level menu items in a variable (<code>appsMenuItems</code>) as well as all submenu items (<code>subMenuItems</code>). An object is defined with the key codes of the keys that need to be handled. This makes the code much more readable. Two variables keep track of the focus in top-level items (<code>currentIndex</code>) and in submenus (<code>subIndex</code>).</p>
+<p>The behavior of desktop application menus is added to the menu by this JavaScript. First, we collect all top-level menu items in one variable (<code>appsMenuItems</code>) and all submenu items in another (<code>subMenuItems</code>). Two variables keep track of the focus in top-level items (<code>currentIndex</code>) and in submenus (<code>subIndex</code>).</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -383,7 +384,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 <span class="p">});</span>
 </code></pre>
 </figure>
-<p>All top-level menu items close open submenus when they receive focus and reset the <code>subIndex</code> variable. When individual items are clicked, the visibility of the submenu is toggled by changing the <code>aria-expanded</code> value. If a key is pressed, the appropriate action is carried out.</p>
+<p>All top-level menu items open their submenus when they receive focus and reset the <code>subIndex</code> variable. When individual items are clicked, the visibility of the submenu is toggled by changing the <code>aria-expanded</code> value. If a key is pressed, the appropriate action is carried out. See the following table for more details on the behavior of top-level menu items:</p>
 
 <table>
 	<caption>Key mapping for top-level menu items</caption>
@@ -704,7 +705,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      13 November 2015
+	      03 November 2016
 	      
 			</li>
       <li>
