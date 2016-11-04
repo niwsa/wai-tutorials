@@ -65,35 +65,14 @@
       
 
 
-      <p>Use structural markup to ensure that the content of a carousel has meaning on its own. For example, a carousel can be presented as a list of articles on a mobile device or when JavaScript is disabled.</p>
+      <p>Use structural markup to ensure that the content of a carousel can be used in a variety of situations. For example, a carousel can be presented as a list of articles on a mobile device or when JavaScript isn’t available.</p>
 
-<h2 id="create-carousel-body">Create carousel body</h2>
+<h2 id="overall-structure">Overall structure</h2>
 
-<p>As a collection of content items, carousels are typically best represented as unordered list items (<code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>). Depending on the content they could also be collections of <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, or heading items (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>). Important is to ensure semantic meaning of the carousel as a whole.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code>    …
-  <span class="nt">&lt;ul&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/li&gt;</span>
-    …
-  <span class="nt">&lt;/ul&gt;</span>
-</code></pre>
-</figure>
-<h2 id="declare-carousel">Declare carousel</h2>
-
-<p>Use semantic markup to define carousels as distinct parts of your web page. For example, if the main purpose of a carousel is to navigate the website, use the HTML5 <code>&lt;nav&gt;</code> element. Depending on the context, <code>&lt;article&gt;</code>, <code>&lt;complementary&gt;</code>, and <code>&lt;aside&gt;</code> elements can also be used. At the very least, the <code>&lt;section&gt;</code> element should be used to declare the carousel.</p>
+<p>As a collection of content items, carousels are typically best represented as unordered list items, <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>. Every carousel should be enclosed in a labeled region to allow users find the carousel more easily. In the following example a <code>&lt;section&gt;</code> element is used to define the region and <code>aria-labelledby</code> defines the heading that contains the label.</p>
 
 <aside class="reference">
-<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
-
-</aside>
-<p>Also label carousels according to their individual function, to make them easier to find and understand. This helps to distinguish between multiple carousels and other regions on a web page. Use a heading, <code>aria-label</code>, and/or <code>aria-labelledby</code> to provide the label.</p>
-
-<aside class="reference">
-<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
+<p>See the Page Structure Tutorial for more information on <a href="../../page-structure/regions/">regions</a> and <a href="../../page-structure/labels/">labels</a>.</p>
 
 </aside>
 <figure class="code ">
@@ -109,17 +88,9 @@
 <span class="nt">&lt;/section&gt;</span>
 </code></pre>
 </figure>
-</figure>
-<p>Note: In HTML4, a <code>&lt;div&gt;</code> element with the WAI-ARIA <code>role</code> attribute with the value <code>region</code> is needed.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: HTML4</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel"</span> <span class="na">role=</span><span class="s">"region"</span> <span class="err">…</span><span class="nt">&gt;</span>…<span class="nt">&lt;/div&gt;</span>
-</code></pre>
-</figure>
 <h2 id="item-content">Item content</h2>
 
-<p>Carousel items often consist of simple content items, sometimes just an <code>&lt;img&gt;</code> element. In other cases, each carousel item represents a complete article, a section of a web page or even a section of the entire website. In either case you need to use semantic markup to make each section usable on its own. This includes using headings, sections, lists, articles, and other structures as needed.</p>
+<p>While carousel items are often just images, they can also provide more complex content, such as teaser, articles, or a section of a web page or web site. In any case use semantic markup to make each section usable on its own. This includes using headings, sections, lists, articles, and other structures as needed.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Example of Simple Content</figcaption>
@@ -140,10 +111,16 @@
     …
   <span class="nt">&lt;/article&gt;</span>
 <span class="nt">&lt;/li&gt;</span>
+…
 </code></pre>
 </figure>
-<h3 id="basic-styling">Basic styling</h3>
+<h2 class="risky" id="basic-styling">Basic styling</h2>
 
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>Suggest moving this section to its own page, similar to the <a href="../../menus/">menus tutorial</a>.</p>
+
+</div></figure>
 <p>Apply styling on the carousel structure to make them appear as needed. Ensure that the default view (without JavaScript) is usable by itself.</p>
 
 <figure class="sample ">
@@ -796,7 +773,7 @@
           
         
           
-            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete code example</span></a></li>
+            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Example</span></a></li>
           
         
       
@@ -825,7 +802,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      03 November 2016
+	      04 November 2016
 	      
 			</li>
       <li>

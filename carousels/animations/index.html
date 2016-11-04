@@ -110,11 +110,16 @@
 <p><strong>Note:</strong> The <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="http://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../examples/focusinoutpolyfill-dbb9abfe.js">a short polyfill</a> at the time of publication of this tutorial.</p>
 
 </div>
-<h2 id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
+<h2 class="risky" id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
 
-<p>While items leave the viewport, they are visible during the transition. However, they should not be available to assistive technologies during this period to avoid confusion. The <code>aria-hidden</code> attribute ensures that those items don’t interfere with assistive technologies.</p>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This section, or parts of it, might move to a “carousel styling” page in the future.</p>
 
-<p>The following example shows how to approach this: After determining what the new order of items is, depending on the direction of item rotation, the next or the previous item gets an <code>in-transition</code> class, which makes the item visible. It also sets <code>aria-hidden</code> to <code>true</code>. The <code>aria-hidden</code> attribute is then removed from the new current carousel item.</p>
+</div></figure>
+<p>During the transitions, both, the current and the next item are visible. This also means that two items are available to assistive technologies, with the current item disappearing in a relatively short time.</p>
+
+<p>This can be distracting and disorienting for users of screen readers, for example. In the following example the item that is showing up gets an <code>in-transition</code> class to show it and <code>aria-hidden</code> is set to <code>true</code>. Once the trasition has ended, the <code>aria-hidden</code> attribute is removed.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript: In initialization</figcaption>
@@ -130,8 +135,13 @@
 <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">);</span>
 </code></pre>
 </figure>
-<h2 id="putting-it-all-together">Putting it all together</h2>
+<h2 class="risky" id="putting-it-all-together">Putting it all together</h2>
 
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This section might move to a “carousel styling” page or to the <a href="../full-code/">complete example</a> in the future.</p>
+
+</div></figure>
 <p>The sample below is a demo of the final carousel that is built by putting together all examples of this tutorial:</p>
 
 <figure class="sample ">
@@ -411,10 +421,10 @@ var myCarousel = (function() {
 
     ctrls.className = 'controls';
     ctrls.innerHTML = '<li>' +
-        '<button type="button" class="btn-prev"><img alt="Previous Slide" src="../../img/chevron-left-75c7dd0b.png" /></button>' +
+        '<button type="button" class="btn-prev"><img alt="Previous Item" src="../../img/chevron-left-75c7dd0b.png" /></button>' +
       '</li>' +
       '<li>' +
-        '<button type="button" class="btn-next"><img alt="Next Slide" src="../../img/chevron-right-2f19bc8b.png" />' +
+        '<button type="button" class="btn-next"><img alt="Next Item" src="../../img/chevron-right-2f19bc8b.png" />' +
       '</li>';
 
     ctrls.querySelector('.btn-prev')
@@ -451,7 +461,7 @@ var myCarousel = (function() {
         forEachElement(slides, function(el, i){
           var li = document.createElement('li');
           var klass = (i===0) ? 'class="current" ' : '';
-          var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Slide)</span>' : '';
+          var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Item)</span>' : '';
 
           li.innerHTML = '<button '+ klass +'data-slide="' + i + '"><span class="visuallyhidden">News</span> ' + (i+1) + kurrent + '</button>';
           slidenav.appendChild(li);
@@ -554,7 +564,7 @@ var myCarousel = (function() {
         buttons[j].innerHTML = '<span class="visuallyhidden">News</span> ' + (j+1);
       }
       buttons[new_current].className = "current";
-      buttons[new_current].innerHTML = '<span class="visuallyhidden">News</span> ' + (new_current+1) + ' <span class="visuallyhidden">(Current Slide)</span>';
+      buttons[new_current].innerHTML = '<span class="visuallyhidden">News</span> ' + (new_current+1) + ' <span class="visuallyhidden">(Current Item)</span>';
     }
 
     index = new_current;
@@ -779,10 +789,6 @@ c.init({
         
         
         
-          <li class="next">
-            <span><a rel="next" class="" href="../full-code/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Complete code example</span></span></a></span>
-          </li>
-        
       
     
   </ul>
@@ -829,7 +835,7 @@ c.init({
           
         
           
-            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete code example</span></a></li>
+            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Example</span></a></li>
           
         
       
@@ -858,7 +864,7 @@ c.init({
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      03 November 2016
+	      04 November 2016
 	      
 			</li>
       <li>
