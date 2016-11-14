@@ -74,7 +74,9 @@
 <p>Proposal to move this section to a dedicated “carousel styling” page that can then be referenced from several parts of the other pages.</p>
 
 </div></figure>
-<p>If the JavaScript is enabled, a class <code>active</code> is added to the carousel region so we can apply specific CSS when JavaScript is active. The items are positioned inside the carousel using <code>position: absolute</code>. A class <code>current</code> is added to the current item, CSS positions it frontmost, using <code>z-index</code>.</p>
+<p>When JavaScript is enabled, a class corresponding to specific CSS styling is added to the carousel. In this example the class <code>active</code> is added, and hides all the carousel items initially.</p>
+
+<p>Another class, in this example <code>current</code>, is added to the current carousel item. The corresponding CSS styles show and position the current item as the foremost, using <code>z-index</code> values.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -204,11 +206,11 @@
 
   </div></figure>
 
-<h2 id="previous-and-next-buttons">Previous and next buttons</h2>
+<h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
 <p>Use <code>&lt;button&gt;</code> elements to allow users to switch back and forth between items. Such elements provide semantic meaning to support assistive technologies and consistent keyboard use out of the box. They can be individually styled as needed.</p>
 
-<p>Generate the buttons with JavaScript to avoid having useless buttons in the HTML code when JavaScript is unavailable, and add them to the carousel:</p>
+<p>Generate the buttons and add them to the carousel with JavaScript, to avoid having useless buttons in the HTML code when JavaScript is disabled:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -527,7 +529,7 @@
 
   </div></figure>
 
-<h2 class="newex" id="provide-overview-on-items">Provide overview on items</h2>
+<h2 class="newex" id="indicate-items-and-provide-access">Indicate items and provide access</h2>
 
 <p>Display a list of buttons that indicate the available carousel items and highlight the currently displayed items. This allows users to get an overview on the contents of the carousels, where they are, and navigate directly to any carousel item.</p>
 
@@ -653,7 +655,7 @@
 <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
 </code></pre>
 </figure>
-<p>Note that the focus is not set to the item when the <em>previous and next buttons</em> are used to allow users skip multiple items.</p>
+<p>Note that the focus is not set to the item when the <em>previous and next buttons</em> are used, to allow users to continue scrolling through items.</p>
 
 
 
@@ -883,7 +885,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      04 November 2016
+	      14 November 2016
 	      
 			</li>
       <li>

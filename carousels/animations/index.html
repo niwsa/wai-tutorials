@@ -117,9 +117,9 @@
 <p>This section, or parts of it, might move to a “carousel styling” page in the future.</p>
 
 </div></figure>
-<p>During the transitions, both, the current and the next item are visible. This also means that two items are available to assistive technologies, with the current item disappearing in a relatively short time.</p>
+<p>During the transitions, both, the current and the next item are visible. This also means that two items are available to assistive technologies, with the current item disappearing in a relatively short time. In some cases this can be confusing to screen reader users.</p>
 
-<p>This can be distracting and disorienting for users of screen readers, for example. In the following example the item that is showing up gets an <code>in-transition</code> class to show it and <code>aria-hidden</code> is set to <code>true</code>. Once the trasition has ended, the <code>aria-hidden</code> attribute is removed.</p>
+<p>In the following example the item that is being activated gets an <code>in-transition</code> class to show it but with the <code>aria-hidden</code> attribute set to <code>true</code>. This hides the item from assitive technologies. When the trasition completes, the <code>aria-hidden</code> attribute is removed.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript: In initialization</figcaption>
@@ -864,7 +864,7 @@ c.init({
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      04 November 2016
+	      14 November 2016
 	      
 			</li>
       <li>

@@ -67,9 +67,11 @@
 
       <p>Use structural markup to ensure that the content of a carousel can be used in a variety of situations. For example, a carousel can be presented as a list of articles on a mobile device or when JavaScript isn’t available.</p>
 
-<h2 id="overall-structure">Overall structure</h2>
+<h2 id="carousel-body">Carousel body</h2>
 
-<p>As a collection of content items, carousels are typically best represented as unordered list items, <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>. Every carousel should be enclosed in a labeled region to allow users find the carousel more easily. In the following example a <code>&lt;section&gt;</code> element is used to define the region and <code>aria-labelledby</code> defines the heading that contains the label.</p>
+<p>As a collection of content items, carousels are typically best represented as unordered list items, <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>. Other representations can also be used if necessary, depending on the context.</p>
+
+<p>Every carousel should be enclosed in a labeled region, to allow users find the carousel more easily. In the following example a <code>&lt;section&gt;</code> element is used to define the region and <code>aria-labelledby</code> defines the heading that contains the label.</p>
 
 <aside class="reference">
 <p>See the Page Structure Tutorial for more information on <a href="../../page-structure/regions/">regions</a> and <a href="../../page-structure/labels/">labels</a>.</p>
@@ -88,9 +90,9 @@
 <span class="nt">&lt;/section&gt;</span>
 </code></pre>
 </figure>
-<h2 id="item-content">Item content</h2>
+<h2 id="carousel-items">Carousel items</h2>
 
-<p>While carousel items are often just images, they can also provide more complex content, such as teaser, articles, or a section of a web page or web site. In any case use semantic markup to make each section usable on its own. This includes using headings, sections, lists, articles, and other structures as needed.</p>
+<p>While carousel items are often just images, they can also provide more complex content, such as teasers, articles, or entire sections of other web pages. In any case, use markup to make each section has proper structure and meaning on its own. This includes using headings, sections, lists, articles, and other elements as needed.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Example of Simple Content</figcaption>
@@ -802,7 +804,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      04 November 2016
+	      14 November 2016
 	      
 			</li>
       <li>
