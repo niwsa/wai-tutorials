@@ -67,145 +67,6 @@
 
       <p>Provide functionality to display the carousel items one at a time, and to announce the changes that occur in display.</p>
 
-<h2 class="risky" id="position-items">Position items</h2>
-
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>Proposal to move this section to a dedicated “carousel styling” page that can then be referenced from several parts of the other pages.</p>
-
-</div></figure>
-<p>When JavaScript is enabled, a class corresponding to specific CSS styling is added to the carousel. In this example the class <code>active</code> is added, and hides all the carousel items initially.</p>
-
-<p>Another class, in this example <code>current</code>, is added to the current carousel item. The corresponding CSS styles show and position the current item as the foremost, using <code>z-index</code> values.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight css"><code><span class="nc">.active</span> <span class="nc">.slide</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.slide.current</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</figure>
-<p>The outcome looks like this:</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<h3 role="presentation">Featured Articles:</h3>
-<div id="c1" class="carousel">
-    <ul>
-        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <a href="…">Full Annual Report</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <a href="…">Everything about the new model</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
-            <h4>Adventures of the Space Teddy</h4>
-            <p>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <a href="…">Play the Game here!</a>
-            </p>
-        </li>
-    </ul>
-</div>
-
-<style>
-  .carousel, .slide {
-    width: 480px;
-    padding:0;
-    margin: 0;
-  }
-  .carousel {
-    position: relative;
-  }
-  .carousel ul {
-    margin:0;
-    padding: 0;
-  }
-  .slide {
-    /*position: absolute;*/
-    height: 360px;
-    background-size: cover;
-    position: relative;
-    margin-bottom:1em;
-    border:1px solid #333;
-  }
-  .slide h4 {
-    display:inline-block;
-    float:righ;
-    font-size: 1.25em;
-    margin:0;
-    padding: .25em;
-    text-align: right;
-    background-color: rgba(255,255,255,.8);
-    float:right;
-    border-radius: 0 0 0 .5em;
-  }
-  .slide p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:0;
-    clear:both;
-    padding: 5px;
-    background-color: rgba(255,255,255,.8);
-  }
-  .slide a {
-    display:block;
-    text-align: right;
-  }
-</style>
-
-<style>
-.carousel.active {
-  height: 360px;
-  overflow: hidden;
-  border: 1px solid #333;
-  position:relative;
-}
-
-.active .slide {
-  border: none;
-  display: none;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:200;
-}
-
-.slide.current {
-  display:block;
-  z-index: 500;
-}
-</style>
-
-<script>
-  var carousel = document.getElementById('c1');
-  carousel.querySelectorAll('.slide')[0].className = 'current slide';
-  carousel.className = 'active carousel';
-</script>
-
-
-  </div></figure>
-
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
 <p>Use <code>&lt;button&gt;</code> elements to allow users to switch back and forth between items. Such elements provide semantic meaning to support assistive technologies and consistent keyboard use out of the box. They can be individually styled as needed.</p>
@@ -306,229 +167,6 @@
 
 </code></pre>
 </figure>
-<p>Combined, the carousel looks and functions like this:</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<h3 role="presentation">Featured Articles:</h3>
-<div id="c2" class="carousel">
-    <ul>
-        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <a href="…">Full Annual Report</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <a href="…">Everything about the new model</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
-            <h4>Adventures of the Space Teddy</h4>
-            <p>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <a href="…">Play the Game here!</a>
-            </p>
-        </li>
-    </ul>
-</div>
-
-<style>
-.btn-prev,
-.btn-next {
-  position:absolute;
-  z-index: 700;
-  top: 50%;
-  margin-top: -2.5em;
-  border:0;
-  background: rgba(255,255,255,.6);
-  line-height: 1;
-  padding:10px 5px;
-  transition: padding .4s ease-out;
-}
-
-.btn-next:hover,
-.btn-next:focus,
-.btn-prev:hover,
-.btn-prev:focus {
-  padding-left: 15px;
-  padding-right:15px;
-}
-
-  .btn-prev {
-    left:0;
-    border-radius: 0 .25em .25em 0;
-  }
-
-  .btn-next {
-    right:0;
-    border-radius: .25em 0 0 .25em;
-  }
-</style>
-
-<script>
-  function setSlides(new_current, setFocus) {
-    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
-    slides[index].removeAttribute('aria-live');
-
-    new_current = parseFloat(new_current);
-
-    var length = slides.length;
-    var new_next = new_current+1;
-    var new_prev = new_current-1;
-
-    if(new_next === length) {
-      new_next = 0;
-    } else if(new_prev < 0) {
-      new_prev = length-1;
-    }
-
-    for (var i = slides.length - 1; i >= 0; i--) {
-      slides[i].className = "slide";
-    };
-
-    slides[new_next].className = 'next slide';
-    slides[new_prev].className = 'prev slide';
-    slides[new_current].className = 'current slide';
-
-    if (announceSlide) {
-      slides[new_current].setAttribute('aria-live', 'polite');
-      announceSlide = false;
-    }
-
-    if (setFocus) {
-      slides[new_current].setAttribute('tabindex', '-1');
-      slides[new_current].focus();
-    }
-
-    index = new_current;
-  }
-
-  function nextSlide() {
-    var length = slides.length,
-    new_current = index + 1;
-
-    if(new_current === length) {
-      new_current = 0;
-    }
-
-    setSlides(new_current);
-
-  }
-
-  function prevSlide() {
-    var length = slides.length,
-    new_current = index - 1;
-
-    if(new_current < 0) {
-      new_current = length-1;
-    }
-
-    setSlides(new_current);
-
-  }
-
-  var carousel = document.getElementById('c2');
-  var slides = carousel.querySelectorAll('.slide');
-  var index;
-
-  carousel.className = 'active carousel';
-
-  function forEachElement(elements, fn) {
-    for (var i = 0; i < elements.length; i++)
-      fn(elements[i], i);
-  }
-
-  var parseHTML = function(str) {
-    var el =
-    el.innerHTML = str;
-    return el;
-  };
-
-  var ctrls = document.createElement('ul');
-
-  ctrls.className = 'controls';
-  ctrls.innerHTML = '<li>' +
-      '<button type="button" class="btn-prev"><img src="/img/chevron-left-75c7dd0b.png" alt="Previous Item"></button>' +
-    '</li>' +
-    '<li>' +
-      '<button type="button" class="btn-next"><img src="/img/chevron-right-2f19bc8b.png" alt="Next Item"></button>' +
-    '</li>';
-
-    ctrls.querySelector('.btn-prev').addEventListener('click', function(){
-      announceSlide = true;
-      prevSlide();
-    });
-
-    ctrls.querySelector('.btn-next').addEventListener('click', function(){
-      announceSlide = true;
-      nextSlide();
-    });
-
-  carousel.appendChild(ctrls);
-
-  index = 0;
-  setSlides(index);
-</script>
-
-<style>
-.carousel.with-slidenav {
-  padding-bottom: 2em;
-  background-color: #fff;
-}
-.carousel.with-slidenav .slide {
-  border-bottom: 1px solid #333;
-}
-
-.slidenav {
-  position: absolute;
-  bottom:1em;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-
-.slidenav li {
-  display:inline-block;
-  margin: 0 .5em;
-}
-
-.slidenav button {
-  border: 2px solid #036;
-  background-color: #036;
-  line-height: 1em;
-  height: 1.5em;
-  width:auto;
-  font-weight: bold;
-  color: #fff;
-}
-
-.slidenav button.current {
-  border-radius: .5em;
-  background-color: #fff;
-  color: #333;
-}
-
-.slidenav button:hover,
-.slidenav button:focus {
-  border: 2px dashed #fff;
-}
-
-.slidenav button.current:hover,
-.slidenav button.current:focus {
-  border: 2px dashed #036;
-}
-
-</style>
-
-
-  </div></figure>
-
 <h2 class="newex" id="indicate-items-and-provide-access">Indicate items and provide access</h2>
 
 <p>Display a list of buttons that indicate the available carousel items and highlight the currently displayed items. This allows users to get an overview on the contents of the carousels, where they are, and navigate directly to any carousel item.</p>
@@ -589,6 +227,37 @@
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
+<style>
+.slidenav li {
+  display: inline-block;
+}
+.slidenav button {
+  border: 2px solid #036;
+  background-color: #036;
+  line-height: 1em;
+  height: 2em;
+  width: 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.slidenav button.current {
+  border-radius: .5em;
+  background-color: #fff;
+  color: #333;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  border: 2px dashed #fff;
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  border: 2px dashed #036;
+}
+</style>
+
 <ul class="slidenav as-sample">
   <li>
     <button class="current" data-slide="0" type="button">
@@ -789,8 +458,12 @@
       
         
         
+        
+      
+        
+        
           <li class="prev">
-            <span><a rel="prev" class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure</span></span></a></span>
+            <span><a rel="prev" class="" href="../styling/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Styling</span></span></a></span>
           </li>
         
         
@@ -805,6 +478,10 @@
           <li class="next">
             <span><a rel="next" class="" href="../animations/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Animations</span></span></a></span>
           </li>
+        
+      
+        
+        
         
       
         
@@ -834,29 +511,60 @@
   <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-        Carousels Tutorial
+        
+           Tutorial
+        
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
         
         
           
-            <li><a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a></li>
+            <li>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              
+            </li>
           
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functionality</span></span></li>
+            <li>
+              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functionality</span></span>
+              
+            </li>
           
         
           
-            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Example</span></a></li>
+            <li>
+              <a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../working-example/"><span class="count"></span><span class="txt">Working Example</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Code</span></a>
+              
+            </li>
           
         
       
@@ -866,11 +574,12 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels <span class="status">draft</span></span></span></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels <span class="status">editors-draft</span></span></span></li>
+  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Site Navigation <span class="status">draft</span></span></a></li>
+  <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
@@ -885,7 +594,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      14 November 2016
+	      07 December 2016
 	      
 			</li>
       <li>

@@ -63,7 +63,7 @@
 
       <p>Functional images are used to initiate actions rather than to convey information. They are used in buttons, links, and other interactive elements. The text alternative for the image should convey the action that will be initiated (the purpose of the image), rather than a description of the image. For instance, as shown in examples below, the text alternative should be “print this page” rather than “(image of a) printer”, “search” rather than “magnifying lens” or “Example.com home page” rather than “Example.com logo”.</p>
 
-<p>Missing or empty <code>alt</code> values create significant problems for screen reader users because functional images are essential to the functionality of the content. Screen readers will typically announce the image file name, the image URL, or the URL for the link destination, which is unlikely to help users understand the action that will be initated by the image.</p>
+<p>Missing or empty <code>alt</code> values create significant problems for screen reader users because functional images are essential to the functionality of the content. Screen readers will typically announce the image file name, the image URL, or the URL for the link destination, which is unlikely to help users understand the action that will be initiated by the image.</p>
 
 <h2 class="ex" id="image-used-alone-as-a-linked-logo">Image used alone as a linked logo</h2>
 
@@ -96,7 +96,7 @@
 </div>
 <h2 class="ex" id="logo-image-within-link-text">Logo image within link text</h2>
 
-<p>In this example the W3C logo is used to supplement text within a link that leads to the W3C home page. The image does not represent different functionality or convey other information than that already provided by in the link text, so a null (empty) value is applied, (<code>alt=""</code>), to avoid redundancy and repetition. In effect the image is a decorative adjunct or visual cue to the link text:</p>
+<p>In this example the W3C logo is used to supplement text within a link that leads to the W3C home page. The image does not represent different functionality or convey other information than that already provided in the link text, so a null (empty) value is applied, (<code>alt=""</code>), to avoid redundancy and repetition. In effect the image is a decorative adjunct or visual cue to the link text:</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -115,7 +115,7 @@
 </figure>
 <h2 class="ex" id="icon-image-conveying-information-within-link-text">Icon image conveying information within link text</h2>
 
-<p>In this example the image follows text within a link to inform users that the link will open in a new window. It has the text alternative “new window” to reflect the representation on the image:</p>
+<p>In this example the image follows text within a link to inform users that the link will open in a new window. It has the text alternative “new window” to convey the meaning of the icon:</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -631,49 +631,81 @@
   <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-        Images Tutorial
+        
+           Tutorial
+        
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Images Concepts</span></a></li>
         
         
           
-            <li><a class="" href="../informative/"><span class="count"></span><span class="txt">Informative Images</span></a></li>
+            <li>
+              <a class="" href="../informative/"><span class="count"></span><span class="txt">Informative Images</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../decorative/"><span class="count"></span><span class="txt">Decorative Images</span></a></li>
+            <li>
+              <a class="" href="../decorative/"><span class="count"></span><span class="txt">Decorative Images</span></a>
+              
+            </li>
           
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functional Images</span></span></li>
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functional Images</span></span>
+              
+            </li>
           
         
           
-            <li><a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a></li>
+            <li>
+              <a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a></li>
+            <li>
+              <a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a></li>
+            <li>
+              <a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a></li>
+            <li>
+              <a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a>
+              
+            </li>
           
         
           
-            <li class="tips"><a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a></li>
+            <li class="tips">
+              <a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a>
+              
+            </li>
           
         
           
-            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
+            <li class="tips">
+              <a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a>
+              
+            </li>
           
         
       
@@ -683,11 +715,12 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Images</span></span></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">editors-draft</span></span></a></li>
+  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Site Navigation <span class="status">draft</span></span></a></li>
+  <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
@@ -702,7 +735,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      07 December 2016
 	      
 		      
 		      (first published September 2014)

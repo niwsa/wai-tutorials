@@ -116,99 +116,6 @@
 …
 </code></pre>
 </figure>
-<h2 class="risky" id="basic-styling">Basic styling</h2>
-
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>Suggest moving this section to its own page, similar to the <a href="../../menus/">menus tutorial</a>.</p>
-
-</div></figure>
-<p>Apply styling on the carousel structure to make them appear as needed. Ensure that the default view (without JavaScript) is usable by itself.</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<h3 role="presentation">Featured Articles:</h3>
-<div class="carousel">
-    <ul>
-        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <a href="…">Full Annual Report</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <a href="…">Everything about the new model</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
-            <h4>Adventures of the Space Teddy</h4>
-            <p>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <a href="…">Play the Game here!</a>
-            </p>
-        </li>
-    </ul>
-</div>
-
-<style>
-  .carousel, .slide {
-    width: 480px;
-    padding:0;
-    margin: 0;
-  }
-  .carousel {
-    position: relative;
-  }
-  .carousel ul {
-    margin:0;
-    padding: 0;
-  }
-  .slide {
-    height: 360px;
-    background-size: cover;
-    position: relative;
-    margin-bottom:1em;
-    border:1px solid #333;
-  }
-  .slide h4 {
-    display:inline-block;
-    float:righ;
-    font-size: 1.25em;
-    margin:0;
-    padding: .25em;
-    text-align: right;
-    background-color: rgba(255,255,255,.8);
-    float:right;
-    border-radius: 0 0 0 .5em;
-  }
-  .slide p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:0;
-    clear:both;
-    padding: 5px;
-    background-color: rgba(255,255,255,.8);
-  }
-  .slide a {
-    display:block;
-    text-align: right;
-  }
-</style>
-
-
-  </div></figure>
-
-<div class="notes ">
-<p><strong>Note:</strong> As the background images can be distracting, a (semi-transparent) background color for the overlaying text helps to improve the contrast.</p>
-
-</div>
 
 
       <div class="resources">
@@ -718,8 +625,16 @@
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../functionality/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Functionality</span></span></a></span>
+            <span><a rel="next" class="" href="../styling/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Styling</span></span></a></span>
           </li>
+        
+      
+        
+        
+        
+      
+        
+        
         
       
         
@@ -753,29 +668,60 @@
   <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-        Carousels Tutorial
+        
+           Tutorial
+        
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
         
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Structure</span></span></li>
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Structure</span></span>
+              
+            </li>
           
         
           
-            <li><a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a></li>
+            <li>
+              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
+            <li>
+              <a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a>
+              
+            </li>
           
         
           
-            <li class="tips"><a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Example</span></a></li>
+            <li>
+              <a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../working-example/"><span class="count"></span><span class="txt">Working Example</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Code</span></a>
+              
+            </li>
           
         
       
@@ -785,11 +731,12 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels <span class="status">draft</span></span></span></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels <span class="status">editors-draft</span></span></span></li>
+  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Site Navigation <span class="status">draft</span></span></a></li>
+  <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
@@ -804,7 +751,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      14 November 2016
+	      07 December 2016
 	      
 			</li>
       <li>
