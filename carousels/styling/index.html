@@ -65,13 +65,13 @@
       
 
 
-      <p>The styling of the carousel can have a huge impact to usability and accessibility.</p>
+      <p>The styling of carousels has a huge impact to usability and accessibility.</p>
 
-<h2 id="item-styling">Item styling</h2>
+<h2 id="general-styling">General Styling</h2>
 
-<p>Apply a suitable layout to the carousel items without JavaScript to ensure that the content is available in situations when JavaScript is not available.</p>
+<p>Ensure that the carousel content is readable in situations when JavaScript is not available, to improve the robustness of your website.</p>
 
-<p>In the following example a semi-transparent background color is used in the heading and the description text to guarantee that the text is readable when placed on top of the image. (See <a href="/design/contrast.html">Design/Contrast</a>.)</p>
+<p>In the following example the carousel is styled as three individual items in the normal page flow. A semi-transparent background color is used for text containers to guarantee readable contrast when placed on top of the image. (See <a href="#">Design/Contrast</a>.)</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -155,9 +155,9 @@
 
 <h2 id="item-position">Item Position</h2>
 
-<p>When JavaScript is enabled, a class <code>active</code> is added to the carousel that positions the items stacked on top of each other. In addition the items are hidden, using <code>display: none;</code> for all items.</p>
+<p>JavaScript is used to add a class <code>active</code> to the carousel after page load. CSS then positions the items stacked on top of each other and hides them, using <code>display:none;</code> (which hides them visually and from assistive technologies).</p>
 
-<p>The <code>current</code> item then is shown (<code>display: block;</code>) and <code>z-index</code> is used to position the slide in front of all other slides – this is important for the animation transition later.</p>
+<p>The class <code>current</code> is then added to the first item. It displays this item (using <code>display:block;</code>) and positions the item on top of the stack (<code>z-index: 500;</code>) – which is important for the animations later.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -175,7 +175,7 @@
 <span class="p">}</span>
 </code></pre>
 </figure>
-<p>The outcome looks like this:</p>
+<p>The outcome (without any <a href="../functionality/">functionality</a> applied) looks like this:</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -299,7 +299,7 @@
         
         
           <li class="prev">
-            <span><a rel="prev" class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure</span></span></a></span>
+            <span><a rel="prev" class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Anatomy</span></span></a></span>
           </li>
         
         
@@ -367,7 +367,7 @@
         
           
             <li>
-              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Anatomy</span></a>
               
             </li>
           
@@ -434,7 +434,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      07 December 2016
+	      08 December 2016
 	      
 			</li>
       <li>

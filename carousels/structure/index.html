@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-  Carousel Structure
+  The Anatomy of a Carousel
   
     
        &bull; Carousels
@@ -41,12 +41,12 @@
               <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
-            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousel Structure</span></span>
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>The Anatomy of a Carousel</span></span>
           </span>
         </p>
       </nav>
       <h1>
-        Carousel Structure
+        The Anatomy of a Carousel
       </h1>
     </header>
 
@@ -65,11 +65,11 @@
       
 
 
-      <p>Use structural markup to ensure that the content of a carousel can be used in a variety of situations. For example, a carousel can be presented as a list of articles on a mobile device or when JavaScript isn’t available.</p>
+      <p>Structural markup ensures that the content of a carousel can be used in a variety of situations. For example, it can be presented as a list of articles instead of a more complex carousel on a mobile device.</p>
 
-<h2 id="carousel-body">Carousel body</h2>
+<h2 id="general-structure">General Structure</h2>
 
-<p>As a collection of content items, carousels are typically best represented as unordered list items, <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>. Other representations can also be used if necessary, depending on the context.</p>
+<p>As a collection of content items, carousels are typically best represented as unordered lists, using <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code>. Depending on the context, other elements can also be used.</p>
 
 <p>Every carousel should be enclosed in a labeled region, to allow users find the carousel more easily. In the following example a <code>&lt;section&gt;</code> element is used to define the region and <code>aria-labelledby</code> defines the heading that contains the label.</p>
 
@@ -92,10 +92,12 @@
 </figure>
 <h2 id="carousel-items">Carousel items</h2>
 
-<p>While carousel items are often just images, they can also provide more complex content, such as teasers, articles, or entire sections of other web pages. In any case, use markup to make each section has proper structure and meaning on its own. This includes using headings, sections, lists, articles, and other elements as needed.</p>
+<p>The content of individual carousel items often consists of just images, when used for an image gallery. However more complex content, such as teasers, articles, or entire sections of web pages is also presented in carousel form. In any case, use appropriate markup to ensure that the proper structure and meaning of the content is conveyed. Such markup may include headings, sections, lists, articles, and other elements as needed.</p>
+
+<p>This first example shows a carousel item for simple content:</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: Example of Simple Content</figcaption>
+  <figcaption>Code snippet: Example 1</figcaption>
 <pre class="highlight html"><code>…
 <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"teddy1.jpg"</span> <span class="na">alt=</span><span class="s">"Space Teddy"</span><span class="nt">&gt;</span>
@@ -103,8 +105,10 @@
 …
 </code></pre>
 </figure>
+<p>More complex content can be used, in this example an article with a heading:</p>
+
 <figure class="code ">
-  <figcaption>Code snippet: Example of Richer Content</figcaption>
+  <figcaption>Code snippet: Example 2</figcaption>
 <pre class="highlight html"><code>…
 <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"slide"</span> <span class="na">style=</span><span class="s">"background-image: url('teddy1.jpg');"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;article&gt;</span>
@@ -684,7 +688,7 @@
         
           
             <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Structure</span></span>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Anatomy</span></span>
               
             </li>
           
@@ -751,7 +755,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      07 December 2016
+	      08 December 2016
 	      
 			</li>
       <li>

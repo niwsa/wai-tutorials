@@ -65,11 +65,11 @@
       
 
 
-      <p>Provide users with control over the animations in your carousel. Pausing animation is essential for people who find the changes distracting and for people who need more time to read carousel items.</p>
+      <p>Provide users with control over animations in carousels. Pausing animation is essential for people who find movement or who need more time to read carousel content.</p>
 
 <h2 id="add-playstop-button">Add Play/Stop button</h2>
 
-<p>Provide a button to allow users to stop and resume the animations. The example below illustrates how such a button can be marked-up. The button label and its function changes, depending on whether the animation is currently running or not.</p>
+<p>Provide a button to allow users stop and resume animation. The example below illustrates how such a button can be marked-up. The button label and its function changes, depending on whether the animation is currently running or not.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: While animation is running</figcaption>
@@ -82,12 +82,12 @@
 </code></pre>
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> The script only replaces the value of the button and its attributes. Replacing the button entirely would result in loss of keyboard focus.</p>
+<p><strong>Note:</strong> The JavaScript only replaces the value of the <code>&lt;button&gt;</code> element and its attributes. Replacing the button entirely would result in loss of keyboard focus.</p>
 
 </div>
-<h2 id="pause-on-hover-and-focus">Pause on hover and focus</h2>
+<h2 id="pause-on-mouse-hover-and-keyboard-focus">Pause on mouse hover and keyboard focus</h2>
 
-<p>Another useful approach is to pause the carousel animation when the carousel receives keyboard focus or is hovered over by mouse. Pausing the animation ensures that keyboard users do not lose focus. It is also useful for people who need more time to read the content, and to use links and controls inside the carousel items.</p>
+<p>Pause the carousel animation when the carousel is hovered over by mouse or receives keyboard focus. Pausing on mouse hover is useful for people who need more time to read the content and makes it easier to click links in the carousel. Keyboard users do not use their position when the carousel is paused.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -111,18 +111,24 @@
 </code></pre>
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> The <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="http://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../examples/focusinoutpolyfill-dbb9abfe.js">a short polyfill</a> at the time of publication of this tutorial.</p>
+<p><strong>Note:</strong> The <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="http://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../full-code/">a short polyfill</a> at the time of publication of this tutorial.</p>
 
 </div>
 <h2 id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
 
-<p>During the transitions, both, the current and the next item are visible. This also means that two items are available to assistive technologies, with the current item disappearing in a relatively short time. In some cases this can be confusing to screen reader users.</p>
+<p>During transitions, both items, current and next are visible. This also means that those two items are available to assistive technologies, with the current item disappearing in a relatively short time. In some cases this can be confusing to screen reader users.</p>
 
-<p>In the following example the item that is being activated gets an <code>in-transition</code> class to show it but with the <code>aria-hidden</code> attribute set to <code>true</code>. This hides the item from assistive technologies. When the transition completes, the <code>aria-hidden</code> attribute is removed.</p>
+<p>In the following example the item that is being activated gets an <code>in-transition</code> class that shows it. The item’s <code>aria-hidden</code> is attribute set to <code>true</code> which hides it from assistive technologies. When the transition completes, the <code>aria-hidden</code> attribute is removed.</p>
 
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>The following example can be better described.</p>
+
+</div></figure>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span>
+<pre class="highlight javascript"><code>
+<span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span>
   <span class="o">+</span> <span class="p">((</span><span class="nx">transition</span> <span class="o">==</span> <span class="s1">'next'</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' in-transition'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">);</span>
 <span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
 
@@ -329,7 +335,7 @@
         
           
             <li>
-              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Anatomy</span></a>
               
             </li>
           
@@ -396,7 +402,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      07 December 2016
+	      08 December 2016
 	      
 			</li>
       <li>

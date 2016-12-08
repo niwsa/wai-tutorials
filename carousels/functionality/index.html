@@ -65,13 +65,13 @@
       
 
 
-      <p>Provide functionality to display the carousel items one at a time, and to announce the changes that occur in display.</p>
+      <p>Provide functionality to change witch carousel item is displayed, and inform users about that change.</p>
 
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
-<p>Use <code>&lt;button&gt;</code> elements to allow users to switch back and forth between items. Such elements provide semantic meaning to support assistive technologies and consistent keyboard use out of the box. They can be individually styled as needed.</p>
+<p>Buttons allow users to switch back and forth between items. <code>&lt;button&gt;</code> elements provide semantic meaning, support by assistive technologies, and consistent keyboard use out of the box. They can be individually styled as needed.</p>
 
-<p>Generate the buttons and add them to the carousel with JavaScript, to avoid having useless buttons in the HTML code when JavaScript is disabled:</p>
+<p>Generate the buttons and add them with JavaScript to avoid having useless buttons in the page in case JavaScript is not available.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -100,6 +100,11 @@
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
 </code></pre>
 </figure>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>The following sentence and code example should probably go to the <a href="../styling/">styling page</a>.</p>
+
+</div></figure>
 <p>Visually the buttons appear as arrows overlaying the individual items.</p>
 
 <figure class="code ">
@@ -134,12 +139,22 @@
 <span class="p">}</span>
 </code></pre></figure>
 
-<h2 id="announce-the-current-item">Announce the current item</h2>
+<h3 id="announce-the-current-item">Announce the current item</h3>
 
-<p>When the current item changes, a WAI-ARIA live region informs screen reader users which item is currently visible. Note that the current item does not automatically receive keyboard focus, to allow users to skip over and leave the carousel.</p>
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>The following sentence needs a link to a live region description or a short description in the margins. Probably also for WAI-ARIA.</p>
 
+</div></figure>
+<p>When the current item changes, a WAI-ARIA live region informs screen reader users which item is currently visible. Note that the current item does not automatically receive keyboard focus, to allow users to skip over more than one slide at once, withough having to navigate back to the previous and next buttons again and again.</p>
+
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>I feel that the following code example needs a bit more context.</p>
+
+</div></figure>
 <figure class="code ">
-  <figcaption>Code snippet: Extend event listeners</figcaption>
+  <figcaption>Code snippet: </figcaption>
 <pre class="highlight javascript"><code><span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
   <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
   <span class="nx">prevSlide</span><span class="p">();</span>
@@ -169,9 +184,9 @@
 </figure>
 <h2 class="newex" id="indicate-items-and-provide-access">Indicate items and provide access</h2>
 
-<p>Display a list of buttons that indicate the available carousel items and highlight the currently displayed items. This allows users to get an overview on the contents of the carousels, where they are, and navigate directly to any carousel item.</p>
+<p>Display a list of with buttons for every item and highlight the current item. This allows users to get an overview of the carousel content, where they are in the sequence, and navigate directly to any item.</p>
 
-<p>In the example below, the list with buttons is added to the carousel using JavaScript and then styled: The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and by using visually hidden text (for screen readers).</p>
+<p>The list with buttons, in the example below, is added using JavaScript, with the number on the button that corresponds to the slide. The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually and by using visually hidden text (for screen readers).</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -288,9 +303,9 @@
 
 <h3 id="focus-the-selected-carousel-item">Focus the selected carousel item</h3>
 
-<p>When users select items through the carousel navigation buttons, the items should receive focus immediately. This makes interaction easier for keyboard and assistive technology users.</p>
+<p>When users select an item through those navigation buttons, the focus should be set on the selected item. In this case the focus needs to be set to the <code>&lt;li&gt;</code> element that has the class <code>current</code> set, after the change or transition. This makes interaction easier for keyboard and assistive technology users.</p>
 
-<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. Setting the <code>tabindex</code> attribute of the element to <code>-1</code> allows it to receive focus through JavaScript.</p>
+<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. By setting its <code>tabindex</code> attribute to <code>-1</code> the element is enabled to receive focus through JavaScript.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -324,8 +339,6 @@
 <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
 </code></pre>
 </figure>
-<p>Note that the focus is not set to the item when the <em>previous and next buttons</em> are used, to allow users to continue scrolling through items.</p>
-
 
 
       <div class="resources">
@@ -527,7 +540,7 @@
         
           
             <li>
-              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Anatomy</span></a>
               
             </li>
           
@@ -594,7 +607,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      07 December 2016
+	      08 December 2016
 	      
 			</li>
       <li>
