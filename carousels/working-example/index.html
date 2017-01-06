@@ -409,7 +409,6 @@ var myCarousel = (function() {
         var slide = event.target;
         removeClass(slide, 'in-transition');
         if (hasClass(slide, 'current'))  {
-          slide.querySelector('h4').removeAttribute('aria-live');
           announceSlide = false;
           if(setFocus) {
             slide.setAttribute('tabindex', '-1');
@@ -467,8 +466,10 @@ var myCarousel = (function() {
 
     slides[new_next].className = 'next slide' + ((transition == 'next') ? ' in-transition' : '');
     slides[new_next].setAttribute('aria-hidden', 'true');
+    slides[new_next].querySelector('h4').removeAttribute('aria-live');
     slides[new_prev].className = 'prev slide' + ((transition == 'prev') ? ' in-transition' : '');
     slides[new_prev].setAttribute('aria-hidden', 'true');
+    slides[new_prev].querySelector('h4').removeAttribute('aria-live');
 
     slides[new_current].className = 'current slide';
     slides[new_current].removeAttribute('aria-hidden');
