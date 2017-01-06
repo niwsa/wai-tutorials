@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/carousels/styling/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-d9cb0378.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -65,227 +65,37 @@
       
 
 
-      <p>The styling of carousels has a huge impact to usability and accessibility.</p>
+      <h2 id="contrast">Contrast</h2>
 
-<h2 id="general-styling">General Styling</h2>
+<p>Ensure sufficient contrast between the foreground and the background of text and interactive elements. This can be a challenge when text or buttons are positioned on top of images.</p>
 
-<p>Ensure that the carousel content is readable in situations when JavaScript is not available, to improve the robustness of your website.</p>
+<p>Text needs to have a 3:1 ratio if the font size is above 18.5 px (14 pt) bold or above 24 px (18 pt) normal, and a 4.5:1 ratio otherwise. This includes text on images.</p>
 
-<p>In the following example the carousel is styled as three individual items in the normal page flow. A semi-transparent background color is used for text containers to guarantee readable contrast when placed on top of the image. (See <a href="#">Design/Contrast</a>.)</p>
+<div class="ref-container">
+      <div class="ref-main">
+<p><img alt="Example using semi-transparent background colors to ensure sufficient contrast." class="sideimage left" src="../../img/carousels-styling-contrast-24979b09.png" /> While there are no contrast guidelines about other aspects of the interface of a website, it is best practice to ensure the same contrast levels for buttons and other interactive elements. This allows <a href="https://www.w3.org/WAI/intro/people-use-web/diversity#visual">people with visual disabilities</a> to see and interact with the carousel.</p>
 
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<h3 role="presentation">Featured Articles:</h3>
-<div class="carousel">
-    <ul>
-        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <a href="…">Full Annual Report</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <a href="…">Everything about the new model</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
-            <h4>Adventures of the Space Teddy</h4>
-            <p>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <a href="…">Play the Game here!</a>
-            </p>
-        </li>
-    </ul>
+<p>To ensure sufficient contrast, use a <a href="https://www.w3.org/WAI/ER/tools/?q=wcag-20-w3c-web-content-accessibility-guidelines-20&amp;amp;q=browser-plugin">browser plugin</a> to test the contrast of your text colors. If you place text on top of an image, a (semi-transparent) background color can help to maintain the contrast regardless of the image used.</p>
+
 </div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p>More information on contrasts and other aspects of how design influences web accessibility will be provided in a future <em>Design Tutorial</em>. In the meantime find more information in the related documents below.</p>
 
-<style>
-  .carousel, .slide {
-    width: 480px;
-    padding:0;
-    margin: 0;
-  }
-  .carousel {
-    position: relative;
-  }
-  .carousel ul {
-    margin:0;
-    padding: 0;
-  }
-  .slide {
-    height: 360px;
-    background-size: cover;
-    position: relative;
-    margin-bottom:1em;
-    border:1px solid #333;
-  }
-  .slide h4 {
-    display:inline-block;
-    float:righ;
-    font-size: 1.25em;
-    margin:0;
-    padding: .25em;
-    text-align: right;
-    background-color: rgba(255,255,255,.8);
-    float:right;
-    border-radius: 0 0 0 .5em;
-  }
-  .slide p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:0;
-    clear:both;
-    padding: 5px;
-    background-color: rgba(255,255,255,.8);
-  }
-  .slide a {
-    display:block;
-    text-align: right;
-  }
-</style>
-
-
-  </div></figure>
-
-<h2 id="item-position">Item Position</h2>
-
-<p>JavaScript is used to add a class <code>active</code> to the carousel after page load. CSS then positions the items stacked on top of each other and hides them, using <code>display:none;</code> (which hides them visually and from assistive technologies).</p>
-
-<p>The class <code>current</code> is then added to the first item. It displays this item (using <code>display:block;</code>) and positions the item on top of the stack (<code>z-index: 500;</code>) – which is important for the animations later.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight css"><code><span class="nc">.active</span> <span class="nc">.slide</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
-  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
-  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nc">.slide.current</span> <span class="p">{</span>
-  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-  <span class="nl">z-index</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</figure>
-<p>The outcome (without any <a href="../functionality/">functionality</a> applied) looks like this:</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<h3 role="presentation">Featured Articles:</h3>
-<div id="c1" class="carousel">
-    <ul>
-        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
-            <h4>Space Teddy production reaches all-time high</h4>
-            <p>
-                Teddies in Space Inc. has released outstanding numbers for the last solar year.
-                <a href="…">Full Annual Report</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
-            <h4>New Space Teddy Announced!</h4>
-            <p>
-                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
-                <a href="…">Everything about the new model</a>
-            </p>
-        </li>
-        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
-            <h4>Adventures of the Space Teddy</h4>
-            <p>
-                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
-                <a href="…">Play the Game here!</a>
-            </p>
-        </li>
-    </ul>
 </div>
+      </aside>
+      </div>
+<p>Depending on the visual style you use for previous, next and play/pause buttons, you might need to similarly add a background. Another approach is to move the button outside of the area where the image is displayed.</p>
 
-<style>
-  .carousel, .slide {
-    width: 480px;
-    padding:0;
-    margin: 0;
-  }
-  .carousel {
-    position: relative;
-  }
-  .carousel ul {
-    margin:0;
-    padding: 0;
-  }
-  .slide {
-    /*position: absolute;*/
-    height: 360px;
-    background-size: cover;
-    position: relative;
-    margin-bottom:1em;
-    border:1px solid #333;
-  }
-  .slide h4 {
-    display:inline-block;
-    float:righ;
-    font-size: 1.25em;
-    margin:0;
-    padding: .25em;
-    text-align: right;
-    background-color: rgba(255,255,255,.8);
-    float:right;
-    border-radius: 0 0 0 .5em;
-  }
-  .slide p {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin:0;
-    clear:both;
-    padding: 5px;
-    background-color: rgba(255,255,255,.8);
-  }
-  .slide a {
-    display:block;
-    text-align: right;
-  }
-</style>
+<h2 id="button-size">Button Size</h2>
 
-<style>
-.carousel.active {
-  height: 360px;
-  overflow: hidden;
-  border: 1px solid #333;
-  position:relative;
-}
+<p>Use appropriately sized interactive elements (buttons, links) to allow <a href="https://www.w3.org/WAI/intro/people-use-web/diversity#physical">people with physical impairments</a> to use the carousel more easily. This will also benefit users on mobile devices.</p>
 
-.active .slide {
-  border: none;
-  display: none;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:200;
-}
-
-.slide.current {
-  display:block;
-  z-index: 500;
-}
-</style>
-
-<script>
-  var carousel = document.getElementById('c1');
-  carousel.querySelectorAll('.slide')[0].className = 'current slide';
-  carousel.className = 'active carousel';
-</script>
-
-
-  </div></figure>
+<p>As a rule of thumb, <!--  See what I did there?  --> a minimal physical size of 9 × 9 mm for interactive elements <a href="https://www.w3.org/TR/mobile-accessibility-mapping/#h-touch-target-size-and-spacing">is recommended</a> and it helps if the element is surrounded by a small amount of inactive space. While you could use millimeters in CSS, the physical rendering size might differ from device to device depending on resolution and display size. Use a minimum of 45 × 45 px in CSS to cover a 9 × 9 mm space on many devices.</p>
 
 
 
@@ -298,8 +108,16 @@
       
         
         
+        
+      
+        
+        
+        
+      
+        
+        
           <li class="prev">
-            <span><a rel="prev" class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure</span></span></a></span>
+            <span><a rel="prev" class="" href="../animations/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Animations</span></span></a></span>
           </li>
         
         
@@ -312,16 +130,8 @@
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../functionality/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Functionality</span></span></a></span>
+            <span><a rel="next" class="" href="../working-example/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Working Example</span></span></a></span>
           </li>
-        
-      
-        
-        
-        
-      
-        
-        
         
       
         
@@ -374,13 +184,6 @@
         
           
             <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Styling</span></span>
-              
-            </li>
-          
-        
-          
-            <li>
               <a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a>
               
             </li>
@@ -389,6 +192,13 @@
           
             <li>
               <a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Styling</span></span>
               
             </li>
           
@@ -418,7 +228,7 @@
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels <span class="status">editors-draft</span></span></span></li>
-  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Site Navigation <span class="status">draft</span></span></a></li>
+  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Site Navigation <span class="status">editors-draft</span></span></a></li>
   <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
@@ -434,7 +244,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      08 December 2016
+	      05 January 2017
 	      
 			</li>
       <li>

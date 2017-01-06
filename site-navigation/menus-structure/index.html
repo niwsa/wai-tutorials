@@ -6,22 +6,24 @@
   Menu Structure
   
     
+       &bull; Navigation
+    
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus/structure/" />
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus-structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
-  <script src="../../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link href="../../stylesheets/wai-act-d9cb0378.css" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../../img/w3c-796023c4.png" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../../img/wai-4c28be39.png" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
     </div>
     <div class="page-title">
-      <a class="" href="../../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
@@ -33,10 +35,10 @@
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt"></span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Navigation</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menu Structure</span></span>
@@ -63,18 +65,20 @@
       
 
 
-      <p>Semantic markup conveys the structure of the menu to users. It also makes the menu adaptable when used in different situations such as small screen display, zoomed in, and used with assistive technologies.</p>
+      <p>Semantic markup conveys the menu structure to users. It also makes the menu adaptable to different situations, such as small screen display, zoomed in, or assistive technology use.</p>
 
 <h2 class="newap" id="list-of-links">List of Links</h2>
 
-<p>If a navigation consists of more than very few links, using a list is the most effective way to convey the menu structure to users. With this structural information assistive technologies can announce the number of items in the menu.</p>
+<p>Convey the menu structure to users effectively by using a list, especially if the menu consists of more than very few links. With this structural information assistive technologies can announce the number of items in the menu.</p>
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>If the sequence of reading the pages is not important to understand the website, an unordered list (<code>&lt;ul&gt;</code>) should be used. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
+<p>If the sequence of reading the pages is not important to understand the website,</p>
+
+<p>Use an unordered list (<code>&lt;ul&gt;</code>), if the sequence of reading the pages is not important to understand the website as a whole. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
+  <figcaption>Code snippet: Unordered List</figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;ul&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Shop<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -87,10 +91,10 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>In some instances, pages need to be read in a certain sequence, for example if the menu provides access to chapters in prose or steps in a construction manual. In the example below, following the order is important to properly build the space ship.</p>
+<p>In instances where pages need to be read in a certain sequence use an ordered list (<code>&lt;ol&gt;</code>). This is the case, for example, for menus providing access to chapters in prose, or steps in a construction manual. Following the order is important to properly build the space ship in the example below:</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
+  <figcaption>Code snippet: Ordered List</figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;ol&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Unpacking the Space Craft<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 	<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Check Contents of Package<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
@@ -103,12 +107,22 @@
 </figure>
 <h2 id="identifying-the-menu">Identifying the menu</h2>
 
+<div class="ref-container">
+      <div class="ref-main">
 <p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly jump to the menu if WAI-ARIA landmarks are supported. The <code>&lt;nav&gt;</code> element wraps the unordered or ordered list that contains the navigation options.</p>
 
-<aside class="reference">
-<p>For more information on regions, see the <a href="../../../page-structure/regions/">regions tutorial</a>.</p>
+</div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p>For more information on regions, see the <a href="../../page-structure/regions/">regions tutorial</a>.</p>
 
-</aside>
+</div>
+      </aside>
+      </div>
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;nav&gt;</span>
@@ -121,7 +135,7 @@
 <h2 class="newap" id="labeling-navigations">Labeling navigations</h2>
 
 <aside class="reference">
-<p>For more information on labels, see the <a href="../../../page-structure/labels/">labeling regions tutorial</a>.</p>
+<p>For more information on labels, see the <a href="../../page-structure/labels/">labeling regions tutorial</a>.</p>
 
 </aside>
 <p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
@@ -140,7 +154,7 @@
       <div class="resources">
   <h2 id="related">Related WCAG 2.0 resources</h2>
   <div class="resources-inner">
-	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
 	  
 	    <p><strong>Success Criteria:</strong></p>
 	    <ul>
@@ -627,10 +641,6 @@
   <ul>
     
       
-        <li class="prev">
-          <span><a rel="prev" class="" href="../"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Menus</span></span></a></span>
-        </li>
-      
       
         
         
@@ -640,8 +650,16 @@
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../styling/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Styling</span></span></a></span>
+            <span><a rel="next" class="" href="../menus-styling/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Menu Styling</span></span></a></span>
           </li>
+        
+      
+        
+        
+        
+      
+        
+        
         
       
         
@@ -662,7 +680,7 @@
   <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
 
 	<div class="editpage">
-  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/site-navigation/menus/structure.html.erb.md">Fork &amp; edit this page on Github</a>
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/site-navigation/menus-structure.html.erb.md">Fork &amp; edit this page on Github</a>
 	</div>
 
 </aside>
@@ -676,7 +694,7 @@
     <h2 class="list-heading" id="list-heading-tutorials">
       
         
-          Site Navigation Tutorial
+           Tutorial
         
       
     </h2>
@@ -686,46 +704,47 @@
       
       
         
-          <li class="intro"><a class="" href="../../"><span class="count"></span><span class="txt">Concepts</span></a></li>
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Concepts</span></a></li>
         
         
           
             <li>
-              <a class="" href="../"><span class="count"></span><span class="txt">Menus</span></a>
-              
-                <ul style="border: 10px solid red;">
-                
-                  
-                    <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Structure</span></span></li>
-                  
-                
-                  
-                    <li><a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a></li>
-                  
-                
-                  
-                    <li><a class="" href="../flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a></li>
-                  
-                
-                  
-                    <li><a class="" href="../application/"><span class="count"></span><span class="txt">Applications Menus</span></a></li>
-                  
-                
-                </ul>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menu Structure</span></span>
               
             </li>
           
         
           
             <li>
-              <a class="" href="../../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a>
+              <a class="" href="../menus-styling/"><span class="count"></span><span class="txt">Menu Styling</span></a>
               
             </li>
           
         
           
             <li>
-              <a class="" href="../../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a>
+              <a class="" href="../menus-flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
               
             </li>
           
@@ -736,13 +755,13 @@
   All Tutorials
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
-	<li><a href="../../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
-	<li><a href="../../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
-	<li><a href="../../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
-	<li><a href="../../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">editors-draft</span></span></a></li>
-  <li><a href="../../"><span class="count"></span><span class="txt">Site Navigation <span class="status">draft</span></span></a></li>
-  <li><a href="../../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">editors-draft</span></span></a></li>
+  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Site Navigation <span class="status">editors-draft</span></span></span></li>
+  <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
@@ -757,7 +776,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      29 November 2016
+	      21 December 2016
 	      
 			</li>
       <li>
@@ -772,7 +791,7 @@ Contributors: The Education and Outreach Working Group (<a href="http://www.w3.o
 <li>
 </li>
 
-      <li>[<a class="" href="../../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
     	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
@@ -787,6 +806,6 @@ Contributors: The Education and Outreach Working Group (<a href="http://www.w3.o
       </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../../javascripts/main-fce55f74.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-fce55f74.js" type="text/javascript"></script>
 	</body>
 </html>

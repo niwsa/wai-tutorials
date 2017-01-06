@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>
-  Menus
+  Menu Styling
   
     
-       &bull; Site Navigation
+       &bull; Navigation
     
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus/" />
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus-styling/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-b1662d15.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-d9cb0378.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -30,7 +30,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content draft">
+<main role="main" class="content approved-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -38,22 +38,18 @@
           <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Site Navigation</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Navigation</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
-            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menus</span></span>
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menu Styling</span></span>
           </span>
         </p>
       </nav>
       <h1>
-        Menus
+        Menu Styling
       </h1>
     </header>
 
-    
-      <div class="status">
-        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
-      </div>
     
     
 
@@ -65,39 +61,247 @@
       
 
 
-      <p>Menus are used to browse around web pages (“navigation menus”) or initiate actions inside web applications (“application menus”). Due to their important role to operate web pages and applications, they need to be usable in all circumstances. This tutorial covers the following topics:</p>
+      <p>With a consistent styling users are able to find menus more easily. There are two basic design patterns that are commonly used on web sites: vertical and horizontal menus.</p>
+
+<p>Regardless of the orientation, each menu item should have enough space so it doesn’t overlap other content on the page or gets cut off. Such items are a potential accessibility barrier, especially for users increasing the font size and can also be a problem when translating the menu into another language. Try to avoid line breaks or hyphenation in menu items as they are harder to understand.</p>
+
+<h2 id="vertical-menu">Vertical menu</h2>
+
+<p>Ensure that the menu column is wide enough to accommodate all current and future menu items.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<nav aria-label="Main Navigation" role="presentation" id="verticalnav">
+		<ul>
+				<li><a href="#samplenav">Home</a></li>
+				<li><a href="#samplenav">Shop</a></li>
+				<li><a href="#samplenav">SpaceBears</a></li>
+				<li><a href="#samplenav">MarsCars</a></li>
+				<li><a href="#samplenav">Contact</a></li>
+		</ul>
+</nav>
+
+<style>
+	#verticalnav {
+			display:table;
+	}
+	#verticalnav ul {
+			margin: 0;
+			padding: 0;
+			background-color: #036;
+			color: #fff;
+	}
+	#verticalnav li {
+			display:table-row;
+			width: 20%;
+			text-align: left;
+	}
+	#verticalnav a {
+			display: block;
+			padding: .25em .5em;
+			color: #fff;
+			border-bottom: 1px solid;
+			text-decoration: none;
+	}
+	#verticalnav a:hover,
+	#verticalnav a:focus {
+		color: #036;
+		background-color: #fff;
+		text-decoration: underline;
+	}
+	#verticalnav a:active {
+		color: #fff;
+		background-color: #024;
+		text-decoration: underline;
+	}
+</style>
+
+
+  </div></figure>
+
+<h2 id="horizontal-menu">Horizontal menu</h2>
+
+<p>Horizontal menus should be positioned near the top of the screen so they are easier to find.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<nav aria-label="Main Navigation" role="presentation" id="samplenav">
+		<ul>
+				<li><a href="#samplenav">Home</a></li>
+				<li><a href="#samplenav">Shop</a></li>
+				<li><a href="#samplenav">SpaceBears</a></li>
+				<li><a href="#samplenav">MarsCars</a></li>
+				<li><a href="#samplenav">Contact</a></li>
+		</ul>
+</nav>
+
+<style>
+	#samplenav {
+			display:table;
+			width:100%;
+	}
+	#samplenav ul {
+			margin: 0;
+			padding: 0;
+			display: table-row;
+			background-color: #036;
+			color: #fff;
+	}
+	#samplenav li {
+			display:table-cell;
+			width: 20%;
+			text-align: center;
+	}
+	#samplenav a {
+			display: block;
+			padding: .25em;
+			border-bottom: .25em solid #E8E8E8;
+			color: #fff;
+			text-decoration: none;
+	}
+	#samplenav a:hover,
+	#samplenav a:focus {
+		color: #036;
+		background-color: #fff;
+		text-decoration: underline;
+	}
+	#samplenav a:active {
+		color: #fff;
+		background-color: #024;
+		text-decoration: underline;
+	}
+</style>
+
+
+  </div></figure>
+
+<h2 id="styling-menu-items">Styling menu items</h2>
+
+<p>While in-text links usually need an underline to help people with low vision or color blindness distinguish them from the surrounding text, this is not needed for links in menus if the menu can be clearly identified as such. If icons or images are used in links, an appropriate alternative text should be provided. See <a href="../../images/functional/">Images Tutorial</a> for more detailed advice.</p>
+
+<h2 class="risky" id="menu-feedback">Menu feedback</h2>
+
+<figure class="todo">
+  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
+<p>This section needs to be condensed. Also we should talk about <a href="https://github.com/w3c/wai-tutorials/issue/354">Issue 354</a>, the use of <code>aria-current</code>.</p>
+
+</div></figure>
+<p>When using the menu, users need feedback mechanisms to operate it properly. Interacting with the menu should change the items visually when they are hovered or focused. Also, indicating the active item (the menu item that was just clicked, tapped, or activated using the keyboard) helps users to understand which item was activated. The current page should also be clearly marked to give users a sense of where they are in the website structure.</p>
+
+<p>Apart from changing the color, another means of changing the menu item should be used by adding an underline or a border, or by changing the shape of an icon in the menu.</p>
+
+<p>In this menu tutorial, feedback is given through the following means:</p>
 
 <ul>
   <li>
-    <p><strong><a href="structure/">Structure</a>:</strong> Mark up menus in a way that reflects the structure of its content and makes identification possible.</p>
+    <p><strong>Hover and focus</strong> states are indicated by using an inverted color scheme (blue on white instead of white on blue) and by underlining the items.</p>
   </li>
   <li>
-    <p><strong><a href="styling/">Styling</a>:</strong> Use commonly recognized design patterns to identify menus and indicate the state of menu items.</p>
+    <p>The <strong>active</strong> state is shown with a darker blue as a background and keeping the menu item underlined.</p>
   </li>
   <li>
-    <p><strong><a href="flyout/">Fly-out Menus</a>:</strong> Implement fly-out menus to organize menus with branching sub-items.</p>
-  </li>
-  <li>
-    <p><strong><a href="application/">Web Application Menus</a>:</strong> Use markup and scripting to define the functionality and alter the behavior of menu items to mimic desktop applications.</p>
+    <p>The <strong>current page item</strong> uses a different color scheme (black on grey) and has a bottom border that gives the item a distinct shape.</p>
+
+    <p>The item has also an invisible text “Current Page:” added to the menu item. Additonally the current page item is not linking to the current page.</p>
   </li>
 </ul>
 
-<h2 id="why-is-this-important">Why is this important?</h2>
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<nav aria-label="Main Navigation" role="presentation" id="currentnav">
+		<ul>
+				<li><a href="#currentnav">Home</a></li>
+				<li><a href="#currentnav">Shop</a></li>
+				<li><span class="current"><span class="visuallyhidden">Current Page: </span>SpaceBears</span></li>
+				<li><a href="#currentnav">MarsCars</a></li>
+				<li><a href="#currentnav">Contact</a></li>
+		</ul>
+</nav>
 
-<p>Navigation menus reflect the underlying structure of websites, individual web pages, and multi-step processes such as check-out forms. Applications menus contain the functionality available. Both types of menus allow users to get an overview on the content and access information and functionality more easily when implemented properly.</p>
+<style>
+	#currentnav {
+			display:table;
+			width:100%;
+	}
+	#currentnav ul {
+			margin: 0;
+			padding: 0;
+			display: table-row;
+			background-color: #036;
+			color: #fff;
+	}
+	#currentnav li {
+			display:table-cell;
+			width: 20%;
+			text-align: center;
+	}
+	#currentnav a,
+	#currentnav .current {
+			display: block;
+			padding: .25em;
+			border-bottom: .25em solid #E8E8E8;
+	}
+	#currentnav a {
+			color: #fff;
+			text-decoration: none;
+	}
+	#currentnav .current {
+			background-color: #bbb;
+			color: #000;
+			border-color: #444;
+	}
+	#currentnav a:hover,
+	#currentnav a:focus {
+		color: #036;
+		background-color: #fff;
+		text-decoration: underline;
+	}
+	#currentnav a:active {
+		color: #fff;
+		background-color: #024;
+		text-decoration: underline;
+	}
+</style>
 
-<ul>
-  <li>
-    <p><strong>Screen reader and keyboard users</strong> benefit from keyboard interoperability and markup that allows users to operate the menus in different ways.</p>
-  </li>
-  <li>
-    <p><strong>Users with fine motor difficulties and touch screen users</strong> have larger targets to click or tap on, and fly-out menus do not disappear immediately after the mouse has left the submenu.</p>
-  </li>
-  <li>
-    <p><strong>People with attention and short term memory limitations</strong> benefit from being able to discover where the current focus is located.</p>
-  </li>
-</ul>
 
+  </div></figure>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML</figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;li&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"current"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Current Page: <span class="nt">&lt;/span&gt;</span>
+		SpaceBears
+	<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="nc">.current</span> <span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+	<span class="nl">padding</span><span class="p">:</span> <span class="m">.25em</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#bbb</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+	<span class="nl">border-bottom</span><span class="p">:</span> <span class="m">.25em</span> <span class="nb">solid</span> <span class="m">#444</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#024</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</figure>
 
 
       <div class="resources">
@@ -118,9 +322,7 @@
 	      
 	        
 	          
-	        
-	      
-	        
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-without-color">1.4.1 Use of Color:</a> Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. (Level&nbsp;A)</p></li>
 	          
 	        
 	      
@@ -166,29 +368,9 @@
 	      
 	        
 	          
-	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-order">2.4.3 Focus Order:</a> If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability. (Level&nbsp;A)</p></li>
-	          
 	        
 	      
 	        
-	          
-	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-mult-loc">2.4.5 Multiple Ways:</a> 2.4.5 More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process. (Level&nbsp;AA)</p></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-visible">2.4.7 Focus Visible:</a> Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible. (Level&nbsp;AA)</p></li>
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-location">2.4.8 Location:</a> Information about the user's location within a set of Web pages is available. (Level&nbsp;AAA)</p></li>
 	          
 	        
 	      
@@ -214,7 +396,21 @@
 	      
 	        
 	          
-	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
 	          
 	        
 	      
@@ -230,13 +426,9 @@
 	      
 	        
 	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/ARIA6">ARIA6: Using aria-label to provide labels for objects</a></li>
-	          
 	        
 	      
 	        
-	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/ARIA11">ARIA11: Using ARIA landmarks to identify regions of a page</a></li>
 	          
 	        
 	      
@@ -328,17 +520,9 @@
 	      
 	        
 	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G63">G63: Providing a site map</a></li>
-	          
 	        
 	      
 	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G65">G65: Providing a breadcrumb trail</a></li>
 	          
 	        
 	      
@@ -384,7 +568,9 @@
 	      
 	        
 	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G127">G127: Identifying a Web page’s relationship to a larger collection of Web pages</a></li>
+	        
+	      
+	        
 	          
 	        
 	      
@@ -419,8 +605,6 @@
 	        
 	      
 	        
-	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G161">G161: Providing a search function to help users find content</a></li>
 	          
 	        
 	      
@@ -478,8 +662,6 @@
 	      
 	        
 	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H4">H4: Creating a logical tab order through links, form controls, and objects</a></li>
-	          
 	        
 	      
 	        
@@ -595,8 +777,6 @@
 	        
 	      
 	        
-	          
-	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR26">SCR26: Inserting dynamic content into the Document Object Model immediately following its trigger element</a></li>
 	          
 	        
 	      
@@ -618,10 +798,26 @@
   <ul>
     
       
-        <li class="prev">
-          <span><a rel="prev" class="" href="../"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Site Navigation Concepts</span></span></a></span>
-        </li>
       
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../menus-structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Menu Structure</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="../menus-flyout/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Fly-out Menus</span></span></a></span>
+          </li>
+        
       
         
         
@@ -645,7 +841,7 @@
   <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
 
 	<div class="editpage">
-  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/site-navigation/menus.html.erb.md">Fork &amp; edit this page on Github</a>
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/site-navigation/menus-styling.html.erb.md">Fork &amp; edit this page on Github</a>
 	</div>
 
 </aside>
@@ -674,27 +870,21 @@
         
           
             <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menus</span></span>
+              <a class="" href="../menus-structure/"><span class="count"></span><span class="txt">Menu Structure</span></a>
               
-                <ul style="border: 10px solid red;">
-                
-                  
-                    <li><a class="" href="structure/"><span class="count"></span><span class="txt">Structure</span></a></li>
-                  
-                
-                  
-                    <li><a class="" href="styling/"><span class="count"></span><span class="txt">Styling</span></a></li>
-                  
-                
-                  
-                    <li><a class="" href="flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a></li>
-                  
-                
-                  
-                    <li><a class="" href="application/"><span class="count"></span><span class="txt">Applications Menus</span></a></li>
-                  
-                
-                </ul>
+            </li>
+          
+        
+          
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menu Styling</span></span>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../menus-flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a>
               
             </li>
           
@@ -713,6 +903,13 @@
             </li>
           
         
+          
+            <li class="tips">
+              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
+              
+            </li>
+          
+        
       
     </ul>
     <h2 class="list-heading" id="list-heading-topics">
@@ -724,7 +921,7 @@
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
 	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">editors-draft</span></span></a></li>
-  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Site Navigation <span class="status">draft</span></span></span></li>
+  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Site Navigation <span class="status">editors-draft</span></span></span></li>
   <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
 </ul>
 
@@ -738,9 +935,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [DRAFT] updated
+	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      07 December 2016
+	      21 December 2016
 	      
 			</li>
       <li>
