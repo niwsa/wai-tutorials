@@ -70,7 +70,7 @@
 
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
-<p>Provide buttons to allow users to switch back and forth between items. Use <code>&lt;button&gt;</code> elements provide semantic meaning, support by assistive technologies, and consistent keyboard use out of the box. Create and add the buttons using JavaScript, because they are only functional when JavaScript is loaded anyway. Style them as needed.</p>
+<p>Provide buttons to allow users to switch back and forth between items. Use <code>&lt;button&gt;</code> elements provide semantic meaning, support by assistive technologies, and consistent keyboard use out of the box. Create and add the buttons using JavaScript, because they are only functional when JavaScript is loaded anyway.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -88,12 +88,12 @@
     <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
   <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
 
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">prevSlide</span><span class="p">();</span>
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">prevSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 <span class="p">});</span>
 
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">nextSlide</span><span class="p">();</span>
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">nextSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 <span class="p">});</span>
 
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
@@ -103,7 +103,7 @@
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users when items change, and to indicate the currently active item. In this example the level “polite” is used to not interrupt screen reader users while they are reading other parts of the web page. As reading the whole item would be quite long, only the heading is read in this case.</p>
+<p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users about the currently shown item. In this example a visually hidden, “polite” live region is used and added to the carousel when the carousel is initialized. Then, when clicking on the previous or next buttons, the text “Item x of y” (with <var>x</var> for current item number and <var>y</var> for the number of items) is set to this live region. Capable screen readers then announce this text.</p>
 
 <p>Do <em>not</em> move keyboard focus to the new current item when the carousel changes automatically, to not draw away the user from other parts of the web page each time the items change. Also do not move keyboard focus when the previous and next buttons are used, to allow users to browse back and forth over the slides.</p>
 
@@ -119,38 +119,20 @@
 </div>
       </aside>
       </div>
-<div class="notes ">
-<p><strong>Note:</strong> In the following example <code>aria-atomic="true"</code> is used to ensure that the complete heading is read.</p>
-
-</div>
 <figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><code><span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="nx">prevSlide</span><span class="p">();</span>
-<span class="p">});</span>
-
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="nx">nextSlide</span><span class="p">();</span>
-<span class="p">});</span>
-
-<span class="err">…</span>
-
-<span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">focus</span><span class="p">,</span> <span class="nx">transition</span><span class="p">)</span> <span class="p">{</span>
-  <span class="err">…</span>
-
-  <span class="nx">slides</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'h4'</span><span class="p">).</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">);</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">announceSlide</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'h4'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-atomic'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
-    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'h4'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
-    <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="err">…</span>
+  <figcaption>Code snippet: Add a live region to the carousel</figcaption>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">liveregion</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
+<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-atomic'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
+<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'class'</span><span class="p">,</span> <span class="s1">'liveregion visuallyhidden'</span><span class="p">);</span>
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">liveregion</span><span class="p">);</span>
+</code></pre>
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: Change text in the liveregion to have that text announced</figcaption>
+<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.liveregion'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Item '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">new_current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' of '</span> <span class="o">+</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 <span class="p">}</span>
-
-
 </code></pre>
 </figure>
 <h2 class="newex" id="indicate-items-and-provide-access">Indicate items and provide access</h2>
@@ -249,38 +231,6 @@
 
 <p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. By setting its <code>tabindex</code> attribute to <code>-1</code> the element is enabled to receive focus through JavaScript.</p>
 
-<figure class="code ">
-  <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">setFocus</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">setFocusHere</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">setFocusHere</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
-
-  <span class="nx">new_current</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">new_current</span><span class="p">);</span>
-
-  <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-
-  <span class="nx">slide</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'slide'</span><span class="p">;</span>
-  <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
-
-  <span class="nx">buttons</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-  <span class="nx">buttons</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"current"</span><span class="p">;</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Only if the slide was directly</span>
-    <span class="c1">// picked from the list of slides</span>
-    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">focus</span><span class="p">();</span>
-  <span class="p">}</span>
-
-  <span class="nx">index</span> <span class="o">=</span> <span class="nx">new_current</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nx">slidenav</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">localName</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-slide'</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
-</code></pre>
-</figure>
 
 
       <div class="resources">
@@ -547,7 +497,7 @@
 				
 	        [DRAFT] updated
 	      
-	      06 January 2017
+	      09 January 2017
 	      
 			</li>
       <li>
