@@ -66,11 +66,11 @@
       
 
 
-      <p>Provide functionality to switch the displayed carousel items and inform users about changes.</p>
+      <p>Provide functionality to select from the displayed carousel items and inform users about changes.</p>
 
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
-<p>Provide buttons to allow users to switch back and forth between items. Use <code>&lt;button&gt;</code> elements provide semantic meaning, support by assistive technologies, and consistent keyboard use out of the box. Create and add the buttons using JavaScript, because they are only functional when JavaScript is loaded anyway.</p>
+<p>Provide buttons to allow users to switch back and forth between items. Use <code>&lt;button&gt;</code> elements to provide semantic meaning, support for assistive technologies, and consistent keyboard use out of the box. Create and add the buttons using JavaScript, because they are only functional when JavaScript is loaded.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -105,7 +105,7 @@
       <div class="ref-main">
 <p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users about the currently shown item. In this example a visually hidden, “polite” live region is used and added to the carousel when the carousel is initialized. Then, when clicking on the previous or next buttons, the text “Item x of y” (with <var>x</var> for current item number and <var>y</var> for the number of items) is set to this live region. Capable screen readers then announce this text.</p>
 
-<p>Do <em>not</em> move keyboard focus to the new current item when the carousel changes automatically, to not draw away the user from other parts of the web page each time the items change. Also do not move keyboard focus when the previous and next buttons are used, to allow users to browse back and forth over the slides.</p>
+<p>Do <em>not</em> move keyboard focus to the new current item when the carousel changes automatically; you should not draw the user away from other parts of the page they may be viewing or interacting with each time the items change. Also, do not move keyboard focus when the previous or next buttons are used; moving the focus makes it harder for users to browse back and forth over the slides.</p>
 
 </div>
       <aside class="ref-side">
@@ -450,7 +450,7 @@
           
         
           
-            <li class="tips">
+            <li>
               <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
               
             </li>
@@ -497,7 +497,7 @@
 				
 	        [DRAFT] updated
 	      
-	      09 January 2017
+	      18 January 2017
 	      
 			</li>
       <li>
