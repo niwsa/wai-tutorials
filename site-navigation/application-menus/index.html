@@ -252,12 +252,15 @@ Array.prototype.forEach.call(appsMenuItems, function(el, i){
 			return false;
 		});
 		el.addEventListener("keydown", function(event) {
+			var prevdef = false;
 			switch (event.keyCode) {
 				case keys.right:
 					gotoIndex(currentIndex + 1);
+					prevdef = true;
 					break;
 				case keys.left:
 					gotoIndex(currentIndex - 1);
+					prevdef = true;
 					break;
 				case keys.tab:
 					if (event.shiftKey) {
@@ -265,24 +268,30 @@ Array.prototype.forEach.call(appsMenuItems, function(el, i){
 					} else {
 						gotoIndex(currentIndex + 1);
 					}
+					prevdef = true;
 					break;
 				case keys.enter:
 				case keys.down:
 					this.click();
 					subindex = 0;
 					gotoSubIndex(this.querySelector('ul'), 0);
+					prevdef = true;
 					break;
 				case keys.up:
 					this.click();
 					var submenu = this.querySelector('ul');
 					subindex = submenu.querySelectorAll('li').length - 1;
 					gotoSubIndex(submenu, subindex);
+					prevdef = true;
 					break;
 				case keys.esc:
 					document.querySelector('#escape').setAttribute('tabindex', '-1');
 					document.querySelector('#escape').focus();
+					prevdef = true;
 			}
-			event.preventDefault();
+			if (prevdef) {
+				event.preventDefault();
+			}
 		});
 });
 
@@ -296,29 +305,38 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 					} else {
 						gotoIndex(currentIndex + 1);
 					}
+					prevdef = true;
 					break;
 				case keys.right:
 					gotoIndex(currentIndex + 1);
+					prevdef = true;
 					break;
 				case keys.left:
 					gotoIndex(currentIndex - 1);
+					prevdef = true;
 					break;
 				case keys.esc:
 					gotoIndex(currentIndex);
+					prevdef = true;
 					break;
 				case keys.down:
 					gotoSubIndex(this.parentNode, subIndex + 1);
+					prevdef = true;
 					break;
 				case keys.up:
 					gotoSubIndex(this.parentNode, subIndex - 1);
+					prevdef = true;
 					break;
 				case keys.enter:
 				case keys.space:
 					alert(this.innerText);
+					prevdef = true;
 					break;
 			}
-			event.preventDefault();
-			event.stopPropagation();
+			if (prevdef) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
 			return false;
 		});
 	el.addEventListener("click", function(event) {
@@ -750,7 +768,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 				
 	        [DRAFT] updated
 	      
-	      21 December 2016
+	      26 January 2017
 	      
 			</li>
       <li>
