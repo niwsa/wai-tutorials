@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus-styling/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-590ea62c.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-40f7196f.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
   <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
@@ -62,51 +62,59 @@
       
 
 
-      <p>With a consistent styling users are able to find menus more easily. Usually menus are aligned horizontally on the top of the web page or vertically on the left side of the page (in left-to-right languages).</p>
+      <p>Consistent styling enables users to find menus easily. Usually, menus are aligned horizontally on the top of the web page or vertically on the left side of the page (in left-to-right languages).</p>
 
-<p>Make sure that each menu item has enough space so it doesn’t overlap other content on the page or its text gets cut off. Such items are a potential accessibility barrier, especially for users increasing the font size and can also be a problem when translating the menu into another language. Try to avoid line breaks or hyphenation in menu items as they are harder to understand.</p>
+<p>Make sure that each item in the menu has enough space available to avoid the text get cut off. Make sure that the menu and its items don’t overlap other content on the page, especially when the font size is increased. This can also avoid problems when translating the menu into another language. Try to avoid line breaks or hyphenation in menu items as they are more difficult to understand.</p>
 
-<div class="ref-container">
-      <div class="ref-main"><p>In contrast to in-text links, menus usually don’t need to be underlined, as they stand out as clickable items on their own. If icons or images are used in links, an appropriate alternative text should be provided.</p>
+<p>In contrast to links in running text, menus usually don’t need to be underlined as they stand out as clickable items on their own.</p>
 
-</div>
-      <aside class="ref-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-            <path d="M16 14 L16 23 M16 8 L16 10" />
-            <circle cx="16" cy="16" r="14" />
-        </svg>
-<p>See <a href="../../images/">Images Tutorial</a> for more detailed on how to use images in interactive elements.</p>
+<p>If icons or images are used in menus, an appropriate alternative text should be provided. See the <a href="../../images/">Images Tutorial</a> for more details.</p>
 
-</div>
-      </aside>
-      </div>
-<h2 class="risky" id="menu-feedback">Menu feedback</h2>
+<h2 id="item-states">Item states</h2>
 
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>This section needs to be condensed. Also we should talk about <a href="https://github.com/w3c/wai-tutorials/issue/354">Issue 354</a>, the use of <code>aria-current</code>.</p>
+<p>Communicating the state of the menu clearly will ensure that the menu is easier to use. Style the states in a way so they do not rely on color alone. Add a underline or change the shape of an icon or the menu item to communicate the state to people with reduced color perception.</p>
 
-</div></figure>
-<p>When using the menu, users need feedback mechanisms to operate it properly. Interacting with the menu should change the items visually when they are hovered or focused. Also, indicating the active item (the menu item that was just clicked, tapped, or activated using the keyboard) helps users to understand which item was activated. The current page should also be clearly marked to give users a sense of where they are in the website structure.</p>
+<h3 id="hover-and-focus-states">Hover and Focus states</h3>
 
-<p>Apart from changing the color, another means of changing the menu item should be used by adding an underline or a border, or by changing the shape of an icon in the menu.</p>
+<p>Change hovered or focused menu items to give users visual guidance while navigating the page. In the <a href="#example">example below</a> the hover and focus states are indicated by using an inverted color scheme (blue on white instead of white on blue) and by underlining the items.</p>
 
-<p>In this menu tutorial, feedback is given through the following means:</p>
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></figure>
 
-<ul>
-  <li>
-    <p><strong>Hover and focus</strong> states are indicated by using an inverted color scheme (blue on white instead of white on blue) and by underlining the items.</p>
-  </li>
-  <li>
-    <p>The <strong>active</strong> state is shown with a darker blue as a background and keeping the menu item underlined.</p>
-  </li>
-  <li>
-    <p>The <strong>current page item</strong> uses a different color scheme (black on grey) and has a bottom border that gives the item a distinct shape.</p>
+<h3 id="active-state">Active state</h3>
 
-    <p>The item has also an invisible text “Current Page:” added to the menu item. Additonally the current page item is not linking to the current page.</p>
-  </li>
-</ul>
+<p>Indicate the menu item that was just clicked, tapped, or activated using the keyboard (the active item) to let users know what item they did activate. This helps to spot mis-clicks early although the active state is usually only briefly displayed. The <a href="#example">example</a> below shows the active item with darker blue background and underlined.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#024</span><span class="p">;</span>
+	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</figure>
+<h3 id="current-item">Current item</h3>
+
+<p>The current page should also be clearly marked to give users a sense of where they are in the website structure. A different color combination (black on grey) and a bottom border were added to give the item a distinct shape in the <a href="#example">example</a>.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><code><span class="nt">nav</span> <span class="o">[</span><span class="nt">aria-current</span><span class="o">=</span><span class="nt">true</span><span class="o">]</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#bbb</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+	<span class="nl">border-bottom</span><span class="p">:</span> <span class="m">.25em</span> <span class="nb">solid</span> <span class="m">#444</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</figure>
+<h2 id="example">Example</h2>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -169,39 +177,6 @@
 
   </div></figure>
 
-<figure class="code ">
-  <figcaption>Code snippet: HTML</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;li&gt;</span>
-	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"current"</span><span class="nt">&gt;</span>
-		<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Current Page: <span class="nt">&lt;/span&gt;</span>
-		SpaceBears
-	<span class="nt">&lt;/span&gt;</span>
-<span class="nt">&lt;/li&gt;</span>
-</code></pre>
-</figure>
-<figure class="code ">
-  <figcaption>Code snippet: CSS</figcaption>
-<pre class="highlight css"><code><span class="nt">nav</span> <span class="nc">.current</span> <span class="p">{</span>
-	<span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
-	<span class="nl">padding</span><span class="p">:</span> <span class="m">.25em</span><span class="p">;</span>
-	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#bbb</span><span class="p">;</span>
-	<span class="nl">color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
-	<span class="nl">border-bottom</span><span class="p">:</span> <span class="m">.25em</span> <span class="nb">solid</span> <span class="m">#444</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
-<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:focus</span> <span class="p">{</span>
-	<span class="nl">color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
-	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
-	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="nt">nav</span> <span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
-	<span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
-	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#024</span><span class="p">;</span>
-	<span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</figure>
 
 
       <div class="resources">
@@ -837,7 +812,7 @@
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      26 January 2017
+	      27 January 2017
 	      
 			</li>
       <li>

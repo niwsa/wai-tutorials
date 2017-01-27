@@ -13,7 +13,7 @@
   </title>
   <link rel="canonical" href="http://www.w3.org/WAI/tutorials/site-navigation/menus-structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-590ea62c.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-40f7196f.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
   <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
@@ -74,9 +74,7 @@
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>If the sequence of reading the pages is not important to understand the website,</p>
-
-<p>Use an unordered list (<code>&lt;ul&gt;</code>), if the sequence of reading the pages is not important to understand the website as a whole. In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
+<p>If the sequence of reading the pages is not important to understand the website, use an unordered list (<code>&lt;ul&gt;</code>). In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Unordered List</figcaption>
@@ -92,7 +90,7 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>In instances where pages need to be read in a certain sequence use an ordered list (<code>&lt;ol&gt;</code>). This is the case, for example, for menus providing access to chapters in prose, or steps in a construction manual. Following the order is important to properly build the space ship in the example below:</p>
+<p>In instances where pages need to be read in a certain sequence, for example chapters in prose or steps in a construction manual, use an ordered list (<code>&lt;ol&gt;</code>). Following the order is important to properly build the space ship in the example below:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Ordered List</figcaption>
@@ -109,8 +107,8 @@
 <h2 id="identifying-the-menu">Identifying the menu</h2>
 
 <div class="ref-container">
-      <div class="ref-main">
-<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly jump to the menu if WAI-ARIA landmarks are supported. The <code>&lt;nav&gt;</code> element wraps the unordered or ordered list that contains the navigation options.</p>
+        <div class="ref-main">
+<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly access the menu. The <code>&lt;nav&gt;</code> element wraps the list that contains the individual menu items.</p>
 
 </div>
       <aside class="ref-side">
@@ -136,7 +134,7 @@
 <h2 class="newap" id="labeling-navigations">Labeling navigations</h2>
 
 <div class="ref-container">
-      <div class="ref-main">
+        <div class="ref-main">
 <p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
 
 </div>
@@ -158,6 +156,51 @@
 <pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-labelledby=</span><span class="s">"mainmenulabel"</span><span class="nt">&gt;</span>
 	<span class="nt">&lt;h2</span> <span class="na">id=</span><span class="s">"mainmenulabel"</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Main Menu<span class="nt">&lt;/h2&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
+</code></pre>
+</figure>
+<h2 id="indicate-the-current-item">Indicate the current item</h2>
+
+<div class="ref-container">
+        <div class="ref-main">
+<p>The current page should also be clearly marked to give users a sense of where they are in the website structure.</p>
+
+</div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p>Information about <a href="../menus-styling/#current-item">styling the current menu item</a>.</p>
+
+</div>
+      </aside>
+      </div>
+<h3 class="ap" id="using-invisible-text">Using invisible text</h3>
+
+<p>The item has also an invisible text “Current Page:” added to the menu item. Additionally the current page item is not linking to the current page.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML</figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;li&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"current"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Current Page: <span class="nt">&lt;/span&gt;</span>
+		SpaceBears
+	<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre></figure>
+
+<h3 class="ap" id="using-wai-aria">Using WAI-ARIA</h3>
+
+<p>If you want to include a link to the main content area of the page or can’t remove the <code>&lt;a&gt;</code> element from the navigation, you can alternatively use <code>aria-current="page"</code>.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: HTML</figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;li&gt;</span>
+	<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#main"</span> <span class="na">aria-current=</span><span class="s">"page"</span><span class="nt">&gt;</span>
+	SpaceBears
+	<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
 </code></pre>
 </figure>
 
@@ -787,7 +830,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      26 January 2017
+	      27 January 2017
 	      
 			</li>
       <li>
