@@ -62,17 +62,17 @@
       
 
 
-      <p>Some websites use fly-out menus to allow easier access to pages further down the page hierarchy. It removes the need for multiple page loads if the user knows where to find the page. Users also get a grasp of the content of the website.</p>
+      <p>Some websites use fly-out (or drop-down) menus to allow easier access to pages further down the page hierarchy. It removes the need for multiple page loads if the user knows where to find the information.</p>
 
-<p>People with tremors, limited fine motor dexterity or other disabilities might have trouble operating fly-out menus in general. Make sure to provide other means to the sub menu items, for example repeat them on the page of the parent menu item.</p>
+<p>People with tremors, limited fine motor dexterity or other disabilities might have trouble operating fly-out menus in general. For some, it might be impossible. Make sure to provide other ways to the sub menu items, for example repeat them on the page of the parent menu item.</p>
 
-<h2 id="indicate-the-presence-of-a-submenu">Indicate the presence of a submenu</h2>
+<h2 id="mark-available-submenus">Mark available submenus</h2>
 
-<p>Users need to be aware which menu items have a submenu and which don’t. An arrow icon identifies that only the “SpaceBears” item has a submenu. For assistive technologies, the following ARIA attributes provide this information:</p>
+<p>Users need to be aware which menu items have a submenu, when items with and without submenus are available. In the <a href="#flyoutnav">example below</a>, an arrow icon marks “SpaceBears” as the only item with a submenu. For assistive technologies, the following ARIA attributes can be used to provide this information:</p>
 
 <ul>
-  <li><code>aria-haspopup="true"</code> prompts assistive technologies to give the information that a submenu is present to the user</li>
-  <li><code>aria-expanded</code> conveys the state of the submenu: It is initially set to <code>false</code> as the submenu is not visible.</li>
+  <li><code>aria-haspopup="true"</code> allows assistive technologies to convey that a submenu is present to the user.</li>
+  <li><code>aria-expanded="false"</code> defines that the submenu is hidden. When it’s shown the value is changed to <code>true</code>.</li>
 </ul>
 
 <figure class="sample show-overflow">
@@ -200,15 +200,15 @@
 
 <h3 id="mouse-users">Mouse users</h3>
 
-<p>The following CSS-only code shows the submenu when the parent menu item is hovered. However, it has two disadvantages: It does not work for keyboard users and the menu immediately disappears when the mouse leaves the parent menu items or the submenu.</p>
+<p>The following CSS-only code shows the submenu when the parent menu item is hovered. However, it has <strong>two disadvantages</strong>: It does not work for keyboard users, and the menu immediately disappears when the mouse leaves the parent menu items or the submenu.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: CSS</figcaption>
+  <figcaption>Code snippet: CSS-only: simple, but has disatvantages</figcaption>
 <pre class="highlight css"><code><span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span>       <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;}</span>
 </code></pre>
 </figure>
-<p>This behavior can be avoided by adding some scripting. When the cursor leaves the menu item, a timer is started which schedules to close the menu after one second. If the mouse re-enters the submenu during that time, that timer is canceled and the submenu stays open.</p>
+<p>This behavior can be avoided by adding some scripting. When the cursor leaves the menu item, a timer starts which closes the menu after some time (here: one second). If the mouse re-enters the submenu during that time, that timer is canceled and the submenu stays open.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -332,15 +332,13 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 <span class="p">});</span>
 </code></pre>
 </figure>
-<h3 id="keyboard-users">Keyboard users</h3>
+<h3 id="keyboard-users">Keyboard Users</h3>
 
-<p>Usually submenus are not supposed to open when tabbing through the menu using the keyboard as a keyboard user would need to step through all submenu items to get to the next top-level item.</p>
+<p>Usually submenus should not open when using the tab key to navigate through the menu, as in this case a keyboard user would need to step through all submenu items to get to the next top-level item.</p>
 
-<p>Different approaches address the need of keeping the top-level link accessible or not.</p>
+<h4 class="ap" id="use-the-top-level-menu-item-to-toggle-the-submenu">Use the top-level menu item to toggle the submenu</h4>
 
-<h4 class="ap" id="toggle-submenu-using-the-top-level-menu-item">Toggle submenu using the top-level menu item</h4>
-
-<p>The submenu is opened by a script when the user activates the top-level menu item. The value of the <code>href</code> attribute is ignored.</p>
+<p>If the top-level menu item only summarizes the menu and doesn’t need to link to a page itself, the submenu can be opened by a script when the user activates the top-level item. The value of the <code>href</code> attribute is  then ignored. (You might still want to link to an existing document in case JavaScript is loaded).</p>
 
 <p>When the focus leaves the submenu (for example by using the tab key on the last submenu item), the submenu is closed.</p>
 
@@ -397,6 +395,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	#flyoutnavkbfixed a {
 			color: #fff;
 			text-decoration: none;
+      border: 1px solid #036;
 	}
 	#flyoutnavkbfixed a:hover,
 		#flyoutnavkbfixed a:focus {
@@ -432,7 +431,8 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </style>
 
 <script>
-/* focusin/out event polyfill (firefox) */
+// focusin/out event polyfill (firefox)
+
 !function(){
 	var w = window,
 	d = w.document;
@@ -517,7 +517,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>The following code iterates through all top-level items with the class <code>has-submenu</code> and adds a click event to it which opens or closes the submenu, depending on its state. In addition, the <code>aria-expanded</code> attribute is set to <code>true</code> while the submenu is shown and otherwise to <code>false</code>.</p>
+<p>This code iterates through all top-level items with the class <code>has-submenu</code> and adds a click event to it which opens or closes the submenu, depending on its state. In addition, the <code>aria-expanded</code> attribute is set to <code>true</code> while the submenu is shown, and to <code>false</code> otherwise.</p>
 
 <div class="notes ">
 <p><strong>Note:</strong> Despite the name, click events are activated regardless of the input method as soon as the link gets activated.</p>
@@ -541,9 +541,9 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 <span class="p">});</span>
 </code></pre>
 </figure>
-<h4 class="ap" id="toggle-submenu-using-a-special-show-submenu-button">Toggle submenu using a special “show submenu” button</h4>
+<h4 class="ap" id="use-a-button-to-toggle-the-submenu">Use a button to toggle the submenu</h4>
 
-<p>If the top-level menu item needs to stay a proper link that links to a page, a separate button can be added to the top-level item that opens/closes the menu. This button can also act as a visual indicator for the presence of a submenu.</p>
+<p>If the top-level menu item needs to stay a proper link to a specific page, a separate button can be added to the top-level item that opens and closes the menu. This button can also act as a visual indicator for the presence of a submenu.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -553,7 +553,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 		<li><a href="#flyoutnavkbbtn">Home</a></li>
 		<li><a href="#flyoutnavkbbtn">Shop</a></li>
 		<li class="has-submenu">
-			<a href="#flyoutnavkbbtn">SpaceBears</a>
+			<a href="#flyoutnavkbbtn" aria-haspopup="true">SpaceBears</a>
 			<ul>
 				<li><a href="#flyoutnavkbbtn">SpaceBear 6</a></li>
 				<li><a href="#flyoutnavkbbtn">SpaceBear 6 Plus</a></li>
@@ -598,6 +598,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 	#flyoutnavkbbtn a {
 			color: #fff;
 			text-decoration: none;
+      border: 1px solid #036;
 	}
 	#flyoutnavkbbtn a:hover,
 		#flyoutnavkbbtn a:focus {
@@ -672,7 +673,8 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </style>
 
 <script>
-/* focusin/out event polyfill (firefox) */
+// focusin/out event polyfill (firefox)
+
 !function(){
 	var w = window,
 	d = w.document;
@@ -766,8 +768,12 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>In the following code example, a button is added to every top-level menu item link with a submenu. When the button is activated, it shows or hides the submenu. The invisible label of the button is set to “show submenu” or “hide submenu”, reflecting the state of the submenu.</p>
+<p>The code adds a button to every top-level menu item link with a submenu. When the button is activated, it shows or hides the submenu. The invisible label of the button is set to “show submenu” or “hide submenu”, reflecting the state of the submenu.</p>
 
+<div class="notes ">
+<p><strong>Note:</strong> If possible, include the name of the parent menu item in the button label: “show SpaceBears submenu”, for example.</p>
+
+</div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
@@ -1197,7 +1203,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../in-page-navigation/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">In-page Navigation</span></span></a></span>
+            <span><a rel="next" class="" href="../application-menus/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Applications Menu</span></span></a></span>
           </li>
         
       
@@ -1269,6 +1275,13 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
         
           
             <li>
+              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
               <a class="" href="../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a>
               
             </li>
@@ -1277,13 +1290,6 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
           
             <li>
               <a class="" href="../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
               
             </li>
           
@@ -1315,7 +1321,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	        Draft, approved by <a href="http://www.w3.org/WAI/EO/">EOWG</a>, updated
 	      
-	      27 January 2017
+	      09 February 2017
 	      
 			</li>
       <li>

@@ -66,15 +66,15 @@
       
 
 
-      <p>Semantic markup conveys the menu structure to users. It also makes the menu adaptable to different situations, such as small screen display, zoomed in, or assistive technology use.</p>
+      <p>Semantic markup conveys the menu structure to users. It makes the menu adaptable to different situations, such as small screen display, zoomed in, or assistive technology use.</p>
 
-<h2 class="newap" id="list-of-links">List of Links</h2>
+<h2 id="lists-of-links" class="newap">Menus as List of Links</h2>
 
 <p>Convey the menu structure to users effectively by using a list, especially if the menu consists of more than very few links. With this structural information assistive technologies can announce the number of items in the menu.</p>
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>If the sequence of reading the pages is not important to understand the website, use an unordered list (<code>&lt;ul&gt;</code>). In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. Most menus are unordered.</p>
+<p>In the following example, the user is not required to read the home page before advancing to the shop or get information about the products. As the sequence of reading the pages is not important to understand the website as a whole, use an unordered list (<code>&lt;ul&gt;</code>) – this approach can be used on most websites.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Unordered List</figcaption>
@@ -90,7 +90,7 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>In instances where pages need to be read in a certain sequence, for example chapters in prose or steps in a construction manual, use an ordered list (<code>&lt;ol&gt;</code>). Following the order is important to properly build the space ship in the example below:</p>
+<p>In instances where pages need to be read in a certain sequence, for example chapters in prose or steps in a construction manual, use an ordered list (<code>&lt;ol&gt;</code>). The order is important to properly build the space ship in the example below:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Ordered List</figcaption>
@@ -104,11 +104,11 @@
 <span class="nt">&lt;/ol&gt;</span>
 </code></pre>
 </figure>
-<h2 id="identifying-the-menu">Identifying the menu</h2>
+<h2 id="identify-menus">Identify menus</h2>
 
 <div class="ref-container">
       <div class="ref-main">
-<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5. It allows users to directly access the menu. The <code>&lt;nav&gt;</code> element wraps the list that contains the individual menu items.</p>
+<p>To identify the menu, use the <code>&lt;nav&gt;</code> element in HTML5 to wrap the list that contains the individual menu items. This allows users to directly access the menu.</p>
 
 </div>
       <aside class="ref-side">
@@ -131,11 +131,11 @@
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
 </figure>
-<h2 class="newap" id="labeling-navigations">Labeling navigations</h2>
+<h2 class="newap" id="label-menus">Label menus</h2>
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Label menus according to their individual function to make them easier to find and understand. This helps to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
+<p>Label menus to make them easier to find and understand. The label should be short but descriptive, which allows users to distinguish between multiple menus on a web page. Use a heading, <code>aria-label</code>, or <code>aria-labelledby</code> to provide the label.</p>
 
 </div>
       <aside class="ref-side">
@@ -192,7 +192,7 @@
 
 <h3 class="ap" id="using-wai-aria">Using WAI-ARIA</h3>
 
-<p>If you want to include a link to the main content area of the page or can’t remove the <code>&lt;a&gt;</code> element from the navigation, you can alternatively use <code>aria-current="page"</code>.</p>
+<p>If a link to the main content area of the page is required or if the <code>&lt;a&gt;</code> element cannot be removed from the navigation, use <code>aria-current="page"</code> as an alternative.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -695,6 +695,10 @@
   <ul>
     
       
+        <li class="prev">
+          <span><a rel="prev" class="" href="../"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Navigation Concepts</span></span></a></span>
+        </li>
+      
       
         
         
@@ -784,6 +788,13 @@
         
           
             <li>
+              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
               <a class="" href="../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a>
               
             </li>
@@ -792,13 +803,6 @@
           
             <li>
               <a class="" href="../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
               
             </li>
           
@@ -830,7 +834,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      27 January 2017
+	      08 February 2017
 	      
 			</li>
       <li>

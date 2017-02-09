@@ -66,23 +66,32 @@
       
 
 
-      <p>As Web browsing is non-linear, useful navigation can be provided to efficiently navigate through page content. Such in-page navigation provides users with links to sections of the page that might be hard to discover in a linear fashion. This also benefits people with low vision.</p>
+      <p>In-page navigation provides users with links to individual sections of the page. This makes the sections easier to find and reference.</p>
 
 <h2 id="anchors">Anchors</h2>
 
-<p>The <code>id</code> attribute of any element can be used as an anchor and directly linked to from within the page or externally. If the main content is using <code>&lt;main id="content"&gt;</code>, attaching <code>#content</code> to the end of the URL will scroll the main content into view and focus on it. This can be helpful to people who bookmark commonly used pages to jump directly to the section of the page of interest.</p>
+<p>The <code>id</code> attribute of any element can be used as an anchor and directly linked to from within the page or externally. If the main content is using <code>&lt;main id="content"&gt;</code>, attaching <code>#content</code> to the end of the URL will scroll the main content into view and focus on it. This is also helpful to people who bookmark commonly used pages and jump directly to the section of the page of interest.</p>
 
-<p>If possible, make those anchors visible by adding links to the web page. In this tutorial, you can find such anchors by using the share button displayed near each heading.</p>
+<p>If possible, make those anchors discoverable by adding links to the section on the web page. In this tutorial, you can find such anchors by using the share button displayed near each heading.</p>
 
-<h2 class="risky" id="skip-links">Skip links</h2>
+<h2 id="skip-links">Skip links</h2>
 
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>Here we are using landmarks while everywhere else we are talking about regions.</p>
+<div class="ref-container">
+      <div class="ref-main">
+<p>Skip links are used to move directly to different sections on the page. While some of their functionality is duplicated by WAI-ARIA regions, skip links are still useful for users who use the keyboard without other assistive technologies. Many screen reader users are used to move to the main content using skip links.</p>
 
-</div></figure>
-<p>Skip links are used to move directly to different sections on the page. While some of their functionality is duplicated by WAI-ARIA landmarks, skip links are recommended because browsers don’t provide keyboard consistent ways to navigate landmarks. They are also useful for keyboard users that don’t use assistive technologies. Most screen reader users are used to move to the main content using skip links. For more information on landmarks see the <a href="regions.html">regions</a> page.</p>
+</div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p>See the Page Structure Tutorial for more information on <a href="../../page-structure/regions/">regions</a>.</p>
 
+</div>
+      </aside>
+      </div>
 <p>The following example shows skip links that allow users to jump directly to the content and to the navigation.</p>
 
 <figure class="code ">
@@ -101,7 +110,7 @@
 </figure>
 <h2 id="table-of-contents">Table of contents</h2>
 
-<p>A table of contents can be a useful way to skim the page by providing an outline for the user. Usually it should be contained in a <a href="regions.html#navigation">navigation region</a>, so it can be easily discovered. The “On this Page” box on every tutorial page is an example for such a table of contents. The anchors on every heading are used to allow users to skip to those headings directly.</p>
+<p>A table of contents can be a useful way to skim the page by providing an outline for the user. It should be contained in a navigation region, so it can be easily discovered. The “On this Page” box on every tutorial page is an example for such a table of contents. The anchors on every heading are used to allow users to skip to those headings directly.</p>
 
 
 
@@ -608,8 +617,12 @@
       
         
         
+        
+      
+        
+        
           <li class="prev">
-            <span><a rel="prev" class="" href="../menus-flyout/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Fly-out Menus</span></span></a></span>
+            <span><a rel="prev" class="" href="../application-menus/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Applications Menu</span></span></a></span>
           </li>
         
         
@@ -624,10 +637,6 @@
           <li class="next">
             <span><a rel="next" class="" href="../multiple-ways/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Multiple Ways</span></span></a></span>
           </li>
-        
-      
-        
-        
         
       
     
@@ -690,6 +699,13 @@
         
           
             <li>
+              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
               <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>In-page Navigation</span></span>
               
             </li>
@@ -698,13 +714,6 @@
           
             <li>
               <a class="" href="../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../application-menus/"><span class="count"></span><span class="txt">Applications Menu</span></a>
               
             </li>
           
@@ -736,7 +745,7 @@
 				
 	        [EDITOR’S DRAFT] updated
 	      
-	      21 December 2016
+	      09 February 2017
 	      
 			</li>
       <li>
