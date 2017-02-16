@@ -31,7 +31,7 @@
     <nav aria-label="Skip links" role="navigation">
       <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
     </nav>
-<main role="main" class="content editors-draft">
+<main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
@@ -52,10 +52,10 @@
     </header>
 
     
-    
       <div class="status">
-        <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
       </div>
+    
     
 
 
@@ -66,23 +66,18 @@
       
 
 
-      <figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>Ideas for this from our F2F session:</p>
-
-<ul>
-  <li>Wireframe illustrations?</li>
-  <li>Interactive demo?</li>
-  <li>Complete page source code example?</li>
-</ul>
-
-</div></figure>
-<p>Mark up different regions of web pages and web applications, so that they can be identified by web browsers and assistive technologies.</p>
+      <p>Mark up different regions of web pages and web applications, so that they can be identified by web browsers and assistive technologies.</p>
 
 <h2 id="page-header">Page header</h2>
 
-<p>Most websites have a region at the top of every page that contains general content, such as the website logo, search function, and navigation options. HTML5 provides the <code>&lt;header&gt;</code> element, which can be used to define such a region.</p>
+<p><img srcset="../../img/page-structure-header-0a07b12c.png, ../../img/page-structure-header@2x.png 2x, ../../img/page-structure-header@3x.png 3x" alt="" class="symbol" src="../../img/page-structure-header-0a07b12c.png" /> Most websites have a region at the top of every page that contains general content, such as the website logo, search function, and navigation options. HTML5 provides the <code>&lt;header&gt;</code> element, which can be used to define such a region.</p>
 
+<div class="notes ">
+<p><strong>Note:</strong> If the <code>&lt;header&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not associated with the whole page, but only with that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
+
+</div>
+<div class="demo-container">
+      <div class="demo-main">
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;header&gt;</span>
@@ -92,14 +87,23 @@
 <span class="nt">&lt;/header&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<p>If the <code>&lt;header&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not identified as the header for the whole page but only relates to that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
+</div>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>A <a href="../example/">complete example</a> for all regions combined is available.</p>
 
 </div>
+      </aside>
+      </div>
 <h2 id="page-footer">Page footer</h2>
 
-<p>Similar to the page header, most websites also have a region at the bottom of every page that contains general content, such as copyright information, privacy statements, or disclaimers. HTML5 provides the <code>&lt;footer&gt;</code> element, which can be used to define such a region.</p>
+<p><img srcset="../../img/page-structure-footer-c64bfd28.png, ../../img/page-structure-footer@2x.png 2x, ../../img/page-structure-footer@3x.png 3x" alt="" class="symbol" src="../../img/page-structure-footer-c64bfd28.png" /> Similar to the page header, most websites also have a region at the bottom of every page that contains general content, such as copyright information, privacy statements, or disclaimers. HTML5 provides the <code>&lt;footer&gt;</code> element, which can be used to define such a region.</p>
 
+<div class="notes ">
+<p><strong>Note:</strong> If the <code>&lt;footer&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not identified as the footer for the whole page but only relates to that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
+
+</div>
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;footer&gt;</span>
@@ -109,13 +113,11 @@
 <span class="nt">&lt;/footer&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<p>If the <code>&lt;footer&gt;</code> element is used inside <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> elements, it is not identified as the footer for the whole page but only relates to that specific <code>&lt;article&gt;</code> or <code>&lt;section&gt;</code>.</p>
-
-</div>
 <h2 id="navigation">Navigation</h2>
 
-<p>The HTML5 <code>&lt;nav&gt;</code> element can be used to identify a navigation menu.A web page can have any number of navigation menus. Use <a href="../labels/">labels</a> to identify each navigation menu.</p>
+<div class="ref-container">
+      <div class="ref-main">
+<p><img srcset="../../img/page-structure-navigation-b3c89a37.png, ../../img/page-structure-navigation@2x.png 2x, ../../img/page-structure-navigation@3x.png 3x" alt="" class="symbol" src="../../img/page-structure-navigation-b3c89a37.png" /> The HTML5 <code>&lt;nav&gt;</code> element can be used to identify a navigation menu.A web page can have any number of navigation menus. Use <a href="../labels/">labels</a> to identify each navigation menu.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -129,13 +131,21 @@
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<p><strong>Note:</strong> The <a href="/menus/index.html">Menus tutorial</a> provides more information about creating menus in more detail.</p>
+</div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p><strong>Note:</strong> The <a href="../../menus/">Menus tutorial</a> provides more information about creating menus in more detail.</p>
 
 </div>
-<h2 class="risky" id="main-content">Main content</h2>
+      </aside>
+      </div>
+<h2 id="main-content">Main content</h2>
 
-<p>Use the HTML5 <code>&lt;main&gt;</code> element to identify the main content region of a web page or application.</p>
+<p><img srcset="../../img/page-structure-main-cd34d56b.png, ../../img/page-structure-main@2x.png 2x, ../../img/page-structure-main@3x.png 3x" alt="" class="symbol" src="../../img/page-structure-main-cd34d56b.png" /> Use the HTML5 <code>&lt;main&gt;</code> element to identify the main content region of a web page or application.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -145,42 +155,9 @@
 <span class="nt">&lt;/main&gt;</span>
 </code></pre>
 </figure>
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>This section and other sections certainly need better examples, maybe one example that incorporates all regions. Hard to see what they do and how to use them when they are viewed isolated like this.</p>
-
-</div></figure>
-<h2 id="articles">Articles</h2>
-
-<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item in a web shop or a news article on a news site.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-<span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Extreme<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-</code></pre>
-</figure>
-<h2 id="sections">Sections</h2>
-
-<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
 <h2 id="complementary-content">Complementary content</h2>
 
-<p>Use the HTML5 <code>&lt;aside&gt;</code> element to identify regions that support the main content, yet are separate and meaningful sections on their own; For example, a side note explaining or annotating the main content.</p>
+<p><img srcset="../../img/page-structure-aside-2ebcaa85.png, ../../img/page-structure-aside@2x.png 2x, ../../img/page-structure-aside@3x.png 3x" alt="" class="symbol" src="../../img/page-structure-aside-2ebcaa85.png" /> Use the HTML5 <code>&lt;aside&gt;</code> element to identify regions that support the main content, yet are separate and meaningful sections on their own; For example, a side note explaining or annotating the main content.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -190,13 +167,10 @@
 <span class="nt">&lt;/aside&gt;</span>
 </code></pre>
 </figure>
-<h2 id="accessupport">Page Regions in HTML 4 using ARIA</h2>
+<h2 id="accessupport">Page Regions in HTML 4 Using WAI-ARIA</h2>
 
-<figure class="todo">
-  <figcaption>Editor’s Note:</figcaption><div class="figcontent">
-<p>Add link to ARIA Practices Guide, be specific to HTML4 + ARIA.</p>
-
-</div></figure>
+<div class="ref-container">
+      <div class="ref-main">
 <p>Most current web browsers support the above HTML5 elements and convey the information to assistive technology through the accessibility APIs. However, to maximize compatibility with web browsers and assistive technologies that support WAI-ARIA but do not yet support HTML5, it is currently advisable to use both the HTML5 elements and the corresponding WAI-ARIA roles; for example:</p>
 
 <pre class="highlight html"><code><span class="nt">&lt;header</span> <span class="na">role=</span><span class="s">"banner"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/header&gt;</span>
@@ -204,12 +178,135 @@
 <span class="nt">&lt;nav</span> <span class="na">role=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/main&gt;</span>
 <span class="nt">&lt;footer</span> <span class="na">role=</span><span class="s">"contentinfo"</span><span class="nt">&gt;</span>…<span class="nt">&lt;/footer&gt;</span>
 </code></pre>
+</div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg>
+<p>More <a href="https://www.w3.org/WAI/intro/aria">information about WAI-ARIA</a> is available, including <a href="https://www.w3.org/TR/aria-in-html/">Notes on Using ARIA in HTML</a>.</p>
+
+</div>
+      </aside>
+      </div>
 
 
       <div class="resources">
   <h2 id="related">Related WCAG 2.0 resources</h2>
   <div class="resources-inner">
 	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-skip">2.4.1 Bypass Blocks:</a> A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive">2.4.6 Headings and Labels:</a> Headings and labels describe topic or purpose. (Level&nbsp;AA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
 	  
 	  
 	    <p><strong>Techniques:</strong></p>
@@ -616,10 +713,6 @@
         
         
       
-        
-        
-        
-      
     
   </ul>
 </div>
@@ -686,15 +779,8 @@
           
         
           
-            <li>
-              <a class="" href="../search/"><span class="count"></span><span class="txt">Search</span></a>
-              
-            </li>
-          
-        
-          
             <li class="tips">
-              <a class="" href="../example/"><span class="count"></span><span class="txt">Complete Example</span></a>
+              <a class="" href="../example/"><span class="count"></span><span class="txt">Example</span></a>
               
             </li>
           
@@ -706,12 +792,12 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure <span class="status">draft</span></span></span></li>
+  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">editors-draft</span></span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
-  <li><a href="../../site-navigation/"><span class="count"></span><span class="txt">Navigation <span class="status">editors-draft</span></span></a></li>
-  <li><a href="../../design/"><span class="count"></span><span class="txt">Design <span class="status">editors-draft</span></span></a></li>
+  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
@@ -724,9 +810,9 @@
 		<ul>
 			<li><strong>Status:</strong>
 				
-	        [EDITOR’S DRAFT] updated
+	        [DRAFT] updated
 	      
-	      30 November 2016
+	      16 February 2017
 	      
 			</li>
       <li>
