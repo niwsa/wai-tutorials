@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-  Web Application Menus
+  Application Menus
   
     
        &bull; Menus
@@ -42,12 +42,12 @@
               <a class="" href="../"><span class="count"></span><span class="txt">Menus</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
-            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Web Application Menus</span></span>
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Application Menus</span></span>
           </span>
         </p>
       </nav>
       <h1>
-        Web Application Menus
+        Application Menus
       </h1>
     </header>
 
@@ -66,17 +66,11 @@
       
 
 
-      <p>Web application menus use the same basic structure as navigation menus. They often consist of a horizontal menu bar and use fly-out functionality.</p>
+      <p>Web application menus use the same basic structure as navigation menus. They often consist of a horizontal menu bar and use fly-out functionality. However, additional markup and keyboard behavior needs to be added.</p>
 
-<h2 id="structure">Structure</h2>
+<h2 id="additional-markup">Additional markup</h2>
 
-<p>To allow users operate application menus like their desktop counterparts, special WAI-ARIA roles need to be added. In addition, the keyboard behavior needs to be managed so, for example, the tab key is used to iterate through the top-level items only and the up and down arrows are used to navigate sub menus.</p>
-
-<div class="ref-container">
-      <div class="ref-main">
-<p>The keyboard behavior is <strong>not</strong> automatically changed when the roles are added. It needs to be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="http://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
-
-<p>In addition to the <code>aria-expanded</code> and <code>aria-haspopup</code> attributes, the following roles are used in the example:</p>
+<p>In addition to the <code>aria-expanded</code> and <code>aria-haspopup</code> attributes, the following WAI-ARIA roles are used to provide the necessary semantics of an application menu:</p>
 
 <ul>
   <li><strong><code>menubar</code>:</strong> Represents a (usually horizontal) menu bar.</li>
@@ -85,307 +79,8 @@
   <li><strong><code>separator</code>:</strong> Represents a separator between two groups of menuitems in a menu.</li>
 </ul>
 
-<p></div>
-      <aside class="ref-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-            <path d="M16 14 L16 23 M16 8 L16 10" />
-            <circle cx="16" cy="16" r="14" />
-        </svg></p>
-
-<p>To keep this example simple, sub-submenus are not shown in this tutorial.</p>
-
-<p></div>
-      </aside>
-      </div></p>
-
-<figure class="sample show-overflow2">
-  <figcaption>Example: </figcaption>
-  <div class="box-content">
-<p><a id="#tab-before" href="#">Interactive element before the menu</a></p>
-
-<ul role="menubar" id="appmenu">
-		<li role="menuitem" aria-haspopup="true">
-			File
-			<ul role="menu">
-						<li role="menuitem">New</li>
-						<li role="menuitem">Open</li>
-						<li role="menuitem">Print</li>
-				</ul>
-		</li>
-		<li role="menuitem" aria-haspopup="true">
-			Edit
-			<ul role="menu">
-						<li role="menuitem">Undo</li>
-						<li role="menuitem">Redo</li>
-						<li role="separator"></li>
-						<li role="menuitem">Cut</li>
-						<li role="menuitem">Copy</li>
-						<li role="menuitem">Paste</li>
-				</ul>
-		</li>
-		<li role="menuitem" aria-haspopup="true">
-				Format
-				<ul role="menu">
-						<li role="menuitem">Font</li>
-						<li role="menuitem">Text</li>
-				</ul>
-		</li>
-		<li role="menuitem" aria-haspopup="true">
-			View
-			<ul role="menu">
-				<li role="menuitem">100%</li>
-				<li role="menuitem">Zoom In</li>
-				<li role="menuitem">Zoom Out</li>
-			</ul>
-		</li>
-		<li role="menuitem">Help</li>
-</ul>
-
-<p><a id="#tab-after" href="#">Interactive element after the menu</a></p>
-
-<style>
-.show-overflow2 {
-		overflow: visible !important;
-		float: left;
-		width: 100%;
-}
-
-.show-overflow2 .box-content {
-		overflow: visible !important;
-		float: left;
-		width: 100%;
-}
-	#appmenu {
-			width:80%;
-			float: left;
-			margin: 0;
-			padding: 0;
-			color: #fff;
-			background-color: #369;
-			padding: .25em;
-	}
-	#appmenu li {
-		white-space: nowrap;
-		display:block;
-		padding: .25em .75em;
-		border: 1px solid #fff;
-	}
-	#appmenu > li {
-			float: left;
-			background-color: #036;
-			text-align: center;
-			position:relative;
-			cursor: pointer;
-	}
-	#appmenu :hover,
-		#appmenu :focus {
-			background-color: #fff;
-			color: #036;
-			border: 1px solid #036;
-			text-decoration: underline;
-	}
-
-	#appmenu :hover li,
-		#appmenu :focus li {
-			color: #fff;
-			background-color: #036;
-		}
-
-	#appmenu > li > ul {
-		display: none;
-		position:absolute;
-		left:0;
-		right:0;
-		top:100%;
-		padding:0;
-		margin:0;
-		background-color: #036;
-		width: 200%;
-		text-align: left;
-	}
-
-#appmenu > li[aria-expanded="true"] > ul {
-		display:block;
-	}
-#appmenu li[role="separator"] {
- padding: 0;
-}
-#appmenu li[role="separator"]:hover,
-#appmenu li[role="separator"]:focus {
-	border: 1px solid #fff;
-}
-</style>
-
-<script>
-var appsMenuItems = document.querySelectorAll('#appmenu > li[role=menuitem]');
-var subMenuItems = document.querySelectorAll('#appmenu > li li[role=menuitem]');
-var keys = {
-	tab:    9,
-	enter:  13,
-	esc:    27,
-	space:  32,
-	left:   37,
-	up:     38,
-	right:  39,
-	down:   40
-};
-var currentIndex, subIndex;
-
-var gotoIndex = function(idx) {
-	if (idx == appsMenuItems.length) {
-		idx = 0;
-	} else if (idx < 0) {
-		idx = appsMenuItems.length - 1;
-	}
-	appsMenuItems[idx].focus();
-	currentIndex = idx;
-};
-
-var gotoSubIndex = function (menu, idx) {
-	var items = menu.querySelectorAll('li');
-	if (idx == items.length) {
-		idx = 0;
-	} else if (idx < 0) {
-		idx = items.length - 1;
-	}
-	items[idx].focus();
-	subIndex = idx;
-}
-
-Array.prototype.forEach.call(appsMenuItems, function(el, i){
-		if (0 == i) {
-			el.setAttribute('tabindex', '0');
-			el.addEventListener("focus", function() {
-				currentIndex = 0;
-			});
-		} else {
-			el.setAttribute('tabindex', '-1');
-		}
-		el.addEventListener("focus", function() {
-			subIndex = 0;
-			Array.prototype.forEach.call(appsMenuItems, function(el, i){
-				el.setAttribute('aria-expanded', "false");
-			});
-		});
-		el.addEventListener("click",  function(event){
-			if (this.getAttribute('aria-expanded') == 'false' || this.getAttribute('aria-expanded') ==  null) {
-				this.setAttribute('aria-expanded', "true");
-			} else {
-				this.setAttribute('aria-expanded', "false");
-			}
-			event.preventDefault();
-			return false;
-		});
-		el.addEventListener("keydown", function(event) {
-			var prevdef = false;
-			switch (event.keyCode) {
-				case keys.right:
-					gotoIndex(currentIndex + 1);
-					prevdef = true;
-					break;
-				case keys.left:
-					gotoIndex(currentIndex - 1);
-					prevdef = true;
-					break;
-				case keys.tab:
-					if (event.shiftKey) {
-						document.querySelector('#tab-before').setAttribute('tabindex', '-1');
-						document.querySelector('#tab-before').focus();
-					} else {
-						document.querySelector('#tab-after').setAttribute('tabindex', '-1');
-						document.querySelector('#tab-after').focus();
-					}
-					prevdef = true;
-					break;
-				case keys.enter:
-				case keys.down:
-					this.click();
-					subindex = 0;
-					gotoSubIndex(this.querySelector('ul'), 0);
-					prevdef = true;
-					break;
-				case keys.up:
-					this.click();
-					var submenu = this.querySelector('ul');
-					subindex = submenu.querySelectorAll('li').length - 1;
-					gotoSubIndex(submenu, subindex);
-					prevdef = true;
-					break;
-				case keys.esc:
-					document.querySelector('#tab-before').setAttribute('tabindex', '-1');
-					document.querySelector('#tab-before').focus();
-					prevdef = true;
-			}
-			if (prevdef) {
-				event.preventDefault();
-			}
-		});
-});
-
-Array.prototype.forEach.call(subMenuItems, function(el, i){
-	el.setAttribute('tabindex', '-1');
-	el.addEventListener("keydown", function(event) {
-			switch (event.keyCode) {
-				case keys.tab:
-					Array.prototype.forEach.call(appsMenuItems, function (elem) {
-						elem.setAttribute('aria-expanded', 'false');
-					});
-					if (event.shiftKey) {
-						document.querySelector('#tab-before').setAttribute('tabindex', '-1');
-						document.querySelector('#tab-before').focus();
-					} else {
-						document.querySelector('#tab-after').setAttribute('tabindex', '-1');
-						document.querySelector('#tab-after').focus();
-					}
-					prevdef = true;
-					break;
-				case keys.right:
-					gotoIndex(currentIndex + 1);
-					prevdef = true;
-					break;
-				case keys.left:
-					gotoIndex(currentIndex - 1);
-					prevdef = true;
-					break;
-				case keys.esc:
-					gotoIndex(currentIndex);
-					prevdef = true;
-					break;
-				case keys.down:
-					gotoSubIndex(this.parentNode, subIndex + 1);
-					prevdef = true;
-					break;
-				case keys.up:
-					gotoSubIndex(this.parentNode, subIndex - 1);
-					prevdef = true;
-					break;
-				case keys.enter:
-				case keys.space:
-					alert(this.innerText);
-					prevdef = true;
-					break;
-			}
-			if (prevdef) {
-				event.preventDefault();
-				event.stopPropagation();
-			}
-			return false;
-		});
-	el.addEventListener("click", function(event) {
-			alert(this.innerHTML);
-			event.preventDefault();
-			event.stopPropagation();
-			return false;
-		});
-});
-</script>
-
-
-  </div></figure>
-
-<p>The markup has no links at all: It is a nested list with WAI-ARIA roles as the application would be non-functional without JavaScript available anyway.</p>
-
+<div class="ref-container">
+      <div class="ref-main">
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menubar"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
@@ -405,30 +100,29 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre>
 </figure>
+<p></div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg></p>
+
+<p>Application menus typically do not have links and rely on scripting to provide the functionality.</p>
+
+<p></div>
+      </aside>
+      </div></p>
+
 <h2 id="functionality">Functionality</h2>
 
-<p>The behavior of desktop application menus is added to the menu by this JavaScript. First, we collect all top-level menu items in one variable (<code>appsMenuItems</code>) and all submenu items in another (<code>subMenuItems</code>). Two variables keep track of the focus in top-level items (<code>currentIndex</code>) and in submenus (<code>subIndex</code>).</p>
+<p>Adding the WAI-ARIA roles does <strong>not</strong> automatically enable the menu’s functionality or keyboard behavior. These need to be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="http://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
 
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">appsMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li[role="menuitem"]'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">subMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li li[role="menuitem"]'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="p">{</span>
-	<span class="na">tab</span><span class="p">:</span>     <span class="mi">9</span><span class="p">,</span>
-	<span class="na">enter</span><span class="p">:</span>  <span class="mi">13</span><span class="p">,</span>
-	<span class="na">esc</span><span class="p">:</span>    <span class="mi">27</span><span class="p">,</span>
-	<span class="na">space</span><span class="p">:</span>  <span class="mi">32</span><span class="p">,</span>
-	<span class="na">left</span><span class="p">:</span>   <span class="mi">37</span><span class="p">,</span>
-	<span class="na">up</span><span class="p">:</span>     <span class="mi">38</span><span class="p">,</span>
-	<span class="na">right</span><span class="p">:</span>  <span class="mi">39</span><span class="p">,</span>
-	<span class="na">down</span><span class="p">:</span>   <span class="mi">40</span>
-<span class="p">};</span>
-<span class="kd">var</span> <span class="nx">currentIndex</span><span class="p">,</span> <span class="nx">subIndex</span><span class="p">;</span>
-</code></pre>
-</figure>
-<p>To make the menu work for keyboard users, a <code>tabindex</code> attribute with the value <code>-1</code> is added to the menu items which allows to set the focus on the element.</p>
+<h2 id="keyboard-behavior">Keyboard behavior</h2>
 
-<p>The first main menu item (“File” in this example) is assigned a <code>tabindex</code> value of <code>0</code> which adds it to the tab order and lets the user access the menu. The <code>currentIndex</code> variable is initialized as soon as this first item gets focus.</p>
+<p>Web application menus are expected to work like desktop application menus. For example, the left and right keys are used to iterate through the top-level items, and the up and down arrows are used to navigate sub-menus. Pressing the tab key focuses the next item after the menu instead of the next menu item.</p>
+
+<p>To allow focus to be set to menu items by keyboard the are given a <code>tabindex</code> attribute with the value <code>-1</code>. The first main menu item (“File” in this example) is assigned a <code>tabindex</code> value of <code>0</code> which adds it to the tab order and lets the user access the menu using the keyboard.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -450,7 +144,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 </figure>
 <h3 id="top-level-menu-items">Top-Level Menu Items</h3>
 
-<p>All top-level menu items reset the <code>subIndex</code> variable when they receive focused. When individual items are activated (click or enter), the visibility of the submenu is toggled by changing the <code>aria-expanded</code> value. If a key is pressed, the appropriate action is carried out. See the following table for more details on the behavior of top-level menu items:</p>
+<p>The following table summarizes the typical behavior of top-level menu items:</p>
 
 <table>
 	<caption>Key mapping for top-level menu items</caption>
@@ -506,87 +200,12 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 	</tbody>
 </table>
 
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
-		<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
-			<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-				<span class="nx">currentIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-			<span class="p">});</span>
-		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-		<span class="p">}</span>
-		<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-			<span class="nx">subIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-			<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
-				<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
-			<span class="p">});</span>
-		<span class="p">});</span>
-		<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-			<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'false'</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">)</span> <span class="o">==</span>  <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
-			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-				<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
-			<span class="p">}</span>
-			<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-		<span class="p">});</span>
-		<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-			<span class="kd">var</span> <span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-			<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">right</span><span class="p">:</span>
-					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">left</span><span class="p">:</span>
-					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">tab</span><span class="p">:</span>
-					<span class="c1">// In this demo, we know what the ID of the previous/next interactive element was. In practice this should be automatically determined.</span>
-					<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
-					<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-after'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-after'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
-					<span class="p">}</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">enter</span><span class="p">:</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">down</span><span class="p">:</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
-					<span class="nx">subindex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">up</span><span class="p">:</span>
-					<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
-					<span class="kd">var</span> <span class="nx">submenu</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
-					<span class="nx">subindex</span> <span class="o">=</span> <span class="nx">submenu</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="nx">submenu</span><span class="p">,</span> <span class="nx">subindex</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">esc</span><span class="p">:</span>
-					<span class="c1">// In this demo, we know what the ID of the previous/next interactive element was. In practice this should be automatically determined.</span>
-					<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-					<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-			<span class="p">}</span>
-			<span class="k">if</span> <span class="p">(</span><span class="nx">prevdef</span><span class="p">)</span> <span class="p">{</span>
-				<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-			<span class="p">}</span>
-		<span class="p">});</span>
-<span class="p">});</span>
-</code></pre>
-</figure>
 <h3 id="sub-menu-items">Sub-Menu Items</h3>
 
-<p>Submenu items do behave differently when interacting with them on the keyboard, see the following table for details:</p>
+<p>The following table summarizes the typical behavior of sub-menu items:</p>
 
 <table>
-	<caption>Key mapping for submenu items</caption>
+	<caption>Key mapping for sub-menu items</caption>
 	<thead>
 		<tr>
 			<th scope="col">Key</th>
@@ -641,70 +260,6 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 		</tr>
 	</tbody>
 </table>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
-	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">tab</span><span class="p">:</span>
-					<span class="c1">// Close all menus.</span>
-					<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
-						<span class="nx">elem</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s1">'false'</span><span class="p">);</span>
-					<span class="p">});</span>
-					<span class="c1">// In this demo, we know what the ID of the previous/next interactive element was. In practice this should be automatically determined.</span>
-					<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-before'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
-					<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-after'</span><span class="p">).</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
-						<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'#tab-after'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
-					<span class="p">}</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">right</span><span class="p">:</span>
-					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">left</span><span class="p">:</span>
-					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">esc</span><span class="p">:</span>
-					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">down</span><span class="p">:</span>
-					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">up</span><span class="p">:</span>
-					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">enter</span><span class="p">:</span>
-				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="na">space</span><span class="p">:</span>
-					<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">innerText</span><span class="p">);</span>
-					<span class="nx">prevdef</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-					<span class="k">break</span><span class="p">;</span>
-			<span class="p">}</span>
-			<span class="k">if</span> <span class="p">(</span><span class="nx">prevdef</span><span class="p">)</span> <span class="p">{</span>
-				<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-				<span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
-			<span class="p">}</span>
-			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-		<span class="p">});</span>
-	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
-			<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
-			<span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
-			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-		<span class="p">});</span>
-<span class="p">});</span>
-</code></pre>
-</figure>
-<p><a href="../application-menus-code/">See the complete example code.</a></p>
 
 
 
@@ -840,7 +395,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 				
 	        [DRAFT] updated
 	      
-	      16 February 2017
+	      22 March 2017
 	      
 			</li>
       <li>

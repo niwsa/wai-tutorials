@@ -66,25 +66,44 @@
       
 
 
-      <p>Consistent styling enables users to find menus easily:</p>
+      <p>Clear and consistent styling allows users to find and recognize menus more easily. This includes consistency in the behavior, appearance, and relative location on pages across a website.</p>
 
-<ul>
-  <li>Align horizontal menus on the <strong>top of the page</strong> or vertical ones on the <strong>left of the page</strong> (in left-to-right languages).</li>
-  <li>Each item in the menu should have <strong>enough space</strong> to avoid the text get cut off.</li>
-  <li>The menu and its items should <strong>not overlap</strong> other content on the page, especially when the font size is increased. This avoids problems when translating menus.</li>
-  <li><strong>Avoid line breaks or hyphenation</strong> in menu items, if possible, as they are more difficult to read.</li>
-  <li>In contrast to links in running text, menus are <strong>usually not underlined</strong>, as they stand out as clickable items on their own.</li>
-  <li>Appropriate <strong>alternative text</strong> is provided if icons or other images are used in menus. See the <a href="../../images/">Images Tutorial</a> for more details.</li>
-</ul>
+<h2 id="general-considerations">General considerations</h2>
 
-<h2 id="item-states">Item states</h2>
+<p>Menus often use images, such as icons, that can be decorative or communicate functionality. These require text alternatives, as described in the <a href="../../images/">Images Tutorial</a>. Also contrast requirements are applicable to menus and their items.</p>
 
-<p>Menus are easier to use if the state of each menu item is clearly communicated. Make sure to not rely on color alone to convey the state: Add an underline or change the shape of an icon or the menu item as a whole provides the state to people with reduced color perception.</p>
+<h3 id="location">Location</h3>
+
+<p>Display the menu where the target audience of the website expects it. For example, on websites the main navigation menu is commonly located either vertically on the left of the pages (in left-to-right languages), or horizontally across the top. Application menus are usually expected horizontally across the top.</p>
+
+<h3 id="identification">Identification</h3>
+
+<p>Ensure that menus and their items are identifiable as such. In addition to the structural markup discussed in the previous section, also the color scheme is important to visually communicate the presence of menus and items.</p>
+
+<p>Consider making the label of menus visible to everyone. For example, in these tutorials, the "Menus Tutorial", "All Tutorials", "On this page" are menu labels provided as visible headings that are available for all users.</p>
+
+<h3 id="readability">Readability</h3>
+
+<p>Ensure appropriate sizing of menus and menu items to fit all text and also adapts to varying text sizes, to accommodate people who need larger text and languages with longer words. Where possible avoid all uppercase text, line breaks, and hyphenation, as these are often distracting and difficult to read.</p>
+
+<h3 id="size">Size</h3>
+
+<p>Provide sufficient white space, like padding, to support people with reduced dexterity and small touch screens on mobile devices. At the same time, make sure that menus do not overlap themselves and other content of the page when text size is increased or when the page is magnified.</p>
+
+<h2 id="menu-items">Menu items</h2>
+
+<p>Convey menu items and their states by using color and other styling options. Don’t rely on color alone as some users will be unable to perceive such changes. For example, change the shape of a menu item, or add an icon, in addition to changing its color when it is selected.</p>
+
+<h3 id="default-state">Default state</h3>
+
+<p>Use distinct styling to visually indicate menu items as regions of the page that can be activated. However, avoid exaggerated text decoration, such as words in uppercase or small caps, as these make text harder to read.</p>
 
 <h3 id="hover-and-focus-states">Hover and Focus states</h3>
 
-<p>Change hovered or focused menu items to give users visual guidance while navigating the page. In the <a href="#example">example below</a>, hover and focus states use an inverted color scheme (blue on white instead of white on blue) and underline the items.</p>
+<p>Change hovered or focused menu items to give users visual guidance while navigating the menu. In this example, hover and focus states use an inverted color scheme (blue on white instead of white on blue) and underline.</p>
 
+<div class="demo-container">
+      <div class="demo-main">
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
 <pre class="highlight css"><code><span class="nt">nav</span> <span class="nt">a</span><span class="nd">:hover</span><span class="o">,</span>
@@ -95,10 +114,21 @@
 <span class="p">}</span>
 </code></pre></figure>
 
+</div>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>See this code in action in the <a href="#example">live example</a>.</p>
+
+</div>
+      </aside>
+      </div>
 <h3 id="active-state">Active state</h3>
 
-<p>Indicate the menu item that was just clicked, tapped, or activated using the keyboard (the active item) to let users know what item they did activate. This helps to spot mis-clicks early, although the active state is usually only briefly displayed. The <a href="#example">example</a> below shows the active item with darker blue background and underlined.</p>
+<p>Indicate the menu item that was activated through clicking, tapping, or a keyboard. This helps people to identify unintended activation, for example by mis-clicking. In this example the active item has darker blue background and is underlined.</p>
 
+<div class="demo-container">
+      <div class="demo-main">
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
 <pre class="highlight css"><code><span class="nt">nav</span> <span class="nt">a</span><span class="nd">:active</span> <span class="p">{</span>
@@ -108,10 +138,23 @@
 <span class="p">}</span>
 </code></pre>
 </figure>
+</div>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>See this code in action in the <a href="#example">live example</a>.</p>
+
+</div>
+      </aside>
+      </div>
 <h3 id="current-state">Current state</h3>
 
-<p>The current page should also be clearly marked to give users a sense of where they are in the website structure. A different color combination (black on grey) and a bottom border were added to give the item a distinct shape in the <a href="#example">example</a>.</p>
+<p>Also visually indicate the current menu item in addition to the structural markup discussed in the previous section.</p>
 
+<p>In this example a different color combination (black on grey) and a bottom border were added to give the current menu item a distinct color and shape.</p>
+
+<div class="demo-container">
+      <div class="demo-main">
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
 <pre class="highlight css"><code><span class="nt">nav</span> <span class="o">[</span><span class="nt">aria-current</span><span class="o">=</span><span class="nt">page</span><span class="o">]</span> <span class="p">{</span>
@@ -121,9 +164,18 @@
 <span class="p">}</span>
 </code></pre>
 </figure>
+</div>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>See this code in action in the <a href="#example">live example</a>.</p>
+
+</div>
+      </aside>
+      </div>
 <h3 id="visited-state">Visited state</h3>
 
-<p>While it can be helpful to know which pages have been visited in some circumstances, the expectation of users is usually that the menu does not change.</p>
+<p>For some types of menus, such as instructional steps, it may be useful to indicate menu items that have already been visited. However, most menus are not expected to change based on the visited state.</p>
 
 <h2 id="example">Example</h2>
 
@@ -134,8 +186,8 @@
 		<ul>
 				<li><a href="#currentnav">Home</a></li>
 				<li><a href="#currentnav">Shop</a></li>
-				<li><a href="#currentnav" aria-current="page">SpaceBears</a></li>
-				<li><a href="#currentnav">MarsCars</a></li>
+				<li><a href="#currentnav" aria-current="page">Space Bears</a></li>
+				<li><a href="#currentnav">Mars Cars</a></li>
 				<li><a href="#currentnav">Contact</a></li>
 		</ul>
 </nav>
@@ -809,7 +861,7 @@
 				
 	        [DRAFT] updated
 	      
-	      16 February 2017
+	      22 March 2017
 	      
 			</li>
       <li>
