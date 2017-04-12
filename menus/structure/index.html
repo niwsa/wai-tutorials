@@ -66,7 +66,7 @@
       
 
 
-      <p>Semantic markup conveys the menu structure to users. Menus coded semantically can easily adapt to different situations, such as small screen displays, screen magnification and other assistive technology.</p>
+      <p>Semantic markup conveys the menu structure to users. Menus coded semantically can easily adapt to different situations, such as small screen displays, screen magnification, and other assistive technology.</p>
 
 <h2 class="newap" id="menu-representation">Menu representation</h2>
 
@@ -74,7 +74,7 @@
 
 <h3 class="ap" id="unordered-list">Unordered list</h3>
 
-<p>Use an unordered list (<code>&lt;ul&gt;</code>) when the menu items are not in a specific order. This is the case for most types of menus, such as website navigation.</p>
+<p>Use an unordered list (<code>&lt;ul&gt;</code>) when the menu items are not in a specific order. Most types of menus, such as website navigation, fall in this category.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Unordered List</figcaption>
@@ -90,7 +90,7 @@
 </figure>
 <h3 class="ap" id="ordered-list">Ordered list</h3>
 
-<p>Use an ordered list (<code>&lt;ol&gt;</code>) when the sequence of the menu items is important. In the following example the menu items represent the steps of a construction manual, so that the reading order is important:</p>
+<p>Use an ordered list (<code>&lt;ol&gt;</code>) when the sequence of the menu items is important. In the following example, the menu items represent the steps of a construction manual:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: Ordered List</figcaption>
@@ -106,7 +106,7 @@
 </figure>
 <h2 id="identify-menus">Identify menus</h2>
 
-<p>Identify the menu, ideally using the HTML5 <code>&lt;nav&gt;</code> element. This allows users to directly access the menu. Other techniques to identify a menu are described in the <a href="../../page-structure/regions/">page regions</a> tutorial.</p>
+<p>Identify the menu, ideally using the HTML5 <code>&lt;nav&gt;</code> element to allow users access to the menu directly. Other techniques to mark up a menu are described in the <a href="../../page-structure/regions/">page regions</a> tutorial.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -134,11 +134,11 @@
 
 <h3 class="ap" id="using-invisible-text">Using invisible text</h3>
 
-<p>Provide an invisible label that is read aloud to screen reader users and used by other assistive technologies to mark the current item. This allows custom label text.</p>
+<p>Provide an invisible label that is read aloud to screen reader users and used by other assistive technologies to mark the current item which allows custom label text.</p>
 
-<p>Remove the anchor (<code>&lt;a&gt;</code>), so users cannot interact with the current item. This avoids misunderstandings and emphasizes that the current menu item is active.</p>
+<p>Remove the anchor (<code>&lt;a&gt;</code>), so users cannot interact with the current item. That avoids misunderstandings and emphasizes that the current menu item is active.</p>
 
-<p>In the following example the menu item has the invisible text “Current Page:” and the <code>&lt;a&gt;</code> element is replaced by a <code>&lt;span&gt;</code> with a class <code>current</code>:</p>
+<p>In the following example, the menu item has the invisible text “Current Page:” and the <code>&lt;a&gt;</code> element is replaced by a <code>&lt;span&gt;</code> with a class <code>current</code>:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -152,7 +152,7 @@
 
 <h3 class="ap" id="using-wai-aria">Using WAI-ARIA</h3>
 
-<p>Use the <code>aria-current="page"</code> attribute to indicate the current page in the menu. This is particularly useful when the anchor (<code>&lt;a&gt;</code>) cannot be removed from the HTML.</p>
+<p>Use the <code>aria-current="page"</code> attribute to indicate the current page in the menu. This technique is particularly useful when the anchor (<code>&lt;a&gt;</code>) cannot be removed from the HTML.</p>
 
 <p>In the following example the link in the navigation points to the main content of the page.</p>
 
@@ -783,7 +783,7 @@
 				
 	        [DRAFT] updated
 	      
-	      07 April 2017
+	      12 April 2017
 	      
 			</li>
       <li>

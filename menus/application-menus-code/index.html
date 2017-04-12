@@ -66,7 +66,8 @@
       
 
 
-      <figure class="sample ">
+      <div class="show-overflow2">
+<figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content"><ul role="menubar" aria-label="functions" id="appmenu">
 		<li role="menuitem" aria-haspopup="true">
@@ -116,6 +117,15 @@
 		overflow: visible !important;
 		float: left;
 		width: 100%;
+}
+.show-overflow2 .sample:after {
+	content:'';
+	display:block;
+	clear: both;
+}
+
+.show-overflow2 + figure {
+	clear: both;
 }
 	#appmenu {
 			width:80%;
@@ -331,6 +341,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 
 
   </div></figure>
+</div>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -716,7 +727,7 @@ Array.prototype.forEach.call(subMenuItems, function(el, i){
 				
 	        [DRAFT] updated
 	      
-	      07 April 2017
+	      12 April 2017
 	      
 			</li>
       <li>

@@ -68,15 +68,15 @@
 
       <p>Use fly-out (or drop-down) menus to provide an overview of a web site’s page hierarchy. It removes the need for multiple page loads provided that users know where to find the information. Application menus are usually implemented this way, too.</p>
 
-<p>People with reduced dexterity, such as tremors, often have trouble operating fly-out menus. For some, it might be impossible. Make sure to provide other ways to the sub-menu items, for example by repeating them on the page of the parent menu item.</p>
+<p>People with reduced dexterity, such as tremors, often have trouble operating fly-out menus. For some, it might be impossible. Make sure to provide other ways to the submenu items, for example by repeating them on the page of the parent menu item.</p>
 
-<h2 id="indicate-sub-menus">Indicate sub-menus</h2>
+<h2 id="indicate-submenus">Indicate submenus</h2>
 
-<p>Indicate menu items with sub-menus visually and using markup. In the following example an icon is used for visual indication. In addition, the following WAI-ARIA markup is used:</p>
+<p>Indicate menu items with submenus visually and using markup. Indicate menu items with submenus visually and using markup. In the following example, the submenu is indicated visually by an icon and this WAI-ARIA markup:</p>
 
 <ul>
-  <li><code>aria-haspopup="true"</code> declares that a menu item has a sub-menu.</li>
-  <li><code>aria-expanded="false"</code> declares that the sub-menu is hidden.</li>
+  <li><code>aria-haspopup="true"</code> declares that a menu item has a submenu.</li>
+  <li><code>aria-expanded="false"</code> declares that the submenu is hidden.</li>
 </ul>
 
 <figure class="code ">
@@ -106,7 +106,7 @@
 
 <h3 id="mouse-users">Mouse users</h3>
 
-<p>The following example uses this CSS code to show and hide the sub-menus when the parent menu items are hovered:</p>
+<p>The following example uses this CSS code to show and hide the submenus when the parent menu items are hovered:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: CSS</figcaption>
@@ -114,7 +114,7 @@
 <span class="nt">nav</span> <span class="o">&gt;</span> <span class="nt">ul</span> <span class="nt">li</span><span class="nd">:hover</span> <span class="nt">ul</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;}</span>
 </code></pre>
 </figure>
-<p>In addition, scripting is used to slightly delay the immediate closing of sub-menu items when the mouse leaves the area. This makes it easier to use the menu when navigation by mouse is not very precise.</p>
+<p>In addition, scripting is used to slightly delay the immediate closing of submenu items when the mouse leaves the area. This delay makes it easier to use the menu when navigation by a mouse is not very precise.</p>
 
 <p>In the following example, a delay of one second is added using a timer:</p>
 
@@ -242,11 +242,11 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </figure>
 <h3 id="keyboard-users">Keyboard Users</h3>
 
-<p>Sub-menus should not open when using the tab key to navigate through the menu, as keyboard users would then need to step through all sub-menu items to get to the next top-level item. Instead, one of the following approaches can be used.</p>
+<p>Sub-menus should not open when using the tab key to navigate through the menu, as keyboard users would then need to step through all submenu items to get to the next top-level item. Instead, consider one of the following approaches.</p>
 
 <h4 class="ap" id="use-parent-as-toggle">Use parent as toggle</h4>
 
-<p>Use this approach in situations where the parent menu item only summarizes the sub-menu and doesn’t need to carry out a function, such as link to a web page. In this case the sub-menu is opened by a script when the user activates the top-level item, and is closed when the focus leaves the sub-menu.</p>
+<p>Use this approach in situations where the parent menu item only summarizes the submenu and doesn’t need to carry out a function, such as linking to a web page. In this case, the submenu is opened by a script when the user activates the top-level item and closed when the focus leaves the submenu.</p>
 
 <div class="notes ">
 <p><strong>Note:</strong> The value of the <code>href</code> attribute is ignored but you might still want to link to an existing document in case JavaScript is not loaded.</p>
@@ -427,7 +427,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>The following code iterates through all top-level items with the class <code>has-submenu</code> and adds a click event, which opens or closes the sub-menu depending on its state. In addition, the <code>aria-expanded</code> attribute is set to <code>true</code> while the sub-menu is shown, and to <code>false</code> otherwise.</p>
+<p>The following code iterates through all top-level items with the class <code>has-submenu</code> and adds a click event, which opens or closes the submenu depending on its state. Also, the <code>aria-expanded</code> attribute is set to <code>true</code> while the submenu is open, and to <code>false</code> otherwise.</p>
 
 <div class="notes ">
 <p><strong>Note:</strong> Despite the name, click events are activated regardless of the input method as soon as the link gets activated.</p>
@@ -453,7 +453,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 </figure>
 <h4 class="ap" id="use-button-as-toggle">Use button as toggle</h4>
 
-<p>For situations when the parent menu item needs to carry out a function, such as link to a web page, a separate button can be added to the parent item, to open and close the sub-menu. This button can also act as a visual indicator for the presence of a sub-menu.</p>
+<p>For situations when the parent menu item needs to carry out a function, such as linking to a web page, a separate button can be added to the parent item, to open and close the submenu. This button can also act as a visual indicator for the presence of a submenu.</p>
 
 <figure class="sample show-overflow">
   <figcaption>Example: </figcaption>
@@ -678,17 +678,17 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 
   </div></figure>
 
-<p>The following code adds a button to every top-level menu item with a sub-menu. When the button is activated, it shows or hides the sub-menu. The invisible label of the button is set to “show sub-menu” or “hide sub-menu”, reflecting the state of the sub-menu.</p>
+<p>The following code adds a button to every top-level menu item with a submenu. When the button is activated, it shows or hides the submenu. The invisible label of the button is set to “show submenu” or “hide submenu”, reflecting the state of the submenu.</p>
 
 <div class="notes ">
-<p><strong>Note:</strong> If possible, include the name of the parent menu item in the button label; for example: “show Space Bears sub-menu”.</p>
+<p><strong>Note:</strong> If possible, include the name of the parent menu item in the button label; for example: “show Space Bears submenu”.</p>
 
 </div>
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">menuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li.has-submenu'</span><span class="p">);</span>
 <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">menuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
-	<span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="s1">'&lt;button&gt;&lt;span&gt;&lt;span class="visuallyhidden"&gt;show sub-menu&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">btn</span> <span class="o">=</span> <span class="s1">'&lt;button&gt;&lt;span&gt;&lt;span class="visuallyhidden"&gt;show submenu&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;'</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">topLevelLink</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a'</span><span class="p">);</span>
 	<span class="nx">topLevelLink</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">topLevelLink</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">+</span> <span class="s1">' '</span> <span class="o">+</span> <span class="nx">btn</span><span class="p">;</span>
 
@@ -1218,7 +1218,7 @@ Array.prototype.forEach.call(menuItems1, function(el, i){
 				
 	        [DRAFT] updated
 	      
-	      23 March 2017
+	      12 April 2017
 	      
 			</li>
       <li>
