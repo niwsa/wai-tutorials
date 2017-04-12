@@ -70,13 +70,13 @@
   <li>maps showing locations or other information such as weather systems.</li>
 </ul>
 
-<p>In these cases a two-part text alternative is required. The first part is the short description to identify the image and, where appropriate, indicate the location of the long description. The second part is the long description – a textual representation of the essential information conveyed by the image. The following examples show different approaches that can be used to provide such short and long descriptions.</p>
+<p>In these cases, a two-part text alternative is required. The first part is the short description to identify the image and, where appropriate, indicate the location of the long description. The second part is the long description – a textual representation of the essential information conveyed by the image. The following examples show different approaches that can be used to provide such short and long descriptions.</p>
 
 <h2 id="long-descriptions">Long descriptions</h2>
 
 <p>There are situations where the composition of an image is important and needs to be provided in the long description. For example, the sequence of colors used and the relative heights of the columns in a bar chart may be relevant information about the structure of the chart, in addition to the actual values and trends that it depicts.</p>
 
-<p>Remember that complex images can be difficult to understand by many people – in particular people with learning disabilities and people with low vision. Long descriptions benefit many people and it is good practice to make them available to everyone, for example, as part of the main content. It may also be possible to reduce unnecessary complexity in your images, and make them easier to understand for everyone.</p>
+<p>Remember that complex images can be difficult to understand by many people – in particular people with learning disabilities and people with low vision. Long descriptions benefit many people, and it is good practice to make them available to everyone, for example, as part of the main content. It may also be possible to reduce unnecessary complexity in your images and make them easier to understand for everyone.</p>
 
 <p>It is also good practice to refer to and summarize more complex images from the accompanying text. For example, a reference such as “The following graph shows that visitors were lost in the first quarter, but the numbers recovered in the second quarter” helps to point out the relevant information that the image is intended to present.</p>
 
@@ -113,9 +113,9 @@
 <span class="nt">&lt;/p&gt;</span>
 </code></pre>
 </figure>
-<p>This approach is supported by all web browsers and assistive technologies, and makes the long descriptions available to everyone. However the link is not associated with the image in a semantic way.</p>
+<p>This approach is supported by all web browsers and assistive technologies and makes the long descriptions available to everyone. However, the link is not associated with the image in a semantic way.</p>
 
-<p>The HTML5 <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements can be used to group image and link semantically. Adding <code>role="group"</code> to the figure maintains backwards compatibility with web browsers that don’t support the native semantics of the <code>&lt;figure&gt;</code> element.</p>
+<p>The HTML5 <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements can be used to group image and link semantically. Adding <code>role="group"</code> to the figure maintains backward compatibility with web browsers that don’t support the native semantics of the <code>&lt;figure&gt;</code> element.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -147,7 +147,7 @@
 </figure>
 <h3 class="ap" id="structurally-associating-the-image-and-its-adjacent-long-description-html5">Structurally associating the image and its adjacent long description (HTML5)</h3>
 
-<p>The HTML5 <code>&lt;figure&gt;</code> element can be used to enclose both the image and its long description. The long description (presented as headings, text, and a table) is wrapped in the <code>&lt;figcaption&gt;</code> element. It is explicitly associated to the image using <code>role="group"</code> on the containing <code>&lt;figure&gt;</code> element in web browsers that don’t convey the semantics of the <code>&lt;figure&gt;</code> element.</p>
+<p>The HTML5 <code>&lt;figure&gt;</code> element can be used to enclose both the image and its long description. The long description (presented as headings, text, and a table) is wrapped in the <code>&lt;figcaption&gt;</code> element. It is explicitly associated with the image using <code>role="group"</code> on the containing <code>&lt;figure&gt;</code> element in web browsers that don’t convey the semantics of the <code>&lt;figure&gt;</code> element.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -178,7 +178,7 @@
 
 <p>The <code>longdesc</code> attribute can contain the URI of a separate web page that provides the long description for an image or a fragment identifier that refers to an element on the same page that provides the long description.</p>
 
-<p>When the <code>longdesc</code> attributes contains a URI to refer to another web page with the long description, it is recommended to also apply <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 3 (a text link to the long description adjacent to the image)</a>. This is a work-around for web browsers and assistive technologies that don’t fully support the <code>longdesc</code> attribute.</p>
+<p>When the <code>longdesc</code> attribute contains a URI to refer to another web page with the long description, it is recommended to also apply <a href="#a-text-link-to-the-long-description-adjacent-to-the-image">Approach 3 (a text link to the long description adjacent to the image)</a>. This method is a workaround for web browsers and assistive technologies that don’t fully support the <code>longdesc</code> attribute.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -207,7 +207,7 @@
 
 <p>The WAI-ARIA <code>aria-describedby</code> attribute can be used to link to a description of the image that is provided anywhere on the same web page, in a similar way to the <a href="#providing-a-link-to-the-long-description-via-longdesc">longdesc approach</a>. The value of the attribute is the <code>id</code> of the element that provides the long description.</p>
 
-<p>Important: The element referenced by <code>aria-describedby</code> is treated like one continuous paragraph of text. Screen readers and other assistive technology do not have access to structural information, such as any headings and tables. They will read out or provide the text of any contained elements without indicating their structural relationships, and without the corresponding navigation mechanisms. As a result, this approach only works for long descriptions that are text-only, without needing structural information as was needed in the previous example.</p>
+<p>Important: The element referenced by <code>aria-describedby</code> is treated as one continuous paragraph of text. Screen readers and other assistive technology do not have access to structural information, such as any headings and tables. They will read out or provide the text of any contained elements without indicating their structural relationships, and without the corresponding navigation mechanisms. As a result, this approach only works for long descriptions that are text-only, without needing structural information as was needed in the previous example.</p>
 
 <p>In this example, the head of the peacock is described using a paragraph of text that is on the web page.</p>
 
@@ -794,7 +794,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

@@ -62,14 +62,14 @@
       
 
 
-      <p><img alt="" class="symbol" src="../../img/img-caption-234c7b48.png" /> Captions and summaries provide information that can help users find, navigate, and understand tables. While they are not required in every case to meet WCAG 2.0, captions and summaries are relatively simple ways to provide such information that is often needed.</p>
+      <p><img alt="" class="symbol" src="../../img/img-caption-234c7b48.png" /> Captions and summaries provide information that can help users find, navigate, and understand tables. While they are not required in every case to meet WCAG 2.0, captions and summaries are fairly straightforward ways to provide such information that is often needed.</p>
 
 <ul>
   <li>
-    <p>A <strong>caption</strong> is like a heading for a table. Most screen readers announce the content of captions. This helps users to find a table and understand what it’s about, and decide if they want to read it. If the user uses “Tables Mode”, captions are the primary mechanism to identify tables. The caption is provided by the <code>&lt;caption&gt;</code> element.</p>
+    <p>A <strong>caption</strong> functions like a heading for a table. Most screen readers announce the content of captions. Captions help users to find a table and understand what it’s about and decide if they want to read it. If the user uses “Tables Mode”, captions are the primary mechanism to identify tables. The caption is provided by the <code>&lt;caption&gt;</code> element.</p>
   </li>
   <li>
-    <p>A <strong>summary</strong> conveys information about the organization of the data in a table and helps users navigate it. For example, if a table has an unconventional structure (as in the examples below), information about what content can be found in which row or column can be provided to the user. A summary is usually only needed for complex tables.</p>
+    <p>A <strong>summary</strong> conveys information about the organization of the data in a table and helps users navigate it. For example, if a table has an unusual structure (as in the examples below), information about what content can be found in which row or column can be provided to the user. A summary is usually only needed for complex tables.</p>
   </li>
 </ul>
 
@@ -79,7 +79,7 @@
 
 <h2 class="ex" id="identifying-a-table-using-a-caption">Identifying a table using a caption</h2>
 
-<p>The caption should be a succinct heading for the table content. In this example “Concerts” tells users what information is in the table (as the table could, for example, also contain art exhibition information).</p>
+<p>The caption should be a short heading for the table content. In this example “Concerts” tells users what information is in the table (as the table could, for example, also contain art exhibition information).</p>
 
 <p>The <code>&lt;caption&gt;</code> element is placed directly as a child of the <code>&lt;table&gt;</code> element.</p>
 
@@ -137,7 +137,7 @@
 
 <h3 class="ap" id="nesting-summary-inside-the-caption-element">Nesting summary inside the <code>&lt;caption&gt;</code> element</h3>
 
-<p>This complex table shows availability of different types and sizes of accommodation in two different locations. The <code>&lt;caption&gt;</code> element acts as a heading of the table and provides the summary that describes the composition of the table as well.</p>
+<p>This complex table shows availability of different types and sizes of accommodation in two separate locations. The <code>&lt;caption&gt;</code> element acts as a heading of the table and provides the summary that describes the composition of the table as well.</p>
 
 <p>If implemented this way, the summary is available to visual users as well.</p>
 
@@ -229,9 +229,9 @@
 </div>
 <h3 class="ap" id="using-aria-describedby-to-provide-a-table-summary">Using <code>aria-describedby</code> to provide a table summary</h3>
 
-<p>In this approach an element with an <code>id</code> attribute is associated as a summary by using the <code>aria-describedby</code> attribute of the table. Any element with a unique <code>id</code> attribute can be used as a summary for a table in this way.</p>
+<p>In this approach, an element with an <code>id</code> attribute is associated with a summary by using the <code>aria-describedby</code> attribute of the table. Any element with a unique <code>id</code> attribute can be used as a summary for a table in this way.</p>
 
-<p>The element containing the summary doesn’t need to be in front of the table in the document, but it helps users to discover the summary more easily if the summary is in close proximity of the table, especially if they are not using a screen reader.</p>
+<p>The element containing the summary doesn’t need to be in front of the table in the document, but it helps users to discover the summary more quickly if the summary is near the table, especially if they are not using a screen reader.</p>
 
 <div class="notes ">
 <p><strong>Note:</strong> This WAI-ARIA feature may not be as widely supported by assistive technology than other approaches for summaries on this page.</p>
@@ -291,7 +291,7 @@
 </figure>
 <h3 class="ap" id="using-the-figure-element-to-mark-up-a-table-summary">Using the <code>&lt;figure&gt;</code> element to mark up a table summary</h3>
 
-<p>In this approach the table is wrapped in a <code>&lt;figure&gt;</code> element. The <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
+<p>In this approach, the table is wrapped in a <code>&lt;figure&gt;</code> element. The <code>&lt;figcaption&gt;</code> element contains the caption and summary text.</p>
 
 <p>Screen reader users navigating in “Tables Mode” are usually unable to identify a table by a caption applied like this. The caption part of the <code>&lt;figcaption&gt;</code> element can be explicitly associated to the table by using the <code>aria-labelledby</code> attribute and the summary part by using the <code>aria-describedby</code> attributes. Note that this could lead to the caption and summary being read out multiple times.</p>
 
@@ -377,7 +377,7 @@
 <p><strong>Note: The <code>summary</code> attribute is deprecated in HTML5.</strong></p>
 
 </div>
-<p>In this approach, the summary text is in the <code>summary</code> attribute of the table. Such summaries are not displayed visually. They are generally only available to screen reader users.</p>
+<p>In this approach, the summary text is in the <code>summary</code> attribute of the table. Such summaries are not displayed visually. They are commonly only available to screen reader users.</p>
 
 <p>See WCAG 2.0 technique <a href="http://www.w3.org/TR/WCAG20-TECHS/H73">H73: Using the summary attribute of the table element to give an overview of data tables</a> for advice on the summary attribute.</p>
 
@@ -951,7 +951,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

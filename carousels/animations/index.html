@@ -94,7 +94,7 @@
       </aside>
       </div>
 <div class="notes ">
-<p><strong>Note:</strong> The JavaScript only replaces the value of the <code>&lt;button&gt;</code> element and its attributes. Replacing the button entirely would result in loss of keyboard focus.</p>
+<p><strong>Note:</strong> The JavaScript only replaces the value of the <code>&lt;button&gt;</code> element and its attributes. Replacing the entire button would result in loss of keyboard focus.</p>
 
 </div>
 <h2 id="pause-on-mouse-hover-and-keyboard-focus">Pause on mouse hover and keyboard focus</h2>
@@ -126,11 +126,11 @@
 <p><strong>Note:</strong> The <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="http://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../full-code/">a short polyfill</a> at the time of publication of this tutorial.</p>
 
 </div>
-<h2 id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
+<h2 id="hiding-transitioning-elements-from-assistive-technologies">Hiding transitioning elements from assistive technologies</h2>
 
 <p>During transitions, the current and next items are visible. This also means that those two items are available to assistive technologies, with the current item disappearing, which can be confusing to screen reader users.</p>
 
-<p>In the following example the item that is being activated gets an <code>in-transition</code> class that makes it visible. The <code>aria-hidden</code> is attribute set to <code>true</code> to hide the item from assistive technologies. When the transition completes, the <code>aria-hidden</code> attribute is removed.</p>
+<p>In the following example, the item that is being activated gets an <code>in-transition</code> class that makes it visible. The <code>aria-hidden</code> is attribute set to <code>true</code> to hide the item from assistive technologies. When the transition completes, the <code>aria-hidden</code> attribute is removed.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: JavaScript</figcaption>
@@ -407,7 +407,7 @@
 				
 	        [DRAFT] updated
 	      
-	      23 March 2017
+	      12 April 2017
 	      
 			</li>
       <li>

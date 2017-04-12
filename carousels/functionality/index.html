@@ -66,7 +66,7 @@
       
 
 
-      <p>Provide functionality to select carousel items and to inform users about change of carousel items.</p>
+      <p>Provide functionality to select carousel items and to inform users about the change of carousel items.</p>
 
 <h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
 
@@ -114,7 +114,7 @@
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users what item is currently shown. In this example a visually hidden, “polite” live region is used and added to the carousel when the carousel is loaded. Then, when clicking the previous or next buttons, the text “Item x of y” (with <var>x</var> for current item number and <var>y</var> for the number of items) is set to this live region. Capable screen readers will announce this text.</p>
+<p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users what item is currently shown. In this example, a visually hidden, “polite” live region is used and added to the carousel when the carousel is loaded. Then, when clicking the previous or next buttons, the text “Item x of y” (with <var>x</var> for current item number and <var>y</var> for the number of items) is set to this live region. Capable screen readers will announce this text.</p>
 
 <p>Allow the user to maintain control of the keyboard focus. When the carousel advances automatically, users should not be drawn away from their current place in the page. Also, do not move keyboard focus when the previous or next buttons are used; moving the focus makes it harder for users to browse back and forth between the slides.</p>
 
@@ -150,9 +150,9 @@
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Display buttons for each item in the carousel and highlight the current item. This allows users to get an overview of the carousel content, where they are in the sequence, and will enable them to navigate directly to any item.</p>
+<p>Display buttons for each item in the carousel and highlight the current item. This allows users to get an overview of the carousel content, where they are in the sequence and will enable them to navigate directly to any item.</p>
 
-<p>The list with buttons in the example below, is added using JavaScript, with a number on the button that corresponds to the carousel item. The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually, and by using text that is visually hidden (for screen readers).</p>
+<p>The list with buttons in the example below is added using JavaScript, with a number on the button that corresponds to the carousel item. The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually, and by using text that is visually hidden (for screen readers).</p>
 
 </div>
       <aside class="ref-side">
@@ -252,9 +252,9 @@
 
 <h3 id="focus-the-selected-carousel-item">Focus the selected carousel item</h3>
 
-<p>When users select an item with those navigation buttons, the focus should be set on the selected item. In this case the focus needs to be set to the <code>&lt;li&gt;</code> element that has the class <code>current</code> set, after the change or transition. This makes interaction easier for keyboard and assistive technology users.</p>
+<p>When users select an item with those navigation buttons, the focus should be set on the selected item. In this case, the focus needs to be set to the <code>&lt;li&gt;</code> element that has the class <code>current</code> set, after the change or transition. This makes interaction easier for keyboard and assistive technology users.</p>
 
-<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. By setting its <code>tabindex</code> attribute to <code>-1</code> the element is enabled to receive focus through JavaScript.</p>
+<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. By setting its <code>tabindex</code> attribute to <code>-1</code>, the element is enabled to receive focus through JavaScript.</p>
 
 
 
@@ -520,7 +520,7 @@
 				
 	        [DRAFT] updated
 	      
-	      23 March 2017
+	      12 April 2017
 	      
 			</li>
       <li>

@@ -62,22 +62,22 @@
       
 
 
-      <p><img alt="" class="symbol" src="../../img/img-multi-55740f2d.png" /> This page covers tables that have multi-level header cells associated per data cell. Such tables are too complex to identify a strict horizontal or vertical association between header and data cells. In such tables, each table header is identified with a (document-wide) unique <code>id</code>. Data cells refer to those <code>id</code>s by listing one or more in their <code>headers</code> attribute, separated by spaces.</p>
+      <p><img alt="" class="symbol" src="../../img/img-multi-55740f2d.png" /> This page covers tables that have multi-level header cells associated per data cell. Such tables are too complex to identify a strict horizontal or vertical association between header and data cells. In such tables, each table header is represented by a (document-wide) unique <code>id</code>. Data cells refer to those <code>id</code>s by listing one or more in their <code>headers</code> attribute, separated by spaces.</p>
 
 <p>Tables that should be marked up this way include:</p>
 
 <ul>
   <li>Tables with column headers that repeat or change part-way through the table.</li>
-  <li>Tables with three or more header cells associated to each data cell.</li>
+  <li>Tables with three or more header cells associated with each data cell.</li>
 </ul>
 
 <p>Tables with multiple headers may also need to have a caption to identify it and a summary to describe the layout of the table, see <a href="../caption-summary/">Caption &amp; Summary</a>.</p>
 
-<p>In many cases it is worth considering to restructure the information in such tables to make them less complex for all readers, for example by splitting the information in smaller, more manageable tables as shown in <a href="#split-up-multi-level-tables">Example 3</a>.</p>
+<p>In many cases, it is worth considering to restructure the information in such tables to make them less complex for all readers, for example by splitting the information in smaller, more manageable tables as shown in <a href="#split-up-multi-level-tables">Example 3</a>.</p>
 
 <h2 class="ex" id="table-with-multiple-column-headers-in-each-column">Table with multiple column headers in each column</h2>
 
-<p>In the table below, the headers for the top half of the tables are different to the headers of the bottom half. The header changes halfway through the table which makes the headers in columns ambiguous. To ensure each data cell is associated with the correct header, each <code>&lt;th&gt;</code> element has an unique <code>id</code> and each <code>&lt;td&gt;</code> cell has a <code>headers</code> attribute that lists the <code>id</code> values of the associated header cells.</p>
+<p>In the table below, the headers for the top half of the tables are different to the headers of the bottom half. The header changes halfway through the table which makes the headers in columns ambiguous. To ensure each data cell is associated with the correct header, each <code>&lt;th&gt;</code> element has a unique <code>id</code> and each <code>&lt;td&gt;</code> cell has a <code>headers</code> attribute that lists the <code>id</code> values of the associated header cells.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -153,7 +153,7 @@
 
 <h2 class="ex" id="table-with-three-headers-related-to-each-data-cell">Table with three headers related to each data cell</h2>
 
-<p>In this example table headers are used as subheadings to describe what the next section of the table is about. Without these headers, the information would be unclear. Using the <code>headers</code> attribute, all three headers can be properly associated with the data cell.</p>
+<p>In this example, table headers are used as subheadings to describe what the next section of the table is about. Without these headers, the information would be unclear. Using the <code>headers</code> attribute, all three headers can be properly associated with the data cell.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -320,7 +320,7 @@
 
 <h2 class="ex" id="split-up-multi-level-tables">Split up multi-level tables</h2>
 
-<p>The two tables below provide the same information as the mutli-level table in <a href="#table-with-three-headers-related-to-each-data-cell">the example above</a>. This makes the information easier to understand by everyone and easier to code. Also, simple tables are much better supported by tools to create web content, including WYSIWYG (“What you see is what you get”) editors.</p>
+<p>The two tables below provide the same information as the mutli-level table in <a href="#table-with-three-headers-related-to-each-data-cell">the example above</a>. This makes the information easier to understand for everyone and easier to code. Also, simple tables are much better supported by tools to create web content, including WYSIWYG (“What you see is what you get”) editors.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -999,7 +999,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

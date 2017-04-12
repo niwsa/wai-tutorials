@@ -85,20 +85,20 @@ The <code>alt</code> text should be the most concise description possible of the
         <p>As for any text, using punctuation in the text alternative makes the information easier to understand. In particular, remember to add space characters in the <code>alt</code> text when there’s no space character between the image and adjacent text, to avoid having words running together when they are read by a screen reader.</p>
       </li>
       <li>
-        <p>If you use a null (empty) text alternative (<code>alt=""</code>) to hide decorative images, make sure that there is no space character in between the quotes. If a space character is present, the image may not be effectively hidden from assistive technologies. For instance, some screen readers will still announce the presence of an image if a space is put between the quotes.</p>
+        <p>If you use a null (empty) text alternative (<code>alt=""</code>) to hide decorative images, make sure that there is no space character in between the quotes. If a space character is present, the image may not be effectively hidden from assistive technologies. For instance, some screen readers will still announce the presence of an image if a space character is put between the quotes.</p>
       </li>
     </ul>
   </li>
   <li>
     <p><strong>Superfluous information in the text alternative:</strong> <br />
-Usually there’s no need to include words like “image”, “icon”, or “picture” in the alt text. People who can see will know this already, and screen readers announce the presence of an image. In some situations it may be important to distinguish between a painting, photograph, or illustration etc., but it’s best to avoid the more generic use of the terms.</p>
+Usually, there’s no need to include words like “image”, “icon”, or “picture” in the alt text. People who can see will know this already, and screen readers announce the presence of an image. In some situations, it may be important to distinguish between paintings, photographs, or illustrations, etc., but it’s best to avoid the more generic use of the terms.</p>
   </li>
   <li>
     <p><strong>SVG graphics:</strong></p>
 
     <ul>
       <li>
-        <p>SVG graphics can be referenced in the <code>src</code> attribute of an <code>&lt;img&gt;</code> element like other image formats (PNG, JPEG, GIF). In this case the examples of this tutorial can be used with SVG as well.</p>
+        <p>SVG graphics can be referenced in the <code>src</code> attribute of an <code>&lt;img&gt;</code> element like other image formats (PNG, JPEG, GIF). In this case, the examples of this tutorial can be used with SVG as well.</p>
       </li>
       <li>
         <p>As SVG images consist of tags like HTML, their code can also be used in HTML5 directly. In this case you can provide a text alternative in a <code>&lt;title&gt;</code> element within the SVG image. To improve accessibility support, that title should be referenced from an <code>aria-labelledby</code> attribute of the <code>&lt;svg&gt;</code> element, for example:</p>
@@ -295,7 +295,7 @@ Logo images with text are exempt from some of the accessibility requirements. Fo
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

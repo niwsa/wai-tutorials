@@ -62,17 +62,19 @@
       
 
 
-      <p>This decision tree describes how to use the <code>alt</code> attribute of the <code>&lt;img&gt;</code> element in various situations. For some types of images there are alternative approaches, such as using CSS background images for decorative images or webfonts instead of images of text.</p>
+      <p>This decision tree describes how to use the <code>alt</code> attribute of the <code>&lt;img&gt;</code> element in various situations. For some types of images, there are alternative approaches, such as using CSS background images for decorative images or web fonts instead of images of text.</p>
 
 <ul class="decision-tree">
   <li><strong>Does the image contain text?</strong>
     <ul>
       <li class="yes"><strong>Yes:</strong>
         <ul>
-          <li><strong>… and the text in the image is also present as <em>real</em> text nearby.</strong>
+          <li><strong>… and the text is also present as <em>real</em> text nearby.</strong>
 <em>Use an empty <code>alt</code> attribute. See <a href="../decorative/">Decorative Images</a>.</em></li>
           <li><strong>… and the text is only shown for visual effects.</strong>
 <em>Use an empty <code>alt</code> attribute. See <a href="../decorative/">Decorative Images</a>.</em></li>
+          <li><strong>… and the text has a specific function, for example is an icon.</strong>
+  <em>Use the <code>alt</code> attribute to communicate the function of the image. See <a href="../functional/">Functional Images</a>.</em></li>
           <li><strong>… and the text in the image is not present otherwise.</strong> <em>Use the <code>alt</code> attribute to include the text of the image. See <a href="../textual/#image-of-styled-text-with-decorative-effect">Images of Text</a>.</em></li>
         </ul>
       </li>
@@ -315,7 +317,7 @@
 				
 	      	Updated
 	      
-	      29 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

@@ -64,7 +64,7 @@
 
       <p><img alt="" class="symbol" src="../../img/img-irreg-7e6fa7d0.png" /> This page covers tables with header cells that span multiple columns and/or rows. Several elements and attributes can be used to define the structure and relationships of the header and data cells.</p>
 
-<p>For example, a header cell that spans three columns should be associated to corresponding data cells in the column group. This can be done by setting the <code>scope</code> attribute of the header cell to the value <code>colgroup</code>. The same principle applies to header cells spanning multiple rows. In this case they are associated with by using the value <code>rowgroup</code> in the <code>scope</code>  attribute.</p>
+<p>For example, a header cell that spans three columns should be associated with corresponding data cells in the column group. This can be done by setting the <code>scope</code> attribute of the header cell to the value <code>colgroup</code>. The same principle applies to header cells spanning multiple rows. In this case, they are associated with by using the value <code>rowgroup</code> in the <code>scope</code>  attribute.</p>
 
 <p>However, before making these associations, the structure of such groups of columns and rows needs to be defined in the table markup:</p>
 
@@ -82,9 +82,9 @@
 
 <p>In the table below, there are two pairs of column headers. Each pair of column headers, “Produced” and “Sold” is associated with a first-level header that identifies the pair: “Mars” and “Venus”. These first-level headers are made to span two columns by using the <code>colspan</code> attribute with the value of <code>2</code>.</p>
 
-<p>To associate the first-level headers properly with all cells of both columns, the column structure needs to be defined at the beginning of the table. A <code>&lt;col&gt;</code> element identifies each column, beginning on the left. If a header spans two or more columns, use a <code>&lt;colgroup&gt;</code> element instead of that number of <code>&lt;col&gt;</code> elements, and the number of columns spanned is noted in the <code>span</code> attribute.</p>
+<p>The column structure needs to be defined at the beginning of the table to associate first-level headers correctly with all cells of both columns. A <code>&lt;col&gt;</code> element identifies each column, beginning on the left. If a header spans two or more columns, use a <code>&lt;colgroup&gt;</code> element instead of that number of <code>&lt;col&gt;</code> elements, and the number of columns spanned is noted in the <code>span</code> attribute.</p>
 
-<p>In addition, the value of the <code>scope</code> attribute in the first-level headers is set to <code>colgroup</code> so that it is associated with the entire group of columns. The second-level headers only apply to the corresponding column so the <code>scope</code> attribute is set to <code>col</code> as shown in previous examples.</p>
+<p>Also, the value of the <code>scope</code> attribute in the first-level headers is set to <code>colgroup</code> so that it is associated with the entire group of columns. The second-level headers only apply to the corresponding column, so the <code>scope</code> attribute is set to <code>col</code> as shown in previous examples.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -161,9 +161,9 @@
 </div>
 <h2 class="ex" id="table-with-headers-spanning-multiple-rows-or-columns">Table with headers spanning multiple rows or columns</h2>
 
-<p>In the example below, the table consists of two individual columns and one column group spanning three columns. It has six rows. There are two headers that span multiple rows. To make sure that such header cells that span multiple rows are correctly associated with all the cells in those rows, the rows need to be grouped. To define row groups wrap the corresponding rows in <code>&lt;tbody&gt;</code> elements (table body). Additionally the <code>scope</code> attribute of header cells spanning rows has to be set to <code>rowgroup</code>.</p>
+<p>In the example below, the table consists of two individual columns and one column group spanning three columns. It has six rows. Two headers that span multiple rows. To make sure that such header cells that span multiple rows are correctly associated with all the cells in those rows, the rows need to be grouped. To define row groups wrap the corresponding rows in <code>&lt;tbody&gt;</code> elements (table body). Additionally, the <code>scope</code> attribute of header cells spanning rows has to be set to <code>rowgroup</code>.</p>
 
-<p>If a header spans a multiple header rows, wrap the rows in a <code>&lt;thead&gt;</code> element instead of a <code>&lt;tbody&gt;</code> element. Use a <code>&lt;tfoot&gt;</code> element if a header spans multiple rows in the footer area of a table.</p>
+<p>If a header spans multiple header rows, wrap the rows in a <code>&lt;thead&gt;</code> element instead of a <code>&lt;tbody&gt;</code> element. Use a <code>&lt;tfoot&gt;</code> element if a header spans multiple rows in the footer area of a table.</p>
 
 <p>Due to the complexity of the table a <a href="../caption-summary/">summary technique</a> could be used to describe the layout of the table in detail.</p>
 
@@ -804,7 +804,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

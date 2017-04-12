@@ -62,15 +62,15 @@
       
 
 
-      <p>Provide labels to identify all form controls, including text fields, checkboxes, radio buttons, and drop-down menus. In most cases this is done by using the <code>&lt;label&gt;</code> element.</p>
+      <p>Provide labels to identify all form controls, including text fields, checkboxes, radio buttons, and drop-down menus. In most cases, this is done by using the <code>&lt;label&gt;</code> element.</p>
 
 <p>Labels need to describe the purpose of the form control. This section of the tutorial describes how to provide labels that are properly associated with form controls. Later sections explain how to provide <a href="../instructions/">instructions</a>, <a href="../validation/">validate user input</a>, and <a href="../notifications/">provide feedback</a> to help users complete your form.</p>
 
-<p>A label and a form control need to be associated with each other either implicitly or explicitly. Web browsers provide the label as a larger clickable area, for example, to select or activate the control. It also ensures that assistive technology is able to refer to the correct label when presenting a form control.</p>
+<p>A label and a form control need to be associated with each other either implicitly or explicitly. Web browsers provide the label as a larger clickable area, for example, to select or activate the control. It also ensures that assistive technology can refer to the correct label when presenting a form control.</p>
 
 <h2 class="newap" id="associating-labels-explicitly">Associating labels explicitly</h2>
 
-<p>Whenever possible, use the <code>label</code> element to explicitly associate text with form elements. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control.</p>
+<p>Whenever possible, use the <code>label</code> element to associate text with form elements explicitly. The <code>for</code> attribute of the label must exactly match the <code>id</code> of the form control.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -96,7 +96,7 @@
 </figure>
 <h3 class="newex" id="hiding-label-text">Hiding label text</h3>
 
-<p>A label for a form control helps everyone better understand its purpose. In some cases the purpose may be clear enough from the context when the content is rendered visually. In such cases a label can be hidden visually, though it still needs to be provided within the code to support other forms of presentation and interaction, such as for screen reader and speech input users. The method used in this tutorial to hide an element visually but make it available for assistive technologies is explained in <a href="#note-on-hiding-elements">Note on hiding element</a>.</p>
+<p>A label for a form control helps everyone better understand its purpose. In some cases, the purpose may be clear enough from the context when the content is rendered visually. The label can be hidden visually, though it still needs to be provided within the code to support other forms of presentation and interaction, such as for screen reader and speech input users. The method used in this tutorial to hide an element visually but make it available for assistive technologies is explained in <a href="#note-on-hiding-elements">Note on hiding element</a>.</p>
 
 <p>In the example below, the search field is positioned directly beside the search button. The purpose of the text input field is evident from the context in most situations.</p>
 
@@ -127,12 +127,24 @@
 </figure>
 <h4 class="ap" id="using-aria-label">Using aria-label</h4>
 
-<p>The <code>aria-label</code> attribute can also be used to identify form controls. This approach is generally well supported by screen readers and other assistive technology, but, unlike the <code>title</code> attribute (see next section), the information is not conveyed to visual users.</p>
+<p>The <code>aria-label</code> attribute can also be used to identify form controls. This approach is well supported by screen readers and other assistive technology, but, unlike the <code>title</code> attribute (see below), the information is not conveyed to visual users. The approach should therefore only be used when the label of the control is clear from the surrounding content, like the button in the example below.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">aria-label=</span><span class="s">"Search"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+</figure>
+<h4 class="ap" id="using-aria-labelledby">Using aria-labelledby</h4>
+
+<p>The <code>aria-labelledby</code> attribute can also be used to identify form controls. This approach is well supported by screen readers and other assistive technology, but, unlike the <code>title</code> attribute (see below), the information is not conveyed to visual users. The approach should therefore only be used when the label of the control is clear from the surrounding content, like the button in the example below.</p>
+
+<p>The <code>id</code> of the element containing the label text is used as the value of the <code>aria-labelledby</code> attribute.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"search"</span> <span class="na">aria-labelledby=</span><span class="s">"searchbutton"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"searchbutton"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/button&gt;</span>
 </code></pre>
 </figure>
 <h4 class="ap" id="using-the-title-attribute">Using the <code>title</code> attribute</h4>
@@ -162,7 +174,7 @@
 
 <p>Screen readers and other assistive technology, just as web browsers, hide elements from their users when they are styled using <code>display: none;</code> and <code>visibility: hidden;</code>.</p>
 
-<p>The common approach used to hide information visually but keep them available to screen reader and other assistive technology users, is to use CSS that will keep the information technically visible but practically hidden. For example, presenting the label in a 1-by-1 pixel area with a 1-pixel margin, as demonstrated with the CSS class <code>visuallyhidden</code> (<strong>do not confuse</strong> with CSS <code>visibility: hidden</code>) below:</p>
+<p>The common approach used to hide information visually but keep them available to screen reader and other assistive technology users is to use CSS that will keep the information technically visible but practically hidden. For example, presenting the label in a 1-by-1 pixel area with a 1-pixel margin, as demonstrated with the CSS class <code>visuallyhidden</code> (<strong>do not confuse</strong> with CSS <code>visibility: hidden</code>) below:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -178,9 +190,11 @@
 <span class="p">}</span>
 </code></pre>
 </figure>
+<p>Note that interactive elements are still active when using this code, so it is not suitable to hide other parts of forms but the labels.</p>
+
 <h2 class="newap" id="associating-labels-implicitly">Associating labels implicitly</h2>
 
-<p>In some situations, form controls cannot be labelled explicitly. For example, a content author might not know the <code>id</code> of a form field generated by a script, or that script might not add an <code>id</code> at all. In this case the <code>label</code> element is used as a container for both the form control and the label text, so that the two are associated implicitly.</p>
+<p>In some situations, form controls cannot be labeled explicitly. For example, a content author might not know the <code>id</code> of a form field generated by a script, or that script might not add an <code>id</code> at all. In this case, the <code>label</code> element is used as a container for both the form control and the label text, so that the two are associated implicitly. Generally, explicit labels are better supported by assistive technology.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: HTML</figcaption>
@@ -215,9 +229,9 @@
 </div>
 <h2 class="newex" id="visual-position-of-label-text">Visual position of label text</h2>
 
-<p>In left-to-right languages it is customary to visually position labels to the right of radio buttons and checkboxes, and to the left or directly above other form fields. Maintaining this practice increases predictability and understandability of your form for all users.</p>
+<p>In left-to-right languages, it is customary to visually position labels to the right of radio buttons and checkboxes, and to the left or directly above other form fields. Maintaining this practice increases predictability and understandability of your form for all users.</p>
 
-<p>In general, placing labels above the form fields helps reduce horizontal scrolling for people with low vision and for mobile device users. However, the usefulness of this approach depends on other design aspects, such as the proximity of other nearby form fields and content, and needs to be assessed individually. The aim should be to maintain a close and distinct visual relationship between the label and the form control.</p>
+<p>In general, placing labels above the form fields helps reduce horizontal scrolling for people with low vision and mobile device users. However, the usefulness of this approach depends on other design aspects, such as the proximity of other nearby form fields and content, and needs to be assessed individually. The aim should be to maintain a close and distinct visual relationship between the label and the form control.</p>
 
 
 
@@ -877,7 +891,7 @@
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)

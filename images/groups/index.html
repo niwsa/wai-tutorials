@@ -64,11 +64,11 @@
 
       <p>Sometimes groups of images are used together to represent one piece of information. For example, a collection of star icons that together represent a rating. In this case, only one of the images needs a text alternative to describe the entire collection, while the other images have a null (empty) <code>alt</code> attribute so that they are ignored by assistive technology.</p>
 
-<p>In other cases, a group of images may represent a collection of related images. For example, showing a collection of art impressions that are thematically related. In this case each image needs its own text alternative that describes it individually, as well as its relationship within the group.</p>
+<p>In other cases, a group of images may represent a collection of related images. For example, showing a collection of art impressions that are thematically related. In this case, each image needs its text alternative that describes it individually, as well as its relationship within the group.</p>
 
 <h2 class="ex" id="multiple-images-conveying-a-single-piece-of-information">Multiple images conveying a single piece of information</h2>
 
-<p>This group of five images combined show a product rating. There are five images (three filled stars, one half-filled star and one empty star) indicating the overall rating. The text alternative for the first image is “Rating: 3.5 out of 5 stars”. All other images have a null (empty) <code>alt</code> attribute (<code>alt=""</code>).</p>
+<p>This group of five images combined shows a product rating. There are five images (three filled stars, one half-filled star and one empty star) indicating the overall rating. The text alternative for the first image is “Rating: 3.5 out of 5 stars”. All other images have a null (empty) <code>alt</code> attribute (<code>alt=""</code>).</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -90,9 +90,9 @@
 </figure>
 <h2 class="ex" id="a-collection-of-images">A collection of images</h2>
 
-<p>In the example below, the HTML5 <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements are used to provide a caption for each individual image in a collection. The <code>&lt;figure&gt;</code> element can be nested, which is used in the example to provide a caption for the entire collection of images. The WAI-ARIA attribute <code>role</code> with the value of <code>group</code> is used to indicate this grouping to assistive technologies, <code>aria-labelledby</code> makes sure that the <code>figcaption</code> elements are used as labels for the individual groups.</p>
+<p>In the example below, the HTML5 <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements are used to provide a caption for each image in a collection. The <code>&lt;figure&gt;</code> element can be nested, which is used in the example to provide a caption for the entire collection of images. The WAI-ARIA attribute <code>role</code> with the value of <code>group</code> is used to indicate this grouping to assistive technologies, <code>aria-labelledby</code> makes sure that the <code>figcaption</code> elements are used as labels for the individual groups.</p>
 
-<p>Note: The web browser and assistive technology support varies for this particular WAI-ARIA attribute and value.</p>
+<p>Note: The web browser and assistive technology support vary for this particular WAI-ARIA attribute and value.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -706,7 +706,7 @@ alt="The castle lies in ruins, the original tower all that remains in one piece.
 				
 	      	Updated
 	      
-	      04 November 2016
+	      12 April 2017
 	      
 		      
 		      (first published September 2014)
