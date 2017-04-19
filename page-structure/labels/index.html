@@ -62,16 +62,22 @@
       
 
 
-      <p>Most regions on a page should be labeled. Labels are especially important when multiple regions of the same type are on one page, such as multiple navigation options. WAI-ARIA provides simple mechanisms for labeling a region, enabling users to navigate around the page quickly.</p>
+      <p>Add labels to regions if multiple regions of the same type are on one page, for instance, multiple navigation regions. WAI-ARIA provides simple mechanisms for labeling a region, enabling users to navigate around the page quickly.</p>
 
-<p>Sections should also be organized using <a href="../headings/">headings</a>.</p>
-
-<h2 class="ap" id="using-aria-label">Using <code>aria-label</code></h2>
+<h2 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h2>
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Use the WAI-ARIA <code>aria-label</code> attribute to label the region. Consider this approach if the label should not appear visually on the page.</p>
+<p>Use the WAI-ARIA <code>aria-labelledby</code> to reference an existing element – like a heading – by its (unique) <code>id</code>. The content of the referenced element is then used as the label. Users can navigate by headings to find the region.</p>
 
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-labelledby=</span><span class="s">"regionheading"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"regionheading"</span><span class="nt">&gt;</span>On this Page<span class="nt">&lt;/h3&gt;</span>
+    …
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre>
+</figure>
 </div>
       <aside class="ref-side">
       <div>
@@ -89,6 +95,10 @@
 </div>
       </aside>
       </div>
+<h2 class="ap" id="using-aria-label">Using <code>aria-label</code></h2>
+
+<p>Use the WAI-ARIA <code>aria-label</code> attribute to label the region. Consider this approach if the label should not appear visually on the page.</p>
+
 <div class="demo-container">
       <div class="demo-main">
 <figure class="code ">
@@ -107,18 +117,6 @@
 </div>
       </aside>
       </div>
-<h2 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h2>
-
-<p>Use the WAI-ARIA <code>aria-labelledby</code> to reference an existing element – like a heading – by its (unique) <code>id</code>. The content of the referenced element is then used as the label. A heading allows users to find the region in multiple ways.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;nav</span> <span class="na">aria-labelledby=</span><span class="s">"regionheading"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"regionheading"</span><span class="nt">&gt;</span>On this Page<span class="nt">&lt;/h3&gt;</span>
-    …
-<span class="nt">&lt;/nav&gt;</span>
-</code></pre>
-</figure>
 
 
       <div class="resources">
@@ -739,7 +737,7 @@
 				
 	      	Updated
 	      
-	      13 April 2017
+	      19 April 2017
 	      
 		      
 		      (first published April 2017)
