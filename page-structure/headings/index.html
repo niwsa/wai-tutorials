@@ -74,12 +74,6 @@
 
 <p>Skipping heading ranks can be confusing and should be avoided where possible: Make sure that a <code>&lt;h3&gt;</code> is followed by an <code>&lt;h4&gt;</code>, for example. It is ok to skip ranks when closing subsections, for instance, a <code>&lt;h2&gt;</code> beginning a new section, can follow an <code>&lt;h4&gt;</code> as it closes the previous section.</p>
 
-<p><figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content"><img srcset="../../img/page-structure-headings-1b48a3e1.png, ../../img/page-structure-headings@2x-e7b5c662.png 2x, ../../img/page-structure-headings@3x-8cb0ab16.png 3x" alt="One h1 heading with several h2s and h3 creating subsections. One subsection’s heading is ”(h3) Sapphire Eyes” which has a subsection “(h4) How they are made”. The next heading is an h2, indicating that the (h4) and (h3) subsections are both closed now." class="" src="../../img/page-structure-headings-1b48a3e1.png" />
-  </div></figure>
-</p>
-
 <h3 id="exception-for-fixed-page-sections">Exception for fixed page sections</h3>
 
 <p>In fixed sections of the page, for example in sidebars, the heading ranks <em>should not</em> change depending on the ranks  in the content area. In those cases, consistency across pages is more important.</p>
@@ -88,60 +82,48 @@
 
 <p>In the following example, headings are used to only organize passages of text on a page, for example the main content:</p>
 
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Cotton Fur<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sapphire Eyes<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Synthetic Felt Paws<span class="nt">&lt;/h2&gt;</span>
-</code></pre>
-</figure>
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-intro-b39b620a.png, ../../img/page-structure-headings-intro@2x-57fbe0bf.png 2x, ../../img/page-structure-headings-intro@3x-bad43cd5.png 3x" alt="One example (h1) heading (Space Teddy) with three h2 headings inside the content (Cotton Fur, Sapphire Eyes, Synthetic Felt Paws)." class="" src="../../img/page-structure-headings-intro-b39b620a.png" />
+  </div></figure>
+</p>
+
 <h2 id="headings-that-reflect-the-page-organization">Headings that reflect the page organization</h2>
 
-<p>Headings are useful for labeling page regions. Use aria-labelledby, as described in the <a href="../labels/#using-aria-labelledby">label
-page regions</a> section of this tutorial, to associate headings with their  page regions.</p>
+<p>Headings are useful for labeling page regions. Use <code>aria-labelledby</code>, as described in the <a href="../labels/#using-aria-labelledby">label
+page regions</a> section of this tutorial, to associate headings with their page region. If the headings are visible, the regions are easy to identify for all users.</p>
 
 <h3 class="ex" id="main-heading-before-navigation">Main heading before navigation</h3>
 
 <p>In this first example, the heading with the rank 1 is the first heading in the document. All other headings for structuring the page (Navigation Menu, Sidebar, Footer) are one rank lower, and so is the heading for the main content.</p>
 
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>SpaceTeddy Inc.<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Navigation Menu<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sidebar<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>More news<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>What our clients say<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Ratings<span class="nt">&lt;/h3&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Cotton Fur<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Sapphire Eyes<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Syntetic Felt Paws<span class="nt">&lt;/h3&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Footer<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>About the company<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Our retail stores<span class="nt">&lt;/h3&gt;</span>
-</code></pre>
-</figure>
+<div class="demo-container">
+      <div class="demo-main">
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-1b48a3e1.png, ../../img/page-structure-headings@2x-e7b5c662.png 2x, ../../img/page-structure-headings@3x-8cb0ab16.png 3x" alt="One h1 heading with several h2s and h3 creating subsections. One subsection’s heading is ”(h3) Sapphire Eyes” which has a subsection “(h4) How they are made”. The next heading is an h2, indicating that the (h4) and (h3) subsections are both closed now." class="" src="../../img/page-structure-headings-1b48a3e1.png" />
+  </div></figure>
+</p>
+
+</div>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>View a <a href="../example/">complete code example</a> to see headings used like this.</p>
+
+</div>
+      </aside>
+      </div>
 <h3 class="ex" id="main-heading-after-navigation">Main heading after navigation</h3>
 
 <p>In this second example, the main heading is not the site name but the content heading, which is rank 1. The subheadings in the content are rank 2 as are all the other structural headings.</p>
 
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code>  <span class="nt">&lt;h2&gt;</span>Navigation Menu<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sidebar<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>More news<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>What our clients say<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Ratings<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;h1&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Cotton Fur<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sapphire Eyes<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Syntetic Felt Paws<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Footer<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>About the company<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Our retail stores<span class="nt">&lt;/h3&gt;</span>
-</code></pre>
-</figure>
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-2-3079de44.png, ../../img/page-structure-headings-2@2x-3bd2167d.png 2x, ../../img/page-structure-headings-2@3x-57aabd13.png 3x" alt="The page starts with an (h2) Navigation Menu, followed by an (h2) Sidebar and an (h1) Space Teddy. The following headings are all (h2) subsections, including the footer which – " class="" src="../../img/page-structure-headings-2-3079de44.png" />
+  </div></figure>
+</p>
+
 
 
       <div class="resources">
@@ -776,7 +758,7 @@ page regions</a> section of this tutorial, to associate headings with their  pag
 				
 	        [DRAFT] updated
 	      
-	      19 April 2017
+	      20 April 2017
 	      
 			</li>
       <li>

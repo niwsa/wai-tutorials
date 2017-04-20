@@ -62,13 +62,15 @@
       
 
 
-      <p>Add labels to regions if multiple regions of the same type are on one page, for instance, multiple navigation regions. WAI-ARIA provides simple mechanisms for labeling a region, enabling users to navigate around the page quickly.</p>
+      <p>Assistive technologies use a generic name (for example “navigation” or “complementary”) for page regions that don’t have a label set explicitly. If the default label (for example, <code>main</code>) is sufficient to describe a region, no specific label is needed.</p>
+
+<p>Using clear labels on page regions is most important if multiple regions of the same type are present on a single page. The labels allow users of assistive technologies find regions more efficiently.</p>
 
 <h2 class="ap" id="using-aria-labelledby">Using <code>aria-labelledby</code></h2>
 
 <div class="ref-container">
       <div class="ref-main">
-<p>Use the WAI-ARIA <code>aria-labelledby</code> to reference an existing element – like a heading – by its (unique) <code>id</code>. The content of the referenced element is then used as the label. Users can navigate by headings to find the region.</p>
+<p>Use <code>aria-labelledby</code> to point to an existing element by its (unique) <code>id</code>. The label of the region is the content of the referenced element. Every element can be a label this way. Labels should be short and descriptive. If a heading is present in the region, consider using it as the label:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -737,7 +739,7 @@
 				
 	      	Updated
 	      
-	      19 April 2017
+	      20 April 2017
 	      
 		      
 		      (first published April 2017)
