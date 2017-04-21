@@ -11,35 +11,31 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/carousels/functionality/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-7dd8830e.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
-  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <nav aria-label="Skip links" role="navigation">
-      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
-    </nav>
-<main role="main" class="content ">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content approved-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functionality</span></span>
@@ -62,141 +58,445 @@
       
 
 
-      <p>Provide functionality to select carousel items and to inform users about the change of carousel items.</p>
+      <p>Provide functionality using scripting to display the carousel items one at a time, and to allow users to browse through them.</p>
 
-<h2 id="add-previous-and-next-buttons">Add previous and next buttons</h2>
+<h2 id="displaying-carousel-items">Displaying carousel items</h2>
 
-<p>Provide buttons to allow users to switch back and forth between items. Use <code>&lt;button&gt;</code> elements to provide semantic meaning, support for assistive technologies, and consistent keyboard behavior. Create and add the buttons using JavaScript, as they only work when JavaScript is available anyway.</p>
+<p>Carousel items that are visually hidden should also be hidden from assistive technology, to avoid a mismatch between what is visually on the screen and what the user is interacting with. All carousel items that are not displayed visually are hidden by using the CSS <code>display: none</code> declaration.</p>
 
-<div class="demo-container">
-      <div class="demo-main">
+<h3 class="ex" id="scripted-styling">Scripted styling</h3>
+
+<p>In the example below, JavaScript is used to add the class name <code>.active</code> to the carousel container. The styling hides all the slides in a stack with only the slide with the class name <code>.current</code> being visible on top.</p>
+
 <figure class="code ">
-  <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
-
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'controls'</span><span class="p">;</span>
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
-    <span class="s1">'&lt;button type="button" class="btn-prev"&gt;'</span> <span class="o">+</span>
-      <span class="s1">'&lt;img src="img/chevron-left.png" alt="Previous Item"&gt;'</span> <span class="o">+</span>
-    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
-  <span class="s1">'&lt;/li&gt;'</span> <span class="o">+</span>
-  <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
-    <span class="s1">'&lt;button type="button" class="btn-next"&gt;'</span> <span class="o">+</span>
-      <span class="s1">'&lt;img src="img/chevron-right.png" alt="Next Item"&gt;'</span> <span class="o">+</span>
-    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
-  <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
-
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">prevSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-  <span class="nx">nextSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-<span class="p">});</span>
-
-<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
-</code></pre>
-</figure>
-</div>
-      <aside class="demo-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
-<p>A <a href="../working-example/">working demo example</a> for this code is available.</p>
-
-</div>
-      </aside>
-      </div>
-<h3 id="announce-the-current-item">Announce the current item</h3>
-
-<div class="ref-container">
-      <div class="ref-main">
-<p>Use a <a href="https://www.w3.org/TR/wai-aria-1.1/#live_region_roles">WAI-ARIA live region</a> to inform screen reader users what item is currently shown. In this example, a visually hidden, “polite” live region is used and added to the carousel when the carousel is loaded. Then, when clicking the previous or next buttons, the text “Item x of y” (with <var>x</var> for current item number and <var>y</var> for the number of items) is set to this live region. Capable screen readers will announce this text.</p>
-
-<p>Allow the user to maintain control of the keyboard focus. When the carousel advances automatically, users should not be drawn away from their current place in the page. Also, do not move keyboard focus when the previous or next buttons are used; moving the focus makes it harder for users to browse back and forth between the slides.</p>
-
-</div>
-      <aside class="ref-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-            <path d="M16 14 L16 23 M16 8 L16 10" />
-            <circle cx="16" cy="16" r="14" />
-        </svg>
-<p>Find more information about WAI-ARIA in the <a href="https://www.w3.org/WAI/intro/aria">WAI-ARIA Overview</a>, the <a href="https://www.w3.org/TR/wai-aria-practices-1.1/">WAI-ARIA Authoring Practices</a> and the <a href="https://www.w3.org/TR/wai-aria-1.1/">Specification</a>.</p>
-
-</div>
-      </aside>
-      </div>
-<figure class="code ">
-  <figcaption>Code snippet: Add a live region to the carousel</figcaption>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">liveregion</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
-<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
-<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-atomic'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
-<span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'class'</span><span class="p">,</span> <span class="s1">'liveregion visuallyhidden'</span><span class="p">);</span>
-<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">liveregion</span><span class="p">);</span>
-</code></pre>
-</figure>
-<figure class="code ">
-  <figcaption>Code snippet: Change text in the liveregion to have that text announced</figcaption>
-<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.liveregion'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Item '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">new_current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' of '</span> <span class="o">+</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><span class="nc">.active</span> <span class="nc">.slide</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
+
+<span class="nc">.slide.current</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
 </figure>
-<h2 class="newex" id="add-navigation-buttons">Add navigation buttons</h2>
-
-<div class="ref-container">
-      <div class="ref-main">
-<p>Display buttons for each item in the carousel and highlight the current item. This allows users to get an overview of the carousel content, where they are in the sequence and will enable them to navigate directly to any item.</p>
-
-<p>The list with buttons in the example below is added using JavaScript, with a number on the button that corresponds to the carousel item. The buttons are numbered matching the corresponding carousel items. The button for the active carousel item is highlighted both visually, and by using text that is visually hidden (for screen readers).</p>
-
-</div>
-      <aside class="ref-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-            <path d="M16 14 L16 23 M16 8 L16 10" />
-            <circle cx="16" cy="16" r="14" />
-        </svg>
-<p>See the <a href="../styling/">carousel styling</a> page for more information on how to highlight the active carousel item in an accessible way.</p>
-
-</div>
-      </aside>
-      </div>
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"slidenav"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;li&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"current"</span> <span class="na">data-slide=</span><span class="s">"0"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 1
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>(Current Slide)<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"1"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 2
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"2"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 3
-    <span class="nt">&lt;/button&gt;</span>
-  <span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-</code></pre></figure>
+<p>The outcome looks like this:</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c1" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
 <style>
-.slidenav li {
-  display: inline-block;
+  .carousel, .slide {
+    width: 480px;
+    padding:0;
+    margin: 0;
+  }
+  .carousel {
+    position: relative;
+  }
+  .carousel ul {
+    margin:0;
+    padding: 0;
+  }
+  .slide {
+    /*position: absolute;*/
+    height: 360px;
+    background-size: cover;
+    position: relative;
+    margin-bottom:1em;
+    border:1px solid #333;
+  }
+  .slide h4 {
+    display:inline-block;
+    float:righ;
+    font-size: 1.25em;
+    margin:0;
+    padding: .25em;
+    text-align: right;
+    background-color: rgba(255,255,255,.8);
+    float:right;
+    border-radius: 0 0 0 .5em;
+  }
+  .slide p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:0;
+    clear:both;
+    padding: 1em 5em 1em 3em;
+    background-color: rgba(255,255,255,.8);
+  }
+  .slide a {
+    display:block;
+    text-align: right;
+  }
+</style>
+
+<style>
+.carousel.active {
+  height: 360px;
+  overflow: hidden;
+  border: 1px solid #333;
+  position:relative;
 }
+
+.active .slide {
+  border: none;
+  display: none;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:200;
+}
+
+.slide.current {
+  display:block;
+  z-index: 500;
+}
+</style>
+
+<script>
+  var carousel = document.getElementById('c1');
+  carousel.querySelectorAll('.slide')[0].className = 'current slide';
+  carousel.className = 'active carousel';
+</script>
+
+
+  </div></figure>
+
+<h2 id="switching-carousel-items">Switching carousel items</h2>
+
+<p>Scripting is further used to add buttons that allow users to switch back and forth between carousel items. While these buttons have various visual styles, it is useful to code them using <code>&lt;button&gt;</code> elements. This gives them semantic meaning and also makes them more compatible with assistive technology and keyboard use. If the carousel uses <code>&lt;a&gt;</code> elements instead, a <code>href</code> attribute needs to be present to enable keyboard access. Additionally <code>role="button"</code> should be applied to the link so assistive technology users know that they expect an interaction on the page rather than a link to another page.</p>
+
+<h3 id="previous-and-next-buttons">Previous and next buttons</h3>
+
+<p>In the example below, JavaScript is used to generate code for the buttons and insert them onto the carousel. These particular buttons are visually displayed as arrows that overlay the carousel items. The images use the alternative text that reads "Previous Slide" and "Next Slide".</p>
+
+<p>A semi-transparent white background with black arrows was selected to ensure sufficient color contrast between the text and any background images in the carousel items. This is especially important for noisy background images. Also, the buttons increase in size when users hover over them with the mouse to provide more click area for people with reduced dexterity. They also increase in size when they are focused by keyboard to better highlight where the current focus is.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'controls'</span><span class="p">;</span>
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;button type="button" class="btn-prev"&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;img src="img/chevron-left.png" alt="Previous Slide"&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;/li&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;button type="button" class="btn-next"&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;img src="img/chevron-right.png" alt="Next Slide"&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
+
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">prevSlide</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">nextSlide</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
+</pre>
+
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><span class="nc">.btn-prev</span><span class="o">,</span>
+<span class="nc">.btn-next</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">700</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span> <span class="m">50</span><span class="err">%</span><span class="p">;</span>
+  <span class="nl">margin-top</span><span class="p">:</span> <span class="m">-2.5em</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+  <span class="nl">background</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">255</span><span class="p">,</span><span class="m">.6</span><span class="p">);</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span>
+  <span class="nl">padding</span><span class="p">:</span><span class="m">2em</span> <span class="m">.5em</span><span class="p">;</span>
+  <span class="nl">transition</span><span class="p">:</span> <span class="n">padding</span> <span class="m">.4s</span> <span class="n">ease-out</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.btn-next</span><span class="nd">:hover</span><span class="o">,</span> <span class="nc">.btn-next</span><span class="nd">:focus</span><span class="o">,</span>
+<span class="nc">.btn-prev</span><span class="nd">:hover</span><span class="o">,</span> <span class="nc">.btn-prev</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.btn-prev</span> <span class="p">{</span>
+  <span class="nl">left</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">0</span> <span class="m">.25em</span> <span class="m">.25em</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.btn-next</span> <span class="p">{</span>
+  <span class="nl">right</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">.25em</span> <span class="m">0</span> <span class="m">0</span> <span class="m">.25em</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+</figure>
+<p>Additionally, a WAI-ARIA live region should be used to inform screen reader users which slide is now visible. Note that the slide does not receive focus as a user might want to skip several slides without navigating to the controls after every slide change.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: Extend event listeners</figcaption>
+<pre class="highlight javascript"><span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">prevSlide</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">nextSlide</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="err">…</span>
+
+<span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">focus</span><span class="p">,</span> <span class="nx">transition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">…</span>
+
+  <span class="nx">slides</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">announceSlide</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
+    <span class="nx">announceSlide</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="err">…</span>
+<span class="p">}</span>
+
+
+</pre>
+
+</figure>
+<p>The outcome looks like this:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c2" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .btn-prev,
+  .btn-next {
+    position:absolute;
+    z-index: 700;
+    top: 50%;
+    margin-top: -2.5em;
+    border:0;
+    background: rgba(255,255,255,.6);
+    line-height: 1;
+    padding:2em .5em;
+    transition: padding .4s ease-out;
+  }
+
+  .btn-next:hover,
+  .btn-next:focus,
+  .btn-prev:hover,
+  .btn-prev:focus {
+    padding-left: 2em;
+    padding-right:2em;
+  }
+
+  .btn-prev {
+    left:0;
+    border-radius: 0 .25em .25em 0;
+  }
+
+  .btn-next {
+    right:0;
+    border-radius: .25em 0 0 .25em;
+  }
+</style>
+
+<script>
+  function setSlides(new_current, setFocus) {
+    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
+    slides[index].removeAttribute('aria-live');
+
+    new_current = parseFloat(new_current);
+
+    var length = slides.length;
+    var new_next = new_current+1;
+    var new_prev = new_current-1;
+
+    if(new_next === length) {
+      new_next = 0;
+    } else if(new_prev < 0) {
+      new_prev = length-1;
+    }
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = "slide";
+    };
+
+    slides[new_next].className = 'next slide';
+    slides[new_prev].className = 'prev slide';
+    slides[new_current].className = 'current slide';
+
+    if (announceSlide) {
+      slides[new_current].setAttribute('aria-live', 'polite');
+      announceSlide = false;
+    }
+
+    if (setFocus) {
+      slides[new_current].setAttribute('tabindex', '-1');
+      slides[new_current].focus();
+    }
+
+    index = new_current;
+  }
+
+  function nextSlide() {
+    var length = slides.length,
+    new_current = index + 1;
+
+    if(new_current === length) {
+      new_current = 0;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  function prevSlide() {
+    var length = slides.length,
+    new_current = index - 1;
+
+    if(new_current < 0) {
+      new_current = length-1;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  var carousel = document.getElementById('c2');
+  var slides = carousel.querySelectorAll('.slide');
+  var index;
+
+  carousel.className = 'active carousel';
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++)
+      fn(elements[i], i);
+  }
+
+  var parseHTML = function(str) {
+    var el =
+    el.innerHTML = str;
+    return el;
+  };
+
+  var ctrls = document.createElement('ul');
+
+  ctrls.className = 'controls';
+  ctrls.innerHTML = '<li>' +
+      '<button type="button" class="btn-prev"><img src="/img/chevron-left-75c7dd0b.png" alt="Previous Slide"></button>' +
+    '</li>' +
+    '<li>' +
+      '<button type="button" class="btn-next"><img src="/img/chevron-right-2f19bc8b.png" alt="Next Slide"></button>' +
+    '</li>';
+
+    ctrls.querySelector('.btn-prev').addEventListener('click', function(){
+      announceSlide = true;
+      prevSlide();
+    });
+
+    ctrls.querySelector('.btn-next').addEventListener('click', function(){
+      announceSlide = true;
+      nextSlide();
+    });
+
+  carousel.appendChild(ctrls);
+
+  index = 0;
+  setSlides(index);
+</script>
+
+<style>
+.carousel.with-slidenav {
+  padding-bottom: 4em;
+  background-color: #fff;
+}
+.carousel.with-slidenav .slide {
+  border-bottom: 1px solid #333;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slidenav li {
+  display:inline-block;
+  margin: 0 .5em;
+}
+
 .slidenav button {
   border: 2px solid #036;
   background-color: #036;
   line-height: 1em;
   height: 2em;
-  width: 2em;
+  width:2em;
   font-weight: bold;
   color: #fff;
 }
@@ -216,8 +516,74 @@
 .slidenav button.current:focus {
   border: 2px dashed #036;
 }
+
 </style>
 
+
+  </div></figure>
+
+<h2 class="newex" id="indicating-carousel-items">Indicating carousel items</h2>
+
+<p>Indicating the total number of carousel items and which one of them is currently being displayed helps users to orient themselves. Ideally this is done by a set of styled buttons that each represent a carousel item in the sequence. Providing these buttons within a list, adds meaning and semantics to the content, such as the number and order of the carousel items.</p>
+
+<h3 class="ex" id="carousel-item-indicator">Carousel item indicator</h3>
+
+<p>In the following example, a list with buttons is added using JavaScript and then styled to look visually like a progress indicator. The buttons are numbered matching the corresponding carousel items. The button corresponding to the currently displayed carousel item is highlighted both visually and using visually hidden text. Also the button that currently has the keyboard or mouse focus is highlighted.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"slidenav"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"current"</span> <span class="na">data-slide=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 1
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>(Current Slide)<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 2
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 3
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre>
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><span class="nc">.slidenav</span> <span class="nt">button</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="m">#036</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span> <span class="p">{</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">.5em</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">dashed</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">dashed</span> <span class="m">#036</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+</figure>
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
 <ul class="slidenav as-sample">
   <li>
     <button class="current" data-slide="0" type="button">
@@ -239,143 +605,448 @@
 
 <style>
   .slidenav.as-sample {
-    position: static;
+    position:static;
   }
 </style>
 
 
   </div></figure>
 
-<h3 id="focus-the-selected-carousel-item">Focus the selected carousel item</h3>
+<h2 class="newex" id="focusing-carousel-items">Focusing carousel items</h2>
 
-<p>When users select an item with those navigation buttons, the focus should be set on the selected item. In this case, the focus needs to be set to the <code>&lt;li&gt;</code> element that has the class <code>current</code> set, after the change or transition. This makes interaction easier for keyboard and assistive technology users.</p>
+<p>When users select a carousel item directly through the buttons then the focus needs to be set to the corresponding carousel item. The focus should <em>not</em> be set to the carousel item if the previous or next buttons are used, as the user may want to skip over several carousel items quickly and would use the position otherwise.</p>
 
-<p>By default, <code>&lt;li&gt;</code> elements cannot receive focus. By setting its <code>tabindex</code> attribute to <code>-1</code>, the element is enabled to receive focus through JavaScript.</p>
+<p>Carousel items will often be coded using elements that, by default, are not focusable, such as <code>&lt;li&gt;</code> or  <code>&lt;article&gt;</code> elements. Use the <code>tabindex</code> attribute with its value set to <code>-1</code>, to make such elements capable of receiving focus using JavaScript, then set the focus on them.</p>
+
+<h3 class="ex" id="focus-change">Focus change</h3>
+
+<p>The code snippet below shows the JavaScript code used in the demo for this tutorial. It illustrates how the <code>tabindex</code> attribute and the focus are set when a carousel item is selected, and how the carousel item indicator is updated accordingly.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">setFocus</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">setFocusHere</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">setFocusHere</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+
+  <span class="nx">new_current</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">new_current</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="nx">slide</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'slide'</span><span class="p">;</span>
+  <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
+
+  <span class="nx">buttons</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="nx">buttons</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"current"</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Only if the slide was directly
+</span>    <span class="c1">// picked from the list of slides
+</span>    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">focus</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">index</span> <span class="o">=</span> <span class="nx">new_current</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">slidenav</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">localName</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-slide'</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+</pre>
+</figure>
+<h2 class="newex" id="putting-it-all-together">Putting it all together</h2>
+
+<p>The sample below is a demo of the carousel that we've built by putting together the previous examples. It is a working example of a carousel where one carousel item at a time is displayed. It includes buttons for users to advance back and forth between the carousel items, and a carousel item indicator that allows users to view which carousel item they are currently viewing and to jump to other carousel items. Animating this carousel will be explained on the next page.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c3" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .btn-prev,
+  .btn-next {
+    position:absolute;
+    z-index: 700;
+    top: 50%;
+    margin-top: -2.5em;
+    border:0;
+    background: rgba(255,255,255,.6);
+    line-height: 1;
+    padding:2em .5em;
+    transition: padding .4s ease-out;
+  }
+
+  .btn-next:hover,
+  .btn-next:focus,
+  .btn-prev:hover,
+  .btn-prev:focus {
+    padding-left: 2em;
+    padding-right:2em;
+  }
+
+  .btn-prev {
+    left:0;
+    border-radius: 0 .25em .25em 0;
+  }
+
+  .btn-next {
+    right:0;
+    border-radius: .25em 0 0 .25em;
+  }
+</style>
+
+<script>
+var myCarousel = (function() {
+
+  var carousel, slides, index, slidenav, settings;
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++)
+      fn(elements[i], i);
+  }
+
+  var parseHTML = function(str) {
+    var el =
+    el.innerHTML = str;
+    return el;
+  };
+
+  function init(set) {
+    settings = set;
+    carousel = document.getElementById(settings.id);
+    slides = carousel.querySelectorAll('.slide');
+
+    carousel.className = 'active carousel';
+
+    var ctrls = document.createElement('ul');
+
+    ctrls.className = 'controls';
+    ctrls.innerHTML = '<li>' +
+        '<button type="button" class="btn-prev"><img alt="Previous Slide" src="../../img/chevron-left-75c7dd0b.png" /></button>' +
+      '</li>' +
+      '<li>' +
+        '<button type="button" class="btn-next"><img alt="Next Slide" src="../../img/chevron-right-2f19bc8b.png" />' +
+      '</li>';
+
+    ctrls.querySelector('.btn-prev').addEventListener('click', function(){
+      prevSlide();
+    });
+
+    ctrls.querySelector('.btn-next').addEventListener('click', function(){
+      nextSlide();
+    });
+
+    carousel.appendChild(ctrls);
+
+    if (settings.slidenav) {
+      slidenav = document.createElement('ul');
+
+      slidenav.className = 'slidenav';
+
+      forEachElement(slides, function(el, i){
+        var li = document.createElement('li');
+        var klass = (i===0) ? 'class="current" ' : '';
+        var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Slide)</span>' : '';
+
+        li.innerHTML = '<button '+ klass +'data-slide="' + i + '"><span class="visuallyhidden">News</span> ' + (i+1) + kurrent + '</button>';
+        slidenav.appendChild(li);
+      });
+
+      slidenav.addEventListener('click', function(event) {
+        if (event.target.localName == 'button') {
+          setSlides(event.target.getAttribute('data-slide'), true);
+        }
+      }, true);
+
+      carousel.className = 'active carousel with-slidenav';
+      carousel.appendChild(slidenav);
+    }
+
+    index = 0;
+    setSlides(index);
+  }
+
+  function setSlides(new_current, setFocus) {
+    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
+
+    new_current = parseFloat(new_current);
+
+    var length = slides.length;
+    var new_next = new_current+1;
+    var new_prev = new_current-1;
+
+    if(new_next === length) {
+      new_next = 0;
+    } else if(new_prev < 0) {
+      new_prev = length-1;
+    }
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = "slide";
+    };
+
+    slides[new_next].className = 'next slide';
+    slides[new_prev].className = 'prev slide';
+    slides[new_current].className = 'current slide';
+
+    if(settings.slidenav) {
+      var buttons = carousel.querySelectorAll('.slidenav button');
+      for (var i = buttons.length - 1; i >= 0; i--) {
+        buttons[i].className = "";
+      };
+      buttons[new_current].className = "current";
+    }
+
+    if (setFocus) {
+      slides[new_current].setAttribute('tabindex', '-1');
+      slides[new_current].focus();
+    }
+
+    index = new_current;
+  }
+
+  function nextSlide() {
+    var length = slides.length,
+    new_current = index + 1;
+
+    if(new_current === length) {
+      new_current = 0;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  function prevSlide() {
+    var length = slides.length,
+    new_current = index - 1;
+
+    if(new_current < 0) {
+      new_current = length-1;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  return {
+    init:init,
+    next:nextSlide,
+    prev:prevSlide,
+    goto:setSlides
+  }
+});
+
+var c3 = new myCarousel;
+c3.init({
+  id: 'c3',
+  slidenav: true
+});
+
+</script>
+
+<style>
+.carousel.with-slidenav {
+  padding-bottom: 4em;
+  background-color: #fff;
+}
+.carousel.with-slidenav .slide {
+  border-bottom: 1px solid #333;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slidenav li {
+  display:inline-block;
+  margin: 0 .5em;
+}
+
+.slidenav button {
+  border: 2px solid #036;
+  background-color: #036;
+  line-height: 1em;
+  height: 2em;
+  width:2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.slidenav button.current {
+  border-radius: .5em;
+  background-color: #fff;
+  color: #333;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  border: 2px dashed #fff;
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  border: 2px dashed #036;
+}
+
+</style>
+
+
+  </div></figure>
 
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG 2.0 resources</h2>
-  <div class="resources-inner">
-	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
-	  
-	    <p><strong>Success Criteria:</strong></p>
-	    <ul>
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-keyboard-operable">2.1.1 Keyboard:</a> All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user’s movement and not just the endpoints. (Level&nbsp;A)</p></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
-	          
-	        
-	      
-	    </ul>
-	  
-	  
-  </div>
+  <h2 id="related">Related WCAG2.0 resources</h2>
+  
+    <p><strong>Success Criteria:</strong></p>
+    <ul>
+      
+        
+          
+        
+      
+        
+          
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-keyboard-operable">2.1.1 Keyboard:</a> All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user’s movement and not just the endpoints. (Level&nbsp;A)</p></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-visible">2.4.7 Focus Visible:</a> Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible. (Level&nbsp;AA)</p></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
+          
+        
+      
+    </ul>
+  
+  
 </div>
 
 
-      <nav role="navigation" aria-label="Previous/Next" id="tools">
+      <div role="navigation" id="tools">
   <ul>
     
       
@@ -383,7 +1054,7 @@
         
         
           <li class="prev">
-            <span><a rel="prev" class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure</span></span></a></span>
+            <span><a class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure</span></span></a></span>
           </li>
         
         
@@ -396,25 +1067,13 @@
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../animations/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Animations</span></span></a></span>
+            <span><a class="" href="../animations/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Animations</span></span></a></span>
           </li>
-        
-      
-        
-        
-        
-      
-        
-        
-        
-      
-        
-        
         
       
     
   </ul>
-</nav>
+</div>
 
 
       <aside class="side-box github" role="complementary">
@@ -432,61 +1091,28 @@
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Main" id="nav">
+  <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-          Carousels Tutorial
+        Carousels Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
-      
-        
-      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
         
         
           
-            <li>
-              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
-              
-            </li>
+            <li><a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a></li>
           
         
           
-            <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functionality</span></span>
-              
-            </li>
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Functionality</span></span></li>
           
         
           
-            <li>
-              <a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a>
-              
-            </li>
-          
-        
-          
-            <li>
-              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../working-example/"><span class="count"></span><span class="txt">Working Example</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Code</span></a>
-              
-            </li>
+            <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
           
         
       
@@ -496,64 +1122,63 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels</span></span></li>
-  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels</span></span></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+	<footer role="contentinfo">
     <div>
-		<h2 id="wai_footerheading">Document Information</h2>
-    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<h2>Document info</h2>
 		<ul>
-			<li><strong>Status:</strong>
-				
-	      	Updated
-	      
-	      14 April 2017
-	      
-		      
-		      (first published May 2015)
-		      
-		    
+			<li><strong>Status &amp; Last Modification:</strong>
+			
+        Draft, approved by <a href="">EOWG</a>, updated
+      
+      
+      
+      April 2017
 			</li>
       <li>
-  Editors:
-  <ul class="inline">
-    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-  Contributors:
-  <ul class="inline">
-    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
-  </ul>
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
 </li>
 
 <li>
-  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-        <p>
-	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
-        </p>
-      </div><!-- ends copyright -->
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
 	</body>
 </html>

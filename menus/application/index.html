@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Web Application Menus
+  
+    
+       &bull; Menus
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-7dd8830e.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content approved-draft">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Menus</span></a> <span class="icon icon-chevron-right"></span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Web Application Menus</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Web Application Menus
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <p>Web application menus have a similar basis to navigation menus. They often consist of a horizontal menu bar and use fly-out functionality. There are some WAI-ARIA roles that are helping users with assistive technology to operate menus similar to desktop software menus. When using the menu WAI-ARIA attributes, the keyboard interaction should be similar to desktop software as well: the tab key is used to iterate through the top-level items only, the up and down arrows are used to navigate the sub menus. This keyboard behavior doesn’t come with the WAI-ARIA attributes, but needs to be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="http://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
+
+<p>In addition to the <code>aria-expanded</code> and <code>aria-haspopup</code> attributes, the following roles are used in the example:</p>
+
+<ul>
+  <li><strong><code>aria-menubar</code>:</strong> Represents a usually horizontal menu bar.</li>
+  <li><strong><code>aria-menu</code>:</strong> Represents a set of links or commands in a menu bar, it is used for the fly-out menus.</li>
+  <li><strong><code>aria-menuitem</code>:</strong> Represents an individual menu item.</li>
+</ul>
+
+<figure class="sample show-overflow2">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<div role="menubar">
+	<ul role="menu" aria-label="functions" id="appmenu">
+			<li role="menuitem" aria-haspopup="true">
+				File
+				<ul role="menu">
+							<li role="menuitem">New</li>
+							<li role="menuitem">Open</li>
+							<li role="menuitem">Print</li>
+					</ul>
+			</li>
+			<li role="menuitem" aria-haspopup="true">
+				Edit
+				<ul role="menu">
+							<li role="menuitem">Undo</li>
+							<li role="menuitem">Redo</li>
+							<li role="menuitem">Cut</li>
+							<li role="menuitem">Copy</li>
+							<li role="menuitem">Paste</li>
+					</ul>
+			</li>
+			<li role="menuitem" aria-haspopup="true">
+					Format
+					<ul role="menu">
+							<li role="menuitem">Font</li>
+							<li role="menuitem">Text</li>
+					</ul>
+			</li>
+			<li role="menuitem" aria-haspopup="true">
+				View
+				<ul role="menu">
+					<li role="menuitem">100%</li>
+					<li role="menuitem">Zoom In</li>
+					<li role="menuitem">Zoom Out</li>
+				</ul>
+			</li>
+			<li role="menuitem">Help</li>
+	</ul>
+</div>
+
+<style>
+.show-overflow2 {
+		overflow: visible !important;
+		float: left;
+		width: 100%;
+}
+
+.show-overflow2 .box-content {
+		overflow: visible !important;
+		float: left;
+		width: 100%;
+}
+	#appmenu {
+			width:80%;
+			float: left;
+			margin: 0;
+			padding: 0;
+			color: #fff;
+			background-color: #369;
+			padding: .25em;
+	}
+	#appmenu li {
+		white-space: nowrap;
+		display:block;
+		padding: .25em .75em;
+		border: 1px solid #fff;
+	}
+	#appmenu > li {
+			float: left;
+			background-color: #036;
+			text-align: center;
+			position:relative;
+			cursor: pointer;
+	}
+	#appmenu :hover,
+		#appmenu :focus {
+			background-color: #fff;
+			color: #036;
+			border: 1px solid #036;
+			text-decoration: underline;
+	}
+
+	#appmenu :hover li,
+		#appmenu :focus li {
+			color: #fff;
+			background-color: #036;
+		}
+
+	#appmenu > li > ul {
+		display: none;
+		position:absolute;
+		left:0;
+		right:0;
+		top:100%;
+		padding:0;
+		margin:0;
+		background-color: #036;
+		width: 200%;
+		text-align: left;
+	}
+
+#appmenu > li[aria-expanded="true"] > ul {
+		display:block;
+	}
+</style>
+
+<script>
+var appsMenuItems = document.querySelectorAll('#appmenu > li');
+var subMenuItems = document.querySelectorAll('#appmenu > li li');
+var keys = {
+	tab:    9,
+	enter:  13,
+	esc:    27,
+	space:  32,
+	left:   37,
+	up:     38,
+	right:  39,
+	down:   40
+};
+var currentIndex, subIndex;
+
+var gotoIndex = function(idx) {
+	if (idx == appsMenuItems.length) {
+		idx = 0;
+	} else if (idx < 0) {
+		idx = appsMenuItems.length - 1;
+	}
+	appsMenuItems[idx].focus();
+	currentIndex = idx;
+};
+
+var gotoSubIndex = function (menu, idx) {
+	var items = menu.querySelectorAll('li');
+	if (idx == items.length) {
+		idx = 0;
+	} else if (idx < 0) {
+		idx = items.length - 1;
+	}
+	items[idx].focus();
+	subIndex = idx;
+}
+
+Array.prototype.forEach.call(appsMenuItems, function(el, i){
+		if (0 == i) {
+			el.setAttribute('tabindex', '0');
+			el.addEventListener("focus", function() {
+				currentIndex = 0;
+			});
+		} else {
+			el.setAttribute('tabindex', '-1');
+		}
+		el.addEventListener("focus", function() {
+			subIndex = 0;
+			Array.prototype.forEach.call(appsMenuItems, function(el, i){
+				el.setAttribute('aria-expanded', "false");
+			});
+		});
+		el.addEventListener("click",  function(event){
+			if (this.getAttribute('aria-expanded') == 'false' || this.getAttribute('aria-expanded') ==  null) {
+				this.setAttribute('aria-expanded', "true");
+			} else {
+				this.setAttribute('aria-expanded', "false");
+			}
+			event.preventDefault();
+			return false;
+		});
+		el.addEventListener("keydown", function(event) {
+			switch (event.keyCode) {
+				case keys.right:
+					gotoIndex(currentIndex + 1);
+					break;
+				case keys.left:
+					gotoIndex(currentIndex - 1);
+					break;
+				case keys.tab:
+					if (event.shiftKey) {
+						gotoIndex(currentIndex - 1);
+					} else {
+						gotoIndex(currentIndex + 1);
+					}
+					break;
+				case keys.enter:
+				case keys.down:
+					this.click();
+					subindex = 0;
+					gotoSubIndex(this.querySelector('ul'), 0);
+					break;
+				case keys.up:
+					this.click();
+					var submenu = this.querySelector('ul');
+					subindex = submenu.querySelectorAll('li').length - 1;
+					gotoSubIndex(submenu, subindex);
+					break;
+				case keys.esc:
+					document.querySelector('a[href="#related"]').focus();
+			}
+			event.preventDefault();
+		});
+});
+
+Array.prototype.forEach.call(subMenuItems, function(el, i){
+	el.setAttribute('tabindex', '-1');
+	el.addEventListener("keydown", function(event) {
+			switch (event.keyCode) {
+				case keys.tab:
+					if (event.shiftKey) {
+						gotoIndex(currentIndex - 1);
+					} else {
+						gotoIndex(currentIndex + 1);
+					}
+					break;
+				case keys.right:
+					gotoIndex(currentIndex + 1);
+					break;
+				case keys.left:
+					gotoIndex(currentIndex - 1);
+					break;
+				case keys.esc:
+					gotoIndex(currentIndex);
+					break;
+				case keys.down:
+					gotoSubIndex(this.parentNode, subIndex + 1);
+					break;
+				case keys.up:
+					gotoSubIndex(this.parentNode, subIndex - 1);
+					break;
+				case keys.enter:
+				case keys.space:
+					alert(this.innerText);
+					break;
+			}
+			event.preventDefault();
+			event.stopPropagation();
+			return false;
+		});
+	el.addEventListener("click", function(event) {
+			alert(this.innerHTML);
+			event.preventDefault();
+			event.stopPropagation();
+			return false;
+		});
+});
+</script>
+
+
+  </div></figure>
+
+<p>The markup has no links, it is a bare nested list with some WAI-ARIA roles. As we will add keyboard and mouse interaction on our own, this is enough.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;div</span> <span class="na">role=</span><span class="s">"menubar"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-label=</span><span class="s">"functions"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+			File
+			<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/li&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Open<span class="nt">&lt;/li&gt;</span>
+				<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Print<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/li&gt;</span>
+		…
+	<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+
+</figure>
+<p>First, we collect all top-level menu items in a variable (<code>appsMenuItems</code>) as well as all submenu items (<code>subMenuItems</code>). An object is defined with the key codes of the keys that need to be handled. This makes the code much more readable. Two variables keep track of the focus in top-level items (<code>currentIndex</code>) and in submenus (<code>subIndex</code>).</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">appsMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">subMenuItems</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'#appmenu &gt; li li'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">tab</span><span class="p">:</span>     <span class="mi">9</span><span class="p">,</span>
+	<span class="na">enter</span><span class="p">:</span>  <span class="mi">13</span><span class="p">,</span>
+	<span class="na">esc</span><span class="p">:</span>    <span class="mi">27</span><span class="p">,</span>
+	<span class="na">space</span><span class="p">:</span>  <span class="mi">32</span><span class="p">,</span>
+	<span class="na">left</span><span class="p">:</span>   <span class="mi">37</span><span class="p">,</span>
+	<span class="na">up</span><span class="p">:</span>     <span class="mi">38</span><span class="p">,</span>
+	<span class="na">right</span><span class="p">:</span>  <span class="mi">39</span><span class="p">,</span>
+	<span class="na">down</span><span class="p">:</span>   <span class="mi">40</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">currentIndex</span><span class="p">,</span> <span class="nx">subIndex</span><span class="p">;</span>
+</pre>
+
+</figure>
+<p>To make the menu work for keyboard users, a <code>tabindex</code> attribute with the value <code>-1</code> is added to the menu items. This enables scripts to set the focus on the element. The first menu item (“File” in this example) is assigned a <code>tabindex</code> value of <code>0</code> which adds it to the tab order and lets the user access the menu. The <code>currentIndex</code> variable is initialized as soon as this first item gets focus.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+		<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nx">currentIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+			<span class="p">});</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+		<span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+<span class="p">});</span>
+</pre>
+
+</figure>
+<p>All top-level menu items close open submenus when they receive focus and reset the <code>subIndex</code> variable. When individual items are clicked, the visibility of the submenu is toggled by changing the <code>aria-expanded</code> value. If a key is pressed, the appropriate action is carried out.</p>
+
+<table>
+	<caption>Key mapping for top-level menu items</caption>
+	<thead>
+		<tr>
+			<th scope="col">Key</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>tab ⇥</kbd></th>
+			<td rowspan="2">Select the next top-level menu item</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>right &rarr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd></th>
+			<td rowspan="2">Select the previous top-level menu item</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>left &larr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>return/enter &crarr;</kbd></th>
+			<td rowspan="3">Open the submenu, select first submenu item.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>space</kbd></th>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>down &darr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>up &uarr;</kbd></th>
+			<td>Open the submenu, select last submenu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>esc</kbd></th>
+			<td>Leave the menu</td>
+		</tr>
+	</tbody>
+</table>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+	<span class="cm">/* code above */</span>
+
+	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">subIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+
+	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span>  <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'false'</span>
+				<span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">)</span> <span class="o">==</span>  <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">);</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-expanded'</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">});</span>
+
+	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">right</span><span class="p">:</span>
+				<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">left</span><span class="p">:</span>
+				<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">tab</span><span class="p">:</span>
+				<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
+					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+				<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+				<span class="p">}</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">enter</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">space</span><span class="p">:</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">down</span><span class="p">:</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+				<span class="nx">subindex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+				<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">up</span><span class="p">:</span>
+				<span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">();</span>
+				<span class="kd">var</span> <span class="nx">submenu</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+				<span class="nx">subindex</span> <span class="o">=</span> <span class="nx">submenu</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+				<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="nx">submenu</span><span class="p">,</span> <span class="nx">subindex</span><span class="p">);</span>
+				<span class="k">break</span><span class="p">;</span>
+			<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">esc</span><span class="p">:</span>
+				<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'a[href="#related"]'</span><span class="p">).</span><span class="nx">focus</span><span class="p">();</span>
+		<span class="p">}</span>
+		<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</pre>
+
+</figure>
+<p>Submenu items do behave differently when interacting with them on the keyboard, see the following table for details:</p>
+
+<table>
+	<caption>Key mapping for submenu items</caption>
+	<thead>
+		<tr>
+			<th scope="col">Key</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>tab ⇥</kbd></th>
+			<td rowspan="2">Close the submenu, select the next top-level menu item</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>right &rarr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd></th>
+			<td rowspan="2">Close the submenu, select the previous top-level menu item</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>left &larr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>return/enter &crarr;</kbd></th>
+			<td rowspan="2">Carry out function of this item. (In this example: bring up a dialog box with the text of the chosen menu item.)</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>space</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>down &darr;</kbd></th>
+			<td>Select next submenu item</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>up &uarr;</kbd></th>
+			<td>Select previous submenu item</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>esc</kbd></th>
+			<td>Close the submenu, select the current top-level menu item</td>
+		</tr>
+	</tbody>
+</table>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">switch</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">tab</span><span class="p">:</span>
+					<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">shiftKey</span><span class="p">)</span> <span class="p">{</span>
+						<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+						<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="p">}</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">right</span><span class="p">:</span>
+					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">left</span><span class="p">:</span>
+					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">esc</span><span class="p">:</span>
+					<span class="nx">gotoIndex</span><span class="p">(</span><span class="nx">currentIndex</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">down</span><span class="p">:</span>
+					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">up</span><span class="p">:</span>
+					<span class="nx">gotoSubIndex</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">,</span> <span class="nx">subIndex</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">space</span><span class="p">:</span>
+				<span class="k">case</span> <span class="nx">keys</span><span class="p">.</span><span class="nl">enter</span><span class="p">:</span>
+					<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">innerText</span><span class="p">);</span>
+					<span class="k">break</span><span class="p">;</span>
+			<span class="p">}</span>
+			<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+			<span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">});</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">);</span>
+			<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+			<span class="nx">event</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">();</span>
+			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+		<span class="p">});</span>
+<span class="p">});</span>
+</pre>
+
+</figure>
+<p><a href="../examples/appmenu/">See the complete example code.</a></p>
+
+
+
+      
+
+      <div role="navigation" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a class="" href="../flyout/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Fly-out Menus</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a class="" href="../multiple-ways/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Multiple Ways</span></span></a></span>
+          </li>
+        
+      
+    
+  </ul>
+</div>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/menus/application.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+        Menus Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Menu Concepts</span></a></li>
+        
+        
+          
+            <li><a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a></li>
+          
+        
+          
+            <li><a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a></li>
+          
+        
+          
+            <li><a class="" href="../flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a></li>
+          
+        
+          
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Applications Menus</span></span></li>
+          
+        
+          
+            <li><a class="" href="../multiple-ways/"><span class="count"></span><span class="txt">Multiple Ways</span></a></li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menus</span></span></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Status &amp; Last Modification:</strong>
+			
+        Draft, approved by <a href="">EOWG</a>, updated
+      
+      
+      
+      April 2017
+			</li>
+      <li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+</li>
+
+<li>
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	</body>
+</html>

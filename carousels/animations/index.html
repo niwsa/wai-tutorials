@@ -11,35 +11,31 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/carousels/animations/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-7dd8830e.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
-  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <nav aria-label="Skip links" role="navigation">
-      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
-    </nav>
-<main role="main" class="content ">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content approved-draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Animations</span></span>
@@ -62,44 +58,35 @@
       
 
 
-      <p>Provide users with control over animations in the carousel. Pausing animation is essential for people who find movement distracting or who need more time to read.</p>
+      <p>Carousels typically periodically rotate the displayed items. Provide users with control over any animations in your carousel. Providing different ways for users to stop this animation is essential for people who might find the changes distracting, and for people who need more time to read carousel items.</p>
 
-<h2 id="add-playstop-button">Add Play/Stop button</h2>
+<h2 id="stop-button">Stop button</h2>
 
-<p>Provide a button to allow users to stop and resume animation. The example below illustrates how such a button can be marked-up. The button label and its function changes, depending on whether the animation is currently running or not.</p>
-
-<div class="demo-container">
-      <div class="demo-main">
-<figure class="code ">
-  <figcaption>Code snippet: While animation is running</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;button</span> <span class="na">data-action=</span><span class="s">"stop"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Stop Animation <span class="nt">&lt;/span&gt;</span>￭<span class="nt">&lt;/button&gt;</span>
-</code></pre>
-</figure>
-<figure class="code ">
-  <figcaption>Code snippet: While animation is stopped</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;button</span> <span class="na">data-action=</span><span class="s">"start"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Start Animation <span class="nt">&lt;/span&gt;</span>▶<span class="nt">&lt;/button&gt;</span>
-</code></pre>
-</figure>
-</div>
-      <aside class="demo-side">
-      <div>
-        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
-<p>A <a href="../working-example/">working demo example</a> for this code is available.</p>
-
-</div>
-      </aside>
-      </div>
-<div class="notes ">
-<p><strong>Note:</strong> The JavaScript only replaces the value of the <code>&lt;button&gt;</code> element and its attributes. Replacing the entire button would result in loss of keyboard focus.</p>
-
-</div>
-<h2 id="pause-on-mouse-hover-and-keyboard-focus">Pause on mouse hover and keyboard focus</h2>
-
-<p>Pause the carousel animation when the mouse pointer is hovering over the carousel or when it receives keyboard focus. Pausing on mouse hover is useful for people who need more time to read the content and makes it easier to click links in the carousel. Keyboard users do not lose their position when the carousel is paused.</p>
+<p>One common approach to control carousel animations is to provide a button to allow users to stop and resume the animations. The example below, illustrates how such a button might be marked-up. The button label and its function alternate, depending on whether the animation is currently on or off:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight javascript"><code><span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="nx">suspendAnimation</span><span class="p">);</span>
+<pre class="highlight html"><span class="nt">&lt;button</span> <span class="na">data-action=</span><span class="s">"stop"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Stop Animation <span class="nt">&lt;/span&gt;</span>￭<span class="nt">&lt;/button&gt;</span>
+</pre>
+
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><span class="nt">&lt;button</span> <span class="na">data-action=</span><span class="s">"start"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>Start Animation <span class="nt">&lt;/span&gt;</span>▶<span class="nt">&lt;/button&gt;</span>
+</pre>
+
+</figure>
+<div class="notes ">
+<p><strong>Note:</strong> The script only replaces the value of the button rather than to replace the button entirely. If the button is removed, then the focus would be lost for keyboard users.</p>
+
+</div>
+<h2 id="pause-when-focused">Pause when focused</h2>
+
+<p>Another useful approach is to pause the carousel animation when the carousel receives focus by keyboard or is hovered over by mouse. Pausing the animation ensures that keyboard users do not lose focus when the carousel item is changed. It is also useful for people who need more time to read the content and to maneuver the mouse to a link or control inside the carousel item.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="nx">suspendAnimation</span><span class="p">);</span>
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseleave'</span><span class="p">,</span> <span class="nx">startAnimation</span><span class="p">);</span>
 
 <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focusin'</span><span class="p">,</span>
@@ -116,22 +103,20 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">);</span>
-</code></pre>
+</pre>
+
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> The <a href="https://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="https://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="https://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../full-code/">a short polyfill</a> at the time of publication of this tutorial.</p>
+<p><strong>Note:</strong> The <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusIn"><code>focusin</code></a> and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#event-type-focusout"><code>focusout</code></a> events are defined in the <a href="http://www.w3.org/TR/DOM-Level-3-Events/">W3C Document Object Model (DOM) Level 3 Events Specification</a> (Working Draft) and implemented in many browsers. Firefox needs <a href="../examples/focusinoutpolyfill-dbb9abfe.js">a short polyfill</a> at the time of publication of this tutorial.</p>
 
 </div>
-<h2 id="hiding-transitioning-elements-from-assistive-technologies">Hiding transitioning elements from assistive technologies</h2>
+<h2 id="hiding-in-transition-elements-from-assistive-technologies">Hiding in-transition elements from assistive technologies</h2>
 
-<p>During transitions, the current and next items are visible. This also means that those two items are available to assistive technologies, with the current item disappearing, which can be confusing to screen reader users.</p>
-
-<p>In the following example, the item that is being activated gets an <code>in-transition</code> class that makes it visible. The <code>aria-hidden</code> is attribute set to <code>true</code> to hide the item from assistive technologies. When the transition completes, the <code>aria-hidden</code> attribute is removed.</p>
+<p>While the slides that leave the viewport are visible during transition, they should not be available to assistive technologies as this can lead to confusion. To ensure that the slides are ignored by assistive technologies, the <code>aria-hidden</code> attribute should be set. The following example shows that after determining what the new order of slides is, either the next or the previous slide gets an in-transition class, which makes the item visible. It also is set to <code>aria-hidden</code>. The <code>aria-hidden</code> attribute is then removed from the new current menu item.</p>
 
 <figure class="code ">
-  <figcaption>Code snippet: JavaScript</figcaption>
-<pre class="highlight javascript"><code>
-<span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span>
+  <figcaption>Code snippet: JavaScript: In initialization</figcaption>
+<pre class="highlight javascript"><span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span>
   <span class="o">+</span> <span class="p">((</span><span class="nx">transition</span> <span class="o">==</span> <span class="s1">'next'</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' in-transition'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">);</span>
 <span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
 
@@ -141,128 +126,632 @@
 
 <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
 <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">);</span>
-</code></pre>
+</pre>
+
 </figure>
+<h2 id="finalized-carousel">Finalized carousel</h2>
+
+<p>The sample below is a demo of the final carousel that is built by putting together all examples of this tutorial:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+
+.active .slide {
+  display: block !important;
+  visibility: hidden;
+  transition: left .6s ease-out;
+}
+
+.active .slide.current {
+  visibility: visible;
+  left: 0;
+}
+
+.active .slide.next {
+  left: 100%;
+}
+
+.active .slide.prev {
+  left: -100%;
+}
+
+.active .slide.next.in-transition,
+.active .slide.prev.in-transition {
+  visibility:visible;
+}
+</style>
+
+
+  </div></figure>
+
+<style>
+  .carousel, .slide {
+    width: 480px;
+    padding:0;
+    margin: 0;
+    overflow: hidden;
+  }
+  .carousel {
+    position: relative;
+  }
+  .carousel ul {
+    margin:0;
+    padding: 0;
+  }
+  .slide {
+    /*position: absolute;*/
+    height: 360px;
+    background-size: cover;
+    position: relative;
+    margin-bottom:1em;
+    border:1px solid #333;
+  }
+  .slide h4 {
+    display:inline-block;
+    float:righ;
+    font-size: 1.25em;
+    margin:0;
+    padding: .25em;
+    text-align: right;
+    background-color: rgba(255,255,255,.8);
+    float:right;
+    border-radius: 0 0 0 .5em;
+  }
+  .slide p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:0;
+    clear:both;
+    padding: 1em 5em 1em 3em;
+    background-color: rgba(255,255,255,.8);
+  }
+  .slide a {
+    display:block;
+    text-align: right;
+  }
+
+.carousel.active {
+  height: 360px;
+  /* overflow:hidden; */
+  border: 1px solid #333;
+  position:relative;
+}
+
+.active .slide {
+  border: none;
+  display: none;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:200;
+}
+
+.slide.current {
+  display:block;
+  z-index: 500;
+}
+
+.btn-prev,
+.btn-next {
+  position:absolute;
+  z-index: 700;
+  top: 50%;
+  margin-top: -2.5em;
+  border:0;
+  background: rgba(255,255,255,.6);
+  line-height: 1;
+  padding:2em .5em;
+  transition: padding .4s ease-out;
+}
+
+.btn-next:hover,
+.btn-next:focus,
+.btn-prev:hover,
+.btn-prev:focus {
+  padding-left: 2em;
+  padding-right:2em;
+}
+
+.btn-prev {
+  left:0;
+  border-radius: 0 .25em .25em 0;
+}
+
+.btn-next {
+  right:0;
+  border-radius: .25em 0 0 .25em;
+}
+
+.carousel.with-slidenav {
+  padding-bottom: 4em;
+  background-color: #fff;
+}
+.carousel.with-slidenav .slide {
+  border-bottom: 1px solid #333;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slidenav li {
+  display:inline-block;
+  margin: 0 .5em;
+}
+
+.slidenav button {
+  border: 2px solid #036;
+  background-color: #036;
+  line-height: 1em;
+  height: 2em;
+  width:2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.slidenav button.current {
+  border-radius: .5em;
+  background-color: #fff;
+  color: #333;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  border: 2px dashed #fff;
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  border: 2px dashed #036;
+}
+
+</style>
+
+<script>
+/* focusin/out event polyfill (firefox) */
+!function(){
+  var w = window,
+  d = w.document;
+
+  if( w.onfocusin === undefined ){
+    d.addEventListener('focus' ,addPolyfill ,true);
+    d.addEventListener('blur' ,addPolyfill ,true);
+    d.addEventListener('focusin' ,removePolyfill ,true);
+    d.addEventListener('focusout' ,removePolyfill ,true);
+  }
+  function addPolyfill(e){
+    var type = e.type === 'focus' ? 'focusin' : 'focusout';
+    var event = new CustomEvent(type, { bubbles:true, cancelable:false });
+    event.c1Generated = true;
+    e.target.dispatchEvent( event );
+  }
+  function removePolyfill(e){
+if(!e.c1Generated){ // focus after focusin, so chrome will the first time trigger tow times focusin
+  d.removeEventListener('focus' ,addPolyfill ,true);
+  d.removeEventListener('blur' ,addPolyfill ,true);
+  d.removeEventListener('focusin' ,removePolyfill ,true);
+  d.removeEventListener('focusout' ,removePolyfill ,true);
+}
+setTimeout(function(){
+  d.removeEventListener('focusin' ,removePolyfill ,true);
+  d.removeEventListener('focusout' ,removePolyfill ,true);
+});
+}
+}();
+
+var myCarousel = (function() {
+
+  var carousel, slides, index, slidenav, settings, timer, setFocus, animationSuspended, announceSlide = false;
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++)
+      fn(elements[i], i);
+  }
+
+  function removeClass(el, className) {
+    if (el.classList) {
+      el.classList.remove(className);
+    } else {
+      el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+  }
+
+  function hasClass(el, className) {
+    if (el.classList) {
+      return el.classList.contains(className);
+    } else {
+      return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
+    }
+  }
+
+  function init(set) {
+    settings = set;
+    carousel = document.getElementById(settings.id);
+    slides = carousel.querySelectorAll('.slide');
+
+    carousel.className = 'active carousel';
+
+    var ctrls = document.createElement('ul');
+
+    ctrls.className = 'controls';
+    ctrls.innerHTML = '<li>' +
+        '<button type="button" class="btn-prev"><img alt="Previous Slide" src="../../img/chevron-left-75c7dd0b.png" /></button>' +
+      '</li>' +
+      '<li>' +
+        '<button type="button" class="btn-next"><img alt="Next Slide" src="../../img/chevron-right-2f19bc8b.png" />' +
+      '</li>';
+
+    ctrls.querySelector('.btn-prev')
+      .addEventListener('click', function () {
+        announceSlide = true;
+        prevSlide();
+      });
+    ctrls.querySelector('.btn-next')
+      .addEventListener('click', function () {
+        announceSlide = true;
+        nextSlide();
+      });
+
+    carousel.appendChild(ctrls);
+
+    if (settings.slidenav || settings.animate) {
+      slidenav = document.createElement('ul');
+
+      slidenav.className = 'slidenav';
+
+      if (settings.animate) {
+        var li = document.createElement('li');
+
+        if (settings.startAnimated) {
+          li.innerHTML = '<button data-action="stop"><span class="visuallyhidden">Stop Animation </span>￭</button>';
+        } else {
+          li.innerHTML = '<button data-action="start"><span class="visuallyhidden">Start Animation </span>▶</button>';
+        }
+
+        slidenav.appendChild(li);
+      }
+
+      if (settings.slidenav) {
+        forEachElement(slides, function(el, i){
+          var li = document.createElement('li');
+          var klass = (i===0) ? 'class="current" ' : '';
+          var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Slide)</span>' : '';
+
+          li.innerHTML = '<button '+ klass +'data-slide="' + i + '"><span class="visuallyhidden">News</span> ' + (i+1) + kurrent + '</button>';
+          slidenav.appendChild(li);
+        });
+      }
+
+      slidenav.addEventListener('click', function(event) {
+        var button = event.target;
+        if (button.localName == 'button') {
+          if (button.getAttribute('data-slide')) {
+            stopAnimation();
+            setSlides(button.getAttribute('data-slide'), true);
+          } else if (button.getAttribute('data-action') == "stop") {
+            stopAnimation();
+          } else if (button.getAttribute('data-action') == "start") {
+            startAnimation();
+          }
+        }
+      }, true);
+
+      carousel.className = 'active carousel with-slidenav';
+      carousel.appendChild(slidenav);
+    }
+
+      slides[0].parentNode.addEventListener('transitionend', function (event) {
+        var slide = event.target;
+        removeClass(slide, 'in-transition');
+        if (hasClass(slide, 'current'))  {
+          slide.removeAttribute('aria-live');
+          announceSlide = false;
+          if(setFocus) {
+            slide.setAttribute('tabindex', '-1');
+            slide.focus();
+            setFocus = false;
+          }
+        }
+      });
+
+      carousel.addEventListener('mouseenter', suspendAnimation);
+      carousel.addEventListener('mouseleave', function(event) {
+        if (animationSuspended) {
+          startAnimation();
+        }
+      });
+
+      carousel.addEventListener('focusin', function(event) {
+        if (!hasClass(event.target, 'slide')) {
+          suspendAnimation();
+        }
+      });
+      carousel.addEventListener('focusout', function(event) {
+        if (!hasClass(event.target, 'slide') && animationSuspended) {
+          startAnimation();
+        }
+      });
+
+    index = 0;
+    setSlides(index);
+
+     if (settings.startAnimated) {
+      timer = setTimeout(nextSlide, 5000);
+    }
+  }
+
+  function setSlides(new_current, setFocusHere, transition) {
+    setFocus = typeof setFocusHere !== 'undefined' ? setFocusHere : false;
+    transition = typeof transition !== 'undefined' ? transition : 'none';
+
+    new_current = parseFloat(new_current);
+
+    var length = slides.length;
+    var new_next = new_current+1;
+    var new_prev = new_current-1;
+
+    if(new_next === length) {
+      new_next = 0;
+    } else if(new_prev < 0) {
+      new_prev = length-1;
+    }
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = "slide";
+    }
+
+    slides[new_next].className = 'next slide' + ((transition == 'next') ? ' in-transition' : '');
+    slides[new_next].setAttribute('aria-hidden', 'true');
+    slides[new_prev].className = 'prev slide' + ((transition == 'prev') ? ' in-transition' : '');
+    slides[new_prev].setAttribute('aria-hidden', 'true');
+
+    slides[new_current].className = 'current slide';
+    slides[new_current].removeAttribute('aria-hidden');
+    if (announceSlide) {
+      slides[new_current].setAttribute('aria-live', 'polite');
+    }
+
+    if(settings.slidenav) {
+      var buttons = carousel.querySelectorAll('.slidenav button[data-slide]');
+      for (var j = buttons.length - 1; j >= 0; j--) {
+        buttons[j].className = '';
+        buttons[j].innerHTML = '<span class="visuallyhidden">News</span> ' + (j+1);
+      }
+      buttons[new_current].className = "current";
+      buttons[new_current].innerHTML = '<span class="visuallyhidden">News</span> ' + (new_current+1) + ' <span class="visuallyhidden">(Current Slide)</span>';
+    }
+
+    index = new_current;
+
+  }
+
+  function nextSlide() {
+
+    var length = slides.length,
+    new_current = index + 1;
+
+    if(new_current === length) {
+      new_current = 0;
+    }
+
+    setSlides(new_current, false, 'prev');
+
+    if (settings.animate) {
+      timer = setTimeout(nextSlide, 5000);
+    }
+
+  }
+
+  function prevSlide() {
+    var length = slides.length,
+    new_current = index - 1;
+
+    if(new_current < 0) {
+      new_current = length-1;
+    }
+
+    setSlides(new_current, false, 'next');
+
+  }
+
+  function stopAnimation() {
+    clearTimeout(timer);
+    settings.animate = false;
+    animationSuspended = false;
+    _this = carousel.querySelector('[data-action]');
+    _this.innerHTML = '<span class="visuallyhidden">Start Animation </span>▶';
+    _this.setAttribute('data-action', 'start');
+  }
+
+  function startAnimation() {
+    settings.animate = true;
+    animationSuspended = false;
+    timer = setTimeout(nextSlide, 5000);
+    _this = carousel.querySelector('[data-action]');
+    _this.innerHTML = '<span class="visuallyhidden">Stop Animation </span>￭';
+    _this.setAttribute('data-action', 'stop');
+  }
+
+  function suspendAnimation() {
+    if(settings.animate) {
+      clearTimeout(timer);
+      settings.animate = false;
+      animationSuspended = true;
+    }
+  }
+
+  return {
+    init:init,
+    next:nextSlide,
+    prev:prevSlide,
+    goto:setSlides,
+    stop:stopAnimation,
+    start:startAnimation
+  };
+});
+
+var c = new myCarousel();
+c.init({
+  id: 'c',
+  slidenav: true,
+  animate: true,
+  startAnimated: true
+});
+</script>
+
+
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG 2.0 resources</h2>
-  <div class="resources-inner">
-	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
-	  
-	    <p><strong>Success Criteria:</strong></p>
-	    <ul>
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-pause">2.2.2 Pause, Stop, Hide:</a> For moving, blinking, scrolling, or auto-updating information, all of the following are true:<ul><li><p><strong>Moving, blinking, scrolling: </strong>For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and</p></li><li><p><strong>Auto-updating: </strong>For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.</p></li></ul> (Level&nbsp;A)</p></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	    </ul>
-	  
-	  
-  </div>
+  <h2 id="related">Related WCAG2.0 resources</h2>
+  
+    <p><strong>Success Criteria:</strong></p>
+    <ul>
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-pause">2.2.2 Pause, Stop, Hide:</a> For moving, blinking, scrolling, or auto-updating information, all of the following are true:<ul><li><p><strong>Moving, blinking, scrolling: </strong>For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and</p></li><li><p><strong>Auto-updating: </strong>For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.</p></li></ul> (Level&nbsp;A)</p></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+  
+  
 </div>
 
 
-      <nav role="navigation" aria-label="Previous/Next" id="tools">
+      <div role="navigation" id="tools">
   <ul>
     
       
@@ -274,24 +763,8 @@
         
         
           <li class="prev">
-            <span><a rel="prev" class="" href="../functionality/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Functionality</span></span></a></span>
+            <span><a class="" href="../functionality/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Functionality</span></span></a></span>
           </li>
-        
-        
-      
-        
-        
-        
-      
-        
-        
-        
-          <li class="next">
-            <span><a rel="next" class="" href="../styling/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Styling</span></span></a></span>
-          </li>
-        
-      
-        
         
         
       
@@ -301,7 +774,7 @@
       
     
   </ul>
-</nav>
+</div>
 
 
       <aside class="side-box github" role="complementary">
@@ -319,61 +792,28 @@
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Main" id="nav">
+  <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-          Carousels Tutorial
+        Carousels Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
-      
-        
-      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
         
         
           
-            <li>
-              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
-              
-            </li>
+            <li><a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a>
-              
-            </li>
+            <li><a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a></li>
           
         
           
-            <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Animations</span></span>
-              
-            </li>
-          
-        
-          
-            <li>
-              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../working-example/"><span class="count"></span><span class="txt">Working Example</span></a>
-              
-            </li>
-          
-        
-          
-            <li class="tips">
-              <a class="" href="../full-code/"><span class="count"></span><span class="txt">Complete Code</span></a>
-              
-            </li>
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Animations</span></span></li>
           
         
       
@@ -383,64 +823,63 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels</span></span></li>
-  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels</span></span></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+	<footer role="contentinfo">
     <div>
-		<h2 id="wai_footerheading">Document Information</h2>
-    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<h2>Document info</h2>
 		<ul>
-			<li><strong>Status:</strong>
-				
-	      	Updated
-	      
-	      14 April 2017
-	      
-		      
-		      (first published May 2015)
-		      
-		    
+			<li><strong>Status &amp; Last Modification:</strong>
+			
+        Draft, approved by <a href="">EOWG</a>, updated
+      
+      
+      
+      April 2017
 			</li>
       <li>
-  Editors:
-  <ul class="inline">
-    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-  Contributors:
-  <ul class="inline">
-    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
-  </ul>
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
 </li>
 
 <li>
-  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-        <p>
-	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
-        </p>
-      </div><!-- ends copyright -->
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
 	</body>
 </html>
