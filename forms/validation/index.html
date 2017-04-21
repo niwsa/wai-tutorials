@@ -11,31 +11,35 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/forms/validation/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7dd8830e.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content ">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Forms</span></a> <span class="icon icon-chevron-right"></span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Forms</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Validating Input</span></span>
@@ -58,13 +62,17 @@
       
 
 
-      <p>In addition to providing instructions, validate user input to help users avoid mistakes. HTML5 provides a range of built-in functionality to validate common types of input, such as email addresses and dates. In some cases, such as for custom controls, additional scripting may be necessary to validate user input.</p>
+      <p>In addition to providing instructions, validate user input to help users avoid mistakes. HTML5 defines a range of built-in functionality to validate common types of input, such as email addresses and dates. In some situations, such as validating custom controls or supporting legacy browsers, additional scripting may be necessary to validate user input.</p>
+
+<p>Custom validation needs to notify users in an accessible way as described in the <a href="../notifications/">User Notifications</a> part of this tutorial. Client-side validation alone does not ensure security; therefore data needs to be validated on the server-side as well.</p>
 
 <h2 class="newex" id="validating-required-input">Validating required input</h2>
 
-<p>Forms frequently include required input that needs to be clearly highlighted using labels. In addition, the <code>required</code> attribute can be added to the form element, to indicate this requirement programmatically. Most current web browsers support this attribute. They will communicate missing required input to the user, using standard web browser dialog mechanisms. These dialogs are expected to respect the settings and preferences of the user in the web browser (and operating system), such as default font-size, colors, and language.</p>
+<p>Forms frequently include required input that needs to be clearly identified using labels. Also, the <code>required</code> attribute can be added to form controls, to programmatically indicate that they are required. Most current web browsers support this attribute and will communicate missing required input to the user, using standard web browser dialog mechanisms. These dialogs are expected to respect the settings and preferences of the user in the web browser (and operating system), such as default font-size, colors, and language.</p>
 
-<p>In the example below, the <code>required</code> attribute is added to the input field. If your web browser supports HTML5 it will not allow you to submit the form without entering text into the input field. Instead, it will display a message that is generated by the web browser itself:</p>
+<p>In the example below, the <code>required</code> attribute is added to the input field. If your web browser supports HTML5, it will not allow you to submit the form without entering text into the input field. Instead, it will display a message that is generated by the web browser itself.</p>
+
+<p>Note that the label also displays “(required)”, to inform users that don’t use assistive technology or use older web browsers that do not support the HTML5 <code>required</code> attribute.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -81,20 +89,19 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name (required): <span class="nt">&lt;/label&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name (required): <span class="nt">&lt;/label&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">required</span> <span class="na">aria-required=</span><span class="s">"true"</span><span class="nt">&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> The <code>aria-required</code> attribute informs assistive technologies about required controls so that they are appropriately announced to the users (as opposed to validating the input). Most current web browsers automatically set its value to <code>true</code> when the HTML5 <code>required</code> attribute is present. In this example it is provided redundantly to support web browsers that don’t communicate the <code>required</code> attribute.</p>
+<p><strong>Note:</strong> The <code>aria-required</code> attribute informs assistive technologies about required controls so that they are appropriately announced to the users (as opposed to validating the input). Most current web browsers automatically set its value to <code>true</code> when the HTML5 <code>required</code> attribute is present. In this example, it is provided redundantly to support web browsers that don’t communicate the <code>required</code> attribute to assistive technology.</p>
 
 </div>
 <h2 class="newex" id="validating-common-input">Validating common input</h2>
 
-<p>HTML5 also provides input types for other data, including <code>email</code>, <code>url</code>, <code>number</code>, <code>range</code>, <code>date</code>, or <code>time</code>. Most current web browsers support these features and handle input validation. In addition, HTML5 validation helps users inputting data by providing specific controls, such as date pickers and custom on-screen keyboards. HTML5 input types are displayed as simple <code>text</code> input fields in older web browsers that do not support these HTML5 features.</p>
+<p>HTML5 also provides input types for other data, including <code>email</code>, <code>url</code>, <code>number</code>, <code>range</code>, <code>date</code>, or <code>time</code>. Most current web browsers support these features and handle input validation. Also, HTML5 validation helps users inputting data by providing specific controls, such as date pickers and custom on-screen keyboards. HTML5 input types are displayed as simple <code>text</code> input fields in older web browsers that do not support these HTML5 features.</p>
 
-<p>The example below shows these HTML5 input types in action. Depending on your web browser, the “Range” input field will be displayed as a slider control to help users provide input more easily. Similarly the “Number” input field may be displayed with buttons to increase or decrease the number incrementally. Input errors, such as an incorrect email address, will be indicated using the web browser dialogs as in the previous example.</p>
+<p>The example below shows these HTML5 input types in action. Depending on your web browser, the “Range” input field will be displayed as a slider control to help users provide input more easily. Similarly, the “Number” input field may be displayed with buttons to increase or decrease the number incrementally. Input errors, such as an incorrect email address, will be indicated using the web browser dialogs as in the previous example.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -141,7 +148,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"email"</span><span class="nt">&gt;</span>Email: <span class="nt">&lt;/label&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"email"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
@@ -165,8 +172,7 @@
 	<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"time"</span><span class="nt">&gt;</span>Time: <span class="nt">&lt;/label&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"time"</span> <span class="na">name=</span><span class="s">"time"</span> <span class="na">id=</span><span class="s">"time"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> Several of these HTML5 input types have additional parameters to help limit and validate the input. They include:</p>
@@ -180,7 +186,7 @@
 </div>
 <h2 class="newex" id="validating-patterned-input">Validating patterned input</h2>
 
-<p>The HTML5 <code>pattern</code> attribute allows the use of <a href="http://www.w3.org/TR/html/forms.html#the-pattern-attribute">regular expressions</a> to specify custom formats for the input. This is useful for specific types of data patterns such as telephone numbers, postal codes, and serial numbers.</p>
+<p>The HTML5 <code>pattern</code> attribute allows the use of <a href="https://www.w3.org/TR/html/forms.html#the-pattern-attribute">regular expressions</a> to specify custom formats for the input. This is useful for specific types of data patterns such as telephone numbers, postal codes, and serial numbers.</p>
 
 <h3 class="ex" id="car-license-plate-numbers">Car license plate numbers</h3>
 
@@ -202,41 +208,24 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><span class="nt">&lt;div&gt;</span>
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
 	<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"license"</span>
 		<span class="na">pattern=</span><span class="s">"[A-ZÖÄÜ]{1,3}( )[A-Z]{2,4}( )[0-9]{1,4}"</span>
 	<span class="nt">&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre>
-
+</code></pre>
 </figure>
 <h2 id="be-forgiving-of-different-input-formats">Be forgiving of different input formats</h2>
 
-<p>Validation should aim to be as accommodating as possible of different forms of input for particular data types. For example, telephone numbers are written with different separators and digit groupings. Your form will be easier to use of it can interpret multiple notations.</p>
+<p>Validation should aim to be as accommodating as possible of different forms of input for particular data types. For example, telephone numbers are written with different separators and digit groupings. Your form will be easier to use if it can interpret multiple notations. Also, it is helpful to be liberal with input. For example, postal codes aren't confined to just numbers in some countries, so using an <code>input</code> of the type <code>number</code> can easily become a problem for many of your website users.</p>
 
 <h2 id="client-side-validation-benefits">Client-side validation benefits</h2>
 
-<p>In general, validating input client-side results in a better user experience and makes resolving validation errors more understandable. It can also reduce network and server load. However, not all web browsers may support HTML5 or any custom validation scripts. This means that validation needs to be carried out server-side as well.</p>
+<p>In general, client-side validation results in a better user experience and makes resolving validation errors more understandable. It can also reduce network and server load. However, not all web browsers support HTML5, or they may not support your custom validation scripts. Client-side validation can also be easily bypassed, or the data is changed before reaching the server. This means that validation needs to be carried out server-side as well.</p>
 
 <h2 id="validation-by-the-user">Validation by the user</h2>
 
-<p>Where possible, users should be able to check their own input and correct it if necessary. This is particularly important for actions that are permanent or otherwise critical, but also when data cannot be automatically checked. For example, providing users with the option to check the postal address that they provided can be useful before a purchase is completed.</p>
-
-<h3 id="provide-undo-functionality">Provide undo functionality</h3>
-
-<p>Where possible, provide undo mechanisms for reversible actions. Examples include:</p>
-
-<ul>
-  <li>
-    <p>A Content Management System (CMS) has the ability to delete unwanted comments. Instead of deleting them right away, they are stored in a “trash” folder so that they can be restored.</p>
-  </li>
-  <li>
-    <p>A webmail application allows users to “undo” sending an email for a few seconds. This is useful if the user forgot to attach a file or sent the email to the wrong recipient.</p>
-  </li>
-  <li>
-    <p>A shopping website lets users cancel purchases up to 24 hours after the order is submitted. The website explains the policy, and includes a summary of the policy on the purchase receipt emailed to the user. After 24 hours, the purchase will be shipped to the user and can no longer be canceled.</p>
-  </li>
-</ul>
+<p>Where possible, users should be able to check their input and correct it if necessary. This is particularly important for actions that are permanent or otherwise critical, but also when data cannot be automatically checked. For example, providing users with the option to check the postal address that they provided can be useful before a purchase is completed.</p>
 
 <h3 id="require-user-confirmation">Require user confirmation</h3>
 
@@ -244,7 +233,7 @@
 
 <ul>
   <li>
-    <p>A CMS allows users to permanently delete comments from the trash folder. When this action is initiated, a dialog box is displayed to the user to confirm the action.</p>
+    <p>A CMS allows users to delete comments from the trash folder permanently. When this action is initiated, a dialog box is displayed to the user to confirm the action.</p>
   </li>
   <li>
     <p>A banking application requires users to confirm transfer transactions by selecting a checkbox labeled “I have checked that the amount I wish to transfer is correct”.</p>
@@ -254,478 +243,521 @@
   </li>
 </ul>
 
+<h3 id="provide-undo-functionality">Provide undo functionality</h3>
+
+<p>Where possible, provide mechanisms to undo reversible actions. Examples include:</p>
+
+<ul>
+  <li>
+    <p>A Content Management System (CMS) can delete unwanted comments. Instead of deleting them right away, they are stored in a “trash” folder so that they can be restored.</p>
+  </li>
+  <li>
+    <p>A webmail application allows users to “undo” sending an email for a few seconds. This is useful if the user forgot to attach a file or sent the email to the wrong recipient.</p>
+  </li>
+  <li>
+    <p>A shopping website lets users cancel purchases up to 24 hours after the order is submitted. The website explains the policy and includes a summary of the policy on the purchase receipt emailed to the user. After 24 hours, the purchase will be shipped to the user and can no longer be canceled.</p>
+  </li>
+</ul>
+
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG2.0 resources</h2>
-  
-    <p><strong>Success Criteria:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-identified">3.3.1 Error Identifications:</a> If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text. (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-reversible">3.3.4 Error Prevention (Legal, Financial, Data):</a> For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: Reversible, Checked, Confirmed (Level&nbsp;AA)</p></li>
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
-  
-    <p><strong>Techniques:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G85">G85: Providing a text description when user input falls outside the required format or values</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G98">G98: Providing the ability for the user to review and correct answers before submitting</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G155">G155: Providing a checkbox in addition to a submit button</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G164">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G168">G168: Requesting confirmation to continue with selected action</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-identified">3.3.1 Error Identifications:</a> If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-reversible">3.3.4 Error Prevention (Legal, Financial, Data):</a> For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: Reversible, Checked, Confirmed (Level&nbsp;AA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G83">G83: Providing text descriptions to identify required fields that were not completed</a></li>
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G85">G85: Providing a text description when user input falls outside the required format or values</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G98">G98: Providing the ability for the user to review and correct answers before submitting</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G155">G155: Providing a checkbox in addition to a submit button</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G164">G164: Providing a stated time within which an online request (or transaction) may be amended or canceled by the user after making the request</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G168">G168: Requesting confirmation to continue with selected action</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
 </div>
 
 
-      <div role="navigation" id="tools">
+      <nav role="navigation" aria-label="Previous/Next" id="tools">
   <ul>
     
       
@@ -741,7 +773,7 @@
         
         
           <li class="prev">
-            <span><a class="" href="../instructions/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Form Instructions</span></span></a></span>
+            <span><a rel="prev" class="" href="../instructions/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Form Instructions</span></span></a></span>
           </li>
         
         
@@ -754,12 +786,8 @@
         
         
           <li class="next">
-            <span><a class="" href="../notifications/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">User Notifications</span></span></a></span>
+            <span><a rel="next" class="" href="../notifications/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">User Notifications</span></span></a></span>
           </li>
-        
-      
-        
-        
         
       
         
@@ -772,7 +800,7 @@
       
     
   </ul>
-</div>
+</nav>
 
 
       <aside class="side-box github" role="complementary">
@@ -790,48 +818,68 @@
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Navigation" id="nav">
+  <nav role="navigation" aria-label="Main" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-        Forms Tutorial
+          Forms Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Forms Concepts</span></a></li>
         
         
           
-            <li><a class="" href="../labels/"><span class="count"></span><span class="txt">Labeling Controls</span></a></li>
+            <li>
+              <a class="" href="../labels/"><span class="count"></span><span class="txt">Labeling Controls</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../grouping/"><span class="count"></span><span class="txt">Grouping Controls</span></a></li>
+            <li>
+              <a class="" href="../grouping/"><span class="count"></span><span class="txt">Grouping Controls</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../instructions/"><span class="count"></span><span class="txt">Form Instructions</span></a></li>
+            <li>
+              <a class="" href="../instructions/"><span class="count"></span><span class="txt">Form Instructions</span></a>
+              
+            </li>
           
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Validating Input</span></span></li>
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Validating Input</span></span>
+              
+            </li>
           
         
           
-            <li><a class="" href="../notifications/"><span class="count"></span><span class="txt">User Notifications</span></a></li>
+            <li>
+              <a class="" href="../notifications/"><span class="count"></span><span class="txt">User Notifications</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../multi-page/"><span class="count"></span><span class="txt">Multi-Page Forms</span></a></li>
+            <li>
+              <a class="" href="../multi-page/"><span class="count"></span><span class="txt">Multi-page Forms</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../custom-controls/"><span class="count"></span><span class="txt">Custom Controls</span></a></li>
-          
-        
-          
-            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
+            <li>
+              <a class="" href="../custom-controls/"><span class="count"></span><span class="txt">Custom Controls</span></a>
+              
+            </li>
           
         
       
@@ -841,61 +889,64 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms</span></span></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer role="contentinfo">
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
     <div>
-		<h2>Document info</h2>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
 		<ul>
-			<li><strong>Status &amp; Last Modification:</strong>
-			
-      
-      
-      April 2017
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      21 April 2017
+	      
+		      
+		      (first published September 2014)
+		      
+		    
 			</li>
       <li>
-<strong>Editors: </strong>
-<ul class="inline">
-    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  Editors:
+  <ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-<strong>Contributors:</strong>
-The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+  Contributors:
+  <ul class="inline">
+    <li>The Web Content Accessibility Guidelines Working Group (<a href="https://www.w3.org/WAI/GL/">WCAG WG</a>)</li><li>the Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
 </li>
 
 <li>
+  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
-    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-      <p>
-	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
-      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
-				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-					<a href="http://www.keio.ac.jp/">Keio</a>,
-         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
-               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
-               </div><!-- ends copyright -->
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
 	</body>
 </html>

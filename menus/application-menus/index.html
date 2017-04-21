@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Application Menus
+  
+    
+       &bull; Menus
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/menus/application-menus/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Menus</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Application Menus</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Application Menus
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <p>Web application menus use the same basic structure as navigation menus. They often consist of a horizontal menu bar and use fly-out functionality. However, additional markup and keyboard behavior must be added.</p>
+
+<h2 id="additional-markup">Additional markup</h2>
+
+<p>In addition to the <code>aria-expanded</code> and <code>aria-haspopup</code> attributes, the following WAI-ARIA roles are used to provide the necessary semantics of an application menu:</p>
+
+<ul>
+  <li><strong><code>menubar</code>:</strong> Represents a (usually horizontal) menu bar.</li>
+  <li><strong><code>menu</code>:</strong> Represents a set of links or commands in a menu bar, it is used for the fly-out menus.</li>
+  <li><strong><code>menuitem</code>:</strong> Represents an individual menu item.</li>
+  <li><strong><code>separator</code>:</strong> Represents a separator between two groups of menu items in a menu.</li>
+</ul>
+
+<div class="ref-container">
+      <div class="ref-main">
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menubar"</span> <span class="na">id=</span><span class="s">"appmenu"</span><span class="nt">&gt;</span>
+	…
+	<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+		Edit
+		<span class="nt">&lt;ul</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Undo<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Redo<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"separator"</span><span class="nt">&gt;&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Cut<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Copy<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Paste<span class="nt">&lt;/li&gt;</span>
+			<span class="nt">&lt;/ul&gt;</span>
+		<span class="nt">&lt;/li&gt;</span>
+	…
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+</figure>
+<p></div>
+      <aside class="ref-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+            <path d="M16 14 L16 23 M16 8 L16 10" />
+            <circle cx="16" cy="16" r="14" />
+        </svg></p>
+
+<p>Application menus typically do not have links and rely on scripting to provide the functionality.</p>
+
+<p></div>
+      </aside>
+      </div></p>
+
+<h2 id="functionality">Functionality</h2>
+
+<p>Adding the WAI-ARIA roles does <strong>not</strong> automatically enable the menu’s functionality or keyboard behavior. These must be added using scripting. A detailed explanation on the WAI-ARIA attributes and keyboard behavior can be found in the <a href="https://www.w3.org/TR/wai-aria-practices/#menu">WAI-ARIA Authoring Practices document (draft)</a>.</p>
+
+<h2 id="keyboard-behavior">Keyboard behavior</h2>
+
+<p>Web application menus are expected to work like desktop application menus. For example, the left and right keys are used to iterate through the top-level items, and the up and down arrows are used to navigate submenus. Pressing the tab key focuses the next item after the menu instead of the next menu item.</p>
+
+<p>To allow focus to be set to menu items by keyboard, the items are given a <code>tabindex</code> attribute with the value <code>-1</code>. The first main menu item (“File” in this example) is assigned a <code>tabindex</code> value of <code>0</code> which adds it to the tab order and lets the user access the menu using the keyboard.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight javascript"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">appsMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+		<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"focus"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+				<span class="nx">currentIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+			<span class="p">});</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+		<span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">subMenuItems</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+	<span class="nx">el</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</figure>
+<h3 id="top-level-menu-items">Top-Level Menu Items</h3>
+
+<p>The following table summarizes the typical behavior of top-level menu items:</p>
+
+<table>
+	<caption>Key mapping for top-level menu items</caption>
+	<thead>
+		<tr>
+			<th scope="col">Key</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>tab ⇥</kbd></th>
+			<td>Select the next focusable element outside of the menu.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd></th>
+			<td>Select the previous focusable element outside of the menu.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>right &rarr;</kbd></th>
+			<td>Select the next top-level menu item.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>left &larr;</kbd></th>
+			<td>Select the previous top-level menu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>return/enter &crarr;</kbd></th>
+			<td rowspan="3">Open the submenu, select first submenu item.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>space</kbd></th>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>down &darr;</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>up &uarr;</kbd></th>
+			<td>Open the submenu, select last submenu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>esc</kbd></th>
+			<td>Leave the menu.</td>
+		</tr>
+	</tbody>
+</table>
+
+<h3 id="submenu-items">submenu Items</h3>
+
+<p>The following table summarizes the typical behavior of submenu items:</p>
+
+<table>
+	<caption>Key mapping for submenu items</caption>
+	<thead>
+		<tr>
+			<th scope="col">Key</th>
+			<th scope="col">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>tab ⇥</kbd></th>
+			<td>Close the submenu, select the next focusable element outside of the menu.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>shift ⇧</kbd> + <kbd>tab ⇥</kbd></th>
+			<td>Close the submenu, select the previous focusable element outside of the menu.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>right &rarr;</kbd></th>
+			<td>Close the submenu, select the next top-level menu item.</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>left &larr;</kbd></th>
+			<td>Close the submenu, select the previous top-level menu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>return/enter &crarr;</kbd></th>
+			<td rowspan="2">Carry out function of this item. (In this example: bring up a dialog box with the text of the chosen menu item.)</td>
+		</tr>
+		<tr>
+			<th scope="row"><kbd>space</kbd></th>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>down &darr;</kbd></th>
+			<td>Select next submenu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>up &uarr;</kbd></th>
+			<td>Select previous submenu item.</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<th scope="row"><kbd>esc</kbd></th>
+			<td>Close the submenu, select the current top-level menu item.</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+      
+
+      <nav role="navigation" aria-label="Previous/Next" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../flyout/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Fly-out Menus</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+          <li class="next">
+            <span><a rel="next" class="" href="../application-menus-code/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Application Menu Example & Code</span></span></a></span>
+          </li>
+        
+      
+    
+  </ul>
+</nav>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/menus/application-menus.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Main" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+          Menus Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Concepts</span></a></li>
+        
+        
+          
+            <li>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../flyout/"><span class="count"></span><span class="txt">Fly-out Menus</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Application Menus</span></span>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../application-menus-code/"><span class="count"></span><span class="txt">Application Menu Example & Code</span></a>
+              
+            </li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
+  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Menus</span></span></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+    <div>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      21 April 2017
+	      
+		      
+		      (first published May 2015)
+		      
+		    
+			</li>
+      <li>
+  Editors:
+  <ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+  Contributors:
+  <ul class="inline">
+    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
+</li>
+
+<li>
+  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <div class="copyright">
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	</body>
+</html>

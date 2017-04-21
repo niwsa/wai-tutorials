@@ -11,31 +11,35 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/page-structure/headings/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-7dd8830e.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Page Structure</span></a> <span class="icon icon-chevron-right"></span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Page Structure</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Headings</span></span>
@@ -62,541 +66,580 @@
       
 
 
-      <p>Headings add structure and meaning to pages by labeling each content part and indicating the relative importance of those parts.</p>
+      <p>Headings communicate the organization of the content on the page. Web browsers, plug-ins, and assistive technologies can use them to provide in-page navigation.</p>
 
-<p>Assistive technologies and some browsers provide mechanisms to present a list of headings to the user that allows users to jump to individual headings. Headings also provide visual clues that help to skim the page or find a specific section, this is especially useful for people that are easily distracted.</p>
+<h2 id="heading-ranks">Heading ranks</h2>
 
-<h2 id="heading-levels">Heading levels</h2>
+<p>Nest headings by their rank (or level). The most important heading has the rank 1 (<code>&lt;h1&gt;</code>), the least important heading rank 6 (<code>&lt;h6&gt;</code>). Headings with an equal or higher rank start a new section, headings with a lower rank start new subsections that are part of the higher ranked section.</p>
 
-<p>It is good practice to nest headings properly. When stepping down through headings, skipping levels should be avoided. That means that an <code>&lt;h1&gt;</code> is followed by an <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code>, an <code>&lt;h2&gt;</code> is followed by a <code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code> etc. When stepping up through headings it is perfectly legitimate to skip any number of levels.</p>
+<p>Skipping heading ranks can be confusing and should be avoided where possible: Make sure that a <code>&lt;h3&gt;</code> is followed by an <code>&lt;h4&gt;</code>, for example. It is ok to skip ranks when closing subsections, for instance, a <code>&lt;h2&gt;</code> beginning a new section, can follow an <code>&lt;h4&gt;</code> as it closes the previous section.</p>
 
-<div class="notes ">
-<p><strong>Note:</strong> HTML5 has introduced <a href="http://www.w3.org/TR/html5/sections.html#headings-and-sections">an outline algorithm</a> that assigns heading levels based on how deep sectioning elements are nested inside each other, regardless of the actual heading level. At the time of writing, this is not supported by any browser or assistive technology and <strong>should not</strong> be used.</p>
+<h3 id="exception-for-fixed-page-sections">Exception for fixed page sections</h3>
+
+<p>In fixed sections of the page, for example in sidebars, the heading ranks <em>should not</em> change depending on the ranks  in the content area. In those cases, consistency across pages is more important.</p>
+
+<h2 id="organize-passages-of-text">Organize passages of text</h2>
+
+<p>In the following example, headings are used to only organize passages of text on a page, for example the main content:</p>
+
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-intro-b39b620a.png, ../../img/page-structure-headings-intro@2x-57fbe0bf.png 2x, ../../img/page-structure-headings-intro@3x-bad43cd5.png 3x" alt="One example (h1) heading (Space Teddy) with three h2 headings inside the content (Cotton Fur, Sapphire Eyes, Synthetic Felt Paws)." class="" src="../../img/page-structure-headings-intro-b39b620a.png" />
+  </div></figure>
+</p>
+
+<h2 id="headings-that-reflect-the-page-organization">Headings that reflect the page organization</h2>
+
+<p>Headings are useful for labeling page regions. Use <code>aria-labelledby</code> to associate headings with their page region, as described in the <a href="../labels/#using-aria-labelledby">label page regions</a> section of this tutorial. If the headings are visible, the regions are easy to identify for all users.</p>
+
+<h3 class="ex" id="main-heading-before-navigation">Main heading before navigation</h3>
+
+<p>In this first example, the heading with the rank 1 is the first heading in the document. All other headings for structuring the page (Navigation Menu, Sidebar, Footer) are one rank lower, and so is the heading for the main content.</p>
+
+<div class="demo-container">
+      <div class="demo-main">
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-1b48a3e1.png, ../../img/page-structure-headings@2x-e7b5c662.png 2x, ../../img/page-structure-headings@3x-8cb0ab16.png 3x" alt="One h1 heading with several h2s and h3 creating subsections. One subsection’s heading is ”(h3) Sapphire Eyes” which has a subsection “(h4) How they are made”. The next heading is an h2, indicating that the (h4) and (h3) subsections are both closed now." class="" src="../../img/page-structure-headings-1b48a3e1.png" />
+  </div></figure>
+</p>
 
 </div>
-<h2 id="organize-main-page-content">Organize main page content</h2>
+      <aside class="demo-side">
+      <div>
+        <svg style="width: 2em;" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%"><circle cx="17" cy="15" r="1"/><circle cx="16" cy="16" r="6"/><path d="M2 16S7 6 16 6s14 10 14 10-5 10-14 10S2 16 2 16z"/></symbol>
+<p>View a <a href="../example/">complete code example</a> to see headings used like this.</p>
 
-<p>When looking at the content, the highest available heading level should be used to mark up the heading of the main content, as this makes it easy to discover. Ideally use an <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code>.</p>
+</div>
+      </aside>
+      </div>
+<h3 class="ex" id="main-heading-after-navigation">Main heading after navigation</h3>
 
-<figure class="code ">
-  <figcaption>Code snippet: Showing only headings</figcaption>
-<pre class="highlight html"><span class="nt">&lt;h1&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Cotton Fur<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sapphire Eyes<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Synthetic Felt Paws<span class="nt">&lt;/h2&gt;</span>
-</pre>
+<p>In this second example, the main heading is not the site name but the content heading, which is rank 1. The subheadings in the content are rank 2 as are all the other structural headings.</p>
 
-</figure>
-<h2 id="organize-page-sections">Organize page sections</h2>
-
-<p>Similar to landmarks, headings can be used to give users a way of navigating through web pages. To do this, each section of the page (for example navigation) has its own heading, describing what can be found in the section. Often the heading levels are similar to this example:</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: Showing only headings</figcaption>
-<pre class="highlight html"><span class="nt">&lt;h1&gt;</span>SpaceTeddy Inc.<span class="nt">&lt;/h1&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Navigation<span class="nt">&lt;/h2&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Sidebar<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>More news<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>What our clients say<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Ratings<span class="nt">&lt;/h3&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>An inside look at the new SpaceBear 8™<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Cotton Fur<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Saphire Eyes<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Syntetic Felt Paws<span class="nt">&lt;/h3&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Footer<span class="nt">&lt;/h2&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>About the company<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Our retail stores<span class="nt">&lt;/h3&gt;</span>
-</pre>
-
-</figure>
-<p>The first heading in such cases is usually the page name. In this case, the heading of the actual content is hard to find between headings that describe the page structure. If possible use <a href="landmarks.html">labeled landmarks</a> to mark up the page structure as the provide more meaning to assistive technologies.</p>
+<p><figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content"><img srcset="../../img/page-structure-headings-2-3079de44.png, ../../img/page-structure-headings-2@2x-3bd2167d.png 2x, ../../img/page-structure-headings-2@3x-57aabd13.png 3x" alt="The page starts with an (h2) Navigation Menu, followed by an (h2) Sidebar and an (h1) Space Teddy. The following headings are all (h2) subsections, including the footer which – " class="" src="../../img/page-structure-headings-2-3079de44.png" />
+  </div></figure>
+</p>
 
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG2.0 resources</h2>
-  
-    <p><strong>Success Criteria:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-skip">2.4.1 Bypass Blocks:</a> A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive">2.4.6 Headings and Labels:</a> Headings and labels describe topic or purpose. (Level&nbsp;AA)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-headings">2.4.10 Section Headings:</a> Section headings are used to organize the content. (Level&nbsp;AAA)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
-  
-    <p><strong>Techniques:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/ARIA12">ARIA12: Using role=heading to identify headings</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G130">G130: Providing descriptive headings</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G141">G141: Organizing a page using headings</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H42">H42: Using h1-h6 to identify headings</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H69">H69: Providing heading elements at the beginning of each section of content</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H80">H80: Identifying the purpose of a link using link text combined with the preceding heading element</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/PDF9">PDF9: Providing headings by marking content with heading tags in PDF documents</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-skip">2.4.1 Bypass Blocks:</a> A mechanism is available to bypass blocks of content that are repeated on multiple Web pages. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive">2.4.6 Headings and Labels:</a> Headings and labels describe topic or purpose. (Level&nbsp;AA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-headings">2.4.10 Section Headings:</a> Section headings are used to organize the content. (Level&nbsp;AAA)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/ARIA12">ARIA12: Using role=heading to identify headings</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G130">G130: Providing descriptive headings</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G141">G141: Organizing a page using headings</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H42">H42: Using h1-h6 to identify headings</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H69">H69: Providing heading elements at the beginning of each section of content</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H80">H80: Identifying the purpose of a link using link text combined with the preceding heading element</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/PDF9">PDF9: Providing headings by marking content with heading tags in PDF documents</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
 </div>
 
 
-      <div role="navigation" id="tools">
+      <nav role="navigation" aria-label="Previous/Next" id="tools">
   <ul>
     
       
       
         
         
+        
+      
+        
+        
           <li class="prev">
-            <span><a class="" href="../sections/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Page Sections</span></span></a></span>
+            <span><a rel="prev" class="" href="../labels/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Labeling Regions</span></span></a></span>
           </li>
         
         
@@ -609,12 +652,8 @@
         
         
           <li class="next">
-            <span><a class="" href="../content/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Content Structure</span></span></a></span>
+            <span><a rel="next" class="" href="../content/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Content Structure</span></span></a></span>
           </li>
-        
-      
-        
-        
         
       
         
@@ -623,7 +662,7 @@
       
     
   </ul>
-</div>
+</nav>
 
 
       <aside class="side-box github" role="complementary">
@@ -641,36 +680,54 @@
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Navigation" id="nav">
+  <nav role="navigation" aria-label="Main" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-        Page Structure Tutorial
+          Page Structure Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Concepts</span></a></li>
         
         
           
-            <li><a class="" href="../sections/"><span class="count"></span><span class="txt">Page Sections</span></a></li>
+            <li>
+              <a class="" href="../regions/"><span class="count"></span><span class="txt">Page Regions</span></a>
+              
+            </li>
           
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Headings</span></span></li>
+            <li>
+              <a class="" href="../labels/"><span class="count"></span><span class="txt">Labeling Regions</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../content/"><span class="count"></span><span class="txt">Content Structure</span></a></li>
+            <li>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Headings</span></span>
+              
+            </li>
           
         
           
-            <li><a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a></li>
+            <li>
+              <a class="" href="../content/"><span class="count"></span><span class="txt">Content Structure</span></a>
+              
+            </li>
           
         
           
-            <li><a class="" href="../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a></li>
+            <li class="tips">
+              <a class="" href="../example/"><span class="count"></span><span class="txt">Example</span></a>
+              
+            </li>
           
         
       
@@ -680,63 +737,60 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure</span></span></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer role="contentinfo">
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
     <div>
-		<h2>Document info</h2>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
 		<ul>
-			<li><strong>Status &amp; Last Modification:</strong>
-			
-      
-        [DRAFT] updated
-      
-      
-      April 2017
+			<li><strong>Status:</strong>
+				
+	        [DRAFT] updated
+	      
+	      21 April 2017
+	      
 			</li>
       <li>
-<strong>Editors: </strong>
-<ul class="inline">
-    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  Editors:
+  <ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-<strong>Contributors:</strong>
-The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+  Contributors:
+  <ul class="inline">
+    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
 </li>
 
 <li>
+  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
-    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-      <p>
-	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
-      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
-				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-					<a href="http://www.keio.ac.jp/">Keio</a>,
-         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
-               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
-               </div><!-- ends copyright -->
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
 	</body>
 </html>

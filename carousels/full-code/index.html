@@ -1,0 +1,622 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Complete Code
+  
+    
+       &bull; Carousels
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/carousels/full-code/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Complete Code</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Complete Code
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <pre class="highlight javascript"><code><span class="cm">/* Focusin/out event polyfill (for Firefox) by nuxodin
+ * Source: https://gist.github.com/nuxodin/9250e56a3ce6c0446efa
+ */</span>
+
+<span class="o">!</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="nb">window</span><span class="p">,</span>
+  <span class="nx">d</span> <span class="o">=</span> <span class="nx">w</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span> <span class="nx">w</span><span class="p">.</span><span class="nx">onfocusin</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">){</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focus'</span> <span class="p">,</span><span class="nx">addPolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'blur'</span> <span class="p">,</span><span class="nx">addPolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focusin'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focusout'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">addPolyfill</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="s1">'focus'</span> <span class="p">?</span> <span class="s1">'focusin'</span> <span class="p">:</span> <span class="s1">'focusout'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomEvent</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span> <span class="p">{</span> <span class="na">bubbles</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span> <span class="na">cancelable</span><span class="p">:</span><span class="kc">false</span> <span class="p">});</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">c1Generated</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span> <span class="nx">event</span> <span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">removePolyfill</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">e</span><span class="p">.</span><span class="nx">c1Generated</span><span class="p">){</span> <span class="c1">// focus after focusin, so chrome will the first time trigger tow times focusin</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'focus'</span> <span class="p">,</span><span class="nx">addPolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'blur'</span> <span class="p">,</span><span class="nx">addPolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'focusin'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'focusout'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'focusin'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+  <span class="nx">d</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'focusout'</span> <span class="p">,</span><span class="nx">removePolyfill</span> <span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="p">}</span>
+<span class="p">}();</span>
+
+<span class="cm">/*
+   Carousel Prototype
+   Eric Eggert for W3C
+*/</span>
+
+<span class="kd">var</span> <span class="nx">myCarousel</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="s2">"use strict"</span><span class="p">;</span>
+
+  <span class="c1">// Initial variables</span>
+  <span class="kd">var</span> <span class="nx">carousel</span><span class="p">,</span> <span class="nx">slides</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">slidenav</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">timer</span><span class="p">,</span> <span class="nx">setFocus</span><span class="p">,</span> <span class="nx">animationSuspended</span><span class="p">;</span>
+
+
+  <span class="c1">// Helper function: Iterates over an array of elements</span>
+  <span class="kd">function</span> <span class="nx">forEachElement</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">fn</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">elements</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="nx">fn</span><span class="p">(</span><span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Helper function: Remove Class</span>
+  <span class="kd">function</span> <span class="nx">removeClass</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">className</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">el</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="nx">el</span><span class="p">.</span><span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">'(^|\\b)'</span> <span class="o">+</span> <span class="nx">className</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">'|'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'(\\b|$)'</span><span class="p">,</span> <span class="s1">'gi'</span><span class="p">),</span> <span class="s1">' '</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Helper function: Test if element has a specific class</span>
+  <span class="kd">function</span> <span class="nx">hasClass</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">className</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">el</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">className</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">'(^| )'</span> <span class="o">+</span> <span class="nx">className</span> <span class="o">+</span> <span class="s1">'( |$)'</span><span class="p">,</span> <span class="s1">'gi'</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">className</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Initialization for the carousel</span>
+  <span class="c1">// Argument: set = an object of settings</span>
+  <span class="c1">// Possible settings:</span>
+  <span class="c1">// id &lt;string&gt; ID of the carousel wrapper element (required).</span>
+  <span class="c1">// slidenav &lt;bool&gt; If true, a list of slides is shown.</span>
+  <span class="c1">// animate &lt;bool&gt; If true, the slides can be animated.</span>
+  <span class="c1">// startAnimated &lt;bool&gt; If true, the animation begins</span>
+  <span class="c1">//                        immediately.</span>
+  <span class="c1">//                      If false, the animation needs</span>
+  <span class="c1">//                        to be initiated by clicking</span>
+  <span class="c1">//                        the play button.</span>
+  <span class="kd">function</span> <span class="nx">init</span><span class="p">(</span><span class="nx">set</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Make settings available to all functions</span>
+    <span class="nx">settings</span> <span class="o">=</span> <span class="nx">set</span><span class="p">;</span>
+
+    <span class="c1">// Select the element and the individual slides</span>
+    <span class="nx">carousel</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">slides</span> <span class="o">=</span> <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.slide'</span><span class="p">);</span>
+
+    <span class="nx">carousel</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'active carousel'</span><span class="p">;</span>
+
+
+    <span class="c1">// Create unordered list for controls, and attach click events fo previous and next slide</span>
+    <span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+    <span class="nx">ctrls</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'controls'</span><span class="p">;</span>
+    <span class="nx">ctrls</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+        <span class="s1">'&lt;button type="button" class="btn-prev"&gt;&lt;img src="chevron-left.png" alt="Previous Item"&gt;&lt;/button&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;/li&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+        <span class="s1">'&lt;button type="button" class="btn-next"&gt;&lt;img src="chevron-right.png" alt="Next Item"&gt;&lt;/button&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
+
+    <span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-prev'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">prevSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.btn-next'</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">nextSlide</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+      <span class="p">});</span>
+
+    <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
+
+    <span class="c1">// If the carousel is animated or a slide navigation is requested in the settings, anoter unordered list that contains those elements is added. (Note that you cannot supress the navigation when it is animated.)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">slidenav</span> <span class="o">||</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">slidenav</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+      <span class="nx">slidenav</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'slidenav'</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">startAnimated</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;button data-action="stop"&gt;&lt;span class="visuallyhidden"&gt;Stop Animation &lt;/span&gt;￭&lt;/button&gt;'</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;button data-action="start"&gt;&lt;span class="visuallyhidden"&gt;Start Animation &lt;/span&gt;▶&lt;/button&gt;'</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nx">slidenav</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">slidenav</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">forEachElement</span><span class="p">(</span><span class="nx">slides</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+          <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+          <span class="kd">var</span> <span class="nx">klass</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span><span class="o">===</span><span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="s1">'class="current" '</span> <span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+          <span class="kd">var</span> <span class="nx">kurrent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span><span class="o">===</span><span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' &lt;span class="visuallyhidden"&gt;(Current Item)&lt;/span&gt;'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+
+          <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;button '</span><span class="o">+</span> <span class="nx">klass</span> <span class="o">+</span><span class="s1">'data-slide="'</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">'"&gt;&lt;span class="visuallyhidden"&gt;News&lt;/span&gt; '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">kurrent</span> <span class="o">+</span> <span class="s1">'&lt;/button&gt;'</span><span class="p">;</span>
+          <span class="nx">slidenav</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+        <span class="p">});</span>
+      <span class="p">}</span>
+
+      <span class="nx">slidenav</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">button</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">localName</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-slide'</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">stopAnimation</span><span class="p">();</span>
+            <span class="nx">setSlides</span><span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-slide'</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-action'</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"stop"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">stopAnimation</span><span class="p">();</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">button</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-action'</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"start"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">startAnimation</span><span class="p">();</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'active carousel with-slidenav'</span><span class="p">;</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">slidenav</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Add a live region to announce the slide number when using the previous/next buttons</span>
+    <span class="kd">var</span> <span class="nx">liveregion</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+    <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-live'</span><span class="p">,</span> <span class="s1">'polite'</span><span class="p">);</span>
+    <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-atomic'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
+    <span class="nx">liveregion</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'class'</span><span class="p">,</span> <span class="s1">'liveregion visuallyhidden'</span><span class="p">);</span>
+    <span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">liveregion</span><span class="p">);</span>
+
+    <span class="c1">// After the slide transitioned, remove the in-transition class, if focus should be set, set the tabindex attribute to -1 and focus the slide.</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'transitionend'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">slide</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+      <span class="nx">removeClass</span><span class="p">(</span><span class="nx">slide</span><span class="p">,</span> <span class="s1">'in-transition'</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">hasClass</span><span class="p">(</span><span class="nx">slide</span><span class="p">,</span> <span class="s1">'current'</span><span class="p">))</span>  <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">slide</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+          <span class="nx">slide</span><span class="p">.</span><span class="nx">focus</span><span class="p">();</span>
+          <span class="nx">setFocus</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+      <span class="c1">// When the mouse enters the carousel, suspend the animation.</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseenter'</span><span class="p">,</span> <span class="nx">suspendAnimation</span><span class="p">);</span>
+
+      <span class="c1">// When the mouse leaves the carousel, and the animation is suspended, start the animation.</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'mouseleave'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">animationSuspended</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">startAnimation</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="c1">// When the focus enters the carousel, suspend the animation</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focusin'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hasClass</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">,</span> <span class="s1">'slide'</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">suspendAnimation</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+      <span class="c1">// When the focus leaves the carousel, and the animation is suspended, start the animation</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'focusout'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hasClass</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">,</span> <span class="s1">'slide'</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">animationSuspended</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">startAnimation</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+
+    <span class="c1">// Set the index (=current slide) to 0 – the first slide</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">index</span><span class="p">);</span>
+
+    <span class="c1">// If the carousel is animated, advance to the</span>
+    <span class="c1">// next slide after 5s</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">startAnimated</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">nextSlide</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Function to set a slide the current slide</span>
+  <span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">setFocusHere</span><span class="p">,</span> <span class="nx">transition</span><span class="p">,</span> <span class="nx">announceItemHere</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Focus, transition and announce Item are optional parameters.</span>
+    <span class="c1">// focus denotes if the focus should be set after the</span>
+    <span class="c1">// carousel advanced to slide number new_current.</span>
+    <span class="c1">// transition denotes if the transition is going into the</span>
+    <span class="c1">// next or previous direction.</span>
+    <span class="c1">// If announceItem is set to true, the live region’s text is changed (and announced)</span>
+    <span class="c1">// Here defaults are set:</span>
+
+    <span class="nx">setFocus</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">setFocusHere</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">setFocusHere</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">transition</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">transition</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">transition</span> <span class="p">:</span> <span class="s1">'none'</span><span class="p">;</span>
+    <span class="nx">announceItem</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">announceItemHere</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">announceItemHere</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="nx">new_current</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">new_current</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">new_next</span> <span class="o">=</span> <span class="nx">new_current</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">new_prev</span> <span class="o">=</span> <span class="nx">new_current</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// If the next slide number is equal to the length,</span>
+    <span class="c1">// the next slide should be the first one of the slides.</span>
+    <span class="c1">// If the previous slide number is less than 0.</span>
+    <span class="c1">// the previous slide is the last of the slides.</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">new_next</span> <span class="o">===</span> <span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">new_next</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">new_prev</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">new_prev</span> <span class="o">=</span> <span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Reset slide classes</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">slides</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"slide"</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Add classes to the previous, next and current slide</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span> <span class="o">+</span> <span class="p">((</span><span class="nx">transition</span> <span class="o">==</span> <span class="s1">'next'</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' in-transition'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">);</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
+
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_prev</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'prev slide'</span> <span class="o">+</span> <span class="p">((</span><span class="nx">transition</span> <span class="o">==</span> <span class="s1">'prev'</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' in-transition'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">);</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_prev</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">,</span> <span class="s1">'true'</span><span class="p">);</span>
+
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'aria-hidden'</span><span class="p">);</span>
+
+    <span class="c1">// Update the text in the live region which is then announced by screen readers.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.liveregion'</span><span class="p">).</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Item '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">new_current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' of '</span> <span class="o">+</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update the buttons in the slider navigation to match the currently displayed  item</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">slidenav</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.slidenav button[data-slide]'</span><span class="p">);</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">buttons</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+        <span class="nx">buttons</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;span class="visuallyhidden"&gt;News&lt;/span&gt; '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+      <span class="nx">buttons</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"current"</span><span class="p">;</span>
+      <span class="nx">buttons</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;span class="visuallyhidden"&gt;News&lt;/span&gt; '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">new_current</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' &lt;span class="visuallyhidden"&gt;(Current Item)&lt;/span&gt;'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Set the global index to the new current value</span>
+    <span class="nx">index</span> <span class="o">=</span> <span class="nx">new_current</span><span class="p">;</span>
+
+  <span class="p">}</span>
+
+  <span class="c1">// Function to advance to the next slide</span>
+  <span class="kd">function</span> <span class="nx">nextSlide</span><span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">announceItem</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">announceItem</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">announceItem</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+    <span class="nx">new_current</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">new_current</span> <span class="o">===</span> <span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">new_current</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we advance to the next slide, the previous needs to be</span>
+    <span class="c1">// visible to the user, so the third parameter is 'prev', not</span>
+    <span class="c1">// next.</span>
+    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s1">'prev'</span><span class="p">,</span> <span class="nx">announceItem</span><span class="p">);</span>
+
+    <span class="c1">// If the carousel is animated, advance to the next</span>
+    <span class="c1">// slide after 5s</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">nextSlide</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="p">}</span>
+
+  <span class="c1">// Function to advance to the previous slide</span>
+  <span class="kd">function</span> <span class="nx">prevSlide</span><span class="p">(</span><span class="nx">announceItem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">announceItem</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">announceItem</span> <span class="o">!==</span> <span class="s1">'undefined'</span> <span class="p">?</span> <span class="nx">announceItem</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
+    <span class="nx">new_current</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// If we are already on the first slide, show the last slide instead.</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">new_current</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">new_current</span> <span class="o">=</span> <span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If we advance to the previous slide, the next needs to be</span>
+    <span class="c1">// visible to the user, so the third parameter is 'next', not</span>
+    <span class="c1">// prev.</span>
+    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s1">'next'</span><span class="p">,</span> <span class="nx">announceItem</span><span class="p">);</span>
+
+  <span class="p">}</span>
+
+  <span class="c1">// Function to stop the animation</span>
+  <span class="kd">function</span> <span class="nx">stopAnimation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+    <span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">animationSuspended</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">_this</span> <span class="o">=</span> <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-action]'</span><span class="p">);</span>
+    <span class="nx">_this</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;span class="visuallyhidden"&gt;Start Animation &lt;/span&gt;▶'</span><span class="p">;</span>
+    <span class="nx">_this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'data-action'</span><span class="p">,</span> <span class="s1">'start'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Function to start the animation</span>
+  <span class="kd">function</span> <span class="nx">startAnimation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="nx">animationSuspended</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nx">timer</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">nextSlide</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+    <span class="nx">_this</span> <span class="o">=</span> <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'[data-action]'</span><span class="p">);</span>
+    <span class="nx">_this</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;span class="visuallyhidden"&gt;Stop Animation &lt;/span&gt;￭'</span><span class="p">;</span>
+    <span class="nx">_this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'data-action'</span><span class="p">,</span> <span class="s1">'stop'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Function to suspend the animation</span>
+  <span class="kd">function</span> <span class="nx">suspendAnimation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timer</span><span class="p">);</span>
+      <span class="nx">settings</span><span class="p">.</span><span class="nx">animate</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="nx">animationSuspended</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Making some functions public</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">init</span><span class="p">:</span><span class="nx">init</span><span class="p">,</span>
+    <span class="na">next</span><span class="p">:</span><span class="nx">nextSlide</span><span class="p">,</span>
+    <span class="na">prev</span><span class="p">:</span><span class="nx">prevSlide</span><span class="p">,</span>
+    <span class="na">goto</span><span class="p">:</span><span class="nx">setSlides</span><span class="p">,</span>
+    <span class="na">stop</span><span class="p">:</span><span class="nx">stopAnimation</span><span class="p">,</span>
+    <span class="na">start</span><span class="p">:</span><span class="nx">startAnimation</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">carousel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">myCarousel</span><span class="p">();</span>
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+  <span class="na">id</span><span class="p">:</span> <span class="s1">'carousel'</span><span class="p">,</span>
+  <span class="na">slidenav</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">animate</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="na">startAnimated</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">});</span>
+</code></pre>
+</figure>
+
+
+      
+
+      <nav role="navigation" aria-label="Previous/Next" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../working-example/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Working Example</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+    
+  </ul>
+</nav>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/carousels/full-code.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Main" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+          Carousels Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
+        
+        
+          
+            <li>
+              <a class="" href="../structure/"><span class="count"></span><span class="txt">Structure</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../functionality/"><span class="count"></span><span class="txt">Functionality</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../working-example/"><span class="count"></span><span class="txt">Working Example</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Complete Code</span></span>
+              
+            </li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
+  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+  <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Carousels</span></span></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+    <div>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      21 April 2017
+	      
+		      
+		      (first published May 2015)
+		      
+		    
+			</li>
+      <li>
+  Editors:
+  <ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+  Contributors:
+  <ul class="inline">
+    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
+</li>
+
+<li>
+  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <div class="copyright">
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	</body>
+</html>
