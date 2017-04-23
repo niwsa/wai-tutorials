@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-  Multi-Page Forms
+  Multi-page Forms
   
     
        &bull; Forms
@@ -11,8 +11,9 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/forms/multi-page/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-68dca179.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-b024f4ea.css" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -26,24 +27,26 @@
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content ">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Forms</span></a> <span class="icon icon-chevron-right"></span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Forms</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             
-            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Multi-Page Forms</span></span>
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Multi-page Forms</span></span>
           </span>
         </p>
       </nav>
       <h1>
-        Multi-Page Forms
+        Multi-page Forms
       </h1>
     </header>
 
@@ -62,14 +65,14 @@
 
 <ul>
   <li>Repeat <a href="../instructions/#overall-instructions">overall instructions</a> on every page.</li>
-  <li>Split the form up according to the topic of the form fields on a page. For example, in an online shop, shipping and payment information are on separate pages.</li>
-  <li>Make is easy to skip optional stages. If a page is optional it makes sense to mention this information in the main heading of the page as well.</li>
+  <li>Split the form up according to its logical groups of controls. For example, in an online shop, shipping and payment information are typically separated.</li>
+  <li>Make it easy to recognize and to skip optional stages. For example, highlight optional steps in the main heading of the web page and provide an option to skip.</li>
   <li>If possible, don’t set a time limit to fill out the form. If a time limit is required, provide a feature that allows the user to adjust or extend the time limit.</li>
 </ul>
 
 <h2 class="newex" id="indicating-progress">Indicating progress</h2>
 
-<p>If possible, the first form page should explain how many pages will follow, and on each page users should be informed about the progress they are making.</p>
+<p>If possible, the first step of a form should explain how many steps will follow. Each step should inform the user about the progress they are making.</p>
 
 <h3 class="ap" id="using-the-page-title">Using the page title</h3>
 
@@ -120,19 +123,63 @@ Survey <progress max="7" value="6">(Step 6 of circa 7)</progress><br>
 
 Survey <progress max="7" value="7">(Finished)</progress>
 
+<style>
+progress {
+  color: #036;
+  font-size: .6em;
+  line-height: 1.5em;
+  text-indent: .5em;
+  width: 15em;
+  height: 1em;
+  border: 1px solid #036;
+  border-radius: 1em;
+  background: #fff;
+  overflow:hidden;
+}
+
+progress::-webkit-progress-bar {
+	background-color:#036;
+}
+
+progress::-moz-progress-bar {
+	background-color:#036;
+}
+</style>
+
 
   </div></figure>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code>
-Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span class="s">"7"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>(Step 2 of circa 7)<span class="nt">&lt;/progress&gt;&lt;br&gt;</span>
+<pre class="highlight html"><code>Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span class="s">"7"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>(Step 2 of circa 7)<span class="nt">&lt;/progress&gt;&lt;br&gt;</span>
 
 Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span class="s">"7"</span> <span class="na">value=</span><span class="s">"3"</span><span class="nt">&gt;</span>(Step 3 of circa 7)<span class="nt">&lt;/progress&gt;&lt;br&gt;</span>
 
 Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span class="s">"7"</span> <span class="na">value=</span><span class="s">"6"</span><span class="nt">&gt;</span>(Step 6 of circa 7)<span class="nt">&lt;/progress&gt;&lt;br&gt;</span>
 
 Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span class="s">"7"</span> <span class="na">value=</span><span class="s">"7"</span><span class="nt">&gt;</span>(Finished)<span class="nt">&lt;/progress&gt;</span>
+</code></pre>
+</figure>
+<p>The progress element, like other form elements, is a component from the operating system rendered directly on the website. Those components are animated in some operating systems which would violate WCAG 2.0’s <a href="http://www.w3.org/TR/WCAG20/#time-limits-pause">2.2.2 Pause, Stop, Hide</a> success criterion that requires that users are able to disable an animation that starts automatically, lasts more than 5 seconds and is presented in parallel with other content.</p>
+
+<p>The animation can be stopped by using custom styling with browser-specific CSS as shown below.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight css"><code><span class="c">/* Microsoft IE */</span>
+<span class="nt">progress</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Apple Safari and Google Chrome */</span>
+<span class="nt">progress</span><span class="nd">::-webkit-progress-bar</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Mozilla Firefox */</span>
+<span class="nt">progress</span><span class="nd">::-moz-progress-bar</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre>
 </figure>
 <h3 class="ap" id="using-step-by-step-indicator">Using step-by-step indicator</h3>
@@ -275,473 +322,500 @@ Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span cl
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG2.0 resources</h2>
-  
-    <p><strong>Success Criteria:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-required-behaviors">2.2.1 Timing Adjustable:</a> For each time limit that is set by the content, at least one of the following is true:<ul><li>Turn off: The user is allowed to turn off the time limit before encountering it; or</li>Adjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or</li><li>Extend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and the user is allowed to extend the time limit at least ten times; or</li><li>Real-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or</li><li>Essential Exception: The time limit is essential and extending it would invalidate the activity; or</li><li>20 Hour Exception: The time limit is longer than 20 hours. </li></ul> (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-cues">3.3.2 Labels or Instructions:</a> Labels or instructions are provided when content requires user input. (Level&nbsp;A)</p></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
-  
-    <p><strong>Techniques:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G198">G198: Providing a way for the user to turn the time limit off</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H71">H71: Providing a description for groups of form controls using fieldset and legend elements</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR1">SCR1: Allowing the user to extend the default time limit</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+	  
+	    <p><strong>Success Criteria:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-required-behaviors">2.2.1 Timing Adjustable:</a> For each time limit that is set by the content, at least one of the following is true:<ul><li>Turn off: The user is allowed to turn off the time limit before encountering it; or</li>Adjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or</li><li>Extend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, "press the space bar"), and the user is allowed to extend the time limit at least ten times; or</li><li>Real-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or</li><li>Essential Exception: The time limit is essential and extending it would invalidate the activity; or</li><li>20 Hour Exception: The time limit is longer than 20 hours. </li></ul> (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-cues">3.3.2 Labels or Instructions:</a> Labels or instructions are provided when content requires user input. (Level&nbsp;A)</p></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+	  
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G133">G133: Providing a checkbox on the first page of a multipart form that allows users to ask for longer session time limit or no session time limit</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G180">G180: Providing the user with a means to set the time limit to 10 times the default time limit</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G198">G198: Providing a way for the user to turn the time limit off</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H71">H71: Providing a description for groups of form controls using fieldset and legend elements</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR1">SCR1: Allowing the user to extend the default time limit</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/SCR16">SCR16: Providing a script that warns the user a time limit is about to expire</a></li>
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	        
+	          
+	        
+	      
+	    </ul>
+	  
+  </div>
 </div>
 
 
@@ -769,7 +843,7 @@ Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span cl
         
         
           <li class="prev">
-            <span><a class="" href="../notifications/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">User Notifications</span></span></a></span>
+            <span><a rel="prev" class="" href="../notifications/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">User Notifications</span></span></a></span>
           </li>
         
         
@@ -782,12 +856,8 @@ Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span cl
         
         
           <li class="next">
-            <span><a class="" href="../custom-controls/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Custom Controls</span></span></a></span>
+            <span><a rel="next" class="" href="../custom-controls/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Custom Controls</span></span></a></span>
           </li>
-        
-      
-        
-        
         
       
     
@@ -843,15 +913,11 @@ Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span cl
           
         
           
-            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Multi-Page Forms</span></span></li>
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Multi-page Forms</span></span></li>
           
         
           
             <li><a class="" href="../custom-controls/"><span class="count"></span><span class="txt">Custom Controls</span></a></li>
-          
-        
-          
-            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
           
         
       
@@ -860,38 +926,47 @@ Survey <span class="nt">&lt;progress</span> <span class="na">max=</span><span cl
   All Tutorials
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
-	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Forms</span></span></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer role="contentinfo">
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
     <div>
-		<h2>Document info</h2>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
 		<ul>
-			<li><strong>Status &amp; Last Modification:</strong>
-			
-      
-      
-      April 2017
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      23 April 2017
+	      
+		      
+		      (first published September 2014)
+		      
+		    
 			</li>
       <li>
-<strong>Editors: </strong>
-<ul class="inline">
+  Editors:
+  <ul class="inline">
     <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-<strong>Contributors:</strong>
-The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+  Contributors:
+  <ul class="inline">
+    <li>The Web Content Accessibility Guidelines Working Group (<a href="http://www.w3.org/WAI/GL/">WCAG WG</a>)</li><li>the Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
 </li>
 
 <li>
+  Developed with support from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
@@ -902,20 +977,13 @@ The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EO
     	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
     	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
-    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-      <p>
-	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
-      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
-				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-					<a href="http://www.keio.ac.jp/">Keio</a>,
-         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
-               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
-               </div><!-- ends copyright -->
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-c3d123ae.js" type="text/javascript"></script>
 	</body>
 </html>

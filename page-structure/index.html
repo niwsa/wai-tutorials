@@ -11,8 +11,9 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/page-structure/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../stylesheets/wai-act-68dca179.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../stylesheets/wai-act-b024f4ea.css" rel="stylesheet" type="text/css" />
   <script src="../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -26,17 +27,19 @@
     </div>
   </header>
   <div class="with-side-menu">
-    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
 <main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="home"><a class="" href="../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
             
             
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure</span></span> <span class="icon icon-chevron-right"></span>
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure</span></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure Concepts</span></span>
           </span>
@@ -74,36 +77,37 @@
       
 
 
-      <p>To help users orient themselves on web pages, the content and different areas need to be structured to help assistive technology identify them. This tutorial shows how to use HTML elements and WAI-ARIA attributes to allow users to navigate through the page and engage with the content efficiently.</p>
+      <p>Proper page structure makes it easier for everyone to understand the content. It also facilitates the effectiveness of users that use assistive technology or other alternative devices. This tutorial shows how to use HTML and WAI-ARIA to improve navigation and orientation on web pages and applications.</p>
 
 <ul>
   <li>
-    <p><strong><a href="sections/">Page Sections</a>:</strong> Identify and mark section on pages using HTML5 and WAI-ARIA <code>roles</code> to make sure that the purpose of each individual section is conveyed to users.</p>
+    <p><strong><a href="sections/">Page Sections</a>:</strong> Identify and mark up sections on web pages using HTML5 and WAI-ARIA roles.</p>
   </li>
   <li>
-    <p><strong><a href="headings/">Headings</a>:</strong> Convey the page’s structure and sections of content by adding headings of different levels.</p>
+    <p><strong><a href="headings/">Headings</a>:</strong> Add logically nested headings of different levels to label sections of content.</p>
   </li>
   <li>
-    <p><strong><a href="content/">Content Structure</a>:</strong> Mark up content so it can be easily interpreted and adapted to user’s needs.</p>
+    <p><strong><a href="content/">Content Structure</a>:</strong> Mark up the content on a page in a way that uses the best available element.</p>
   </li>
   <li>
-    <p><strong><a href="styling/">Styling</a>:</strong> Apply a distinct hierarchy to the visual page’s design, so users are able to easily determine what each section of the page does.</p>
+    <p><strong><a href="styling/">Styling</a>:</strong> Use consistent styling to allow users to keep track of their position in the web page and of what is important on the page.</p>
   </li>
   <li>
-    <p><strong><a href="in-page-navigation/">In-page Navigation</a>:</strong> Provide navigation aids to help users to get around the page and discover the various sections of the page. Consider adding a “table of content” for longer pieces of content.</p>
+    <p><strong><a href="in-page-navigation/">In-page Navigation</a>:</strong> Provide mechanisms to navigate between sections of a web page. Consider using a “table of contents” for longer pieces of content.</p>
   </li>
 </ul>
 
 <h2 id="why-is-this-important">Why is this important?</h2>
 
-<p>The content of the page is the reason people are visiting websites in the first place. Being unable to find content or navigate inside individual pages can create major accessibility barriers. An accessible page structure benefits users in many situations such as:</p>
+<p>A good page structure makes prioritizing and identifying content easier for everyone, in particular for those with congnitive and learning disabilities. The visual structure serves as cues that are used by people with visual impairments, including people with low vision, to orient themselves on the page and in the content.</p>
 
 <ul>
-  <li><strong>People using screen readers</strong> can skip to the content directly and navigate to sections that are important to them. Content is read out in the way it is intended.</li>
-  <li><strong>People using distraction-free reading plugins</strong> will receive better results if the main content is easily to determine.</li>
+  <li><strong>People using screen readers</strong> can skip to the content directly and navigate to sections that are important to them.</li>
+  <li><strong>Keyboard users</strong> will be more efficient when they are able to navigate the page bypassing some sections. If this is not possible, users need to use multiple strokes of the tab key to navigate through the links in a specific section.</li>
+  <li><strong>People using software that only shows the main content</strong> of a web page, such as people with cognitive disabilities, will receive better results if the page structure is correctly marked up.</li>
+  <li><strong>Mobile web users</strong> often have access to a so-called “reader” or “reading” mode that will only show the main content of the page if it is correctly marked up.</li>
   <li><strong>People using certain browser plugins</strong> can use landmark roles to jump to specific sections on a page.</li>
-  <li><strong>Keyboard users</strong> can save the time and trouble to navigate through a number of links using the tab key.</li>
-  <li><strong>Search engines</strong> can use the data to make better predictions on the real content of a web page.</li>
+  <li><strong>Search engines</strong> are able to distinguish between main content and other sections of the page. They could also identify the navigation and show links to sub pages directly on the search results page.</li>
 </ul>
 
 
@@ -118,7 +122,7 @@
         
         
           <li class="next">
-            <span><a class="" href="sections/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Page Sections</span></span></a></span>
+            <span><a rel="next" class="" href="sections/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Page Sections</span></span></a></span>
           </li>
         
       
@@ -196,37 +200,36 @@
   All Tutorials
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
-	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure</span></span></li>
-	<li><a href="../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure <span class="status">draft</span></span></span></li>
+	<li><a href="../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><a href="../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+	<li><a href="../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer role="contentinfo">
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
     <div>
-		<h2>Document info</h2>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
 		<ul>
-			<li><strong>Status &amp; Last Modification:</strong>
-			
-      
-        [DRAFT] updated
-      
-      
-      April 2017
+			<li><strong>Status:</strong>
+				
+	        [DRAFT] updated
+	      
+	      23 April 2017
+	      
 			</li>
       <li>
-<strong>Editors: </strong>
+Editors:
 <ul class="inline">
     <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-<strong>Contributors:</strong>
-The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+Contributors: The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
 </li>
 
 <li>
@@ -240,20 +243,13 @@ The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EO
     	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
     	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
-    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-      <p>
-	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
-      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
-				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-					<a href="http://www.keio.ac.jp/">Keio</a>,
-         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
-               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
-               </div><!-- ends copyright -->
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	<script src="../javascripts/main-c3d123ae.js" type="text/javascript"></script>
 	</body>
 </html>
