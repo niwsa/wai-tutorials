@@ -11,35 +11,31 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/images/decorative/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-68dca179.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
-  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <nav aria-label="Skip links" role="navigation">
-      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
-    </nav>
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
 <main role="main" class="content ">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Images</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Images</span></a> <span class="icon icon-chevron-right"></span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Decorative Images</span></span>
@@ -62,21 +58,24 @@
       
 
 
-      <p>Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text, or the image might be included to make the website more visually attractive.</p>
+      <p>Decorative images don’t add information to the content of a page. For example, the information provided by the image might already be given using adjacent text or the image might be included for visual interest only.</p>
 
-<p>In these cases, a null (empty) <code>alt</code> text should be provided (<code>alt=""</code>) so that they can be ignored by assistive technologies, such as screen readers. Text values for these types of images would add audible clutter to screen reader output or could distract users if the topic is different from that in adjacent text. Leaving out the <code>alt</code> attribute is also not an option because when it is not provided, some screen readers will announce the file name of the image instead.</p>
+<p>In these cases, a null (empty) <code>alt</code> text should be provided (<code>alt=""</code>) so that they can be ignored by assistive technologies such as screen readers. Text values for this type of images would add audible clutter to screen reader output or could distract users if the topic is different from that in adjacent text. Leaving out the <code>alt</code> attribute is  also not an option because when it is not provided, some screen readers will announce the image’s file name instead.</p>
 
-<p>Whether to treat an image as decorative or <a href="../informative/">informative</a> is a judgment that only the author can make, based on the reason for including the image on the page. Images may be decorative when they are:</p>
+<p>Whether to treat an image as decorative or <a href="../informative/">informative</a> is a judgement that only the author can make, based on the reason for including the image on the page. Images may be decorative when they are:</p>
 
 <ul>
-  <li>Visual styling such as borders, spacers, and corners;</li>
-  <li>Supplementary to link text to improve its appearance or increase the clickable area;</li>
-  <li>Illustrative of adjacent text but not contributing information (“eye-candy”);</li>
-  <li>Identified and described by surrounding text.</li>
+  <li>Visual styling such as borders, spacers, and corners</li>
+  <li>Supplementary to link text to improve its appearance or increase the clickable area</li>
+  <li>Illustrative of adjacent text but not contributing information (“eye-candy”)</li>
+  <li>Identified and described by surrounding text</li>
 </ul>
 
-<p>The examples below show how to use the <code>alt</code> attribute when decorative images are provided using the <code>&lt;img&gt;</code> element. Where possible, decorative images should be provided using CSS background images instead.</p>
+<div class="notes ">
+<p><strong>Note:</strong> Where possible decorative images should be part of the CSS
+styling rather than being in the HTML.</p>
 
+</div>
 <h2 class="ex" id="image-used-as-part-of-page-design">Image used as part of page design</h2>
 
 <p>This image is used as a border in the page design and has a purely
@@ -95,7 +94,7 @@ decorative purpose.</p>
 <pre class="highlight html"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"topinfo_bg.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
 </code></pre>
 </figure>
-<p>Screen readers also allow the use of WAI-ARIA to hide elements by using <code>role="presentation"</code>. However, currently, this feature is not as widely supported as using a null <code>alt</code> attribute.</p>
+<p>Screen readers also allow the use of WAI-ARIA to hide elements by using <code>role="presentation"</code>. Note that this feature is not as widely supported as using a null <code>alt</code> attribute.</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
@@ -108,12 +107,12 @@ decorative purpose.</p>
 </div>
 <h2 class="ex" id="decorative-image-as-part-of-a-text-link">Decorative image as part of a text link</h2>
 
-<p>This illustration of a crocus bulb is used to make the link easier to identify and to increase the clickable area but doesn’t add to the information already provided in the adjacent link text (of the same anchor). In this case, use a null (empty) <code>alt</code> value for the image.</p>
+<p>This illustration of a crocus bulb is used to make the link easier to identify and to increase the clickable area, but doesn’t add to the information already provided in the adjacent link text (of the same anchor). In this case a null (empty) <code>alt</code> value should be used for the image.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
-<p><a href="../../beyond/"><img alt="" style="vertical-align: middle; margin-right: 1em;" src="../../img/crocus-43300466.jpg" /><strong>Crocus bulbs</strong></a></p>
+<p><a href="../../beyond/"><img alt="" style="vertical-align: middle; margin-right: 1em;" src="../../img/crocus-099637aa.jpg" /><strong>Crocus bulbs</strong></a></p>
 
 
   </div></figure>
@@ -128,12 +127,12 @@ decorative purpose.</p>
 </figure>
 <h2 class="ex" id="image-with-adjacent-text-alternative">Image with adjacent text alternative</h2>
 
-<p>This picture of a sleeping dog is already sufficiently described by the adjacent text. There is no need to repeat this information, and a null (empty) <code>alt</code> value can be used for this image.</p>
+<p>This picture of a sleeping dog is already sufficiently described by the adjacent text. There is no need to repeat this information and a null (empty) <code>alt</code> value can be used for this image.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
-<p><img alt="" style="float:left; margin-right: 1em;" src="../../img/sleeping-a095dfe5.jpg" /> <strong>The sleeping dog:</strong> Let sleeping dogs lie is a proverb that means “don’t initiate trouble. If something that could be troublesome is quiet, then leave it alone”.</p>
+<p><img alt="" style="float:left; margin-right: 1em;" src="../../img/sleeping-7667c554.jpg" /> <strong>The sleeping dog:</strong> Let sleeping dogs lie is a proverb that means “don’t initiate trouble. If something that could be troublesome is quiet, then leave it alone”.</p>
 
 
   </div></figure>
@@ -146,14 +145,14 @@ decorative purpose.</p>
 <span class="nt">&lt;/p&gt;</span>
 </code></pre>
 </figure>
-<h2 class="ex" id="image-used-for-ambiance-eye-candy">Image used for ambiance (eye-candy)</h2>
+<h2 class="ex" id="image-used-for-ambience-eye-candy">Image used for ambience (eye-candy)</h2>
 
-<p>This image is used only to add ambiance or visual interest to the page.</p>
+<p>This image is used only to add ambience or visual interest to the page.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
-<p><img alt="" style="float:left; margin-right: 1em;" src="../../img/kew-34e02a39.jpg" /> Don’t miss the impressive Tropical House – a huge greenhouse that displays examples of exotic plant-life from every tropical environment on the planet.</p>
+<p><img alt="" style="float:left; margin-right: 1em;" src="../../img/kew-bd2c2f93.jpg" /> Don’t miss the impressive Tropical House – a huge greenhouse that displays examples of exotic plant-life from every tropical environment on the planet.</p>
 
 
   </div></figure>
@@ -164,391 +163,364 @@ decorative purpose.</p>
 </code></pre>
 </figure>
 <div class="notes ">
-<p><strong>Note:</strong> If the purpose of this image was to identify a plant or convey other information, rather than just to improve the look of the page, it should probably be treated as <a href="../informative/">informative</a>. The author determines the purpose for the use of the image.</p>
+<p><strong>Note:</strong> If the purpose of this image was to identify a plant or convey other information, rather than to just improve the look of the page, it should probably be treated as <a href="../informative/">informative</a>. The author determines the purpose for the use of the image.</p>
 
 </div>
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG 2.0 resources</h2>
-  <div class="resources-inner">
-	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
-	  
-	  
-	    <p><strong>Techniques:</strong></p>
-	    <ul>
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H2">H2: Combining adjacent image and text links for the same resource</a></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H67">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	    </ul>
-	  
-  </div>
+  <h2 id="related">Related WCAG2.0 resources</h2>
+  
+  
+    <p><strong>Techniques:</strong></p>
+    <ul>
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H2">H2: Combining adjacent image and text links for the same resource</a></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H67">H67: Using null alt text and no title attribute on img elements for images that AT should ignore</a></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+  
 </div>
 
 
-      <nav role="navigation" aria-label="Previous/Next" id="tools">
+      <div role="navigation" id="tools">
   <ul>
     
       
@@ -556,7 +528,7 @@ decorative purpose.</p>
         
         
           <li class="prev">
-            <span><a rel="prev" class="" href="../informative/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Informative Images</span></span></a></span>
+            <span><a class="" href="../informative/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Informative Images</span></span></a></span>
           </li>
         
         
@@ -569,7 +541,7 @@ decorative purpose.</p>
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../functional/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Functional Images</span></span></a></span>
+            <span><a class="" href="../functional/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Functional Images</span></span></a></span>
           </li>
         
       
@@ -599,7 +571,7 @@ decorative purpose.</p>
       
     
   </ul>
-</nav>
+</div>
 
 
       <aside class="side-box github" role="complementary">
@@ -617,82 +589,52 @@ decorative purpose.</p>
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Main" id="nav">
+  <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-          Images Tutorial
+        Images Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
-      
-        
-      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Images Concepts</span></a></li>
         
         
           
-            <li>
-              <a class="" href="../informative/"><span class="count"></span><span class="txt">Informative Images</span></a>
-              
-            </li>
+            <li><a class="" href="../informative/"><span class="count"></span><span class="txt">Informative Images</span></a></li>
           
         
           
-            <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Decorative Images</span></span>
-              
-            </li>
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Decorative Images</span></span></li>
           
         
           
-            <li>
-              <a class="" href="../functional/"><span class="count"></span><span class="txt">Functional Images</span></a>
-              
-            </li>
+            <li><a class="" href="../functional/"><span class="count"></span><span class="txt">Functional Images</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a>
-              
-            </li>
+            <li><a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a>
-              
-            </li>
+            <li><a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a>
-              
-            </li>
+            <li><a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a>
-              
-            </li>
+            <li><a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a></li>
           
         
           
-            <li class="tips">
-              <a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a>
-              
-            </li>
+            <li class="tips"><a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a></li>
           
         
           
-            <li class="tips">
-              <a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a>
-              
-            </li>
+            <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
           
         
       
@@ -702,64 +644,64 @@ decorative purpose.</p>
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Images</span></span></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
-  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+	<footer role="contentinfo">
     <div>
-		<h2 id="wai_footerheading">Document Information</h2>
-    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<h2>Document info</h2>
 		<ul>
-			<li><strong>Status:</strong>
-				
-	      	Updated
-	      
-	      23 April 2017
-	      
-		      
-		      (first published September 2014)
-		      
-		    
+			<li><strong>Status &amp; Last Modification:</strong>
+			
+      
+      
+      April 2017
 			</li>
       <li>
-  Editors:
+  <strong>Editors:</strong>
   <ul class="inline">
-    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-  Contributors:
+  <strong>Contibutors:</strong>
   <ul class="inline">
-    <li>Anna Belle Leiserson</li><li>the Web Content Accessibility Guidelines Working Group (<a href="https://www.w3.org/WAI/GL/">WCAG WG</a>)</li><li>the Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+    <li>Anna Bell Leiserson</li><li>the Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
   </ul>
 </li>
 
 <li>
-  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
+  <strong>Developed with support</strong> from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the European Commission <abbr title="Information Society Technologies">IST</abbr> Programme.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-        <p>
-	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
-        </p>
-      </div><!-- ends copyright -->
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
 	</body>
 </html>

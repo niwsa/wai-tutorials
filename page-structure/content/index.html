@@ -11,35 +11,31 @@
   
   &bull; WAI Web Accessibility Tutorials
   </title>
-  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/page-structure/content/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-68dca179.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
-  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
 </head>
 <body class="texts">
   <header role="banner">
     <div class="w3c-wai-header">
-      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
-      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
     </div>
     <div class="page-title">
       <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
     </div>
   </header>
   <div class="with-side-menu">
-    <nav aria-label="Skip links" role="navigation">
-      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
-    </nav>
-<main role="main" class="content ">
+    <a href="#nav" class="btn btn-jump" role="navigation">Jump to the navigation</a>
+<main role="main" class="content draft">
   <article role="article">
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
           <span class="other">
             
-              <a class="" href="../"><span class="count"></span><span class="txt">Page Structure</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+              <a class="" href="../"><span class="count"></span><span class="txt">Page Structure</span></a> <span class="icon icon-chevron-right"></span>
             
             
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Content Structure</span></span>
@@ -52,6 +48,10 @@
     </header>
 
     
+      <div class="status">
+        <p><strong>Status:</strong> This is an in-progress, unapproved draft.</p>
+      </div>
+    
     
 
 
@@ -62,53 +62,19 @@
       
 
 
-      <p>Mark up website content semantically, so that the website is extensible. Valid semantics create content that is reusable and more meaningful to assistive technologies.</p>
+      <p>Besides <a href="../headings/">headings</a>, there are a lot of ways to structure content using semantic HTML elements. This helps to keep the website extensible, the content reusable and also conveys more meaning to assistive technologies.</p>
 
-<h2 id="articles">Articles</h2>
-
-<p>The HTML5 <code>&lt;article&gt;</code> element represents a complete or self-contained composition in a web page. Examples of articles include an item at a shopping site or a news article on a news site.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Classic<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-<span class="nt">&lt;article&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Space Bear Extreme<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/article&gt;</span>
-</code></pre>
-</figure>
-<h2 id="sections">Sections</h2>
-
-<p>The HTML5 <code>&lt;section&gt;</code> element marks a general region of a web page or an article. It is used for thematic grouping of content.</p>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;section&gt;</span>
-  <span class="nt">&lt;h2&gt;</span>Chapter 2<span class="nt">&lt;/h2&gt;</span>
-  …
-<span class="nt">&lt;/section&gt;</span>
-</code></pre>
-</figure>
 <h2 id="paragraphs">Paragraphs</h2>
 
-<p>Use the paragraph element (<code>&lt;p&gt;</code>) to mark up paragraphs of text, such as this one. The consistent styling of paragraphs improves text readability. It also gives users more control when customizing their view.</p>
+<p>The most simple form of text structuring is to write texts in paragraphs, adding rhythm and lightness to the page. The paragraph element (<code>&lt;p&gt;</code>) should be used, as its consistent styling improves readability of the text. The styling of paragraphs is often altered by user stylesheets to adapt for the user’s needs.</p>
 
 <h2 id="lists">Lists</h2>
 
-<p>Use different types of lists to group information according to its nature to provide orientation for users.</p>
+<p>HTML provides elements to mark up ordered and unordered lists. Use ordered lists if the content has instructions or information that is performed or used in sequence, for example how to prepare a meal. They are enumerated automatically by the browser. In an unordered list the order does not matter, for example on an ingredients list, the purchase order of ingredients is not relevant. Every list item in unordered lists is marked with a bullet. Both types of lists provide orientation for the user.</p>
 
-<ul>
-  <li>Unordered lists are used when the order of the items is not relevant. List items in unordered lists are marked with a bullet.</li>
-  <li>Ordered lists are used for sequential information and are automatically enumerated by the browser.</li>
-  <li>Description lists are groups of related terms and descriptions which are connected programmatically.</li>
-</ul>
+<p>List items can contain all kinds of different HTML elements, including paragraphs, headings, and form elements.</p>
 
-<p>Individual list items can contain a variety of HTML elements, including paragraphs, headings, form elements, and other (nested) lists.</p>
-
-<h3 id="unordered-list">Unordered list</h3>
+<h3 class="ex" id="unordered-list">Unordered list</h3>
 
 <p>The unordered list consists of one <code>&lt;ul&gt;</code> element and multiple list item (<code>&lt;li&gt;</code>) elements:</p>
 
@@ -137,9 +103,9 @@
 <span class="nt">&lt;/ul&gt;</span>
 </code></pre>
 </figure>
-<h3 id="ordered-list">Ordered list</h3>
+<h3 class="ex" id="ordered-list">Ordered list</h3>
 
-<p>The ordered list consists of one <code>&lt;ol&gt;</code> element and multiple list item (<code>&lt;li&gt;</code>) elements:</p>
+<p>The unordered list consists of one <code>&lt;ol&gt;</code> element and multiple list item (<code>&lt;li&gt;</code>) elements:</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -166,9 +132,9 @@
 <span class="nt">&lt;/ol&gt;</span>
 </code></pre>
 </figure>
-<h3 id="nested-lists">Nested lists</h3>
+<h3 class="ex" id="nested-lists">Nested lists</h3>
 
-<p>Every list can be nested into another list. In the following example, the order of preparation is not critical, but the preparation itself should be done before using the ingredients. The information is still easy to digest, assistive technology can easily inform users about the number of steps.</p>
+<p>Every list can be nested into another list. In this example, the order of preparation is not important, but it should be done before using them. The information is still easy to digest, assistive technology can easily inform users about the number of steps.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -207,101 +173,73 @@
 <span class="nt">&lt;/ol&gt;</span>
 </code></pre>
 </figure>
-<h3 class="newex" id="description-lists">Description lists</h3>
+<h2 id="definition-lists">Definition lists</h2>
 
-<p>A description list consists of one or more term and description groupings. Each grouping associates one or more terms (the contents of <code>&lt;dt&gt;</code> elements) with one or more descriptions (the contents of <code>&lt;dd&gt;</code> elements).</p>
+<p>To provide definitions for one word, definition lists (<code>&lt;dl&gt;</code>) can be used. They are different to (un)ordered lists as they don’t use <code>&lt;li&gt;</code> elements to mark up list items but <code>&lt;dt&gt;</code> (definition term) and <code>&lt;dd&gt;</code> (definition description) elements. Each term is put into one <code>&lt;dt&gt;</code> element, its definition goes in the <code>&lt;dd&gt;</code> element directly following it.</p>
 
-<p>A grouping begins either on the first item of the list or whenever a <code>&lt;dt&gt;</code> element follows an <code>&lt;dd&gt;</code> element.</p>
-
-<h4 class="ex" id="one-term-multiple-descriptions">One term, multiple descriptions</h4>
-
-<p>In the following example, John and Luke are described as authors, and Frank is described as editor.</p>
+<p>Definition lists are typically used in a glossary and are easiest to use when the definitions are put in alphabetical order.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
-  <div class="box-content"><dl>
-  <dt>Authors</dt>
-  <dd>John</dd>
-  <dd>Luke</dd>
-  <dt>Editor</dt>
-  <dd>Frank</dd>
+  <div class="box-content">
+<dl>
+  <dt>Knot</dt>
+  <dd>
+    <p>A <em>knot</em> is a unit of speed equaling 1
+      nautical mile per hour (1.15 miles per hour or 1.852
+      kilometers per hour).</p>
+  </dd>
+  <dt>Port</dt>
+  <dd>
+    <p><em>Port</em> is the nautical term (used on
+      boats and ships) that refers to the left side
+      of a ship, as perceived by a person facing towards
+      the bow (the front of the vessel).</p>
+  </dd>
+  <dt>Starboard</dt>
+  <dd>
+    <p><em>Starboard</em> is the nautical term (used
+      on boats and ships) that refers to the right
+      side of a vessel, as perceived by a person
+      facing towards the bow (the front of the vessel).</p>
+  </dd>
 </dl>
+
 
   </div></figure>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
-  <span class="nt">&lt;dt&gt;</span>Authors<span class="nt">&lt;/dt&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>John<span class="nt">&lt;/dd&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>Luke<span class="nt">&lt;/dd&gt;</span>
-  <span class="nt">&lt;dt&gt;</span>Editor<span class="nt">&lt;/dt&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>Frank<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;/dl&gt;</span>
-</code></pre>
-</figure>
-<h4 class="ex" id="multiple-terms-one-description">Multiple terms, one description</h4>
-
-<p>In the next example, two different spellings of a word are defined using description lists. In such cases, use the <code>dfn</code> element to mark up the defined term.</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content"><dl>
-   <dt lang="en-US"><dfn>color</dfn></dt>
-   <dt lang="en-GB"><dfn>colour</dfn></dt>
-   <dd>A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.</dd>
-</dl>
-
-  </div></figure>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
-   <span class="nt">&lt;dt</span> <span class="na">lang=</span><span class="s">"en-US"</span><span class="nt">&gt;&lt;dfn&gt;</span>color<span class="nt">&lt;/dfn&gt;&lt;/dt&gt;</span>
-   <span class="nt">&lt;dt</span> <span class="na">lang=</span><span class="s">"en-GB"</span><span class="nt">&gt;&lt;dfn&gt;</span>colour<span class="nt">&lt;/dfn&gt;&lt;/dt&gt;</span>
-   <span class="nt">&lt;dd&gt;</span>A sensation which (in humans) derives from the ability of the fine structure of the eye to distinguish three differently filtered analyses of a view.<span class="nt">&lt;/dd&gt;</span>
-<span class="nt">&lt;/dl&gt;</span>
-</code></pre>
-</figure>
-<h4 class="ex" id="multiple-terms-multiple-descriptions">Multiple terms, multiple descriptions</h4>
-
-<p>In this example, John and Luke are authors and also editors:</p>
-
-<figure class="sample ">
-  <figcaption>Example: </figcaption>
-  <div class="box-content"><dl>
-  <dt>Authors</dt>
-  <dt>Editors</dt>
-  <dd>John</dd>
-  <dd>Luke</dd>
-</dl>
-
-  </div></figure>
-
-<figure class="code ">
-  <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;dl&gt;</span>
-  <span class="nt">&lt;dt&gt;</span>Authors<span class="nt">&lt;/dt&gt;</span>
-  <span class="nt">&lt;dt&gt;</span>Editors<span class="nt">&lt;/dt&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>John<span class="nt">&lt;/dd&gt;</span>
-  <span class="nt">&lt;dd&gt;</span>Luke<span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>Knot<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>
+    <span class="nt">&lt;p&gt;</span>A <span class="nt">&lt;em&gt;</span>knot<span class="nt">&lt;/em&gt;</span> is a unit of speed equaling 1 nautical mile per hour (1.15 miles per hour or 1.852 kilometers per hour).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>Port<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;em&gt;</span>Port<span class="nt">&lt;/em&gt;</span> is the nautical term (used on boats and ships) that refers to the left side of a ship, as perceived by a person facing towards the bow (the front of the vessel).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/dd&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>Starboard<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;em&gt;</span>Starboard<span class="nt">&lt;/em&gt;</span> is the nautical term (used on boats and ships) that refers to the right side of a vessel, as perceived by a person facing towards the bow (the front of the vessel).<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/dd&gt;</span>
 <span class="nt">&lt;/dl&gt;</span>
 </code></pre>
 </figure>
 <h2 class="newex" id="quotes">Quotes</h2>
 
-<p>Identifying a quotation helps clarify that the content is attributed to another author. Quotes can be marked up as inline or as blocks of text. Assistive technologies can convey to users where a quote starts and ends, which can avoid misunderstandings.</p>
+<p>Identifying a quotation as such helps clarify that the content is attributed to another author. Quotes can be marked up as inline or as blocks of text.</p>
 
 <h3 class="ex" id="blockquote">Blockquote</h3>
 
-<p>Use the <code>&lt;blockquote&gt;</code> element for longer and more complex quotes. It can contain paragraphs, headings, and other text structure elements. Those should reflect the structure of the cited document. The <code>&lt;cite&gt;</code> element is used to refer to the source of the quote.</p>
+<p>For larger quotes, the <code>&lt;blockquote&gt;</code> element should be used. It can contain paragraphs, headings, and other text structure elements. The <code>&lt;cite&gt;</code> element can be used to refer to the source of the quote.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
   <div class="box-content">
 <p>The following is an excerpt from the <cite>The Story of my Life</cite> by Helen Keller</p>
 <blockquote>
-    <p>Even in the days before my teacher came, I used to feel along the square stiff boxwood hedges, and, guided by the sense of smell, would find the first violets and lilies. There, too, after a fit of temper, I went to find comfort and to hide my hot face in the cool leaves and grass.</p>
+    <p>Even in the days before my teacher came, I used to feel along the square stiff boxwood hedges, and, guided by the sense of smell, would find the first violets and lilies. There, too, after a fit of temper, I went to find comfort and to hide my hot face  in the cool leaves and grass.</p>
 </blockquote>
 
 
@@ -311,13 +249,13 @@
   <figcaption>Code snippet: </figcaption>
 <pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>The following is an excerpt from the <span class="nt">&lt;cite&gt;</span>The Story of my Life<span class="nt">&lt;/cite&gt;</span> by Helen Keller<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;blockquote&gt;</span>
-    <span class="nt">&lt;p&gt;</span>Even in the days before my teacher came, I used to feel along the square stiff boxwood hedges, and, guided by the sense of smell, would find the first violets and lilies. There, too, after a fit of temper, I went to find comfort and to hide my hot face in the cool leaves and grass.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Even in the days before my teacher came, I used to feel along the square stiff boxwood hedges, and, guided by the sense of smell, would find the first violets and lilies. There, too, after a fit of temper, I went to find comfort and to hide my hot face  in the cool leaves and grass.<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;/blockquote&gt;</span>
 </code></pre>
 </figure>
 <h3 class="ex" id="inline-quote">Inline quote</h3>
 
-<p>For shorter quotes, that are usually embedded in another sentence, use the <code>&lt;q&gt;</code> element.</p>
+<p>For shorter inline quotes, the <code>&lt;q&gt;</code> element should be used.</p>
 
 <figure class="sample ">
   <figcaption>Example: </figcaption>
@@ -332,537 +270,401 @@
 <pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>Helen Keller said, <span class="nt">&lt;q&gt;</span>Self-pity is our worst enemy and if we yield to it, we can never do anything good in the world.<span class="nt">&lt;/q&gt;&lt;/p&gt;</span>
 </code></pre>
 </figure>
-<h2 id="figures">Figures</h2>
-
-<p>Figures are blocks with additional information set off from the main content of the page – sometimes referenced from the main text. They typically contain lists, images, tables, but can also include other content. For example, an annual report could reference to a diagram containing the sales volumes of a product.</p>
-
-<p>Each figure is wrapped in a <code>&lt;figure&gt;</code> element and labeled using a nested <code>&lt;figcaption&gt;</code> element.</p>
+<div class="notes ">
+<p><strong>Note:</strong> In older browsers adding quotes automatically wasn’t well supported. If such a browser is to be supported, consider adding quotes to the text manually and removing generated quotes in modern browsers:</p>
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See graphic G3 for details.<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight css"><code><span class="nt">q</span><span class="nd">:before</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">q</span><span class="nd">:after</span> <span class="p">{</span> <span class="nl">content</span><span class="p">:</span> <span class="s1">""</span><span class="p">;</span> <span class="p">}</span>
+</code></pre>
+</figure>
+</div>
+<h2 id="figures">Figures</h2>
+
+<p>Figures are an addition to HTML5 that allows captions to be associated with lists, images, tables, and other content. For example an annual report could reference to a table, which contains the sales volumes of a product. It allows users to dive deeper in the data or to skip it. The related content is wrapped in a <code>&lt;figure&gt;</code> element, a <code>&lt;figcaption&gt;</code> element is added that has the description of the content.</p>
+
+<p>At the time of writing, WAI-ARIA attributes <code>role="group"</code> and <code>aria-labelledby</code> are used to provide the information to assistive technologies in a consistent way.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: </figcaption>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>The sales volume of our SpaceBear product was steadily the first three quarters but had a huge success in quarter four with the introduction of SuperBear in time for the holiday season. See table T3 for details.<span class="nt">&lt;/p&gt;</span>
 
 <span class="nt">&lt;figure</span> <span class="na">role=</span><span class="s">"group"</span> <span class="na">aria-labelledby=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;figcaption</span> <span class="na">id=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>G3: SpaceBear sales volume<span class="nt">&lt;/figcaption&gt;</span>
-    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"…"</span>
-         <span class="na">alt=</span><span class="s">"SpaceBear sales diagram, showing the huge success in Q4"</span>
-         <span class="na">longdesc=</span><span class="s">"…"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"…"</span><span class="nt">&gt;</span>Long Description<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;figcaption</span> <span class="na">id=</span><span class="s">"fig-t3-capt"</span><span class="nt">&gt;</span>T3: SpaceBear sales volume<span class="nt">&lt;/figcaption&gt;</span>
+    <span class="nt">&lt;table&gt;</span>
+        …
+    <span class="nt">&lt;/table&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
 </code></pre>
 </figure>
-<div class="notes ">
-<ul>
-  <li>
-    <p><strong>Note:</strong> At the time of writing, WAI-ARIA attributes <code>role="group"</code> and <code>aria-labelledby</code> are used to provide the information to assistive technologies in a consistent way.</p>
-  </li>
-  <li>
-    <p><strong>Note:</strong> For more information on how to mark up diagrams, see <a href="../../images/complex/">complex images</a>.</p>
-  </li>
-</ul>
-
-</div>
 <h2 id="images-and-illustrations">Images and illustrations</h2>
 
-<p>Images and illustrations are useful to create visual engagement for many users. They may also clarify text for people with reading disabilities. Where images or illustrations are used, proper alternative text needs to be added. See the <a href="../../images/">Images Tutorial</a> for guidance on alternative text.</p>
+<p>Using images and illustrations in the text can help guiding users, especially in long texts. They can also help to clarify the text for people with reading disabilities. If images or illustrations are used, proper alternative texts need to be added. See the <a href="../../images/">Images Tutorial</a> for more information on images.</p>
 
 <h2 id="tables">Tables</h2>
 
-<p>Data tables provide a useful way to display the data so that the structure of the table can be communicated to everyone. Proper table layout allows people to understand meaningful data relationships without seeing the grid. For more details, see the <a href="../../tables/">Tables Tutorial</a>.</p>
+<p>For structured data, data tables provide a useful way to display the data in a way that can be accessed by everyone, including people with disabilities. To apply meaning to the data contained in the table, they need to be marked up properly. See the <a href="../../tables/">Tables Tutorial</a> for more information on tables.</p>
 
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG 2.0 resources</h2>
-  <div class="resources-inner">
-	  <p>These tutorials provide best-practice guidance on implementing accessibility in different situations. This page combined the following WCAG 2.0 success criteria and techniques from different conformance levels:</p>
-	  
-	    <p><strong>Success Criteria:</strong></p>
-	    <ul>
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><p><a href="https://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	    </ul>
-	  
-	  
-	    <p><strong>Techniques:</strong></p>
-	    <ul>
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/G62">G62: Providing a glossary</a></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H40">H40: Using definition lists</a></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H48">H48: Using ol, ul and dl for lists or groups of links</a></li>
-	          
-	        
-	      
-	        
-	          
-	            <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H49">H49: Using semantic markup to mark emphasized or special text</a></li>
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	        
-	          
-	        
-	      
-	    </ul>
-	  
-  </div>
+  <h2 id="related">Related WCAG2.0 resources</h2>
+  
+  
+    <p><strong>Techniques:</strong></p>
+    <ul>
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/G62">G62: Providing a glossary</a></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H40">H40: Using definition lists</a></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H48">H48: Using ol, ul and dl for lists or groups of links</a></li>
+          
+        
+      
+        
+          
+            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H49">H49: Using semantic markup to mark emphasized or special text</a></li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+  
 </div>
 
 
-      <nav role="navigation" aria-label="Previous/Next" id="tools">
+      <div role="navigation" id="tools">
   <ul>
     
       
@@ -873,12 +675,8 @@
       
         
         
-        
-      
-        
-        
           <li class="prev">
-            <span><a rel="prev" class="" href="../headings/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Headings</span></span></a></span>
+            <span><a class="" href="../headings/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Headings</span></span></a></span>
           </li>
         
         
@@ -891,13 +689,17 @@
         
         
           <li class="next">
-            <span><a rel="next" class="" href="../example/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Example</span></span></a></span>
+            <span><a class="" href="../styling/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Styling</span></span></a></span>
           </li>
+        
+      
+        
+        
         
       
     
   </ul>
-</nav>
+</div>
 
 
       <aside class="side-box github" role="complementary">
@@ -915,54 +717,36 @@
   </article>
 </main>
 <div class="navigation">
-  <nav role="navigation" aria-label="Main" id="nav">
+  <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
       
-          Page Structure Tutorial
+        Page Structure Tutorial
       
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
-      
-        
-      
       
         
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Concepts</span></a></li>
         
         
           
-            <li>
-              <a class="" href="../regions/"><span class="count"></span><span class="txt">Page Regions</span></a>
-              
-            </li>
+            <li><a class="" href="../sections/"><span class="count"></span><span class="txt">Page Sections</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../labels/"><span class="count"></span><span class="txt">Labeling Regions</span></a>
-              
-            </li>
+            <li><a class="" href="../headings/"><span class="count"></span><span class="txt">Headings</span></a></li>
           
         
           
-            <li>
-              <a class="" href="../headings/"><span class="count"></span><span class="txt">Headings</span></a>
-              
-            </li>
+            <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Content Structure</span></span></li>
           
         
           
-            <li>
-              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Content Structure</span></span>
-              
-            </li>
+            <li><a class="" href="../styling/"><span class="count"></span><span class="txt">Styling</span></a></li>
           
         
           
-            <li class="tips">
-              <a class="" href="../example/"><span class="count"></span><span class="txt">Example</span></a>
-              
-            </li>
+            <li><a class="" href="../in-page-navigation/"><span class="count"></span><span class="txt">In-page Navigation</span></a></li>
           
         
       
@@ -972,64 +756,63 @@
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Page Structure</span></span></li>
-  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
-  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+	<footer role="contentinfo">
     <div>
-		<h2 id="wai_footerheading">Document Information</h2>
-    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<h2>Document info</h2>
 		<ul>
-			<li><strong>Status:</strong>
-				
-	      	Updated
-	      
-	      23 April 2017
-	      
-		      
-		      (first published April 2017)
-		      
-		    
+			<li><strong>Status &amp; Last Modification:</strong>
+			
+      
+        [DRAFT] updated
+      
+      
+      April 2017
 			</li>
       <li>
-  Editors:
-  <ul class="inline">
-    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-  Contributors:
-  <ul class="inline">
-    <li>The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
-  </ul>
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
 </li>
 
 <li>
-  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
     </ul>
     <p>
-    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
-    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
-    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
-    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-        <p>
-	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
-        </p>
-      </div><!-- ends copyright -->
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
+               </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
 	</body>
 </html>
