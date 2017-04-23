@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Tips and Tricks
+  
+    
+       &bull; Images
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/images/tips/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-590850fc.svg" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
+<main role="main" class="content ">
+  <article role="article">
+    <header class="tutorial-heading">
+      <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
+        <p>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+          <span class="other">
+            
+              <a class="" href="../"><span class="count"></span><span class="txt">Images</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+            
+            
+            <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Tips and Tricks</span></span>
+          </span>
+        </p>
+      </nav>
+      <h1>
+        Tips and Tricks
+      </h1>
+    </header>
+
+    
+    
+
+
+    <div class="inner">
+
+      
+
+      
+
+
+      <h2 id="tips">Tips</h2>
+
+<ul>
+  <li>
+    <p><strong>Choosing appropriate text alternatives:</strong> <br />
+Imagine that you’re reading the web page aloud over the phone to someone who needs to understand the page. This should help you decide what (if any) information or function the images have. If they appear to have no informative value and aren’t links or buttons, it’s probably safe to treat them as <a href="../decorative/">decorative</a>.</p>
+  </li>
+  <li>
+    <p><strong>Prioritize information in text alternative:</strong> <br />
+Aim to put the most important information at the beginning.</p>
+  </li>
+  <li>
+    <p><strong>Length of the text alternative:</strong> <br />
+The <code>alt</code> text should be the most concise description possible of the image’s purpose. If anything more than a short phrase or sentence is needed, it would be better to use one of the long description methods discussed in <a href="../complex/">complex images</a>.</p>
+  </li>
+  <li>
+    <p><strong>Punctuation within <code>alt</code> attributes:</strong></p>
+
+    <ul>
+      <li>
+        <p>As for any text, using punctuation in the text alternative makes the information easier to understand. In particular, remember to add space characters in the <code>alt</code> text when there’s no space character between the image and adjacent text, to avoid having words running together when they are read by a screen reader.</p>
+      </li>
+      <li>
+        <p>If you use a null (empty) text alternative (<code>alt=""</code>) to hide decorative images, make sure that there is no space character in between the quotes. If a space character is present, the image may not be effectively hidden from assistive technologies. For instance, some screen readers will still announce the presence of an image if a space character is put between the quotes.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Superfluous information in the text alternative:</strong> <br />
+Usually, there’s no need to include words like “image”, “icon”, or “picture” in the alt text. People who can see will know this already, and screen readers announce the presence of an image. In some situations, it may be important to distinguish between paintings, photographs, or illustrations, etc., but it’s best to avoid the more generic use of the terms.</p>
+  </li>
+  <li>
+    <p><strong>SVG graphics:</strong></p>
+
+    <ul>
+      <li>
+        <p>SVG graphics can be referenced in the <code>src</code> attribute of an <code>&lt;img&gt;</code> element like other image formats (PNG, JPEG, GIF). In this case, the examples of this tutorial can be used with SVG as well.</p>
+      </li>
+      <li>
+        <p>As SVG images consist of tags like HTML, their code can also be used in HTML5 directly. In this case you can provide a text alternative in a <code>&lt;title&gt;</code> element within the SVG image. To improve accessibility support, that title should be referenced from an <code>aria-labelledby</code> attribute of the <code>&lt;svg&gt;</code> element, for example:</p>
+
+        <p><code>&lt;svg aria-labelledby="svgtitle1"&gt; &lt;title id="svgtitle1"&gt;Settings&lt;/title&gt; [other svg code] &lt;/svg&gt;</code></p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Logos:</strong> <br />
+Logo images with text are exempt from some of the accessibility requirements. For instance, there is no minimum contrast requirement.</p>
+  </li>
+</ul>
+
+<h2 id="other-w3c-resources">Other W3C Resources</h2>
+
+<ul>
+  <li>Background information on <a href="https://www.w3.org/WAI/intro/people-use-web/principles#alternatives">providing text alternatives for non-text content</a> in How People with Disabilities Use the Web.</li>
+  <li>Test the accessibility of images on your site: <a href="https://www.w3.org/WAI/EO/Drafts/eval/checks#images">Quick Checks Image text alternatives</a>.</li>
+  <li>Examples of good and bad practice in selecting text alternatives can be found in the <a href="https://www.w3.org/WAI/demos/bad/">Before and After Demonstration</a> (BAD).</li>
+</ul>
+
+
+
+      
+
+      <nav role="navigation" aria-label="Previous/Next" id="tools">
+  <ul>
+    
+      
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+        
+      
+        
+        
+          <li class="prev">
+            <span><a rel="prev" class="" href="../decision-tree/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">An alt Decision Tree</span></span></a></span>
+          </li>
+        
+        
+      
+        
+        
+        
+      
+    
+  </ul>
+</nav>
+
+
+      <aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/images/tips.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+
+    </div>
+  </article>
+</main>
+<div class="navigation">
+  <nav role="navigation" aria-label="Main" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+      
+          Images Tutorial
+      
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+      
+        
+      
+      
+        
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Images Concepts</span></a></li>
+        
+        
+          
+            <li>
+              <a class="" href="../informative/"><span class="count"></span><span class="txt">Informative Images</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../decorative/"><span class="count"></span><span class="txt">Decorative Images</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../functional/"><span class="count"></span><span class="txt">Functional Images</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../textual/"><span class="count"></span><span class="txt">Images of Text</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../complex/"><span class="count"></span><span class="txt">Complex Images</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../groups/"><span class="count"></span><span class="txt">Groups of Images</span></a>
+              
+            </li>
+          
+        
+          
+            <li>
+              <a class="" href="../imagemap/"><span class="count"></span><span class="txt">Image Maps</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <a class="" href="../decision-tree/"><span class="count"></span><span class="txt">An alt Decision Tree</span></a>
+              
+            </li>
+          
+        
+          
+            <li class="tips">
+              <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Tips and Tricks</span></span>
+              
+            </li>
+          
+        
+      
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
+  <li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Images</span></span></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+  <li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+  <li><a href="../../ideas/"><span class="count"></span><span class="txt">[Ideas] <span class="status">editors-draft</span></span></a></li>
+</ul>
+
+  </nav>
+</div>
+  </div>
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+    <div>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      23 April 2017
+	      
+		      
+		      (first published September 2014)
+		      
+		    
+			</li>
+      <li>
+  Editors:
+  <ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+  Contributors:
+  <ul class="inline">
+    <li>Anna Belle Leiserson</li><li>Sharron Rush</li><li>the Web Content Accessibility Guidelines Working Group (<a href="https://www.w3.org/WAI/GL/">WCAG WG</a>)</li><li>the Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>)</li>
+  </ul>
+</li>
+
+<li>
+  Developed with support from the <a href="https://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <div class="copyright">
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.www.w3.org/WAI"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+  var u="//www.w3.org/analytics/piwik/";
+  _paq.push(['setTrackerUrl', u+'piwik.php']);
+  _paq.push(['setSiteId', 328]);
+  var d=document, g=d.createElement('script'),
+  s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+  s.parentNode.insertBefore(g,s);
+  })();
+  </script>
+  <noscript><p><img src="//www.w3.org/analytics/piwik/piwik.php?idsite=328"
+  style="border:0;" alt="" /></p></noscript>
+  <!-- End Piwik Code -->
+	</body>
+</html>

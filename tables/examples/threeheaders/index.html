@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Complete “Table with three headers related to each data cell” Example
+  
+    
+  
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <link rel="canonical" href="https://www.w3.org/WAI/tutorials/tables/examples/threeheaders/" />
+  <meta name="viewport" content="width=device-width">
+  <link href="../../../stylesheets/wai-act-1c96b559.css" rel="stylesheet" type="text/css" />
+  <script src="../../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+  <link rel="mask-icon" href="../../../img/w3cwai-maskicon-cf2cdf03.svg" color="#003366">
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../../img/w3c-bde9a11f.svg" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../../img/wai-590850fc.svg" /></a>
+    </div>
+    <div class="page-title">
+      <a class="" href="../../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <div class="with-side-menu">
+    <nav aria-label="Skip links" role="navigation">
+      <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+    </nav>
+<div class="content ">
+  <header class="tutorial-heading">
+    <h1>
+      Complete “Table with three headers related to each data cell” Example
+    </h1>
+  </header>
+
+  
+
+  <div class="inner">
+
+    <pre class="highlight html"><code>
+<span class="nt">&lt;table</span> <span class="na">summary=</span><span class="s">"Column one has the location and size of accommodation, other columns show the type and number of properties available"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;caption&gt;</span>
+    Availability of holiday accommodation
+<span class="nt">&lt;/caption&gt;</span>
+<span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"stud"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+            Studio
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"apt"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"Apartment"</span><span class="nt">&gt;</span>Apt<span class="nt">&lt;/abbr&gt;</span>
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"chal"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+            Chalet
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"villa"</span> <span class="na">scope=</span><span class="s">"col"</span><span class="nt">&gt;</span>
+            Villa
+        <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/thead&gt;</span>
+<span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"par"</span> <span class="na">class=</span><span class="s">"span"</span> <span class="na">colspan=</span><span class="s">"5"</span> <span class="na">scope=</span><span class="s">"colgroup"</span><span class="nt">&gt;</span>
+            Paris
+        <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">headers=</span><span class="s">"par"</span> <span class="na">id=</span><span class="s">"pbed1"</span><span class="nt">&gt;</span>
+            1 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed1 stud"</span><span class="nt">&gt;</span>
+            11
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed1 apt"</span><span class="nt">&gt;</span>
+            20
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed1 chal"</span><span class="nt">&gt;</span>
+            25
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed1 villa"</span><span class="nt">&gt;</span>
+            23
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">headers=</span><span class="s">"par"</span> <span class="na">id=</span><span class="s">"pbed2"</span><span class="nt">&gt;</span>
+            2 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed2 stud"</span><span class="nt">&gt;</span>
+            -
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed2 apt"</span><span class="nt">&gt;</span>
+            43
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed2 chal"</span><span class="nt">&gt;</span>
+            52
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed2 villa"</span><span class="nt">&gt;</span>
+            32
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">headers=</span><span class="s">"par"</span> <span class="na">id=</span><span class="s">"pbed3"</span><span class="nt">&gt;</span>
+            3 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed3 stud"</span><span class="nt">&gt;</span>
+            -
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed3 apt"</span><span class="nt">&gt;</span>
+            13
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed3 chal"</span><span class="nt">&gt;</span>
+            15
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"par pbed3 villa"</span><span class="nt">&gt;</span>
+            40
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"rome"</span> <span class="na">class=</span><span class="s">"span"</span> <span class="na">colspan=</span><span class="s">"5"</span> <span class="na">scope=</span><span class="s">"colgroup"</span><span class="nt">&gt;</span>
+            Rome
+        <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"rbed1"</span> <span class="na">headers=</span><span class="s">"rome"</span><span class="nt">&gt;</span>
+            1 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed1 stud"</span><span class="nt">&gt;</span>
+            13
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed1 apt"</span><span class="nt">&gt;</span>
+            21
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed1 chal"</span><span class="nt">&gt;</span>
+            22
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed1 villa"</span><span class="nt">&gt;</span>
+            3
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"rbed2"</span> <span class="na">headers=</span><span class="s">"rome"</span><span class="nt">&gt;</span>
+            2 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed2 stud"</span><span class="nt">&gt;</span>
+            -
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed2 apt"</span><span class="nt">&gt;</span>
+            23
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed2 chal"</span><span class="nt">&gt;</span>
+            43
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed2 villa"</span><span class="nt">&gt;</span>
+            30
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+        <span class="nt">&lt;th</span> <span class="na">id=</span><span class="s">"rbed3"</span> <span class="na">headers=</span><span class="s">"rome"</span><span class="nt">&gt;</span>
+            3 bedroom
+        <span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed3 stud"</span><span class="nt">&gt;</span>
+            -
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed3 apt"</span><span class="nt">&gt;</span>
+            16
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed3 chal"</span><span class="nt">&gt;</span>
+            32
+        <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;td</span> <span class="na">headers=</span><span class="s">"rome rbed3 villa"</span><span class="nt">&gt;</span>
+            40
+        <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+
+</code></pre>
+  </div>
+</div>
+<div class="navigation" id="nav">
+  <nav role="navigation">
+    <a class="" href="../../multi-level/#table-with-three-headers-related-to-each-data-cell"><span class="count"></span><span class="txt">Back to the example</span></a>
+  </nav>
+</div>
+  </div>
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
+    <div>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+		<ul>
+			<li><strong>Status:</strong>
+				
+	      	Updated
+	      
+	      23 April 2017
+	      
+			</li>
+      <li>
+Editors:
+<ul class="inline">
+    <li><a href="https://www.w3.org/People/yatil/">Eric Eggert</a></li><li><a href="https://www.w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+Contributors: The Education and Outreach Working Group (<a href="https://www.w3.org/WAI/EO/">EOWG</a>).
+</li>
+
+<li>
+</li>
+
+      <li>[<a class="" href="../../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="https://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="https://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="https://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="https://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <div class="copyright">
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../../javascripts/main-11dc3c0f.js" type="text/javascript"></script>
+  <!-- Piwik -->
+  <script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.www.w3.org/WAI"]]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+  var u="//www.w3.org/analytics/piwik/";
+  _paq.push(['setTrackerUrl', u+'piwik.php']);
+  _paq.push(['setSiteId', 328]);
+  var d=document, g=d.createElement('script'),
+  s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+  s.parentNode.insertBefore(g,s);
+  })();
+  </script>
+  <noscript><p><img src="//www.w3.org/analytics/piwik/piwik.php?idsite=328"
+  style="border:0;" alt="" /></p></noscript>
+  <!-- End Piwik Code -->
+	</body>
+</html>
