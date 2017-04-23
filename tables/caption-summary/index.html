@@ -4,15 +4,16 @@
   <meta charset="utf-8">
   <title>
   Caption & Summary
-  
-    
+
+
        &bull; Tables
-    
-  
+
+
   &bull; WAI Web Accessibility Tutorials
   </title>
+  <link rel="canonical" href="http://www.w3.org/WAI/tutorials/tables/caption-summary/" />
   <meta name="viewport" content="width=device-width">
-  <link href="../../stylesheets/wai-act-68dca179.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="../../stylesheets/wai-act-9d0e06d7.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
 </head>
 <body class="texts">
@@ -32,12 +33,12 @@
     <header class="tutorial-heading">
       <nav class="breadcrumb" aria-label="Breadcrumbs" role="navigation">
         <p>
-          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+          <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
           <span class="other">
-            
-              <a class="" href="../"><span class="count"></span><span class="txt">Tables</span></a> <span class="icon icon-chevron-right"></span>
-            
-            
+
+              <a class="" href="../"><span class="count"></span><span class="txt">Tables</span></a> <span class="icon icon-chevron-right"></span><span class="visuallyhidden">»</span>
+
+
             <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Caption & Summary</span></span>
           </span>
         </p>
@@ -47,25 +48,25 @@
       </h1>
     </header>
 
-    
-    
+
+
 
 
     <div class="inner">
 
-      
-
-      
 
 
-      <p>Captions and summaries provide information that can help users find, navigate, and understand tables. While they are not required in every case to meet WCAG 2.0, captions and summaries are relatively simple ways to provide such information if needed.</p>
+
+
+
+      <p><img alt="" class="symbol" src="../../img/img-caption-39debda1.png" /> Captions and summaries provide information that can help users find, navigate, and understand tables. While they are not required in every case to meet WCAG 2.0, captions and summaries are relatively simple ways to provide such information that is often needed.</p>
 
 <ul>
   <li>
-    <p>A <strong>caption</strong> is like a heading for a table. Most screen readers announce the content of captions, which helps users to find a table and understand what it’s about and decide if they want to read it. If the user uses “Tables Mode”, captions are the primary mechanism to identify tables. The caption is provided by the <code>&lt;caption&gt;</code> element.</p>
+    <p>A <strong>caption</strong> is like a heading for a table. Most screen readers announce the content of captions. This helps users to find a table and understand what it’s about, and decide if they want to read it. If the user uses “Tables Mode”, captions are the primary mechanism to identify tables. The caption is provided by the <code>&lt;caption&gt;</code> element.</p>
   </li>
   <li>
-    <p>A <strong>summary</strong> conveys information about the organization of the data in a table and helps users navigate it. For example, if a table has an unconventional structure (as in the examples below), information about in which row or column content can be found can be provided to the user. A summary is usually needed for complex tables.</p>
+    <p>A <strong>summary</strong> conveys information about the organization of the data in a table and helps users navigate it. For example, if a table has an unconventional structure (as in the examples below), information about what content can be found in which row or column can be provided to the user. A summary is usually only needed for complex tables.</p>
   </li>
 </ul>
 
@@ -111,21 +112,22 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;table&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;table&gt;</span>
   <span class="nt">&lt;caption&gt;</span>Concerts<span class="nt">&lt;/caption&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Date<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Event<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Venue<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
   <span class="nt">&lt;tr&gt;</span>
     <span class="nt">&lt;td&gt;</span>12 Feb<span class="nt">&lt;/td&gt;</span>
     <span class="nt">&lt;td&gt;</span>Waltz with Strauss<span class="nt">&lt;/td&gt;</span>
     <span class="nt">&lt;td&gt;</span>Main Hall<span class="nt">&lt;/td&gt;</span>
   <span class="nt">&lt;/tr&gt;</span>
-  <span class="nt">&lt;tr&gt;</span>
-    <span class="nt">&lt;td&gt;</span>24 Mar<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;</span>The Obelisks<span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;td&gt;</span>West Wing<span class="nt">&lt;/td&gt;</span>
-  <span class="nt">&lt;/tr&gt;</span>
   […]
 <span class="nt">&lt;/table&gt;</span>
-</code></pre>
+</pre>
+
 </figure>
 <h2 class="ex" id="summaries-for-more-complex-tables">Summaries for more complex tables</h2>
 
@@ -214,10 +216,11 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;caption&gt;</span>Availability of holiday accommodation <span class="nt">&lt;br&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;caption&gt;</span>Availability of holiday accommodation <span class="nt">&lt;br&gt;</span>
   <span class="nt">&lt;span&gt;</span>Column one has the location and size of accommodation, other columns show the type and number of properties available<span class="nt">&lt;/span&gt;</span>
 <span class="nt">&lt;/caption&gt;</span>
-</code></pre>
+</pre>
+
 </figure>
 <div class="notes ">
 <p><strong>Note:</strong> A <code>span</code> element was added to style the summary differently from the caption. This is not required.</p>
@@ -280,10 +283,11 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"tblDesc"</span><span class="nt">&gt;</span>Column one has the location and size of accommodation, other columns show the type and number of properties available.<span class="nt">&lt;/p&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"tblDesc"</span><span class="nt">&gt;</span>Column one has the location and size of accommodation, other columns show the type and number of properties available.<span class="nt">&lt;/p&gt;</span>
 <span class="nt">&lt;table</span> <span class="na">aria-describedby=</span><span class="s">"tblDesc"</span><span class="nt">&gt;</span>
 […]
-</code></pre>
+</pre>
+
 </figure>
 <h3 class="ap" id="using-the-figure-element-to-mark-up-a-table-summary">Using the <code>&lt;figure&gt;</code> element to mark up a table summary</h3>
 
@@ -343,7 +347,7 @@
 
 <figure class="code ">
   <figcaption>Code snippet: Not using WAI-ARIA</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;figure&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;figure&gt;</span>
   <span class="nt">&lt;figcaption&gt;</span>
     <span class="nt">&lt;strong&gt;</span>Paris: Availability of holiday accommodation<span class="nt">&lt;/strong&gt;&lt;br&gt;</span>
     <span class="nt">&lt;span&gt;</span>Column one has the location and size of accommodation, other columns show the type and number of properties available.<span class="nt">&lt;/span&gt;</span>
@@ -352,11 +356,12 @@
 […]
   <span class="nt">&lt;/table&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
-</code></pre>
+</pre>
+
 </figure>
 <figure class="code ">
   <figcaption>Code snippet: Using WAI-ARIA</figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;figure&gt;</span>
+<pre class="highlight html"><span class="nt">&lt;figure&gt;</span>
   <span class="nt">&lt;figcaption&gt;</span>
     <span class="nt">&lt;strong</span> <span class="na">id=</span><span class="s">"paris-caption"</span><span class="nt">&gt;</span>Paris: Availability of holiday accommodation<span class="nt">&lt;/strong&gt;&lt;br&gt;</span>
     <span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"paris-summary"</span><span class="nt">&gt;</span>Column one has the location and size of accommodation, other columns show the type and number of properties available.<span class="nt">&lt;/span&gt;</span>
@@ -365,7 +370,8 @@
 […]
   <span class="nt">&lt;/table&gt;</span>
 <span class="nt">&lt;/figure&gt;</span>
-</code></pre>
+</pre>
+
 </figure>
 <h3 class="ap" id="using-the-summary-attribute">Using the <code>summary</code> attribute</h3>
 
@@ -373,7 +379,7 @@
 <p><strong>Note: The <code>summary</code> attribute is deprecated in HTML5.</strong></p>
 
 </div>
-<p>In this approach, the summary text is in the <code>summary</code> attribute of the table. It is not available to sighted users.</p>
+<p>In this approach, the summary text is in the <code>summary</code> attribute of the table. Such summaries are not displayed visually. They are generally only available to screen reader users.</p>
 
 <p>See WCAG 2.0 technique <a href="http://www.w3.org/TR/WCAG20-TECHS/H73">H73: Using the summary attribute of the table element to give an overview of data tables</a> for advice on the summary attribute.</p>
 
@@ -421,402 +427,430 @@
 
 <figure class="code ">
   <figcaption>Code snippet: </figcaption>
-<pre class="highlight html"><code><span class="nt">&lt;table</span>
+<pre class="highlight html"><span class="nt">&lt;table</span>
   <span class="na">summary=</span><span class="s">"Column one has the location and size of accommodation, other columns show the type and number of properties available."</span><span class="nt">&gt;</span>
-</code></pre>
+</pre>
+
 </figure>
 
 
       <div class="resources">
-  <h2 id="related">Related WCAG2.0 resources</h2>
-  
-  
-    <p><strong>Techniques:</strong></p>
-    <ul>
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H39">H39: Using caption elements to associate data table captions with data tables</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H73">H73: Using the summary attribute of the table element</a></li>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-    </ul>
-  
+  <h2 id="related">Related WCAG 2.0 resources</h2>
+  <div class="resources-inner">
+	  <p>The following WCAG 2.0 resources are directly related to this page. <a href="../../#relationship-to-wcag-20">Relationship to WCAG 2.0</a> provides more background information.</p>
+
+
+	    <p><strong>Techniques:</strong></p>
+	    <ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H39">H39: Using caption elements to associate data table captions with data tables</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	            <li><a href="http://www.w3.org/TR/WCAG20-TECHS/H73">H73: Using the summary attribute of the table element</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	    </ul>
+
+  </div>
 </div>
 
 
       <div role="navigation" id="tools">
   <ul>
-    
-      
-      
-        
-        
-        
-      
-        
-        
-        
-      
-        
-        
-        
-      
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <li class="prev">
-            <span><a class="" href="../multi-level/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Multi-level Tables</span></span></a></span>
+            <span><a rel="prev" class="" href="../multi-level/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Multi-level Headers</span></span></a></span>
           </li>
-        
-        
-      
-        
-        
-        
-      
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
           <li class="next">
-            <span><a class="" href="../tips/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Tips and Tricks</span></span></a></span>
+            <span><a rel="next" class="" href="../tips/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Tips and Tricks</span></span></a></span>
           </li>
-        
-      
-    
+
+
+
   </ul>
 </div>
 
@@ -838,81 +872,87 @@
 <div class="navigation">
   <nav role="navigation" aria-label="Navigation" id="nav">
     <h2 class="list-heading" id="list-heading-tutorials">
-      
+
         Tables Tutorial
-      
+
     </h2>
     <ul aria-labelledby="list-heading-tutorials">
-      
-        
+
+
           <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Tables Concepts</span></a></li>
-        
-        
-          
-            <li><a class="" href="../basic/"><span class="count"></span><span class="txt">Basic Tables</span></a></li>
-          
-        
-          
-            <li><a class="" href="../multi-directional/"><span class="count"></span><span class="txt">Multi-directional Tables</span></a></li>
-          
-        
-          
-            <li><a class="" href="../irregular/"><span class="count"></span><span class="txt">Irregular Tables</span></a></li>
-          
-        
-          
-            <li><a class="" href="../multi-level/"><span class="count"></span><span class="txt">Multi-level Tables</span></a></li>
-          
-        
-          
+
+
+
+            <li><a class="" href="../one-header/"><span class="count"></span><span class="txt">One Header</span></a></li>
+
+
+
+            <li><a class="" href="../two-headers/"><span class="count"></span><span class="txt">Two Headers</span></a></li>
+
+
+
+            <li><a class="" href="../irregular/"><span class="count"></span><span class="txt">Irregular Headers</span></a></li>
+
+
+
+            <li><a class="" href="../multi-level/"><span class="count"></span><span class="txt">Multi-level Headers</span></a></li>
+
+
+
             <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Caption & Summary</span></span></li>
-          
-        
-          
+
+
+
             <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and Tricks</span></a></li>
-          
-        
-      
+
+
+
     </ul>
     <h2 class="list-heading" id="list-heading-topics">
   All Tutorials
 </h2>
 <ul class="topics" aria-labelledby="list-heading-topics">
-	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure</span></a></li>
-	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus</span></a></li>
+	<li><a href="../../page-structure/"><span class="count"></span><span class="txt">Page Structure <span class="status">draft</span></span></a></li>
+	<li><a href="../../menus/"><span class="count"></span><span class="txt">Menus <span class="status">draft</span></span></a></li>
 	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
 	<li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Tables</span></span></li>
 	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
-	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels</span></a></li>
+	<li><a href="../../carousels/"><span class="count"></span><span class="txt">Carousels <span class="status">draft</span></span></a></li>
 </ul>
 
   </nav>
 </div>
   </div>
-	<footer role="contentinfo">
+	<footer id="footer" role="contentinfo" aria-labelledby="wai_footerheading">
     <div>
-		<h2>Document info</h2>
+		<h2 id="wai_footerheading">Document Information</h2>
+    <p><strong>Feedback: We welcome ideas for improvements, bug reports, and comments</strong> via <a href="https://github.com/w3c/wai-tutorials">GitHub</a> or e-mail to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
 		<ul>
-			<li><strong>Status &amp; Last Modification:</strong>
-			
-      
-      
-      April 2017
+			<li><strong>Status:</strong>
+
+	      	Updated
+
+	      02 March 2015
+
+
+		      (first published September 2014)
+
+
 			</li>
       <li>
-  <strong>Editors:</strong>
+  Editors:
   <ul class="inline">
     <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
   </ul>
 
-  <strong>Contibutors:</strong>
+  Contributors:
   <ul class="inline">
-    <li>Sharron Rush</li><li>the Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
+    <li>Sharron Rush</li><li>the Web Content Accessibility Guidelines Working Group (<a href="http://www.w3.org/WAI/GL/">WCAG WG</a>)</li><li>the Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>)</li>
   </ul>
 </li>
 
 <li>
-  <strong>Developed with support</strong> from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT</a> project, co-funded by the European Commission <abbr title="Information Society Technologies">IST</abbr> Programme.
+  Developed with support from the <a href="http://www.w3.org/WAI/ACT/">WAI-ACT project</a>, co-funded by the <strong>European Commission <abbr title="Information Society Technologies">IST</abbr> Programme</strong>.
 </li>
 
       <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
@@ -923,20 +963,32 @@
     	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
     	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
 		</p>
-    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
     <div class="copyright">
-      <p>
-	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2017
-      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
-				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
-					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
-					<a href="http://www.keio.ac.jp/">Keio</a>,
-         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
-         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
-               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>
-               </div><!-- ends copyright -->
+        <p>
+	        Copyright &#xA9; 2014 W3C <sup>&#xAE;</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.
+        </p>
+      </div><!-- ends copyright -->
     </div>
 	</footer>
-	<script src="../../javascripts/main-9e16c3e8.js" type="text/javascript"></script>
+	<script src="../../javascripts/main-c3d123ae.js" type="text/javascript"></script>
+<!-- Piwik -->
+      <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["setDomains", ["*.www.w3.org/WAI"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u="//www.w3.org/analytics/piwik/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 328]);
+      var d=document, g=d.createElement('script'),
+      s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+      s.parentNode.insertBefore(g,s);
+      })();
+      </script>
+      <noscript><p><img src="//www.w3.org/analytics/piwik/piwik.php?idsite=328"
+      style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
 	</body>
 </html>

@@ -1,0 +1,1201 @@
+<!doctype html>
+<html class="no-js no-svg" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>
+  Controls & Interaction
+
+
+       &bull; Carousels
+
+
+  &bull; WAI Web Accessibility Tutorials
+  </title>
+  <meta name="viewport" content="width=device-width">
+  <link href="../../stylesheets/wai-act-609ac8bd.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="../../javascripts/modernizr-a1c597b5.js" type="text/javascript"></script>
+</head>
+<body class="texts">
+  <header role="banner">
+    <div class="w3c-wai-header">
+      <a href="http://w3.org/"><img alt="W3C" width="90" src="../../img/w3c-796023c4.png" /></a>
+      <a href="http://w3.org/WAI/" class="wai"><img alt="Web Accessibility Initiative" src="../../img/wai-4c28be39.png" /></a>
+    </div>
+     <div class="page-title">
+      <a class="" href="../../">Web Accessibility Tutorials <span class="subheading">Guidance on how to create websites that meet WCAG</span></a>
+    </div>
+  </header>
+  <main role="main" class="with-side-menu">
+    <a href="#nav" class="btn btn-jump">Jump to the navigation</a>
+<div class="content editors-draft">
+  <header class="tutorial-heading">
+    <nav class="breadcrumb" aria-label="Breadcrumbs">
+      <p>
+        <span class="home"><a class="" href="../../"><span class="count"></span><span class="txt">Tutorials home</span></a></span> <span class="icon icon-chevron-right"></span>
+        <span class="other">
+
+          <a class="" href="../"><span class="count"></span><span class="txt">Carousels</span></a> <span class="icon icon-chevron-right"></span>
+
+
+          <span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Controls & Interaction</span></span>
+        </span>
+      </p>
+    </nav>
+    <h1>
+      Controls & Interaction
+    </h1>
+  </header>
+
+
+
+  <div class="status">
+    <p><strong>Status:</strong> This is not ready for detailed review. It is an in-progress, unapproved editor’s draft.</p>
+  </div>
+
+
+
+  <div class="inner">
+
+
+
+
+
+
+    <p>«««&lt; HEAD
+After the basic styling was applied to the content, the interaction comes in. In the first steps the slide show is prepared to hide all content but the first slide. Then “left” and “right” arrows are added to the carousel and enabled, so users can skip through the individual slides.</p>
+
+<h2 id="add-styling-when-javascript-is-enabled">Add Styling When Javascript Is Enabled</h2>
+
+<h1 id="when-javascript-is-enabled-the-carousel-wrapper-is-getting-a-fixed-height-individual-slides-are-stacked-on-top-of-another-with-the-current-slide-on-top-of-the-others-additionally-all-slides-but-the-current-one-are-hidden-by-using-display-none--a-hiding-techniquefundamentalshidinghtml-that-hides-the-inactive-slides-visually-as-well-as-from-assistive-technologies">When JavaScript is enabled, the carousel wrapper is getting a fixed height. Individual slides are stacked on top of another, with the current slide on top of the others. Additionally, all slides but the current one are hidden by using <code>display: none</code> – a <a href="../../fundamentals/hiding/">hiding technique</a> that hides the inactive slides visually as well as from assistive technologies.</h1>
+<p>To allow basic navigating through the slides, the slide show needs to be prepared to hide all content but the first slide from all users, including people using assistive technologies. Then “left” and “right” arrows are added to the carousel, that display the previous and next slide, respectively.</p>
+
+<h2 id="add-styling-when-javascript-is-enabled-1">Add Styling when JavaScript is Enabled</h2>
+
+<p>If JavaScript is enabled a class (<code>.active</code>) is added that allows all slides to be stacked on top of another with the current slide top-most. Additionally, all slides but the current one are hidden by using <code>display: none</code> – a <a href="../../fundamentals/hiding/">hiding technique</a> that hides visually and from assistive technologies.
+»»»&gt; origin/dev</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="nt">HEAD</span>
+<span class="nc">.carousel.active</span> <span class="p">{</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">480px</span><span class="p">;</span>
+  <span class="nl">overflow</span><span class="p">:</span><span class="nb">hidden</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#333</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span><span class="nb">relative</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="o">=======</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="nt">origin</span><span class="o">/</span><span class="nt">dev</span>
+
+<span class="nc">.active</span> <span class="nc">.slide</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">position</span><span class="p">:</span><span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">top</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span><span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slide.current</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span>
+  <span class="nl">z-index</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+
+</figure>
+<p>Additionally, we add a <code>active</code> class to the carousel wrapper and a <code>current</code> class to the first slide:</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">carousel</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'c1'</span><span class="p">);</span>
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.slide'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'active carousel'</span><span class="p">;</span>
+</pre>
+
+</figure>
+<p>The outcome looks like this:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c1" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .carousel, .slide {
+    width: 640px;
+    padding:0;
+    margin: 0;
+    /* overflow: hidden; */
+  }
+  .carousel {
+    position: relative;
+  }
+  .carousel ul {
+    margin:0;
+    padding: 0;
+  }
+  .slide {
+    /*position: absolute;*/
+    height: 480px;
+    background-size: cover;
+    position: relative;
+    margin-bottom:1em;
+    border:1px solid #333;
+  }
+  .slide h4 {
+    display:inline-block;
+    float:righ;
+    font-size: 1.25em;
+    margin:0;
+    padding: .25em;
+    text-align: right;
+    background-color: rgba(255,255,255,.8);
+    float:right;
+    border-radius: 0 0 0 .5em;
+  }
+  .slide p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:0;
+    clear:both;
+    padding: 1em 5em 1em 3em;
+    background-color: rgba(255,255,255,.8);
+  }
+  .slide a {
+    display:block;
+    text-align: right;
+  }
+</style>
+
+<style>
+.carousel.active {
+  height: 480px;
+  overflow:hidden;
+  border: 1px solid #333;
+  position:relative;
+}
+
+.active .slide {
+  border: none;
+  display: none;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:200;
+}
+
+.slide.current {
+  display:block;
+  z-index: 500;
+}
+</style>
+
+<script>
+  var carousel = document.getElementById('c1');
+  carousel.querySelectorAll('.slide')[0].className = 'current slide';
+  carousel.className = 'active carousel';
+</script>
+
+
+  </div></figure>
+
+<h2 id="previous-and-next-buttons">Previous and Next Buttons</h2>
+
+<p>First, the previous and next buttons need to be added to the markup using JavaScript and styled according to their function. The HTML5 button element is used to make sure that the buttons are <a href="../../fundamentals/keyboard-access/">keyboard accessible</a>.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">ctrls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'controls'</span><span class="p">;</span>
+<span class="nx">ctrls</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;button type="button" class="btn-prev"&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;img src="../../img/chevron-left-75c7dd0b.png" alt="Previous Slide"&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;/li&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;li&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;button type="button" class="btn-next"&gt;'</span> <span class="o">+</span>
+      <span class="s1">'&lt;img src="../../img/chevron-right-2f19bc8b.png" alt="Next Slide"&gt;'</span> <span class="o">+</span>
+    <span class="s1">'&lt;/button&gt;'</span> <span class="o">+</span>
+  <span class="s1">'&lt;/li&gt;'</span><span class="p">;</span>
+
+  <span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.prev'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">prevSlide</span><span class="p">();</span>
+  <span class="p">});</span>
+
+  <span class="nx">ctrls</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'.next'</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">nextSlide</span><span class="p">();</span>
+  <span class="p">});</span>
+
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">ctrls</span><span class="p">);</span>
+</pre>
+
+</figure>
+<p>The styling is very similar to the text of the slides. Contrast ratio requirements are valid here as well as on normal text. Both buttons get wider if they are hovered with the mouse or focused with the keyboard. This is also animated to keep the click target large for a longer time, which makes it easier for people with shaky hands to click them.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight javascript">  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">prev</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">next</span> <span class="p">{</span>
+    <span class="na">position</span><span class="p">:</span><span class="nx">absolute</span><span class="p">;</span>
+    <span class="nx">z</span><span class="o">-</span><span class="na">index</span><span class="p">:</span> <span class="mi">700</span><span class="p">;</span>
+    <span class="na">top</span><span class="p">:</span> <span class="mi">50</span><span class="o">%</span><span class="p">;</span>
+    <span class="nx">margin</span><span class="o">-</span><span class="na">top</span><span class="p">:</span> <span class="o">-</span><span class="mf">2.5</span><span class="nx">em</span><span class="p">;</span>
+    <span class="na">border</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+    <span class="na">background</span><span class="p">:</span> <span class="nx">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,.</span><span class="mi">6</span><span class="p">);</span>
+    <span class="nx">line</span><span class="o">-</span><span class="na">height</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="na">padding</span><span class="p">:</span><span class="mi">2</span><span class="nx">em</span> <span class="p">.</span><span class="mi">5</span><span class="nx">em</span><span class="p">;</span>
+    <span class="na">transition</span><span class="p">:</span> <span class="nx">padding</span> <span class="p">.</span><span class="mi">4</span><span class="nx">s</span> <span class="nx">ease</span><span class="o">-</span><span class="nx">out</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">next</span><span class="err">:</span><span class="nx">hover</span><span class="p">,</span> <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">next</span><span class="err">:</span><span class="nx">focus</span><span class="p">,</span>
+  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">prev</span><span class="err">:</span><span class="nx">hover</span><span class="p">,</span> <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">prev</span><span class="err">:</span><span class="nx">focus</span> <span class="p">{</span>
+    <span class="nx">padding</span><span class="o">-</span><span class="nl">left</span><span class="p">:</span> <span class="mi">2</span><span class="nx">em</span><span class="p">;</span>
+    <span class="nx">padding</span><span class="o">-</span><span class="nl">right</span><span class="p">:</span><span class="mi">2</span><span class="nx">em</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">prev</span> <span class="p">{</span>
+    <span class="na">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="na">radius</span><span class="p">:</span> <span class="mi">0</span> <span class="p">.</span><span class="mi">25</span><span class="nx">em</span> <span class="p">.</span><span class="mi">25</span><span class="nx">em</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="p">.</span><span class="nx">btn</span><span class="o">-</span><span class="nx">next</span> <span class="p">{</span>
+    <span class="na">right</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+    <span class="nx">border</span><span class="o">-</span><span class="na">radius</span><span class="p">:</span> <span class="p">.</span><span class="mi">25</span><span class="nx">em</span> <span class="mi">0</span> <span class="mi">0</span> <span class="p">.</span><span class="mi">25</span><span class="nx">em</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre>
+</figure>
+<p>And this is how the outcome looks and works:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c2" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .btn-prev,
+  .btn-next {
+    position:absolute;
+    z-index: 700;
+    top: 50%;
+    margin-top: -2.5em;
+    border:0;
+    background: rgba(255,255,255,.6);
+    line-height: 1;
+    padding:2em .5em;
+    transition: padding .4s ease-out;
+  }
+
+  .btn-next:hover,
+  .btn-next:focus,
+  .btn-prev:hover,
+  .btn-prev:focus {
+    padding-left: 2em;
+    padding-right:2em;
+  }
+
+  .btn-prev {
+    left:0;
+    border-radius: 0 .25em .25em 0;
+  }
+
+  .btn-next {
+    right:0;
+    border-radius: .25em 0 0 .25em;
+  }
+</style>
+
+<script>
+  function setSlides(new_current, setFocus = false) {
+
+    new_current = parseFloat(new_current);
+
+    var length = slides.length;
+    var new_next = new_current+1;
+    var new_prev = new_current-1;
+
+    if(new_next === length) {
+      new_next = 0;
+    } else if(new_prev < 0) {
+      new_prev = length-1;
+    }
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = "slide";
+    };
+
+    slides[new_next].className = 'next slide';
+    slides[new_prev].className = 'prev slide';
+    slides[new_current].className = 'current slide';
+
+    if (setFocus) {
+      slides[new_current].setAttribute('tabindex', '-1');
+      slides[new_current].focus();
+    }
+
+    index = new_current;
+  }
+
+  function nextSlide() {
+    var length = slides.length,
+    new_current = index + 1;
+
+    if(new_current === length) {
+      new_current = 0;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  function prevSlide() {
+    var length = slides.length,
+    new_current = index - 1;
+
+    if(new_current < 0) {
+      new_current = length-1;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  var carousel = document.getElementById('c2');
+  var slides = carousel.querySelectorAll('.slide');
+  var index;
+
+  carousel.className = 'active carousel';
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++)
+      fn(elements[i], i);
+  }
+
+  var parseHTML = function(str) {
+    var el =
+    el.innerHTML = str;
+    return el;
+  };
+
+  var ctrls = document.createElement('ul');
+
+  ctrls.className = 'controls';
+  ctrls.innerHTML = '<li>' +
+      '<button type="button" class="btn-prev"><img src="/img/chevron-left-75c7dd0b.png" alt="Previous Slide"></button>' +
+    '</li>' +
+    '<li>' +
+      '<button type="button" class="btn-next"><img src="/img/chevron-right-2f19bc8b.png" alt="Next Slide"></button>' +
+    '</li>';
+
+    ctrls.querySelector('.btn-prev').addEventListener('click', function(){
+      prevSlide();
+    });
+
+    ctrls.querySelector('.btn-next').addEventListener('click', function(){
+      nextSlide();
+    });
+
+  carousel.appendChild(ctrls);
+
+  index = 0;
+  setSlides(index);
+</script>
+
+<style>
+.carousel.with-slidenav {
+  padding-bottom: 4em;
+  background-color: #fff;
+}
+.carousel.with-slidenav .slide {
+  border-bottom: 1px solid #333;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slidenav li {
+  display:inline-block;
+  margin: 0 .5em;
+}
+
+.slidenav button {
+  border: 2px solid #036;
+  background-color: #036;
+  line-height: 1em;
+  height: 2em;
+  width:2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.slidenav button.current {
+  border-radius: .5em;
+  background-color: #fff;
+  color: #333;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  border: 2px dashed #fff;
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  border: 2px dashed #036;
+}
+
+</style>
+
+
+  </div></figure>
+
+<h2 id="list-of-slides">List of Slides</h2>
+
+<p>Optionally, a list of slides can be used to provide the user a sense of how much information is in a slide and which the current slide is in the sequence of slides.</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<p><img alt="Numbers in squares (described below)" src="../../img/ex-slider-controls-e1226468.png" /></p>
+
+
+  </div></figure>
+
+<p>Visually, the above controls show three numbered square buttons. The current slide button (number 1) has rounded corners and is in the reverse color combination to the others, button 3 has a dashed border to show that it is the control currently in tab focus (or hovered by a mouse pointer). If number 3 was activated, slide 3 would be shown.</p>
+
+<p>To convey the same quality of information to users who can’t see the screen, the controls need to be marked up as a list, so screen readers can then inform users of the number of items in the list. Also the current slide needs to be identified, for example by <a href="../../fundamentals/hiding/">visually hidden text</a>. Accurate labeling of the buttons will let the user know which slide is shown.</p>
+
+<p>The script should be capable of identifying the current slide and rendering its identification within the text or text alternative for the current button.</p>
+
+<div class="notes ">
+<p><strong>Note:</strong> Numbered buttons are important for speech recognition software users as they cannot know what command to give their software to navigate to the desired slide otherwise.</p>
+
+</div>
+<p>The list is created through JavaScript and then added to the DOM of the carousel:</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">var</span> <span class="nx">slidenav</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">);</span>
+
+<span class="nx">slidenav</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'slidenav'</span><span class="p">;</span>
+
+<span class="nx">forEachElement</span><span class="p">(</span><span class="nx">slides</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">li</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">klass</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span><span class="o">===</span><span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="s1">'class="current" '</span> <span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">currentText</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span><span class="o">===</span><span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="s1">' &lt;span class="visuallyhidden"&gt;(Current Slide)&lt;/span&gt;'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">;</span>
+
+  <span class="nx">li</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'&lt;button '</span> <span class="o">+</span> <span class="nx">klass</span> <span class="o">+</span> <span class="s1">'data-slide="'</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">'"&gt;&lt;span class="visuallyhidden"&gt;News&lt;/span&gt; '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nx">currentText</span> <span class="o">+</span> <span class="s1">'&lt;/button&gt;'</span><span class="p">;</span>
+  <span class="nx">slidenav</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'active carousel with-slidenav'</span><span class="p">;</span>
+<span class="nx">carousel</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">slidenav</span><span class="p">);</span>
+</pre>
+
+</figure>
+<figure class="code ">
+  <figcaption>Code snippet: DOM representation of the JavaScript above</figcaption>
+<pre class="highlight html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"slidenav"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"current"</span> <span class="na">data-slide=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 1
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>(Current Slide)<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 2
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">data-slide=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"visuallyhidden"</span><span class="nt">&gt;</span>News<span class="nt">&lt;/span&gt;</span> 3
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre>
+</figure>
+<p>As shown above, the styling of the list is very important for accessibility as well:</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: CSS</figcaption>
+<pre class="highlight css"><span class="nc">.slidenav</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span>
+  <span class="nl">bottom</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+  <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">li</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span><span class="n">inline-block</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">.5em</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="m">#036</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#036</span><span class="p">;</span>
+  <span class="nl">line-height</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">2em</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span> <span class="p">{</span>
+  <span class="nl">border-radius</span><span class="p">:</span> <span class="m">.5em</span><span class="p">;</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">dashed</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span><span class="nd">:hover</span><span class="o">,</span>
+<span class="nc">.slidenav</span> <span class="nt">button</span><span class="nc">.current</span><span class="nd">:focus</span> <span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">dashed</span> <span class="m">#036</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+</figure>
+<p>When a user activates one of the buttons in the list, the slide should come up visually. Additionally, a focus should be set to the slide. This helps non-visual users as screen readers then read the slide immediately.</p>
+
+<p>To do that, it is required to set the <code>tabindex</code> attribute to <code>-1</code> as the slide <code>&lt;li&gt;</code> isn’t an element that can receive focus by default. The <code>data-slide</code> attribute is used to select the target slide.</p>
+
+<figure class="code ">
+  <figcaption>Code snippet: JavaScript</figcaption>
+<pre class="highlight javascript"><span class="kd">function</span> <span class="nx">setSlides</span><span class="p">(</span><span class="nx">new_current</span><span class="p">,</span> <span class="nx">setFocus</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="nx">new_current</span> <span class="o">=</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">new_current</span><span class="p">);</span>
+
+  <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">new_next</span> <span class="o">=</span> <span class="nx">new_current</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">new_prev</span> <span class="o">=</span> <span class="nx">new_current</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">new_next</span> <span class="o">===</span> <span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">new_next</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">new_prev</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">new_prev</span> <span class="o">=</span> <span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">slides</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"slide"</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="nx">slides</span><span class="p">[</span><span class="nx">new_next</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'next slide'</span><span class="p">;</span>
+  <span class="nx">slides</span><span class="p">[</span><span class="nx">new_prev</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'prev slide'</span><span class="p">;</span>
+  <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'current slide'</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nx">with_slidenav</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nx">carousel</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s1">'.slidenav button'</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">buttons</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">buttons</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">buttons</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"current"</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">setFocus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'tabindex'</span><span class="p">,</span> <span class="s1">'-1'</span><span class="p">);</span>
+    <span class="nx">slides</span><span class="p">[</span><span class="nx">new_current</span><span class="p">].</span><span class="nx">focus</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="nx">index</span> <span class="o">=</span> <span class="nx">new_current</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">slidenav</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">localName</span> <span class="o">==</span> <span class="s1">'button'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setSlides</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">'data-slide'</span><span class="p">),</span> <span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>
+</pre>
+</figure>
+<p>The final outcome then looks and works like this:</p>
+
+<figure class="sample ">
+  <figcaption>Example: </figcaption>
+  <div class="box-content">
+<h3 role="presentational">Featured Articles:</h3>
+<div id="c3" class="carousel">
+    <ul>
+        <li class="slide" style="background-image: url('../../img/ex-teddy1-c457a460.jpg');">
+            <h4>Space Teddy production reaches all-time high</h4>
+            <p>
+                Teddies in Space Inc. has released outstanding numbers for the last solar year.
+                <a href="…">Full Annual Report</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy2-14b21f95.jpg');">
+            <h4>New Space Teddy Announced!</h4>
+            <p>
+                Space Teddy 6 wears an aluminum space suit. Sapphire glass eyes are first used universe-wide.
+                <a href="…">Everything about the new model</a>
+            </p>
+        </li>
+        <li class="slide" style="background-image: url('../../img/ex-teddy3-c379a886.jpg');">
+            <h4>Adventures of the Space Teddy</h4>
+            <p>
+                Using modern HTML5 technologies, the latest installment of our game performs great on your computer, tablet, or mobile.
+                <a href="…">Play the Game here!</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<style>
+  .btn-prev,
+  .btn-next {
+    position:absolute;
+    z-index: 700;
+    top: 50%;
+    margin-top: -2.5em;
+    border:0;
+    background: rgba(255,255,255,.6);
+    line-height: 1;
+    padding:2em .5em;
+    transition: padding .4s ease-out;
+  }
+
+  .btn-next:hover,
+  .btn-next:focus,
+  .btn-prev:hover,
+  .btn-prev:focus {
+    padding-left: 2em;
+    padding-right:2em;
+  }
+
+  .btn-prev {
+    left:0;
+    border-radius: 0 .25em .25em 0;
+  }
+
+  .btn-next {
+    right:0;
+    border-radius: .25em 0 0 .25em;
+  }
+</style>
+
+<script>
+var myCarousel = (function() {
+
+  var carousel, slides, index, slidenav, settings;
+
+  function forEachElement(elements, fn) {
+    for (var i = 0; i < elements.length; i++)
+      fn(elements[i], i);
+  }
+
+  var parseHTML = function(str) {
+    var el =
+    el.innerHTML = str;
+    return el;
+  };
+
+  function init(set) {
+    settings = set;
+    carousel = document.getElementById(settings.id);
+    slides = carousel.querySelectorAll('.slide');
+
+    carousel.className = 'active carousel';
+
+    var ctrls = document.createElement('ul');
+
+    ctrls.className = 'controls';
+    ctrls.innerHTML = '<li>' +
+        '<button type="button" class="btn-prev"><img src="/img/chevron-left-75c7dd0b.png" alt="Previous Slide"></button>' +
+      '</li>' +
+      '<li>' +
+        '<button type="button" class="btn-next"><img src="/img/chevron-right-2f19bc8b.png" alt="Next Slide"></button>' +
+      '</li>';
+
+    ctrls.querySelector('.btn-prev').addEventListener('click', function(){
+      prevSlide();
+    });
+
+    ctrls.querySelector('.btn-next').addEventListener('click', function(){
+      nextSlide();
+    });
+
+    carousel.appendChild(ctrls);
+
+    if (settings.slidenav) {
+      slidenav = document.createElement('ul');
+
+      slidenav.className = 'slidenav';
+
+      forEachElement(slides, function(el, i){
+        var li = document.createElement('li');
+        var klass = (i===0) ? 'class="current" ' : '';
+        var kurrent = (i===0) ? ' <span class="visuallyhidden">(Current Slide)</span>' : '';
+
+        li.innerHTML = '<button '+ klass +'data-slide="' + i + '"><span class="visuallyhidden">News</span> ' + (i+1) + kurrent + '</button>';
+        slidenav.appendChild(li);
+      });
+
+      slidenav.addEventListener('click', function(event) {
+        if (event.target.localName == 'button') {
+          setSlides(event.target.getAttribute('data-slide'), true);
+        }
+      }, true);
+
+      carousel.className = 'active carousel with-slidenav';
+      carousel.appendChild(slidenav);
+    }
+
+    index = 0;
+    setSlides(index);
+  }
+
+  function setSlides(new_current, setFocus = false) {
+
+    new_current = parseFloat(new_current);
+
+    var length = slides.length;
+    var new_next = new_current+1;
+    var new_prev = new_current-1;
+
+    if(new_next === length) {
+      new_next = 0;
+    } else if(new_prev < 0) {
+      new_prev = length-1;
+    }
+
+    for (var i = slides.length - 1; i >= 0; i--) {
+      slides[i].className = "slide";
+    };
+
+    slides[new_next].className = 'next slide';
+    slides[new_prev].className = 'prev slide';
+    slides[new_current].className = 'current slide';
+
+    if(settings.slidenav) {
+      var buttons = carousel.querySelectorAll('.slidenav button');
+      for (var i = buttons.length - 1; i >= 0; i--) {
+        buttons[i].className = "";
+      };
+      buttons[new_current].className = "current";
+    }
+
+    if (setFocus) {
+      slides[new_current].setAttribute('tabindex', '-1');
+      slides[new_current].focus();
+    }
+
+    index = new_current;
+  }
+
+  function nextSlide() {
+    var length = slides.length,
+    new_current = index + 1;
+
+    if(new_current === length) {
+      new_current = 0;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  function prevSlide() {
+    var length = slides.length,
+    new_current = index - 1;
+
+    if(new_current < 0) {
+      new_current = length-1;
+    }
+
+    setSlides(new_current);
+
+  }
+
+  return {
+    init:init,
+    next:nextSlide,
+    prev:prevSlide,
+    goto:setSlides
+  }
+});
+
+var c3 = new myCarousel;
+c3.init({
+  id: 'c3',
+  slidenav: true
+});
+
+</script>
+
+<style>
+.carousel.with-slidenav {
+  padding-bottom: 4em;
+  background-color: #fff;
+}
+.carousel.with-slidenav .slide {
+  border-bottom: 1px solid #333;
+}
+
+.slidenav {
+  position: absolute;
+  bottom:1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.slidenav li {
+  display:inline-block;
+  margin: 0 .5em;
+}
+
+.slidenav button {
+  border: 2px solid #036;
+  background-color: #036;
+  line-height: 1em;
+  height: 2em;
+  width:2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.slidenav button.current {
+  border-radius: .5em;
+  background-color: #fff;
+  color: #333;
+}
+
+.slidenav button:hover,
+.slidenav button:focus {
+  border: 2px dashed #fff;
+}
+
+.slidenav button.current:hover,
+.slidenav button.current:focus {
+  border: 2px dashed #036;
+}
+
+</style>
+
+
+  </div></figure>
+
+
+
+<div role="techniques">
+  <h2 id="related">Related WCAG2.0 Resources</h2>
+
+    <p><strong>Success Criteria:</strong></p>
+    <ul>
+
+
+
+
+
+
+
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic">1.3.1 Info and Relationships:</a> Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text. (Level&nbsp;A)</p></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-keyboard-operable">2.1.1 Keyboard:</a> All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user’s movement and not just the endpoints. (Level&nbsp;A)</p></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-visible">2.4.7 Focus Visible:</a> Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible. (Level&nbsp;AA)</p></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li><p><a href="http://www.w3.org/WAI/WCAG20/quickref/#qr-qr-ensure-compat-rsv">4.1.2 Name, Role, Value:</a> For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies. (Level&nbsp;A)</p></li>
+
+
+
+    </ul>
+
+
+</div>
+
+<div role="navigation" id="tools">
+  <ul>
+
+
+
+
+
+          <li class="prev">
+            <span><a class="" href="../structure/"><span class="count"></span><span class="txt"><span class="dir">Previous:</span><span class="title">Structure & Basic Styles</span></span></a></span>
+          </li>
+
+
+
+
+
+
+
+
+
+
+          <li class="next">
+            <span><a class="" href="../animations/"><span class="count"></span><span class="txt"><span class="dir">Next:</span><span class="title">Animations</span></span></a></span>
+          </li>
+
+
+
+
+
+
+
+  </ul>
+</div>
+
+<aside class="side-box github" role="complementary">
+  <h2 class="heading">We welcome your ideas</h2>
+  <p>Please send any ideas, suggestions, or comments to the <a href="mailto:wai-eo-editors@w3.org?subject=[Tutorial%20Feedback]">(publicly-archived) mailing list wai-eo-editors@w3.org</a>. You can also contribute to the <a href="https://github.com/w3c/wai-tutorials" rel="nofollow">code directly on Github</a>.</p>
+
+	<div class="editpage">
+  	<a class="btn" href="https://github.com/w3c/wai-tutorials/blob/master/source/carousels/controls.html.erb.md">Fork &amp; edit this page on Github</a>
+	</div>
+
+</aside>
+
+                  </div>
+                </div>
+                <div class="navigation">
+  <nav role="navigation" aria-label="Navigation" id="nav">
+    <h2 class="list-heading" id="list-heading-tutorials">
+
+        Carousels Tutorial
+
+    </h2>
+    <ul aria-labelledby="list-heading-tutorials">
+
+
+          <li class="intro"><a class="" href="../"><span class="count"></span><span class="txt">Carousel Concepts</span></a></li>
+
+
+
+      <li><a class="" href="../structure/"><span class="count"></span><span class="txt">Structure & Basic Styles</span></a></li>
+
+
+
+      <li><span class="current-a"><span class="count"></span><span class="txt"><span class="visuallyhidden">Current: </span>Controls & Interaction</span></span></li>
+
+
+
+      <li><a class="" href="../animations/"><span class="count"></span><span class="txt">Animations</span></a></li>
+
+
+
+      <li class="tips"><a class="" href="../tips/"><span class="count"></span><span class="txt">Tips and FAQ</span></a></li>
+
+
+
+    </ul>
+    <h2 class="list-heading" id="list-heading-topics">
+  All Tutorials
+</h2>
+<ul class="topics" aria-labelledby="list-heading-topics">
+	<li><a href="../../images/"><span class="count"></span><span class="txt">Images</span></a></li>
+	<li><a href="../../tables/"><span class="count"></span><span class="txt">Tables</span></a></li>
+	<li><a href="../../forms/"><span class="count"></span><span class="txt">Forms</span></a></li>
+	<li><a href="../../more/"><span class="count"></span><span class="txt">More on the way…</span></a></li>
+</ul>
+
+  </nav>
+</div>
+                </main>
+	<footer role="contentinfo">
+    <div>
+		<h2>Document info</h2>
+		<ul>
+			<li><strong>Last Modification:</strong>
+
+
+        [EDITOR’S DRAFT]
+
+      10 September 2014
+			</li>
+      <li>
+<strong>Editors: </strong>
+<ul class="inline">
+    <li><a href="http://w3.org/People/yatil/">Eric Eggert</a></li><li><a href="http://w3.org/People/shadi/">Shadi Abou-Zahra</a></li>
+  </ul>
+
+<strong>Contributors:</strong>
+The Education and Outreach Working Group (<a href="http://www.w3.org/WAI/EO/">EOWG</a>).
+</li>
+
+<li>
+</li>
+
+      <li>[<a class="" href="../../attributions/"><span class="count"></span><span class="txt">Attributions</span></a>]  [<a class="" href="../../changelog/"><span class="count"></span><span class="txt">Changelog</span></a>]</li>
+    </ul>
+    <p>
+    	[<a href="http://www.w3.org/WAI/sitemap.html">WAI Site Map</a>]
+    	[<a href="http://www.w3.org/WAI/sitehelp.html">Help with WAI Website</a>]
+    	[<a href="http://www.w3.org/WAI/search.php">Search</a>]
+    	[<a href="http://www.w3.org/WAI/contacts">Contacting WAI</a>]
+		</p>
+    <p><strong>Feedback welcome to <a href="mailto:wai-eo-editors@w3.org">wai-eo-editors@w3.org</a></strong> (a publicly archived list) or <a href="mailto:wai@w3.org">wai@w3.org</a> (a WAI staff-only list).</p>
+    </p>
+    <div class="copyright">
+      <p>
+	<a rel="Copyright" href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> ©2014
+      	<a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup>
+				(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+					<a href="http://www.ercim.org/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+					<a href="http://www.keio.ac.jp/">Keio</a>,
+         	<a href="http://ev.buaa.edu.cn/">Beihang</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+         <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>,               <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a>               and <a rel="Copyright" href="http://www.w3.org/Consortium/Legal/copyright-software">software licensing</a> rules apply. Your interactions with this site are in accordance with our <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Public">public</a>
+               and <a href="http://www.w3.org/Consortium/Legal/privacy-statement#Members">Member</a>privacy statements.</p>                   </div><!-- ends copyright -->
+    </div>
+	</footer>
+	<script src="../../javascripts/main-08fd2459.js" type="text/javascript"></script>
+<!-- Piwik -->
+      <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(["setDomains", ["*.www.w3.org/WAI"]]);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+      var u="//www.w3.org/analytics/piwik/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', 328]);
+      var d=document, g=d.createElement('script'),
+      s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js';
+      s.parentNode.insertBefore(g,s);
+      })();
+      </script>
+      <noscript><p><img src="//www.w3.org/analytics/piwik/piwik.php?idsite=328"
+      style="border:0;" alt="" /></p></noscript>
+      <!-- End Piwik Code -->
+	</body>
+</html>
+
